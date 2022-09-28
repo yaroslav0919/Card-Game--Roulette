@@ -1,1 +1,1 @@
-# React / Typescript / TailwindCSS / Zustand
+# Livegame.io Roulette game
