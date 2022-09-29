@@ -31,8 +31,8 @@ export const tableData = [
         {
           x: 0,
           y: 170,
-          w: 46,
-          h: 70
+          w: 44,
+          h: 68
         },
         {
           x: 88,
@@ -182,8 +182,8 @@ export const tableData = [
         {
           x: 0,
           y: 238,
-          w: 46,
-          h: 70
+          w: 44,
+          h: 68
         },
         {
           x: 152,
@@ -334,8 +334,8 @@ export const tableData = [
         {
           x: 0,
           y: 103,
-          w: 45,
-          h: 68
+          w: 44,
+          h: 67
         },
         {
           x: 152,
@@ -491,8 +491,8 @@ export const tableData = [
         {
           x: 0,
           y: 306,
-          w: 46,
-          h: 70
+          w: 44,
+          h: 69
         },
         {
           x: 88,
@@ -660,7 +660,7 @@ export const tableData = [
         {
           x: 0,
           y: 34,
-          w: 46,
+          w: 44,
           h: 69
         },
         {
@@ -710,8 +710,8 @@ export const tableData = [
         {
           x: 0,
           y: 375,
-          w: 46,
-          h: 69
+          w: 44,
+          h: 68
         },
         {
           x: 88,
@@ -754,8 +754,8 @@ export const tableData = [
         {
           x: 44,
           y: 34,
-          w: 46,
-          h: 137
+          w: 44,
+          h: 136
         },
         {
           x: 88,
@@ -798,8 +798,8 @@ export const tableData = [
         {
           x: 44,
           y: 170,
-          w: 46,
-          h: 137
+          w: 44,
+          h: 136
         },
         {
           x: 88,
@@ -842,7 +842,7 @@ export const tableData = [
         {
           x: 44,
           y: 306,
-          w: 46,
+          w: 44,
           h: 137
         },
         {
@@ -885,8 +885,8 @@ export const tableData = [
       bordersPos: [
         {
           x: 88,
-          y: 442,
-          w: 66,
+          y: 443,
+          w: 64,
           h: 36
         },
         {
@@ -929,8 +929,8 @@ export const tableData = [
       bordersPos: [
         {
           x: 152,
-          y: 442,
-          w: 66,
+          y: 443,
+          w: 65,
           h: 36
         },
         {
@@ -973,7 +973,7 @@ export const tableData = [
       bordersPos: [
         {
           x: 216,
-          y: 442,
+          y: 443,
           w: 66,
           h: 36
         },
@@ -1004,10 +1004,10 @@ export const tableData = [
       chips: [],
       bordersPos: [
         {
-          x: 88,
+          x: 87,
           y: 0,
-          w: 194,
-          h: 34
+          w: 196,
+          h: 36
         }
       ],
       area: {}
@@ -1302,7 +1302,7 @@ export const tableData = [
           x: 88,
           y: 408,
           w: 66,
-          h: 36
+          h: 35
         }
       ],
       area: {
@@ -1602,7 +1602,7 @@ export const tableData = [
           x: 152,
           y: 408,
           w: 66,
-          h: 36
+          h: 35
         }
       ],
       area: {
@@ -1902,7 +1902,7 @@ export const tableData = [
           x: 216,
           y: 408,
           w: 66,
-          h: 36
+          h: 35
         }
       ],
       area: {

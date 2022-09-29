@@ -2482,6 +2482,11 @@
   dependencies:
     "@use-gesture/core" "10.2.20"
 
+"@vetixy/circular-std@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@vetixy/circular-std/-/circular-std-1.0.0.tgz#faa91ef53f934877f14d69e78bbba824b563aacc"
+  integrity sha512-MNN4+GD7XfTefyAg/5VMWNmGeTfroVx6bFi534hnOJRXbfPcNo7hUGHBh+7rczPeoavcUA5SV5meXh3gh56liw==
+
 "@webassemblyjs/ast@1.11.1":
   version "1.11.1"
   resolved "https://registry.yarnpkg.com/@webassemblyjs/ast/-/ast-1.11.1.tgz#2bfd767eae1a6996f432ff7e8d7fc75679c0b6a7"
