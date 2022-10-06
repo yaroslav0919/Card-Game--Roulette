@@ -60,7 +60,7 @@ export const table = [
       x: 104,
       y: 122,
       w: 45,
-      h: 23,
+      h: 24,
       t: 'rotate(0deg)',
       keys: [
         1
@@ -85,7 +85,7 @@ export const table = [
       x: 104,
       y: 314,
       w: 45,
-      h: 23,
+      h: 24,
       t: 'rotate(0deg)',
       keys: [
         7
@@ -121,7 +121,7 @@ export const table = [
       x: 104,
       y: 74,
       w: 45,
-      h: 23,
+      h: 24,
       t: 'rotate(0deg)',
       keys: [
         16
@@ -145,7 +145,7 @@ export const table = [
       x: 104,
       y: 242,
       w: 45,
-      h: 23,
+      h: 24,
       t: 'rotate(0deg)',
       keys: [
         22
@@ -169,7 +169,7 @@ export const table = [
       x: 104,
       y: 338,
       w: 45,
-      h: 23,
+      h: 24,
       t: 'rotate(0deg)',
       keys: [
         28
@@ -181,7 +181,7 @@ export const table = [
       x: 104,
       y: 194,
       w: 45,
-      h: 23,
+      h: 24,
       t: 'rotate(0deg)',
       keys: [
         31
@@ -205,7 +205,7 @@ export const table = [
       x: 1,
       y: 266,
       w: 45,
-      h: 23,
+      h: 24,
       t: 'rotate(0deg)',
       keys: [
         2
@@ -253,7 +253,7 @@ export const table = [
       x: 104,
       y: 170,
       w: 45,
-      h: 23,
+      h: 24,
       t: 'rotate(0deg)',
       keys: [
         14
@@ -265,7 +265,7 @@ export const table = [
       x: 1,
       y: 218,
       w: 45,
-      h: 23,
+      h: 24,
       t: 'rotate(0deg)',
       keys: [
         17
@@ -277,7 +277,7 @@ export const table = [
       x: 104,
       y: 146,
       w: 45,
-      h: 23,
+      h: 24,
       t: 'rotate(0deg)',
       keys: [
         20
@@ -313,7 +313,7 @@ export const table = [
       x: 104,
       y: 290,
       w: 45,
-      h: 23,
+      h: 24,
       t: 'rotate(0deg)',
       keys: [
         29
@@ -373,7 +373,7 @@ export const table = [
       x: 104,
       y: 218,
       w: 45,
-      h: 23,
+      h: 24,
       t: 'rotate(0deg)',
       keys: [
         9
@@ -385,7 +385,7 @@ export const table = [
       x: 104,
       y: 362,
       w: 45,
-      h: 23,
+      h: 24,
       t: 'rotate(0deg)',
       keys: [
         12
@@ -409,7 +409,7 @@ export const table = [
       x: 104,
       y: 266,
       w: 45,
-      h: 23,
+      h: 24,
       t: 'rotate(0deg)',
       keys: [
         18
@@ -469,7 +469,7 @@ export const table = [
       x: 104,
       y: 98,
       w: 45,
-      h: 23,
+      h: 24,
       t: 'rotate(0deg)',
       keys: [
         33
