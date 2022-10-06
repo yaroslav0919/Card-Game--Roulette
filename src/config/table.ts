@@ -930,7 +930,7 @@ export const tableData = [
         {
           x: 152,
           y: 443,
-          w: 65,
+          w: 64,
           h: 36
         },
         {
@@ -1004,10 +1004,10 @@ export const tableData = [
       chips: [],
       bordersPos: [
         {
-          x: 87,
+          x: 88,
           y: 0,
-          w: 196,
-          h: 36
+          w: 194,
+          h: 34
         }
       ],
       area: {}

@@ -3,6 +3,7 @@ import * as PIXI from 'pixi.js'
 import { tableData } from "../../config/table";
 import { graphicsUtils } from "pixi.js";
 import { otherKeys } from "../../config/tile";
+import { ang2Rad } from "../../helper/math";
 
 type SceneProps = {
 
@@ -90,6 +91,7 @@ export default class Scene extends Component<SceneProps> {
             })
 
             tileData.push({
+                key: item.key,
                 title: item.title,
                 position: {
                     x: btn?.bordersPos[0].x,
@@ -110,21 +112,49 @@ export default class Scene extends Component<SceneProps> {
         const graphics = new PIXI.Graphics()
         this.app.stage.addChild(graphics)
 
-        tileData.forEach((item: any) => {
-            if( item.tileImg ) {
-                const bunny = PIXI.Sprite.from(`/assets/tiles/${ item.tileImg }.png`)
-                bunny.x = item.position.x + centerOffset.x
-                bunny.y = item.position.y + centerOffset.y
-                bunny.width = item.size.width
-                bunny.height = item.size.height
+        
 
-                this.app.stage.addChild(bunny)
+        tileData.forEach((item: any) => {
+            /* drag background rectangles */
+            graphics.beginFill(0x090809, item.backgroundOpacity ? item.backgroundOpacity : 0.9)
+            graphics.lineStyle(1, 0x888888, 1)
+            
+            const cornerRadius = 10
+            if( item.title === '1-18' ) {
+                graphics.arc( item.position.x + cornerRadius + centerOffset.x, item.position.y + cornerRadius + centerOffset.y, cornerRadius, ang2Rad(180), ang2Rad(270), false )
+                graphics.moveTo(item.position.x + cornerRadius + centerOffset.x, item.position.y + centerOffset.y)
+                graphics.lineTo(item.position.x + item.size.width + centerOffset.x, item.position.y + centerOffset.y)
+                graphics.lineTo(item.position.x + item.size.width + centerOffset.x, item.position.y + item.size.height + centerOffset.y)
+                graphics.lineTo(item.position.x + centerOffset.x, item.position.y + item.size.height + centerOffset.y)
+                graphics.lineTo(item.position.x + centerOffset.x, item.position.y + cornerRadius + centerOffset.y)
+            } else if( item.title === '19-36' || item.key === 'bg-1-34' ) {
+                graphics.arc( item.position.x + cornerRadius + centerOffset.x, item.position.y + item.size.height - cornerRadius + centerOffset.y, cornerRadius, ang2Rad(90), ang2Rad(180) )
+                graphics.moveTo(item.position.x + centerOffset.x, item.position.y + item.size.height - cornerRadius + centerOffset.y)
+                graphics.lineTo(item.position.x + centerOffset.x, item.position.y + centerOffset.y)
+                graphics.lineTo(item.position.x + item.size.width + centerOffset.x, item.position.y + centerOffset.y)
+                graphics.lineTo(item.position.x + item.size.width + centerOffset.x, item.position.y + item.size.height + centerOffset.y)
+                graphics.lineTo(item.position.x + cornerRadius + centerOffset.x, item.position.y + item.size.height + centerOffset.y)
+            } else if( item.key === 'bg-3-36' ) {
+                graphics.arc( item.position.x + item.size.width - cornerRadius + centerOffset.x, item.position.y + item.size.height - cornerRadius + centerOffset.y, cornerRadius, ang2Rad(0), ang2Rad(90) )
+                graphics.moveTo(item.position.x + item.size.width - cornerRadius + centerOffset.x, item.position.y + item.size.height + centerOffset.y)
+                graphics.lineTo(item.position.x + centerOffset.x, item.position.y + item.size.height + centerOffset.y)
+                graphics.lineTo(item.position.x + centerOffset.x, item.position.y + centerOffset.y)
+                graphics.lineTo(item.position.x + item.size.width + centerOffset.x, item.position.y + centerOffset.y)
+                graphics.lineTo(item.position.x + item.size.width + centerOffset.x, item.position.y + item.size.height - cornerRadius + centerOffset.y)
+            } else if( item.title === '0' ) {
+                const topOffset = 15
+                graphics.moveTo(item.position.x + centerOffset.x, item.position.y + item.size.height + centerOffset.y)
+                graphics.lineTo(item.position.x + centerOffset.x, item.position.y + topOffset + cornerRadius + centerOffset.y)
+                graphics.arc(item.position.x + cornerRadius + centerOffset.x, item.position.y + topOffset + cornerRadius + centerOffset.y, cornerRadius, ang2Rad(180), ang2Rad(270))
+                graphics.lineTo(item.position.x + item.size.width / 2 + centerOffset.x, item.position.y + centerOffset.y)
+                graphics.lineTo(item.position.x + item.size.width - cornerRadius + centerOffset.x, item.position.y + topOffset + centerOffset.y)
+                graphics.arc(item.position.x + item.size.width - cornerRadius + centerOffset.x, item.position.y + topOffset + cornerRadius + centerOffset.y, cornerRadius, ang2Rad(270), ang2Rad(360))
+                graphics.lineTo(item.position.x + item.size.width + centerOffset.x, item.position.y + item.size.height + centerOffset.y)
             } else {
-                graphics.beginFill(0x090809, item.backgroundOpacity ? item.backgroundOpacity : 0.9)
-                graphics.lineStyle(1, 0x888888, 1)
                 graphics.drawRect(item.position.x + centerOffset.x , item.position.y + centerOffset.y, item.size.width, item.size.height)
-                graphics.endFill()
             }
+            graphics.endFill()
+            /** end drawing */
 
             if( item.titleImg ) {
                 const img = PIXI.Sprite.from(`/assets/tiles/${ item.titleImg }.png`)
@@ -135,15 +165,15 @@ export default class Scene extends Component<SceneProps> {
             } else {
                 const style = new PIXI.TextStyle({
                     fontFamily: 'Circular Std',
-                    fontSize: 19,
-                    fontWeight: '500',
+                    fontSize: 22,
+                    fontWeight: '100',
                     fill: [item.titleColor],
                 })
 
                 const smallStyle = new PIXI.TextStyle({
                     fontFamily: 'Circular Std',
-                    fontSize: 10,
-                    fontWeight: '500',
+                    fontSize: 12,
+                    fontWeight: '100',
                     fill: [item.titleColor],
                 })
 
@@ -178,10 +208,10 @@ export default class Scene extends Component<SceneProps> {
                         label1.x = item.position.x + item.size.width / 2 - offset + centerOffset.x
                         label1.y = item.position.y + item.size.height / 2 + centerOffset.y
 
-                        label2.x = item.position.x + item.size.width / 2 + 13 - offset + centerOffset.x
+                        label2.x = item.position.x + item.size.width / 2 + 15 - offset + centerOffset.x
                         label2.y = item.position.y + item.size.height / 2 - 2 + centerOffset.y
                         
-                        label3.x = item.position.x + item.size.width / 2 + 26 - offset + centerOffset.x
+                        label3.x = item.position.x + item.size.width / 2 + 30 - offset + centerOffset.x
                         label3.y = item.position.y + item.size.height / 2 + centerOffset.y
                     }
 
@@ -201,8 +231,13 @@ export default class Scene extends Component<SceneProps> {
         })
     }
 
+    drawRaceTrackTable(): void {
+
+    }
+
     initScene(): void {
-        this.app = new PIXI.Application({ resizeTo: window, backgroundAlpha: 0, width: window.innerWidth, height: window.innerHeight })
+        PIXI.settings.SCALE_MODE = PIXI.SCALE_MODES.NEAREST
+        this.app = new PIXI.Application({ resizeTo: window, backgroundAlpha: 0, width: window.innerWidth, height: window.innerHeight, antialias: true })
         document.getElementById('gameScene')?.appendChild( this.app.view )
 
         this.drawNormalTable()
