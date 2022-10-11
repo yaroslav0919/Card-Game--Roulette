@@ -667,7 +667,7 @@ export const tableData = [
           x: 88,
           y: 34,
           w: 194,
-          h: 206
+          h: 204
         }
       ],
       area: {
@@ -717,7 +717,7 @@ export const tableData = [
           x: 88,
           y: 238,
           w: 194,
-          h: 206
+          h: 205
         }
       ],
       area: {
@@ -761,7 +761,7 @@ export const tableData = [
           x: 88,
           y: 34,
           w: 194,
-          h: 138
+          h: 136
         }
       ],
       area: {
@@ -805,7 +805,7 @@ export const tableData = [
           x: 88,
           y: 170,
           w: 194,
-          h: 138
+          h: 136
         }
       ],
       area: {
@@ -849,7 +849,7 @@ export const tableData = [
           x: 88,
           y: 306,
           w: 194,
-          h: 138
+          h: 137
         }
       ],
       area: {
@@ -892,7 +892,7 @@ export const tableData = [
         {
           x: 88,
           y: 34,
-          w: 66,
+          w: 64,
           h: 410
         }
       ],
@@ -936,7 +936,7 @@ export const tableData = [
         {
           x: 152,
           y: 34,
-          w: 66,
+          w: 64,
           h: 410
         }
       ],

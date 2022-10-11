@@ -60,7 +60,6 @@ export const HeatMapView = () => {
 
         return () => {
             const canvas = heatMapInstance._renderer.canvas
-            console.error(canvas)
             canvas.remove()
         }
     }, [])

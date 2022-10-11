@@ -172,7 +172,7 @@ export default function useNormalTable() {
                     label2.anchor.set(0.5, 0.5)
 
                     const label3 = new PIXI.Text( item.title.slice(3), style )
-                    label3.anchor.set(0.5, 0.5)                    
+                    label3.anchor.set(0.5, 0.5)
                     
                     if( item.textDirection === 'vertical' ) {
                         const offset = 20
