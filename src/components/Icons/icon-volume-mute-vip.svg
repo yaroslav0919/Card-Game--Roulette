@@ -1,0 +1,22 @@
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+        <linearGradient x1="50%" y1="132.336301%" x2="50%" y2="3.061617e-15%" id="icon-volume-mute-vip-linearGradient-1y">
+            <stop stop-color="#8C794E" offset="0%"></stop>
+            <stop stop-color="#FFFFFF" offset="100%"></stop>
+        </linearGradient>
+        <path d="M3.24921894,3.27581253 L0.5,3.27581253 C0.223857625,3.27581253 -3.38176876e-17,3.49967016 0,3.77581253 L0,8.17581253 C3.38176876e-17,8.45195491 0.223857625,8.67581253 0.5,8.67581253 L3.24921894,8.67581253 C3.47629044,8.67581253 3.69660094,8.75309328 3.87391399,8.89494372 L7.61259147,11.8858857 C7.74197005,11.9893886 7.93075777,11.9684122 8.03426064,11.8390336 C8.07681577,11.7858397 8.1,11.7197465 8.1,11.6516251 L8.1,0.300000012 C8.1,0.13431458 7.96568542,-1.35469413e-12 7.79999999,-1.35463862e-12 C7.73187854,-1.35463862e-12 7.66578538,0.0231842265 7.61259147,0.0657393598 L3.87391399,3.05668134 C3.69660094,3.19853178 3.47629044,3.27581253 3.24921894,3.27581253 Z M17.0910253,2.78083779 L18.0809747,3.77078728 L15.8750253,5.97483779 L18.0809747,8.18083779 L17.0910253,9.17078728 L14.8860253,6.96483779 L12.6809747,9.17078728 L11.6910253,8.18083779 L13.8960253,5.97483779 L11.6910253,3.77078728 L12.6809747,2.78083779 L14.8860253,4.98583779 L17.0910253,2.78083779 Z" id="volume-mute-vip-path-2y"></path>
+        <filter x="-2.8%" y="-4.2%" width="105.5%" height="108.4%" filterUnits="objectBoundingBox" id="volume-mute-vip-filter-3y">
+            <feOffset dx="0" dy="1" in="SourceAlpha" result="shadowOffsetInner1"></feOffset>
+            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner1"></feComposite>
+            <feColorMatrix values="0 0 0 0 0.882352941   0 0 0 0 0.870588235   0 0 0 0 0.82745098  0 0 0 0.08 0" type="matrix" in="shadowInnerInner1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="icon/volume-mutey" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="icon/volume_mutey" transform="translate(3.000000, 6.324187)" fill-rule="nonzero">
+            <g id="Combined-Shapey">
+                <use fill="url(#icon-volume-mute-vip-linearGradient-1y)" xlink:href="#volume-mute-vip-path-2y"></use>
+                <use fill="black" fill-opacity="1" filter="url(#volume-mute-vip-filter-3)" xlink:href="#volume-mute-vip-path-2y"></use>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,148 @@
+.chip-menu-wrapper {
+  display: inline-flex;
+  justify-content: space-between;
+  height: 75px;
+  // &:first-child{
+  //   .chip-menu-wrapper__chip{
+  //     .chip__number{
+  //       right: 1px;
+  //     }
+  //   }
+  // }
+  &__chip {
+    width: 49px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 10px;
+    img {
+      display: block;
+    }
+
+    .chip {
+      &__number {
+      }
+    }
+
+    &--disabled {
+      opacity: 0.5 !important;
+      pointer-events: none;
+    }
+
+    &:hover{
+      .chip__node{
+        opacity: 1;
+        width: 48px;
+        height: 48px;
+        cursor: pointer;
+      }
+    }
+
+    .chip__node{
+      opacity: 0.5;
+      width: 42px;
+      height: 42px;
+    }
+
+    &--active {
+      .chip__node{
+        opacity: 1;
+        width: 50px;
+        height: 50px;
+      }
+      .chip{
+        opacity: 1;
+        img {
+          width: 48px;
+          height: 48px;
+        }
+        .chip__number {
+          width: 48px;
+          height: 48px;
+          font-size: 20.1px !important;
+        }
+      }
+    }
+  }
+}
+
+.vip {
+  .chip-menu-wrapper {
+    &__chip {
+      &--active {
+        .chip {
+          svg {
+            width: 48px;
+            height: 48px;
+          }
+
+          .chip__number {
+            height: 48px;
+            font-size: 18px !important;
+          }
+        }
+      }
+    }
+  }
+}
+
+.chip__node{
+  width: 53px;
+  height: 53px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: -.6px;
+  color: #fff;
+  background-size: 100% !important;
+  span{
+    font-size: 13px;
+  }
+  &--0{
+    background: url('../../../assets/images/chips/chip-0.svg') left top no-repeat;
+  }
+  &--1{
+    background: url('../../../assets/images/chips/chip-1.svg') left top no-repeat;
+  }
+  &--2{
+    background: url('../../../assets/images/chips/chip-2.svg') left top no-repeat;
+  }
+  &--3{
+    background: url('../../../assets/images/chips/chip-3.svg') left top no-repeat;
+  }
+  &--4{
+    background: url('../../../assets/images/chips/chip-4.svg') left top no-repeat;
+  }
+  &--5{
+    background: url('../../../assets/images/chips/chip-5.svg') left top no-repeat;
+  }
+  &--6{
+    background: url('../../../assets/images/chips/chip-6.svg') left top no-repeat;
+  }
+  &.type-vip{
+    &.chip__node--0{
+      background: url('../../../assets/images/chips/vip/chip-0.svg') left top no-repeat;
+    }
+    &.chip__node--1{
+      background: url('../../../assets/images/chips/vip/chip-1.svg') left top no-repeat;
+    }
+    &.chip__node--2{
+      background: url('../../../assets/images/chips/vip/chip-2.svg') left top no-repeat;
+    }
+    &.chip__node--3{
+      background: url('../../../assets/images/chips/vip/chip-3.svg') left top no-repeat;
+    }
+    &.chip__node--4{
+      background: url('../../../assets/images/chips/vip/chip-4.svg') left top no-repeat;
+    }
+    &.chip__node--5{
+      background: url('../../../assets/images/chips/vip/chip-5.svg') left top no-repeat;
+    }
+    &.chip__node--6{
+      background: url('../../../assets/images/chips/vip/chip-6.svg') left top no-repeat;
+    }
+  }
+}

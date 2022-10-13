@@ -1,0 +1,42 @@
+.history-table {
+  position: relative;
+  width: 282px;
+  margin:0 auto;
+
+  .mobile-table-svg{
+    position: absolute;
+  }
+
+  .custom-border-path {
+    display: none;
+  }
+
+  &__area {
+    position: absolute;
+    box-sizing: border-box;
+    //border: 1px solid cyan;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #06ff00;
+    font-weight: bold;
+    z-index: 10;
+
+    .add-chip {
+      position: absolute;
+      z-index: 2;
+      width: 23px;
+      height: 23px;
+
+      img {
+        width: 26px !important;
+        height: auto !important;
+        display: block;
+        position: absolute;
+        transform: translate(-50%, -50%);
+        left: 50%;
+        top: 50%;
+      }
+    }
+  }
+}

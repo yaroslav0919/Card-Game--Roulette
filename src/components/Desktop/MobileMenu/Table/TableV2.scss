@@ -1,0 +1,109 @@
+.table {
+  width: 100%;
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 12px;
+    border-style: hidden;
+    box-shadow: 0 0 0 1px #4c5055;
+    overflow: hidden;
+
+    th {
+      background: rgba(34, 39, 45, 0.8);
+    }
+
+    th,
+    td {
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+      font-size: 13px;
+      font-weight: 400;
+      letter-spacing: 0.4px;
+      text-align: center;
+      color: #ffffff;
+      padding: 14px 10px;
+      line-height: 1.4;
+      border: solid 1px #4c5055;
+      box-sizing: border-box;
+
+      &.yellow-text {
+        color: #e9c426;
+      }
+
+      &.blue-text {
+        color: #149af9;
+      }
+    }
+  }
+
+  &--v2 {
+    @extend .table;
+
+    table {
+      th {
+        &:first-child {
+          border-top-left-radius: 12px;
+        }
+
+        &:last-child {
+          border-top-right-radius: 12px;
+        }
+      }
+
+      td {
+        border: solid 1px #4c5055;
+      }
+    }
+  }
+
+  &--v3 {
+    @extend .table;
+
+    box-shadow: 0 0 0 1px #4c5055;
+    border-radius: 12px;
+
+    table {
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+      table-layout: fixed;
+      th,
+      td {
+        text-align: left;
+        padding: 14 20px;
+        text-align: center;
+      }
+
+      th {
+        width: 120px;
+      }
+    }
+
+    &__detail {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      background: none;
+      padding: 6px 14px;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+      font-size: 13px;
+      font-weight: 400;
+      letter-spacing: 0.4px;
+      text-align: center;
+      color: #ffffff;
+      border: none;
+
+      svg {
+        margin-left: 10px;
+      }
+    }
+
+    &.details {
+      z-index: 9;
+      table {
+        border-bottom-left-radius: 12px;
+        border-bottom-right-radius: 12px;
+      }
+    }
+  }
+}

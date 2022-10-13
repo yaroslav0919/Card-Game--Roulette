@@ -1,0 +1,16 @@
+.click-to-chat {
+  margin-top: 13px;
+  margin-left: 12px;
+  border-radius: 14px;
+  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
+  border: solid 1px #4c5055;
+  background-color: rgba(34, 39, 45, 0.8);
+  color: #fff;
+  padding: 1px 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 203px;
+  font-size: 13px;
+}

@@ -1,0 +1,20 @@
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+        <linearGradient x1="50%" y1="132.336301%" x2="50%" y2="3.061617e-15%" id="minimize-vip-linearGradient-1">
+            <stop stop-color="#8C794E" offset="0%"></stop>
+            <stop stop-color="#FFFFFF" offset="100%"></stop>
+        </linearGradient>
+        <path d="M17.5605808,5.4494697 L14.2565303,8.7544697 L14.2555556,6.54444444 L12.8555556,6.54444444 L12.8555556,11.1444444 L17.4555556,11.1444444 L17.4555556,9.74444444 L15.2455303,9.7434697 L18.5505303,6.43941919 L17.5605808,5.4494697 Z M6.43941919,18.5505303 L9.7434697,15.2455303 L9.74444444,17.4555556 L11.1444444,17.4555556 L11.1444444,12.8555556 L6.54444444,12.8555556 L6.54444444,14.2555556 L8.7544697,14.2565303 L5.4494697,17.5605808 L6.43941919,18.5505303 Z" id="minimize-vip-path-2"></path>
+        <filter x="-3.8%" y="-3.8%" width="107.6%" height="107.6%" filterUnits="objectBoundingBox" id="minimize-vip-filter-3">
+            <feOffset dx="0" dy="1" in="SourceAlpha" result="shadowOffsetInner1"></feOffset>
+            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner1"></feComposite>
+            <feColorMatrix values="0 0 0 0 0.882352941   0 0 0 0 0.870588235   0 0 0 0 0.82745098  0 0 0 0.08 0" type="matrix" in="shadowInnerInner1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="icon/minimize" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g fill-rule="nonzero">
+            <use fill="url(#minimize-vip-linearGradient-1)" xlink:href="#minimize-vip-path-2"></use>
+            <use fill="black" fill-opacity="1" filter="url(#minimize-vip-filter-3)" xlink:href="#minimize-vip-path-2"></use>
+        </g>
+    </g>
+</svg>

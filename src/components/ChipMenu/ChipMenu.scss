@@ -1,0 +1,270 @@
+.chip-menu-container{
+  position: absolute;
+  bottom: 60px;
+  left: 50% !important;
+  transform: translateX(-50%);
+  opacity: 0;
+  pointer-events: none;
+  &.active{
+    opacity: 1;
+    pointer-events: all;
+  }
+  .chip__node{
+    width: 40px;
+    height: 40px;
+    font-size: 12.2px;
+    letter-spacing: -.41px;
+    &.type-vip{
+      height: 40px;
+    }
+    span{
+      font-size: 11.2px;
+    }
+  }
+}
+
+.add-chip{
+  .chip__node{
+    width: 28px;
+    height: 28px;
+    font-size: 9.5px;
+    letter-spacing: -.32px;
+    &.type-vip{
+      height: 28px;
+    }
+    span{
+      font-size: 8.5k;
+    }
+  }
+}
+
+.selected-chip{
+  width: 53px;
+  height: 53px;
+  &.type-vip{
+    height: 53px;
+  }
+}
+
+.chip__node{
+  width: 53px;
+  height: 53px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -.6px;
+  color: #fff;
+  background-size: 100% !important;
+  span{
+    font-size: 15px;
+  }
+  &--0{
+    background: url('../../assets/images/chips/chip-0.svg') left top no-repeat;
+  }
+  &--1{
+    background: url('../../assets/images/chips/chip-1.svg') left top no-repeat;
+  }
+  &--2{
+    background: url('../../assets/images/chips/chip-2.svg') left top no-repeat;
+  }
+  &--3{
+    background: url('../../assets/images/chips/chip-3.svg') left top no-repeat;
+  }
+  &--4{
+    background: url('../../assets/images/chips/chip-4.svg') left top no-repeat;
+  }
+  &--5{
+    background: url('../../assets/images/chips/chip-5.svg') left top no-repeat;
+  }
+  &--6{
+    background: url('../../assets/images/chips/chip-6.svg') left top no-repeat;
+  }
+  &.type-vip{
+    height: 53px;
+    &.chip__node--0{
+      background: url('../../assets/images/chips/vip/chip-0.svg') left top no-repeat;
+    }
+    &.chip__node--1{
+      background: url('../../assets/images/chips/vip/chip-1.svg') left top no-repeat;
+    }
+    &.chip__node--2{
+      background: url('../../assets/images/chips/vip/chip-2.svg') left top no-repeat;
+    }
+    &.chip__node--3{
+      background: url('../../assets/images/chips/vip/chip-3.svg') left top no-repeat;
+    }
+    &.chip__node--4{
+      background: url('../../assets/images/chips/vip/chip-4.svg') left top no-repeat;
+    }
+    &.chip__node--5{
+      background: url('../../assets/images/chips/vip/chip-5.svg') left top no-repeat;
+    }
+    &.chip__node--6{
+      background: url('../../assets/images/chips/vip/chip-6.svg') left top no-repeat;
+    }
+  }
+}
+
+.chip-menu {
+  width: 350px;
+  height: 60px;
+  border-radius: 13.5px;
+  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
+  box-shadow: 0 -0.5px 0 0 #4c5055, 0 -20px 40px 20px rgba(0, 0, 0, 0.5);
+  border: solid 1px #4c5055;
+  background-color: rgba(34, 39, 45, 0.8);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 14px;
+  box-sizing: border-box;
+
+  &__chip {
+    width: 40px;
+    height: 40px;
+
+    img {
+      display: block;
+      width: 100%;
+    }
+
+    .chip {
+      &__number {
+        letter-spacing: -0.41px;
+        font-size: 12.2px;
+      }
+    }
+
+    &--disabled {
+      opacity: 0.5 !important;
+      pointer-events: none;
+    }
+  }
+}
+
+.vip {
+  .chip-menu {
+    &-vertical-bg {
+      position: absolute;
+      width: 351px;
+      height: 48px;
+      bottom: 66px;
+      left: 0;
+      right: 0;
+      border-radius: 2px;
+      margin: 0 auto;
+      box-shadow: 0 -20px 40px 20px rgba(0, 0, 0, 0.5);
+      -webkit-backdrop-filter: blur(2px);
+      backdrop-filter: blur(2px);
+      border-style: solid;
+      border-width: 0.5px;
+      border-image-source: linear-gradient(to top, #635c4d, #f6e9b5);
+      border-image-slice: 1;
+      background-image: linear-gradient(to top, rgba(0, 0, 0, 0.5) 50%, #22272d), linear-gradient(to bottom, rgba(34, 39, 45, 0.9), rgba(34, 39, 45, 0.9)), linear-gradient(to top, #635c4d, #f6e9b5);
+      background-origin: border-box;
+      background-clip: content-box, content-box, border-box;
+
+      @media not all and (min-resolution:.001dpcm)
+      { @supports (-webkit-appearance:none) {
+        border: 1px solid #ada483;
+      }}
+
+      .chip-menu-horizontal-bg {
+        position: absolute;
+        width: calc(100% - 12px);
+        height: calc(100% + 12px);
+        bottom: -6px;
+        left: 5px;
+        border-radius: 2px;
+        -webkit-backdrop-filter: blur(2px);
+        backdrop-filter: blur(2px);
+        border-style: solid;
+        border-width: 0.5px;
+        border-image-source: linear-gradient(to top, #635c4d, #f6e9b5);
+        border-image-slice: 1;
+        background-image: linear-gradient(to top, rgba(0, 0, 0, 0.5) 50%, #22272d), linear-gradient(to bottom, rgba(34, 39, 45, 0.9), rgba(34, 39, 45, 0.9)), linear-gradient(to top, #635c4d, #f6e9b5);
+        background-origin: border-box;
+        background-clip: content-box, content-box, border-box;
+
+        @media not all and (min-resolution:.001dpcm)
+        { @supports (-webkit-appearance:none) {
+          border: 1px solid #ada483;
+        }}
+
+        .chip-menu-wrapper {
+          position: absolute;
+          width: calc(100% + 6px);
+          height: calc(100% - 6px);
+          left: -4px;
+          bottom: 2px;
+          border-radius: 2px;
+          -webkit-backdrop-filter: blur(2px);
+          backdrop-filter: blur(2px);
+          border-style: solid;
+          border-width: 0.5px;
+          border-image-slice: 1;
+          background-image: linear-gradient(to top, rgba(0, 0, 0, 0.5) 50%, #22272d), linear-gradient(to bottom, rgba(34, 39, 45, 0.9), rgba(34, 39, 45, 0.9)), linear-gradient(to top, #635c4d, #f6e9b5);
+          background-origin: border-box;
+          background-clip: content-box, content-box, border-box;
+
+          box-shadow: 0 0.5px 0 0 rgba(9, 8, 9, 0.15);
+          border-image-source: linear-gradient(to top, #8d794e, #e4d5a8);
+          overflow: hidden;
+
+          @media not all and (min-resolution:.001dpcm)
+          { @supports (-webkit-appearance:none) {
+            border: 1px solid #ada483;
+          }}
+
+          [class*="corner-"] {
+            position: absolute;
+
+            svg {
+              display: block;
+            }
+          }
+
+          .corner-top-left {
+            top: -2px;
+            left: -2px;
+          }
+
+          .corner-top-right {
+            top: -2px;
+            right: -2px;
+          }
+
+          .corner-bottom-left {
+            bottom: -2px;
+            left: -2px;
+          }
+
+          .corner-bottom-right {
+            bottom: -2px;
+            right: -2px;
+          }
+
+          .chip-menu {
+            background-color: transparent;
+            box-shadow: none;
+            backdrop-filter: none;
+            border: none;
+            bottom: 0;
+            height: 54px;
+          }
+        }
+      }
+    }
+
+    &__chip {
+      .chip {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+}

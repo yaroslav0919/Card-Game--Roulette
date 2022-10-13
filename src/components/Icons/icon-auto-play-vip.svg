@@ -1,0 +1,24 @@
+
+
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>icon/auto-play</title>
+    <defs>
+        <linearGradient x1="50%" y1="132.336301%" x2="50%" y2="3.061617e-15%" id="auto-play-vip-linearGradient-1">
+            <stop stop-color="#635C4D" offset="0%"></stop>
+            <stop stop-color="#FFFFFF" offset="100%"></stop>
+        </linearGradient>
+        <path d="M8.875,2.625 L15.2579787,8.51522758 L8.875,14.4054551 L8.875,10.125 L7.625,10.125 C5.20875422,10.125 3.25,12.0837542 3.25,14.5 C3.25,16.8451797 5.09522781,18.7593834 7.4130273,18.8699549 L7.625,18.875 L16.375,18.875 C18.7912458,18.875 20.75,16.9162458 20.75,14.5 C20.75,13.3336034 20.2931816,12.2425551 19.490509,11.4284798 C19.0058086,10.9368938 19.0113906,10.1454572 19.5029766,9.66075683 C19.9945627,9.17605643 20.7859992,9.18163836 21.2706996,9.67322441 C22.5300589,10.9504742 23.25,12.6699548 23.25,14.5 C23.25,18.2178544 20.2988735,21.2464362 16.6113524,21.3710135 L16.375,21.375 L7.625,21.375 C3.82804234,21.375 0.75,18.2969577 0.75,14.5 C0.75,10.7821456 3.70112654,7.75356379 7.38864757,7.62898654 L7.625,7.625 L8.875,7.625 L8.875,2.625 Z" id="auto-play-vip-path-2"></path>
+        <filter x="-2.2%" y="-2.7%" width="104.4%" height="105.3%" filterUnits="objectBoundingBox" id="auto-play-vip-filter-3">
+            <feOffset dx="0" dy="1" in="SourceAlpha" result="shadowOffsetInner1"></feOffset>
+            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner1"></feComposite>
+            <feColorMatrix values="0 0 0 0 0.882352941   0 0 0 0 0.870588235   0 0 0 0 0.82745098  0 0 0 0.08 0" type="matrix" in="shadowInnerInner1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="icon/auto-play" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="autoplay" fill-rule="nonzero">
+            <use fill="url(#auto-play-vip-linearGradient-1)" xlink:href="#auto-play-vip-path-2"></use>
+            <use fill="black" fill-opacity="1" filter="url(#auto-play-vip-filter-3)" xlink:href="#auto-play-vip-path-2"></use>
+        </g>
+        <path d="M8.87462736,7.62468592 L8.87462736,10.1246859 L7.625,10.125 C7.34038398,10.125 7.0621157,10.1521779 6.79264882,10.2040802 C7.63545561,9.54696892 8.45945384,8.62367797 8.76020589,7.62468592 L8.87462736,7.62468592 Z" id="autoplay-shadow" fill="#A5A5A5"></path>
+    </g>
+</svg>

@@ -1,0 +1,20 @@
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+        <linearGradient x1="50%" y1="132.336301%" x2="50%" y2="3.061617e-15%" id="linearGradient-1">
+            <stop stop-color="#8C794E" offset="0%"></stop>
+            <stop stop-color="#FFFFFF" offset="100%"></stop>
+        </linearGradient>
+        <path d="M9.63239809,15.3237071 L4.84788363,13.6690442 C4.75509208,13.6369535 4.70588437,13.5357163 4.73797514,13.4429248 C4.75109369,13.404992 4.77666243,13.3726148 4.81052124,13.3510608 L19.2267544,4.17394331 C19.3095802,4.12121787 19.4194662,4.14561905 19.4721916,4.22844487 C19.4903532,4.25697459 19.5,4.29009283 19.5,4.32391273 L19.5,18.4952083 C19.5,18.5933923 19.4204062,18.6729861 19.3222222,18.6729861 C19.3024274,18.6729861 19.2827715,18.6696801 19.2640658,18.6632047 L14.4868669,17.0094498 C14.4471916,16.9957151 14.4033166,17.011614 14.3816501,17.0475769 L12.7320154,19.7857048 C12.7066815,19.8277549 12.652056,19.8413062 12.6100058,19.8159723 C12.5870905,19.8021665 12.5716119,19.7787741 12.5678644,19.7522851 L12.1050476,16.4808738 C12.0761466,16.2765873 12.1192097,16.0686095 12.2268543,15.8925957 L17.2172995,7.73253003 C17.3037433,7.59118249 17.259235,7.40652111 17.1178875,7.3200773 C16.9900388,7.24188901 16.8241013,7.27004106 16.7291942,7.38602087 L10.4151557,15.101995 C10.2264552,15.3325937 9.91399923,15.4210952 9.63239809,15.3237071 Z" id="path-2"></path>
+        <filter x="-3.3%" y="-3.1%" width="106.7%" height="106.2%" filterUnits="objectBoundingBox" id="filter-3">
+            <feOffset dx="0" dy="1" in="SourceAlpha" result="shadowOffsetInner1"></feOffset>
+            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner1"></feComposite>
+            <feColorMatrix values="0 0 0 0 0.882352941   0 0 0 0 0.870588235   0 0 0 0 0.82745098  0 0 0 0.08 0" type="matrix" in="shadowInnerInner1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="icon/send" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g fill-rule="nonzero">
+            <use fill="url(#linearGradient-1)" xlink:href="#path-2"></use>
+            <use fill="black" fill-opacity="1" filter="url(#filter-3)" xlink:href="#path-2"></use>
+        </g>
+    </g>
+</svg>

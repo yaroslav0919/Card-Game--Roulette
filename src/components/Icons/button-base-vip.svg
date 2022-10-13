@@ -1,0 +1,28 @@
+<svg width="42" height="49" viewBox="0 0 42 49" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+        <linearGradient x1="50%" y1="100%" x2="50%" y2="0%" id="31ql0ad6za">
+            <stop stop-color="#635C4D" offset="0%"/>
+            <stop stop-color="#E1DED3" offset="100%"/>
+        </linearGradient>
+        <linearGradient x1="50%" y1="100%" x2="50%" y2="0%" id="yl3xcqgozd">
+            <stop stop-color="#8D794E" offset="0%"/>
+            <stop stop-color="#E4D5A8" offset="100%"/>
+        </linearGradient>
+        <filter x="-1.9%" y="-1.9%" width="103.8%" height="104.9%" filterUnits="objectBoundingBox" id="f2n1qzmh3b">
+            <feMorphology radius=".5" operator="dilate" in="SourceAlpha" result="shadowSpreadOuter1"/>
+            <feOffset dy=".5" in="shadowSpreadOuter1" result="shadowOffsetOuter1"/>
+            <feMorphology radius="1" in="SourceAlpha" result="shadowInner"/>
+            <feOffset dy=".5" in="shadowInner" result="shadowInner"/>
+            <feComposite in="shadowOffsetOuter1" in2="shadowInner" operator="out" result="shadowOffsetOuter1"/>
+            <feColorMatrix values="0 0 0 0 0.0352941176 0 0 0 0 0.031372549 0 0 0 0 0.0352941176 0 0 0 0.15 0" in="shadowOffsetOuter1"/>
+        </filter>
+        <path id="5pnkh84pbc" d="m20 0 4 3h7l9 9v22l-9 9h-7l-4 3-4-3H9l-9-9V12l9-9h7z"/>
+    </defs>
+    <g fill="none" fill-rule="evenodd">
+        <path d="M32.872 4.5c1.925 0 2.616.218 3.317.593.74.396 1.322.977 1.718 1.718.375.701.593 1.392.593 3.317v25.744c0 1.925-.218 2.616-.593 3.317a4.128 4.128 0 0 1-1.718 1.718c-.701.375-1.392.593-3.317.593H7.128c-1.925 0-2.616-.218-3.317-.593a4.128 4.128 0 0 1-1.718-1.718c-.375-.701-.593-1.392-.593-3.317V10.128c0-1.925.218-2.616.593-3.317a4.128 4.128 0 0 1 1.718-1.718c.701-.375 1.392-.593 3.317-.593z" stroke="url(#31ql0ad6za)" fill-opacity=".8" fill="#22272D" transform="translate(1 1)"/>
+        <g transform="translate(1 1)">
+            <use fill="#000" filter="url(#f2n1qzmh3b)" xlink:href="#5pnkh84pbc"/>
+            <path stroke="url(#yl3xcqgozd)" stroke-width=".5" d="m20-.313 4.083 3.064h7.02l9.147 9.146v22.207l-9.146 9.147h-7.02L20 46.312l-4.084-3.061h-7.02L-.25 34.104V11.896l9.146-9.145h7.02l4.085-3.064z"/>
+        </g>
+    </g>
+</svg>

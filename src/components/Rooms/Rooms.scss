@@ -1,0 +1,92 @@
+.rooms {
+  position: absolute;
+  top: 55px;
+  right: 7px;
+
+  &__item {
+    display: block;
+    position: relative;
+    img {
+      display: block;
+      width:52px;
+    }
+
+    margin-bottom: 7px;
+
+    .winning-number {
+      width: 100%;
+      top: 17px;
+      &__winner2 {
+        display: none;
+      }
+      &__numbers {
+        width: 100%;
+
+        img {
+          width: 52px !important;
+        }
+
+        &__left {
+          left: -5px;
+          top: 3px;
+        }
+
+        &__right {
+          right: -5px;
+          top: 3px;
+        }
+
+        &__left, &__right {
+          font-size: 9px;
+        }
+      }
+
+      svg {
+        width: 51px;
+        height: 18px;
+      }
+
+      &__number {
+        width: 21px;
+        height: 18px;
+        top: -1px;
+        span {
+          font-size: 11px;
+          width: 21px;
+          height: 18px;
+        }
+
+        svg {
+          width: 21px;
+          height: 18px;
+        }
+      }
+    }
+  }
+
+  &__open {
+    width: 0;
+    height: 0;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    div {
+      width: 52px;
+      position: absolute;
+      font-size: 7px;
+      letter-spacing: 0.2px;
+      text-align: center;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 8px;
+      background-blend-mode: multiply, normal;
+      background-image: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.2) 135%), linear-gradient(to bottom, #44cc44, #44cc44);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      padding: 2px 4px;
+    }
+  }
+}

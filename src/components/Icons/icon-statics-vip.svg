@@ -1,0 +1,18 @@
+<svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+        <linearGradient x1="50%" y1="132.336%" x2="50%" y2="0%" id="uj1wjav4ka">
+            <stop stop-color="#8C794E" offset="0%"/>
+            <stop stop-color="#FFF" offset="100%"/>
+        </linearGradient>
+        <filter x="-3.3%" y="-3.1%" width="106.6%" height="106.1%" filterUnits="objectBoundingBox" id="2m3ip0mcjc">
+            <feOffset dy="1" in="SourceAlpha" result="shadowOffsetInner1"/>
+            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner1"/>
+            <feColorMatrix values="0 0 0 0 0.882352941 0 0 0 0 0.870588235 0 0 0 0 0.82745098 0 0 0 0.08 0" in="shadowInnerInner1"/>
+        </filter>
+        <path d="M11.667 4.667h3.5v11.666h-3.5V4.667zM5.833 0h3.5v16.333h-3.5V0zM0 9.333h3.5v7H0v-7z" id="gfptq9untb"/>
+    </defs>
+    <g transform="translate(4.417 3.833)" fill-rule="nonzero" fill="none">
+        <use fill="url(#uj1wjav4ka)" xlink:href="#gfptq9untb"/>
+        <use fill="#000" filter="url(#2m3ip0mcjc)" xlink:href="#gfptq9untb"/>
+    </g>
+</svg>

@@ -1,0 +1,39 @@
+.bet-areas {
+  $self: &;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  border-radius: 12px;
+  overflow: hidden;
+
+  &__item {
+    width: calc(100% / 5 - 1px);
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.4px;
+    text-align: center;
+    color: #ffffff;
+    padding: 8px 15px;
+    box-sizing: border-box;
+    background-color: rgba(76, 80, 85, 0.25);
+    margin-right: 1px;
+    margin-bottom: 1px;
+
+
+  }
+
+  &--v2 {
+    @extend .bet-areas;
+
+    #{ $self }__item {
+      width: calc(100% / 4 - 1px);
+
+      &:first-child {
+        width: calc(100% - 1px);
+      }
+
+    }
+  }
+}

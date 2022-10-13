@@ -1,0 +1,945 @@
+<svg className="main-table-svg trick" width="300" height="514" viewBox="0 0 300 514" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+        <path id="3na9l8h7bb" d="M94.286 0H300v36.429H94.286z"/>
+        <path id="pvjw1xiqef" d="M0 0h68.571v36.429H0z"/>
+        <path id="yy4shv5twj" d="M0 0h68.571v36.429H0z"/>
+        <path id="quco1dqnfl" d="M0 0h68.571v36.429H0z"/>
+        <path id="8evgycjthn" d="M0 0h68.571v36.429H0z"/>
+        <path id="h97q8lpslp" d="M0 0h68.571v36.429H0z"/>
+        <path id="ochjtbz3mr" d="M0 0h68.571v36.429H0z"/>
+        <path id="8p1y3ey16t" d="M0 0h68.571v36.429H0z"/>
+        <path id="hdw6ofr3pv" d="M0 0h68.571v36.429H0z"/>
+        <path d="M68.571 0v32.142l-4.285 4.287H0V0h68.571z" id="thkybatuux"/>
+        <path d="m64.286 0 4.285 4.286v32.143H0V0h64.286z" id="ey7ee1lxuB"/>
+        <path id="i8mt60smzG" d="M0 0h68.571v36.429H0z"/>
+        <path id="dtchw7rwdI" d="M0 0h68.571v36.429H0z"/>
+        <path id="c2fvjcuukK" d="M0 0h68.571v36.429H0z"/>
+        <path id="ympwsgcldM" d="M0 0h68.571v36.429H0z"/>
+        <path id="x4z9cjq0zO" d="M0 0h68.571v36.429H0z"/>
+        <path id="d0l275isaQ" d="M0 0h68.571v36.429H0z"/>
+        <path id="wwvxh8p7zS" d="M0 0h68.571v36.429H0z"/>
+        <path id="qqqc1qxtiU" d="M0 0h68.571v36.429H0z"/>
+        <path id="mk8rwn6wpab" d="M0 0h36.429v36.429H0z"/>
+        <path id="uhz9vjqsnaf" d="M0 0h36.429v36.429H0z"/>
+        <path id="bbjbleue5ah" d="M0 0h36.429v36.429H0z"/>
+        <path id="p5qb9rop1aj" d="M0 0h36.429v36.429H0z"/>
+        <path id="earlpceujal" d="M0 0h68.571v36.429H0z"/>
+        <path id="ys38z6vgyan" d="M0 0h68.571v36.429H0z"/>
+        <path d="m180.17 4.342 27.996 9.332a.268.268 0 0 1 0 .509l-27.997 9.332a.536.536 0 0 1-.338 0l-27.997-9.332a.268.268 0 0 1 0-.509l27.997-9.332a.536.536 0 0 1 .338 0z" id="zq4ta55a1as"/>
+        <path d="M29.098.056 57.095 9.39a.268.268 0 0 1 0 .508l-27.997 9.332a.536.536 0 0 1-.339 0L.762 9.897a.268.268 0 0 1 0-.508L28.76.056a.536.536 0 0 1 .339 0z" id="70gvylgu6av"/>
+        <path d="M29.098.056 57.095 9.39a.268.268 0 0 1 0 .508l-27.997 9.332a.536.536 0 0 1-.339 0L.762 9.897a.268.268 0 0 1 0-.508L28.76.056a.536.536 0 0 1 .339 0z" id="jvhg50pf5aA"/>
+        <linearGradient x1="50.008%" y1="100%" x2="50.008%" y2="0%" id="dumqc13kia">
+            <stop stop-color="#0B4E18" offset="0%"/>
+            <stop stop-color="#256235" offset="69.363%"/>
+            <stop stop-color="#3A7244" offset="100%"/>
+        </linearGradient>
+        <linearGradient x1="50%" y1="98.527%" x2="50%" y2="0%" id="dlz2ko1dbd">
+            <stop stop-color="#A7321B" offset="0%"/>
+            <stop stop-color="#B74538" offset="100%"/>
+        </linearGradient>
+        <linearGradient x1="50%" y1="100%" x2="50%" y2="0%" id="pusir1tzgi">
+            <stop stop-color="#8D794E" offset="0%"/>
+            <stop stop-color="#E4D5A8" offset="100%"/>
+        </linearGradient>
+        <linearGradient x1="50%" y1="100%" x2="50%" y2="0%" id="iyr83op9iz">
+            <stop stop-color="#8D794E" offset="0%"/>
+            <stop stop-color="#E4D5A8" offset="100%"/>
+        </linearGradient>
+        <linearGradient x1="50%" y1="100%" x2="50%" y2="0%" id="ji8p478fsA">
+            <stop stop-color="#8D794E" offset="0%"/>
+            <stop stop-color="#E4D5A8" offset="100%"/>
+        </linearGradient>
+        <linearGradient x1="50%" y1="100%" x2="50%" y2="0%" id="h5s5i01unD">
+            <stop stop-color="#8D794E" offset="0%"/>
+            <stop stop-color="#E4D5A8" offset="100%"/>
+        </linearGradient>
+        <linearGradient x1="50%" y1="100%" x2="50%" y2="0%" id="qj8netp5lE">
+            <stop stop-color="#8D794E" offset="0%"/>
+            <stop stop-color="#E4D5A8" offset="100%"/>
+        </linearGradient>
+        <linearGradient x1="50%" y1="100%" x2="50%" y2="0%" id="i7qecy1qsF">
+            <stop stop-color="#8D794E" offset="0%"/>
+            <stop stop-color="#E4D5A8" offset="100%"/>
+        </linearGradient>
+        <linearGradient x1="50%" y1="100%" x2="50%" y2="0%" id="ty2au1go1W">
+            <stop stop-color="#8D794E" offset="0%"/>
+            <stop stop-color="#E4D5A8" offset="100%"/>
+        </linearGradient>
+        <linearGradient x1="50%" y1="100%" x2="50%" y2="0%" id="wth7xlzr0X">
+            <stop stop-color="#8D794E" offset="0%"/>
+            <stop stop-color="#E4D5A8" offset="100%"/>
+        </linearGradient>
+        <linearGradient x1="50%" y1="100%" x2="50%" y2="0%" id="aa3nog2iwY">
+            <stop stop-color="#8D794E" offset="0%"/>
+            <stop stop-color="#E4D5A8" offset="100%"/>
+        </linearGradient>
+        <linearGradient x1="50%" y1="100%" x2="50%" y2="0%" id="cve1qwrk0Z">
+            <stop stop-color="#8D794E" offset="0%"/>
+            <stop stop-color="#E4D5A8" offset="100%"/>
+        </linearGradient>
+        <linearGradient x1="50%" y1="100%" x2="50%" y2="0%" id="ukrks3b7saa">
+            <stop stop-color="#8D794E" offset="0%"/>
+            <stop stop-color="#E4D5A8" offset="100%"/>
+        </linearGradient>
+        <linearGradient x1="50%" y1="100%" x2="50%" y2="0%" id="1722bpg73ad">
+            <stop stop-color="#8D794E" offset="0%"/>
+            <stop stop-color="#E4D5A8" offset="100%"/>
+        </linearGradient>
+        <linearGradient x1="50%" y1="100%" x2="50%" y2="0%" id="g8riew9zeae">
+            <stop stop-color="#8D794E" offset="0%"/>
+            <stop stop-color="#E4D5A8" offset="100%"/>
+        </linearGradient>
+        <linearGradient x1="50%" y1="100%" x2="50%" y2="0%" id="w6qf7zox4au">
+            <stop stop-color="#BE361A" offset="1.473%"/>
+            <stop stop-color="#D44030" offset="100%"/>
+        </linearGradient>
+        <linearGradient x1="0%" y1="50%" x2="100%" y2="50%" id="ar6n6bi5yat">
+            <stop stop-color="#635C4D" offset="0%"/>
+            <stop stop-color="#E1DED3" offset="100%"/>
+        </linearGradient>
+        <linearGradient x1="50%" y1="100%" x2="50%" y2="0%" id="mi8gkvnsmay">
+            <stop stop-color="#8D794E" offset="0%"/>
+            <stop stop-color="#E4D5A8" offset="100%"/>
+        </linearGradient>
+        <radialGradient cx="50%" cy="0%" fx="50%" fy="0%" r="434.287%" gradientTransform="scale(.17708 1) rotate(49.634 1.662 2.512)" id="nxfwcvdj2c">
+            <stop stop-color="#2D6D39" offset="0%"/>
+            <stop stop-color="#054010" offset="100%"/>
+        </radialGradient>
+        <radialGradient cx="0%" cy="0%" fx="0%" fy="0%" r="214.368%" gradientTransform="matrix(.41092 .6338 -.3367 .7735 0 0)" id="88sq0x4gye">
+            <stop stop-color="#36332C" offset="0%"/>
+            <stop stop-color="#090809" offset="100%"/>
+        </radialGradient>
+        <radialGradient cx="89.727%" cy="118.567%" fx="89.727%" fy="118.567%" r="205.691%" gradientTransform="matrix(-.4348 -.57456 .30524 -.81846 .925 2.672)" id="5xh2kmkteg">
+            <stop stop-color="#A7321B" offset="0%"/>
+            <stop stop-color="#B75138" offset="100%"/>
+        </radialGradient>
+        <radialGradient cx="50%" cy="0%" fx="50%" fy="0%" r="86.741%" gradientTransform="matrix(0 1 -.85346 0 .5 -.5)" id="ohkggnf88ap">
+            <stop stop-color="#FFF" offset="0%"/>
+            <stop stop-color="#FFF" stop-opacity="0" offset="100%"/>
+        </radialGradient>
+        <radialGradient cx="89.727%" cy="118.567%" fx="89.727%" fy="118.567%" r="293.182%" gradientTransform="scale(-.33333 -1) rotate(23.772 4.736 -8.526)" id="1dm93mp16aw">
+            <stop stop-color="#A7321B" offset="0%"/>
+            <stop stop-color="#B75138" offset="100%"/>
+        </radialGradient>
+        <radialGradient cx="0%" cy="0%" fx="0%" fy="0%" r="297.146%" gradientTransform="scale(.33333 1) rotate(27.209)" id="bw338hjw2az">
+            <stop stop-color="#36332C" offset="0%"/>
+            <stop stop-color="#090809" offset="100%"/>
+        </radialGradient>
+        <filter x="-1.7%" y="-10%" width="103.3%" height="120%" filterUnits="objectBoundingBox" id="v5as1unf0aq">
+            <feGaussianBlur stdDeviation="1.071" in="SourceGraphic"/>
+        </filter>
+        <filter x="-7.7%" y="-30%" width="115.4%" height="201.5%" filterUnits="objectBoundingBox" id="nm264fywxar">
+            <feMorphology radius="1.464" in="SourceAlpha" result="shadowSpreadOuter1"/>
+            <feOffset dy="4" in="shadowSpreadOuter1" result="shadowOffsetOuter1"/>
+            <feGaussianBlur stdDeviation="4.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"/>
+            <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"/>
+            <feColorMatrix values="0 0 0 0 0.506889454 0 0 0 0 0.386528299 0 0 0 0 0.101462405 0 0 0 0.5 0" in="shadowBlurOuter1"/>
+        </filter>
+    </defs>
+    <g fill="none" fill-rule="evenodd">
+        <g transform="translate(0 4)">
+            <use fill="url(#dumqc13kia)" xlink:href="#3na9l8h7bb"/>
+            <use fill="url(#nxfwcvdj2c)" xlink:href="#3na9l8h7bb"/>
+        </g>
+        <path fill="url(#dlz2ko1dbd)" d="M94.286 0h68.571v36.429H94.286zM94.286 72.857h68.571v36.429H94.286zM94.286 182.143h68.571v36.429H94.286z" transform="translate(0 40.429)"/>
+        <path fill="url(#dlz2ko1dbd)" d="M94.286 218.571h68.571V255H94.286zM94.286 291.429h68.571v36.429H94.286zM94.286 400.714h68.571v36.429H94.286z" transform="translate(0 40.429)"/>
+        <path fill-opacity=".3" fill="#000" d="M94.286 477.572h68.571V514H94.286z"/>
+        <path fill="url(#88sq0x4gye)" d="M162.857 0h68.571v36.429h-68.571z" transform="translate(0 40.429)"/>
+        <path fill="url(#dlz2ko1dbd)" d="M162.857 36.429h68.571v36.429h-68.571zM162.857 145.714h68.571v36.429h-68.571zM162.857 255h68.571v36.429h-68.571zM162.857 364.286h68.571v36.429h-68.571z" transform="translate(0 40.429)"/>
+        <path fill-opacity=".3" fill="#000" d="M162.857 477.572h68.571V514h-68.571z"/>
+        <path fill="url(#dlz2ko1dbd)" d="M231.429 0H300v36.429h-68.571zM231.429 72.857H300v36.429h-68.571zM231.429 109.286H300v36.429h-68.571zM231.429 291.429H300v36.429h-68.571z" transform="translate(0 40.429)"/>
+        <path fill="url(#dlz2ko1dbd)" d="M231.429 327.857H300v36.429h-68.571zM231.429 400.714H300v36.429h-68.571z" transform="translate(0 40.429)"/>
+        <path fill-opacity=".3" fill="#000" d="M231.429 477.572H300V514h-68.571zM47.143 40.429h47.143v145.714H47.143zM47.143 186.143h47.143v145.714H47.143zM47.143 331.858h47.143v145.714H47.143zM0 40.429h47.143v72.857H0zM0 113.286h47.143v72.857H0zM47.143 186.143V259H4.286L0 254.715v-68.572h47.143zM47.143 259v72.857H0v-68.572L4.286 259h42.857zM0 331.858h47.143v72.857H0z"/>
+        <path fill-opacity=".3" fill="#000" d="M0 404.715h47.143v72.857H0z"/>
+        <g transform="translate(94.286 76.857)" fill="url(#88sq0x4gye)">
+            <path d="M0 0h68.571v36.429H0zM0 72.857h68.571v36.429H0zM0 109.286h68.571v36.429H0zM0 218.571h68.571V255H0zM0 291.429h68.571v36.429H0z"/>
+            <path d="M0 327.857h68.571v36.429H0zM68.571 36.429h68.571v36.429H68.571z"/>
+            <path d="M68.571 72.857h68.571v36.429H68.571zM68.571 145.714h68.571v36.429H68.571zM68.571 182.143h68.571v36.429H68.571zM68.571 255h68.571v36.429H68.571zM68.571 291.429h68.571v36.429H68.571zM68.571 364.286h68.571v36.429H68.571zM137.143 0h68.571v36.429h-68.571zM137.143 109.286h68.571v36.429h-68.571zM137.143 218.571h68.571V255h-68.571zM137.143 327.857h68.571v36.429h-68.571z"/>
+        </g>
+        <g>
+            <g transform="translate(94.286 40.429)">
+                <mask id="gaxtblnuth" fill="#fff">
+                    <use xlink:href="#pvjw1xiqef"/>
+                </mask>
+                <use fill="url(#5xh2kmkteg)" xlink:href="#pvjw1xiqef"/>
+                <g mask="url(#gaxtblnuth)" stroke-width=".3">
+                    <path stroke="url(#pusir1tzgi)" d="M.8 0v36.429" transform="translate(1.5)"/>
+                    <path stroke="#090809" opacity=".24" d="M2 0v36.429"/>
+                </g>
+                <g mask="url(#gaxtblnuth)" stroke-width=".3">
+                    <path stroke="url(#pusir1tzgi)" d="M.8 0v36.429" transform="translate(65.271)"/>
+                    <path stroke="#090809" opacity=".24" d="M65.771 0v36.429"/>
+                </g>
+            </g>
+            <g transform="translate(231.429 40.429)">
+                <mask id="8tfu3lhdqk" fill="#fff">
+                    <use xlink:href="#yy4shv5twj"/>
+                </mask>
+                <use fill="url(#5xh2kmkteg)" xlink:href="#yy4shv5twj"/>
+                <g mask="url(#8tfu3lhdqk)" stroke-width=".3">
+                    <path stroke="url(#pusir1tzgi)" d="M.8 0v36.429" transform="translate(1.5)"/>
+                    <path stroke="#090809" opacity=".24" d="M2 0v36.429"/>
+                </g>
+                <g mask="url(#8tfu3lhdqk)" stroke-width=".3">
+                    <path stroke="url(#pusir1tzgi)" d="M.8 0v36.429" transform="translate(65.271)"/>
+                    <path stroke="#090809" opacity=".24" d="M65.771 0v36.429"/>
+                </g>
+            </g>
+            <g transform="translate(162.857 76.857)">
+                <mask id="olayie6qgm" fill="#fff">
+                    <use xlink:href="#quco1dqnfl"/>
+                </mask>
+                <use fill="url(#5xh2kmkteg)" xlink:href="#quco1dqnfl"/>
+                <g mask="url(#olayie6qgm)" stroke-width=".3">
+                    <path stroke="url(#pusir1tzgi)" d="M.8 0v36.429" transform="translate(1.5)"/>
+                    <path stroke="#090809" opacity=".24" d="M2 0v36.429"/>
+                </g>
+                <g mask="url(#olayie6qgm)" stroke-width=".3">
+                    <path stroke="url(#pusir1tzgi)" d="M.8 0v36.429" transform="translate(65.271)"/>
+                    <path stroke="#090809" opacity=".24" d="M65.771 0v36.429"/>
+                </g>
+            </g>
+            <g transform="translate(94.286 113.286)">
+                <mask id="pfzsymfc1o" fill="#fff">
+                    <use xlink:href="#8evgycjthn"/>
+                </mask>
+                <use fill="url(#5xh2kmkteg)" xlink:href="#8evgycjthn"/>
+                <g mask="url(#pfzsymfc1o)" stroke-width=".3">
+                    <path stroke="url(#pusir1tzgi)" d="M.8 0v36.429" transform="translate(1.5)"/>
+                    <path stroke="#090809" opacity=".24" d="M2 0v36.429"/>
+                </g>
+                <g mask="url(#pfzsymfc1o)" stroke-width=".3">
+                    <path stroke="url(#pusir1tzgi)" d="M.8 0v36.429" transform="translate(65.271)"/>
+                    <path stroke="#090809" opacity=".24" d="M65.771 0v36.429"/>
+                </g>
+            </g>
+            <g transform="translate(231.429 113.286)">
+                <mask id="yde0deleiq" fill="#fff">
+                    <use xlink:href="#h97q8lpslp"/>
+                </mask>
+                <use fill="url(#5xh2kmkteg)" xlink:href="#h97q8lpslp"/>
+                <g mask="url(#yde0deleiq)" stroke-width=".3">
+                    <path stroke="url(#pusir1tzgi)" d="M.8 0v36.429" transform="translate(1.5)"/>
+                    <path stroke="#090809" opacity=".24" d="M2 0v36.429"/>
+                </g>
+                <g mask="url(#yde0deleiq)" stroke-width=".3">
+                    <path stroke="url(#pusir1tzgi)" d="M.8 0v36.429" transform="translate(65.271)"/>
+                    <path stroke="#090809" opacity=".24" d="M65.771 0v36.429"/>
+                </g>
+            </g>
+            <g transform="translate(231.429 149.714)">
+                <mask id="wuxduuafqs" fill="#fff">
+                    <use xlink:href="#ochjtbz3mr"/>
+                </mask>
+                <use fill="url(#5xh2kmkteg)" xlink:href="#ochjtbz3mr"/>
+                <g mask="url(#wuxduuafqs)" stroke-width=".3">
+                    <path stroke="url(#pusir1tzgi)" d="M.8 0v36.429" transform="translate(1.5)"/>
+                    <path stroke="#090809" opacity=".24" d="M2 0v36.429"/>
+                </g>
+                <g mask="url(#wuxduuafqs)" stroke-width=".3">
+                    <path stroke="url(#pusir1tzgi)" d="M.8 0v36.429" transform="translate(65.271)"/>
+                    <path stroke="#090809" opacity=".24" d="M65.771 0v36.429"/>
+                </g>
+            </g>
+            <g transform="translate(162.857 186.143)">
+                <mask id="p6rlizc8ou" fill="#fff">
+                    <use xlink:href="#8p1y3ey16t"/>
+                </mask>
+                <use fill="url(#5xh2kmkteg)" xlink:href="#8p1y3ey16t"/>
+                <g mask="url(#p6rlizc8ou)" stroke-width=".3">
+                    <path stroke="url(#pusir1tzgi)" d="M.8 0v36.429" transform="translate(1.5)"/>
+                    <path stroke="#090809" opacity=".24" d="M2 0v36.429"/>
+                </g>
+                <g mask="url(#p6rlizc8ou)" stroke-width=".3">
+                    <path stroke="url(#pusir1tzgi)" d="M.8 0v36.429" transform="translate(65.271)"/>
+                    <path stroke="#090809" opacity=".24" d="M65.771 0v36.429"/>
+                </g>
+            </g>
+            <g transform="translate(94.286 222.571)">
+                <mask id="g4df3c6l2w" fill="#fff">
+                    <use xlink:href="#hdw6ofr3pv"/>
+                </mask>
+                <use fill="url(#5xh2kmkteg)" xlink:href="#hdw6ofr3pv"/>
+                <g mask="url(#g4df3c6l2w)" stroke-width=".3">
+                    <path stroke="url(#pusir1tzgi)" d="M.8 0v36.429" transform="translate(1.5)"/>
+                    <path stroke="#090809" opacity=".24" d="M2 0v36.429"/>
+                </g>
+                <g mask="url(#g4df3c6l2w)" stroke-width=".3">
+                    <path stroke="url(#pusir1tzgi)" d="M.8 0v36.429" transform="translate(65.271)"/>
+                    <path stroke="#090809" opacity=".24" d="M65.771 0v36.429"/>
+                </g>
+            </g>
+            <g transform="translate(231.429 222.571)">
+                <mask id="60hydbkt6y" fill="#fff">
+                    <use xlink:href="#thkybatuux"/>
+                </mask>
+                <use fill="url(#5xh2kmkteg)" xlink:href="#thkybatuux"/>
+                <path stroke="#090809" stroke-width=".3" opacity=".24" mask="url(#60hydbkt6y)" d="M65.571 0v27.321"/>
+                <g mask="url(#60hydbkt6y)" stroke-width=".3">
+                    <path stroke="url(#pusir1tzgi)" d="M.8 0v36.429" transform="translate(1.5)"/>
+                    <path stroke="#090809" opacity=".24" d="M2 0v36.429"/>
+                </g>
+                <g stroke-width=".3" mask="url(#60hydbkt6y)">
+                    <path stroke="url(#iyr83op9iz)" d="M.8 0v21.429" transform="scale(-1 1) rotate(-45 3.146 95.294)"/>
+                    <path stroke="#090809" opacity=".24" d="M65.951 29.939 50.955 44.935"/>
+                    <g>
+                        <path stroke="url(#iyr83op9iz)" d="M.8 0v21.429" transform="scale(-1 1) rotate(-45 -.475 93.794)"/>
+                        <path stroke="#090809" opacity=".24" d="M65.884 27.006 50.955 41.935"/>
+                    </g>
+                </g>
+                <g mask="url(#60hydbkt6y)" stroke="url(#ji8p478fsA)" stroke-width=".3">
+                    <path d="M66.071 0v30.536"/>
+                </g>
+            </g>
+            <g transform="translate(231.429 259)">
+                <mask id="aeu98y2nvC" fill="#fff">
+                    <use xlink:href="#ey7ee1lxuB"/>
+                </mask>
+                <use fill="url(#5xh2kmkteg)" xlink:href="#ey7ee1lxuB"/>
+                <path stroke="#090809" stroke-width=".3" opacity=".24" mask="url(#aeu98y2nvC)" d="M65.571 8.571v27.858"/>
+                <g mask="url(#aeu98y2nvC)" stroke-width=".3">
+                    <path stroke="url(#pusir1tzgi)" d="M.8 0v36.429" transform="translate(1.5)"/>
+                    <path stroke="#090809" opacity=".24" d="M2 0v36.429"/>
+                </g>
+                <g stroke-width=".3" mask="url(#aeu98y2nvC)">
+                    <path stroke="#090809" opacity=".24" d="M65.896 6.86 50.743-8.292"/>
+                    <path stroke="url(#h5s5i01unD)" d="M.5.222v21.207" transform="rotate(135 31.927 16.912)"/>
+                    <g>
+                        <path stroke="#090809" opacity=".24" d="M65.896 9.86 50.743-5.292"/>
+                        <path stroke="url(#qj8netp5lE)" d="M.5.317v21.112" transform="rotate(135 31.306 18.412)"/>
+                    </g>
+                </g>
+                <g mask="url(#aeu98y2nvC)" stroke="url(#i7qecy1qsF)" stroke-width=".3">
+                    <path d="M66.071 5.625v30.804"/>
+                </g>
+            </g>
+            <g transform="translate(94.286 259)">
+                <mask id="etc8oi37bH" fill="#fff">
+                    <use xlink:href="#i8mt60smzG"/>
+                </mask>
+                <use fill="url(#5xh2kmkteg)" xlink:href="#i8mt60smzG"/>
+                <g mask="url(#etc8oi37bH)" stroke-width=".3">
+                    <path stroke="url(#pusir1tzgi)" d="M.8 0v36.429" transform="translate(1.5)"/>
+                    <path stroke="#090809" opacity=".24" d="M2 0v36.429"/>
+                </g>
+                <g mask="url(#etc8oi37bH)" stroke-width=".3">
+                    <path stroke="url(#pusir1tzgi)" d="M.8 0v36.429" transform="translate(65.271)"/>
+                    <path stroke="#090809" opacity=".24" d="M65.771 0v36.429"/>
+                </g>
+            </g>
+            <g transform="translate(162.857 295.429)">
+                <mask id="pnqklo4q1J" fill="#fff">
+                    <use xlink:href="#dtchw7rwdI"/>
+                </mask>
+                <use fill="url(#5xh2kmkteg)" xlink:href="#dtchw7rwdI"/>
+                <g mask="url(#pnqklo4q1J)" stroke-width=".3">
+                    <path stroke="url(#pusir1tzgi)" d="M.8 0v36.429" transform="translate(1.5)"/>
+                    <path stroke="#090809" opacity=".24" d="M2 0v36.429"/>
+                </g>
+                <g mask="url(#pnqklo4q1J)" stroke-width=".3">
+                    <path stroke="url(#pusir1tzgi)" d="M.8 0v36.429" transform="translate(65.271)"/>
+                    <path stroke="#090809" opacity=".24" d="M65.771 0v36.429"/>
+                </g>
+            </g>
+            <g transform="translate(94.286 331.857)">
+                <mask id="qgzbodkneL" fill="#fff">
+                    <use xlink:href="#c2fvjcuukK"/>
+                </mask>
+                <use fill="url(#5xh2kmkteg)" xlink:href="#c2fvjcuukK"/>
+                <g mask="url(#qgzbodkneL)" stroke-width=".3">
+                    <path stroke="url(#pusir1tzgi)" d="M.8 0v36.429" transform="translate(1.5)"/>
+                    <path stroke="#090809" opacity=".24" d="M2 0v36.429"/>
+                </g>
+                <g mask="url(#qgzbodkneL)" stroke-width=".3">
+                    <path stroke="url(#pusir1tzgi)" d="M.8 0v36.429" transform="translate(65.271)"/>
+                    <path stroke="#090809" opacity=".24" d="M65.771 0v36.429"/>
+                </g>
+            </g>
+            <g transform="translate(231.429 331.857)">
+                <mask id="p6bel0rocN" fill="#fff">
+                    <use xlink:href="#ympwsgcldM"/>
+                </mask>
+                <use fill="url(#5xh2kmkteg)" xlink:href="#ympwsgcldM"/>
+                <g mask="url(#p6bel0rocN)" stroke-width=".3">
+                    <path stroke="url(#pusir1tzgi)" d="M.8 0v36.429" transform="translate(1.5)"/>
+                    <path stroke="#090809" opacity=".24" d="M2 0v36.429"/>
+                </g>
+                <g mask="url(#p6bel0rocN)" stroke-width=".3">
+                    <path stroke="url(#pusir1tzgi)" d="M.8 0v36.429" transform="translate(65.271)"/>
+                    <path stroke="#090809" opacity=".24" d="M65.771 0v36.429"/>
+                </g>
+            </g>
+            <g transform="translate(231.429 368.286)">
+                <mask id="y5it5sun5P" fill="#fff">
+                    <use xlink:href="#x4z9cjq0zO"/>
+                </mask>
+                <use fill="url(#5xh2kmkteg)" xlink:href="#x4z9cjq0zO"/>
+                <g mask="url(#y5it5sun5P)" stroke-width=".3">
+                    <path stroke="url(#pusir1tzgi)" d="M.8 0v36.429" transform="translate(1.5)"/>
+                    <path stroke="#090809" opacity=".24" d="M2 0v36.429"/>
+                </g>
+                <g mask="url(#y5it5sun5P)" stroke-width=".3">
+                    <path stroke="url(#pusir1tzgi)" d="M.8 0v36.429" transform="translate(65.271)"/>
+                    <path stroke="#090809" opacity=".24" d="M65.771 0v36.429"/>
+                </g>
+            </g>
+            <g transform="translate(162.857 404.714)">
+                <mask id="sr0arzx35R" fill="#fff">
+                    <use xlink:href="#d0l275isaQ"/>
+                </mask>
+                <use fill="url(#5xh2kmkteg)" xlink:href="#d0l275isaQ"/>
+                <g mask="url(#sr0arzx35R)" stroke-width=".3">
+                    <path stroke="url(#pusir1tzgi)" d="M.8 0v36.429" transform="translate(1.5)"/>
+                    <path stroke="#090809" opacity=".24" d="M2 0v36.429"/>
+                </g>
+                <g mask="url(#sr0arzx35R)" stroke-width=".3">
+                    <path stroke="url(#pusir1tzgi)" d="M.8 0v36.429" transform="translate(65.271)"/>
+                    <path stroke="#090809" opacity=".24" d="M65.771 0v36.429"/>
+                </g>
+            </g>
+            <g transform="translate(94.286 441.143)">
+                <mask id="opnz5odz1T" fill="#fff">
+                    <use xlink:href="#wwvxh8p7zS"/>
+                </mask>
+                <use fill="url(#5xh2kmkteg)" xlink:href="#wwvxh8p7zS"/>
+                <g mask="url(#opnz5odz1T)" stroke-width=".3">
+                    <path stroke="url(#pusir1tzgi)" d="M.8 0v36.429" transform="translate(1.5)"/>
+                    <path stroke="#090809" opacity=".24" d="M2 0v36.429"/>
+                </g>
+                <g mask="url(#opnz5odz1T)" stroke-width=".3">
+                    <path stroke="url(#pusir1tzgi)" d="M.8 0v36.429" transform="translate(65.271)"/>
+                    <path stroke="#090809" opacity=".24" d="M65.771 0v36.429"/>
+                </g>
+            </g>
+            <g transform="translate(231.429 441.143)">
+                <mask id="ld66tpv1uV" fill="#fff">
+                    <use xlink:href="#qqqc1qxtiU"/>
+                </mask>
+                <use fill="url(#5xh2kmkteg)" xlink:href="#qqqc1qxtiU"/>
+                <g mask="url(#ld66tpv1uV)" stroke-width=".3">
+                    <path stroke="url(#pusir1tzgi)" d="M.8 0v36.429" transform="translate(1.5)"/>
+                    <path stroke="#090809" opacity=".24" d="M2 0v36.429"/>
+                </g>
+                <g mask="url(#ld66tpv1uV)" stroke-width=".3">
+                    <path stroke="url(#pusir1tzgi)" d="M.8 0v36.429" transform="translate(65.271)"/>
+                    <path stroke="#090809" opacity=".24" d="M65.771 0v36.429"/>
+                </g>
+            </g>
+        </g>
+        <g>
+            <path fill="url(#88sq0x4gye)" d="M0 0h68.571v36.429H0z" transform="translate(162.857 40.429)"/>
+            <g stroke-width=".3">
+                <path stroke="url(#pusir1tzgi)" d="M.8 0v36.429" transform="translate(164.464 40.429)"/>
+                <path stroke="#090809" d="M164.964 40.429v36.429"/>
+                <g>
+                    <path stroke="url(#pusir1tzgi)" d="M.8 0v36.429" transform="translate(227.986 40.429)"/>
+                    <path stroke="#090809" d="M228.486 40.429v36.429"/>
+                </g>
+            </g>
+            <path fill="url(#88sq0x4gye)" d="M0 0h68.571v36.429H0z" transform="translate(94.286 76.857)"/>
+            <g stroke-width=".3">
+                <path stroke="url(#pusir1tzgi)" d="M.8 0v36.429" transform="translate(95.893 76.857)"/>
+                <path stroke="#090809" d="M96.393 76.857v36.43"/>
+                <g>
+                    <path stroke="url(#pusir1tzgi)" d="M.8 0v36.429" transform="translate(159.414 76.857)"/>
+                    <path stroke="#090809" d="M159.914 76.857v36.43"/>
+                </g>
+            </g>
+            <path fill="url(#88sq0x4gye)" d="M0 0h68.571v36.429H0z" transform="translate(231.429 76.857)"/>
+            <g stroke-width=".3">
+                <path stroke="url(#pusir1tzgi)" d="M.8 0v36.429" transform="translate(233.036 76.857)"/>
+                <path stroke="#090809" d="M233.536 76.857v36.43"/>
+                <g>
+                    <path stroke="url(#pusir1tzgi)" d="M.8 0v36.429" transform="translate(296.557 76.857)"/>
+                    <path stroke="#090809" d="M297.057 76.857v36.43"/>
+                </g>
+            </g>
+            <path fill="url(#88sq0x4gye)" d="M0 0h68.571v36.429H0z" transform="translate(162.857 113.286)"/>
+            <g stroke-width=".3">
+                <path stroke="url(#pusir1tzgi)" d="M.8 0v36.429" transform="translate(164.464 113.286)"/>
+                <path stroke="#090809" d="M164.964 113.286v36.429"/>
+                <g>
+                    <path stroke="url(#pusir1tzgi)" d="M.8 0v36.429" transform="translate(227.986 113.286)"/>
+                    <path stroke="#090809" d="M228.486 113.286v36.429"/>
+                </g>
+            </g>
+            <path fill="url(#88sq0x4gye)" d="M0 0h68.571v36.429H0z" transform="translate(162.857 149.714)"/>
+            <g stroke-width=".3">
+                <path stroke="url(#pusir1tzgi)" d="M.8 0v36.429" transform="translate(164.464 149.714)"/>
+                <path stroke="#090809" d="M164.964 149.714v36.43"/>
+                <g>
+                    <path stroke="url(#pusir1tzgi)" d="M.8 0v36.429" transform="translate(227.986 149.714)"/>
+                    <path stroke="#090809" d="M228.486 149.714v36.43"/>
+                </g>
+            </g>
+            <path fill="url(#88sq0x4gye)" d="M0 0h68.571v36.429H0z" transform="translate(94.286 149.714)"/>
+            <g stroke-width=".3">
+                <path stroke="url(#pusir1tzgi)" d="M.8 0v36.429" transform="translate(95.893 149.714)"/>
+                <path stroke="#090809" d="M96.393 149.714v36.43"/>
+                <g>
+                    <path stroke="url(#pusir1tzgi)" d="M.8 0v36.429" transform="translate(159.414 149.714)"/>
+                    <path stroke="#090809" d="M159.914 149.714v36.43"/>
+                </g>
+            </g>
+            <path fill="url(#88sq0x4gye)" d="M0 0h68.571v36.429H0z" transform="translate(94.286 186.143)"/>
+            <g stroke-width=".3">
+                <path stroke="url(#pusir1tzgi)" d="M.8 0v36.429" transform="translate(95.893 186.143)"/>
+                <path stroke="#090809" d="M96.393 186.143v36.429"/>
+                <g>
+                    <path stroke="url(#pusir1tzgi)" d="M.8 0v36.429" transform="translate(159.414 186.143)"/>
+                    <path stroke="#090809" d="M159.914 186.143v36.429"/>
+                </g>
+            </g>
+            <path fill="url(#88sq0x4gye)" d="M0 0h68.571v36.429H0z" transform="translate(231.429 186.143)"/>
+            <g stroke-width=".3">
+                <path stroke="url(#pusir1tzgi)" d="M.8 0v36.429" transform="translate(233.036 186.143)"/>
+                <path stroke="#090809" d="M233.536 186.143v36.429"/>
+                <g>
+                    <path stroke="url(#pusir1tzgi)" d="M.8 0v36.429" transform="translate(296.557 186.143)"/>
+                    <path stroke="#090809" d="M297.057 186.143v36.429"/>
+                </g>
+            </g>
+            <path fill="url(#88sq0x4gye)" d="M0 0h68.571v36.429H0z" transform="translate(162.857 222.571)"/>
+            <g stroke-width=".3">
+                <path stroke="url(#pusir1tzgi)" d="M.8 0v36.429" transform="translate(164.464 222.571)"/>
+                <path stroke="#090809" d="M164.964 222.571v36.43"/>
+                <g>
+                    <path stroke="url(#pusir1tzgi)" d="M.8 0v36.429" transform="translate(227.986 222.571)"/>
+                    <path stroke="#090809" d="M228.486 222.571v36.43"/>
+                </g>
+            </g>
+            <g>
+                <path fill="url(#88sq0x4gye)" d="M0 0h68.571v36.429H0z" transform="translate(162.857 259)"/>
+                <g stroke-width=".3">
+                    <path stroke="url(#pusir1tzgi)" d="M.8 0v36.429" transform="translate(164.464 259)"/>
+                    <path stroke="#090809" d="M164.964 259v36.429"/>
+                    <g>
+                        <path stroke="url(#pusir1tzgi)" d="M.8 0v36.429" transform="translate(227.986 259)"/>
+                        <path stroke="#090809" d="M228.486 259v36.429"/>
+                    </g>
+                </g>
+            </g>
+            <g>
+                <path fill="url(#88sq0x4gye)" d="M0 0h68.571v36.429H0z" transform="translate(94.286 295.429)"/>
+                <g stroke-width=".3">
+                    <path stroke="url(#pusir1tzgi)" d="M.8 0v36.429" transform="translate(95.893 295.429)"/>
+                    <path stroke="#090809" d="M96.393 295.429v36.429"/>
+                    <g>
+                        <path stroke="url(#pusir1tzgi)" d="M.8 0v36.429" transform="translate(159.414 295.429)"/>
+                        <path stroke="#090809" d="M159.914 295.429v36.429"/>
+                    </g>
+                </g>
+            </g>
+            <g>
+                <path fill="url(#88sq0x4gye)" d="M0 0h68.571v36.429H0z" transform="translate(231.429 295.429)"/>
+                <g stroke-width=".3">
+                    <path stroke="url(#pusir1tzgi)" d="M.8 0v36.429" transform="translate(233.036 295.429)"/>
+                    <path stroke="#090809" d="M233.536 295.429v36.429"/>
+                    <g>
+                        <path stroke="url(#pusir1tzgi)" d="M.8 0v36.429" transform="translate(296.557 295.429)"/>
+                        <path stroke="#090809" d="M297.057 295.429v36.429"/>
+                    </g>
+                </g>
+            </g>
+            <g>
+                <path fill="url(#88sq0x4gye)" d="M0 0h68.571v36.429H0z" transform="translate(162.857 331.857)"/>
+                <g stroke-width=".3">
+                    <path stroke="url(#pusir1tzgi)" d="M.8 0v36.429" transform="translate(164.464 331.857)"/>
+                    <path stroke="#090809" d="M164.964 331.857v36.43"/>
+                    <g>
+                        <path stroke="url(#pusir1tzgi)" d="M.8 0v36.429" transform="translate(227.986 331.857)"/>
+                        <path stroke="#090809" d="M228.486 331.857v36.43"/>
+                    </g>
+                </g>
+            </g>
+            <g>
+                <path fill="url(#88sq0x4gye)" d="M0 0h68.571v36.429H0z" transform="translate(94.286 368.286)"/>
+                <g stroke-width=".3">
+                    <path stroke="url(#pusir1tzgi)" d="M.8 0v36.429" transform="translate(95.893 368.286)"/>
+                    <path stroke="#090809" d="M96.393 368.286v36.429"/>
+                    <g>
+                        <path stroke="url(#pusir1tzgi)" d="M.8 0v36.429" transform="translate(159.414 368.286)"/>
+                        <path stroke="#090809" d="M159.914 368.286v36.429"/>
+                    </g>
+                </g>
+            </g>
+            <g>
+                <path fill="url(#88sq0x4gye)" d="M0 0h68.571v36.429H0z" transform="translate(162.857 368.286)"/>
+                <g stroke-width=".3">
+                    <path stroke="url(#pusir1tzgi)" d="M.8 0v36.429" transform="translate(164.464 368.286)"/>
+                    <path stroke="#090809" d="M164.964 368.286v36.429"/>
+                    <g>
+                        <path stroke="url(#pusir1tzgi)" d="M.8 0v36.429" transform="translate(227.986 368.286)"/>
+                        <path stroke="#090809" d="M228.486 368.286v36.429"/>
+                    </g>
+                </g>
+            </g>
+            <g>
+                <path fill="url(#88sq0x4gye)" d="M0 0h68.571v36.429H0z" transform="translate(94.286 404.714)"/>
+                <g stroke-width=".3">
+                    <path stroke="url(#pusir1tzgi)" d="M.8 0v36.429" transform="translate(95.893 404.714)"/>
+                    <path stroke="#090809" d="M96.393 404.714v36.43"/>
+                    <g>
+                        <path stroke="url(#pusir1tzgi)" d="M.8 0v36.429" transform="translate(159.414 404.714)"/>
+                        <path stroke="#090809" d="M159.914 404.714v36.43"/>
+                    </g>
+                </g>
+            </g>
+            <g>
+                <path fill="url(#88sq0x4gye)" d="M0 0h68.571v36.429H0z" transform="translate(231.429 404.714)"/>
+                <g stroke-width=".3">
+                    <path stroke="url(#pusir1tzgi)" d="M.8 0v36.429" transform="translate(233.036 404.714)"/>
+                    <path stroke="#090809" d="M233.536 404.714v36.43"/>
+                    <g>
+                        <path stroke="url(#pusir1tzgi)" d="M.8 0v36.429" transform="translate(296.557 404.714)"/>
+                        <path stroke="#090809" d="M297.057 404.714v36.43"/>
+                    </g>
+                </g>
+            </g>
+            <g>
+                <path fill="url(#88sq0x4gye)" d="M0 0h68.571v36.429H0z" transform="translate(162.857 441.143)"/>
+                <g stroke-width=".3">
+                    <path stroke="url(#pusir1tzgi)" d="M.8 0v36.429" transform="translate(164.464 441.143)"/>
+                    <path stroke="#090809" d="M164.964 441.143v36.429"/>
+                    <g>
+                        <path stroke="url(#pusir1tzgi)" d="M.8 0v36.429" transform="translate(227.986 441.143)"/>
+                        <path stroke="#090809" d="M228.486 441.143v36.429"/>
+                    </g>
+                </g>
+            </g>
+        </g>
+        <g stroke-linecap="square" stroke-width=".5">
+            <path stroke="url(#ty2au1go1W)" transform="rotate(-90 146.532 -98.866)" d="M42.594-42.094v85.188"/>
+            <path stroke="#090809" opacity=".24" d="M203.303 5.393h85.715"/>
+            <path stroke="url(#wth7xlzr0X)" transform="rotate(-90 147.332 -98.063)" d="M43.127-42.627v86.254"/>
+            <path stroke="#090809" opacity=".24" d="M202.768 6.464h86.785"/>
+            <g>
+                <path stroke="url(#aa3nog2iwY)" transform="rotate(-90 148.397 -96.991)" d="M44.191-43.691v88.382"/>
+                <path stroke="#090809" opacity=".24" d="M201.696 7.536h88.93"/>
+            </g>
+            <g>
+                <path stroke="url(#cve1qwrk0Z)" transform="translate(284.009 26.67)" d="M13.313-12.491v25.982"/>
+                <path stroke="#090809" opacity=".24" d="M297 13.857V40.16"/>
+            </g>
+        </g>
+        <g stroke-linecap="square" stroke-width=".5">
+            <path stroke="url(#ty2au1go1W)" transform="rotate(-90 97.916 -50.25)" d="M42.594-42.094v85.188"/>
+            <path stroke="#090809" opacity=".24" d="M106.071 5.393h85.715"/>
+            <path stroke="url(#wth7xlzr0X)" transform="rotate(-90 98.448 -49.179)" d="M43.127-42.627v86.254"/>
+            <path stroke="#090809" opacity=".24" d="M105 6.464h86.785"/>
+            <g>
+                <path stroke="url(#aa3nog2iwY)" transform="rotate(-90 99.379 -47.973)" d="M44.191-43.691v88.382"/>
+                <path stroke="#090809" opacity=".24" d="M103.66 7.536h88.93"/>
+            </g>
+            <g>
+                <path stroke="url(#ukrks3b7saa)" transform="translate(83.866 26.777)" d="M12.884-12.384v25.768"/>
+                <path stroke="#090809" opacity=".24" d="M96.429 14.714v25.447"/>
+            </g>
+        </g>
+        <g>
+            <g transform="translate(0 441.143)">
+                <mask id="a2h539bvjac" fill="#fff">
+                    <use xlink:href="#mk8rwn6wpab"/>
+                </mask>
+                <g stroke-width=".5" mask="url(#a2h539bvjac)">
+                    <path stroke="url(#1722bpg73ad)" d="M.857 0v23.571" transform="rotate(135 -.265 21.946)"/>
+                    <path stroke="#090809" opacity=".24" d="M14.687 38.031-1.98 21.364"/>
+                    <g>
+                        <path stroke="url(#g8riew9zeae)" d="M.857 0v19.286" transform="rotate(135 -1.872 21.28)"/>
+                        <path stroke="#090809" opacity=".24" d="M11.472 38.031-2.165 24.394"/>
+                    </g>
+                </g>
+            </g>
+            <g transform="matrix(1 0 0 -1 0 76.857)">
+                <mask id="wjsiwghskag" fill="#fff">
+                    <use xlink:href="#uhz9vjqsnaf"/>
+                </mask>
+                <g stroke-width=".5" mask="url(#wjsiwghskag)">
+                    <path stroke="url(#1722bpg73ad)" d="M.857 0v23.571" transform="rotate(135 -.265 21.946)"/>
+                    <path stroke="#090809" opacity=".24" d="M14.687 38.031-1.98 21.364"/>
+                    <g>
+                        <path stroke="url(#g8riew9zeae)" d="M.857 0v19.286" transform="rotate(135 -1.872 21.28)"/>
+                        <path stroke="#090809" opacity=".24" d="M11.472 38.031-2.165 24.394"/>
+                    </g>
+                </g>
+            </g>
+            <g transform="matrix(1 0 0 -1 94.286 40.429)">
+                <mask id="bt0r8rhhpai" fill="#fff">
+                    <use xlink:href="#bbjbleue5ah"/>
+                </mask>
+                <g stroke-width=".5" mask="url(#bt0r8rhhpai)">
+                    <path stroke="url(#1722bpg73ad)" d="M.857 0v23.571" transform="rotate(135 -.265 21.946)"/>
+                    <path stroke="#090809" opacity=".24" d="M14.687 38.031-1.98 21.364"/>
+                    <g>
+                        <path stroke="url(#g8riew9zeae)" d="M.857 0v19.286" transform="rotate(135 -1.872 21.28)"/>
+                        <path stroke="#090809" opacity=".24" d="M11.472 38.031-2.165 24.394"/>
+                    </g>
+                </g>
+            </g>
+            <g transform="rotate(180 150 20.214)">
+                <mask id="kgcomuwzdak" fill="#fff">
+                    <use xlink:href="#p5qb9rop1aj"/>
+                </mask>
+                <g stroke-width=".5" mask="url(#kgcomuwzdak)">
+                    <path stroke="url(#1722bpg73ad)" d="M.857 0v23.571" transform="rotate(135 -.265 21.946)"/>
+                    <path stroke="#090809" opacity=".24" d="M14.687 38.031-1.98 21.364"/>
+                    <g>
+                        <path stroke="url(#g8riew9zeae)" d="M.857 0v19.286" transform="rotate(135 -1.872 21.28)"/>
+                        <path stroke="#090809" opacity=".24" d="M11.472 38.031-2.165 24.394"/>
+                    </g>
+                </g>
+            </g>
+            <g transform="translate(94.286 477.571)">
+                <mask id="cyac47m8sam" fill="#fff">
+                    <use xlink:href="#earlpceujal"/>
+                </mask>
+                <g stroke-width=".5" mask="url(#cyac47m8sam)">
+                    <path stroke="url(#1722bpg73ad)" d="M.857 0v23.571" transform="rotate(135 -.265 21.946)"/>
+                    <path stroke="#090809" opacity=".24" d="M14.687 38.031-1.98 21.364"/>
+                    <g>
+                        <path stroke="url(#g8riew9zeae)" d="M.857 0v19.286" transform="rotate(135 -1.872 21.28)"/>
+                        <path stroke="#090809" opacity=".24" d="M11.472 38.031-2.165 24.394"/>
+                    </g>
+                </g>
+            </g>
+            <g transform="matrix(-1 0 0 1 300 477.571)">
+                <mask id="ekjupmic3ao" fill="#fff">
+                    <use xlink:href="#ys38z6vgyan"/>
+                </mask>
+                <g stroke-width=".5" mask="url(#ekjupmic3ao)">
+                    <path stroke="url(#1722bpg73ad)" d="M.857 0v23.571" transform="rotate(135 -.265 21.946)"/>
+                    <path stroke="#090809" opacity=".24" d="M14.687 38.031-1.98 21.364"/>
+                    <g>
+                        <path stroke="url(#g8riew9zeae)" d="M.857 0v19.286" transform="rotate(135 -1.872 21.28)"/>
+                        <path stroke="#090809" opacity=".24" d="M11.472 38.031-2.165 24.394"/>
+                    </g>
+                </g>
+            </g>
+        </g>
+        <path fill="url(#ohkggnf88ap)" opacity=".7" style="mix-blend-mode:overlay" filter="url(#v5as1unf0aq)" d="M100.714 0h192.857v32.143H100.714z" transform="translate(0 4)"/>
+        <g>
+            <text font-family="Cinzel-Medium, Cinzel" font-size="22.5" font-weight="400" letter-spacing="1.071" fill="#FFF" transform="translate(7.5 9.357)">
+                                <tspan x="182.188" y="22">0</tspan>
+                            </text>
+            <text font-family="Cinzel-Medium, Cinzel" font-size="22.5" font-weight="400" letter-spacing="1.071" fill="#FFF" transform="translate(7.5 9.357)">
+                                <tspan x="116.486" y="56.286">1</tspan>
+                            </text>
+            <text font-family="Cinzel-Medium, Cinzel" font-size="22.5" font-weight="400" letter-spacing="1.071" fill="#FFF" transform="translate(7.5 9.357)">
+                                <tspan x="113.842" y="92.714">4</tspan>
+                            </text>
+            <text font-family="Cinzel-Medium, Cinzel" font-size="22.5" font-weight="400" letter-spacing="1.071" fill="#FFF" transform="translate(7.5 9.357)">
+                                <tspan x="182.65" y="56.286">2</tspan>
+                            </text>
+            <text font-family="Cinzel-Medium, Cinzel" font-size="22.5" font-weight="400" letter-spacing="1.071" fill="#FFF" transform="translate(7.5 9.357)">
+                                <tspan x="183.291" y="92.714">5</tspan>
+                            </text>
+            <text font-family="Cinzel-Medium, Cinzel" font-size="22.5" font-weight="400" letter-spacing="1.071" fill="#FFF" transform="translate(7.5 9.357)">
+                                <tspan x="251.795" y="56.286">3</tspan>
+                            </text>
+            <text font-family="Cinzel-Medium, Cinzel" font-size="22.5" font-weight="400" letter-spacing="1.071" fill="#FFF" transform="translate(7.5 9.357)">
+                                <tspan x="251.12" y="92.714">6</tspan>
+                            </text>
+            <text font-family="Cinzel-Medium, Cinzel" font-size="22.5" font-weight="400" letter-spacing="1.071" fill="#FFF" transform="translate(7.5 9.357)">
+                                <tspan x="114.731" y="129.143">7</tspan>
+                            </text>
+            <text font-family="Cinzel-Medium, Cinzel" font-size="22.5" font-weight="400" letter-spacing="1.071" fill="#FFF" transform="translate(7.5 9.357)">
+                                <tspan x="182.706" y="129.143">8</tspan>
+                            </text>
+            <text font-family="Cinzel-Medium, Cinzel" font-size="22.5" font-weight="400" letter-spacing="1.071" fill="#FFF" transform="translate(7.5 9.357)">
+                                <tspan x="251.12" y="129.143">9</tspan>
+                            </text>
+            <text font-family="Cinzel-Medium, Cinzel" font-size="22.5" font-weight="400" letter-spacing="1.071" fill="#FFF" transform="translate(7.5 9.357)">
+                                <tspan x="109.031" y="165.571">10</tspan>
+                            </text>
+            <text font-family="Cinzel-Medium, Cinzel" font-size="22.5" font-weight="400" letter-spacing="1.071" fill="#FFF" transform="translate(7.5 9.357)">
+                                <tspan x="180.156" y="165.571">11</tspan>
+                            </text>
+            <text font-family="Cinzel-Medium, Cinzel" font-size="22.5" font-weight="400" letter-spacing="1.071" fill="#FFF" transform="translate(7.5 9.357)">
+                                <tspan x="246.635" y="165.571">12</tspan>
+                            </text>
+            <text font-family="Cinzel-Medium, Cinzel" font-size="22.5" font-weight="400" letter-spacing="1.071" fill="#FFF" transform="translate(7.5 9.357)">
+                                <tspan x="110.066" y="202">13</tspan>
+                            </text>
+            <text font-family="Cinzel-Medium, Cinzel" font-size="22.5" font-weight="400" letter-spacing="1.071" fill="#FFF" transform="translate(7.5 9.357)">
+                                <tspan x="177.963" y="202">14</tspan>
+                            </text>
+            <text font-family="Cinzel-Medium, Cinzel" font-size="22.5" font-weight="400" letter-spacing="1.071" fill="#FFF" transform="translate(7.5 9.357)">
+                                <tspan x="247.277" y="202">15</tspan>
+                            </text>
+            <text font-family="Cinzel-Medium, Cinzel" font-size="22.5" font-weight="400" letter-spacing="1.071" fill="#FFF" transform="translate(7.5 9.357)">
+                                <tspan x="109.391" y="238.429">16</tspan>
+                            </text>
+            <text font-family="Cinzel-Medium, Cinzel" font-size="22.5" font-weight="400" letter-spacing="1.071" fill="#FFF" transform="translate(7.5 9.357)">
+                                <tspan x="178.716" y="238.429">17</tspan>
+                            </text>
+            <text font-family="Cinzel-Medium, Cinzel" font-size="22.5" font-weight="400" letter-spacing="1.071" fill="#FFF" transform="translate(7.5 9.357)">
+                                <tspan x="246.692" y="238.429">18</tspan>
+                            </text>
+            <text font-family="Cinzel-Medium, Cinzel" font-size="22.5" font-weight="400" letter-spacing="1.071" fill="#FFF" transform="translate(7.5 9.357)">
+                                <tspan x="109.425" y="274.857">19</tspan>
+                            </text>
+            <text font-family="Cinzel-Medium, Cinzel" font-size="22.5" font-weight="400" letter-spacing="1.071" fill="#FFF" transform="translate(7.5 9.357)">
+                                <tspan x="175.173" y="274.857">20</tspan>
+                            </text>
+            <text font-family="Cinzel-Medium, Cinzel" font-size="22.5" font-weight="400" letter-spacing="1.071" fill="#FFF" transform="translate(7.5 9.357)">
+                                <tspan x="246.635" y="274.857">21</tspan>
+                            </text>
+            <text font-family="Cinzel-Medium, Cinzel" font-size="22.5" font-weight="400" letter-spacing="1.071" fill="#FFF" transform="translate(7.5 9.357)">
+                                <tspan x="107.085" y="311.286">22</tspan>
+                            </text>
+            <text font-family="Cinzel-Medium, Cinzel" font-size="22.5" font-weight="400" letter-spacing="1.071" fill="#FFF" transform="translate(7.5 9.357)">
+                                <tspan x="176.298" y="311.286">23</tspan>
+                            </text>
+            <text font-family="Cinzel-Medium, Cinzel" font-size="22.5" font-weight="400" letter-spacing="1.071" fill="#FFF" transform="translate(7.5 9.357)">
+                                <tspan x="244.127" y="311.286">24</tspan>
+                            </text>
+            <text font-family="Cinzel-Medium, Cinzel" font-size="22.5" font-weight="400" letter-spacing="1.071" fill="#FFF" transform="translate(7.5 9.357)">
+                                <tspan x="107.726" y="347.714">25</tspan>
+                            </text>
+            <text font-family="Cinzel-Medium, Cinzel" font-size="22.5" font-weight="400" letter-spacing="1.071" fill="#FFF" transform="translate(7.5 9.357)">
+                                <tspan x="175.555" y="347.714">26</tspan>
+                            </text>
+            <text font-family="Cinzel-Medium, Cinzel" font-size="22.5" font-weight="400" letter-spacing="1.071" fill="#FFF" transform="translate(7.5 9.357)">
+                                <tspan x="244.88" y="347.714">27</tspan>
+                            </text>
+            <text font-family="Cinzel-Medium, Cinzel" font-size="22.5" font-weight="400" letter-spacing="1.071" fill="#FFF" transform="translate(7.5 9.357)">
+                                <tspan x="107.141" y="384.143">28</tspan>
+                            </text>
+            <text font-family="Cinzel-Medium, Cinzel" font-size="22.5" font-weight="400" letter-spacing="1.071" fill="#FFF" transform="translate(7.5 9.357)">
+                                <tspan x="175.578" y="384.143">29</tspan>
+                            </text>
+            <text font-family="Cinzel-Medium, Cinzel" font-size="22.5" font-weight="400" letter-spacing="1.071" fill="#FFF" transform="translate(7.5 9.357)">
+                                <tspan x="244.307" y="384.143">30</tspan>
+                            </text>
+            <text font-family="Cinzel-Medium, Cinzel" font-size="22.5" font-weight="400" letter-spacing="1.071" fill="#FFF" transform="translate(7.5 9.357)">
+                                <tspan x="110.066" y="420.571">31</tspan>
+                            </text>
+            <text font-family="Cinzel-Medium, Cinzel" font-size="22.5" font-weight="400" letter-spacing="1.071" fill="#FFF" transform="translate(7.5 9.357)">
+                                <tspan x="176.23" y="420.571">32</tspan>
+                            </text>
+            <text font-family="Cinzel-Medium, Cinzel" font-size="22.5" font-weight="400" letter-spacing="1.071" fill="#FFF" transform="translate(7.5 9.357)">
+                                <tspan x="245.375" y="420.571">33</tspan>
+                            </text>
+            <text font-family="Cinzel-Medium, Cinzel" font-size="22.5" font-weight="400" letter-spacing="1.071" fill="#FFF" transform="translate(7.5 9.357)">
+                                <tspan x="107.389" y="457">34</tspan>
+                            </text>
+            <text font-family="Cinzel-Medium, Cinzel" font-size="22.5" font-weight="400" letter-spacing="1.071" fill="#FFF" transform="translate(7.5 9.357)">
+                                <tspan x="176.871" y="457">35</tspan>
+                            </text>
+            <text font-family="Cinzel-Medium, Cinzel" font-size="22.5" font-weight="400" letter-spacing="1.071" fill="#FFF" transform="translate(7.5 9.357)">
+                                <tspan x="244.7" y="457">36</tspan>
+                            </text>
+            <g fill="#FFF" font-family="Cinzel-Medium, Cinzel" font-weight="400" letter-spacing=".429">
+                <text font-size="19.286" transform="translate(109.893 482.929)">
+                                    <tspan x=".501" y="19">2</tspan>
+                                </text>
+                <text font-size="9.643" transform="translate(109.893 482.929)">
+                                    <tspan x="12.857" y="13.286">TO</tspan>
+                                </text>
+                <text font-size="19.286" transform="translate(109.893 482.929)">
+                                    <tspan x="27.857" y="19">1</tspan>
+                                </text>
+            </g>
+            <g fill="#FFF" font-family="Cinzel-Medium, Cinzel" font-weight="400" letter-spacing=".429">
+                <text font-size="19.286" transform="translate(178.464 482.929)">
+                                    <tspan x=".501" y="19">2</tspan>
+                                </text>
+                <text font-size="9.643" transform="translate(178.464 482.929)">
+                                    <tspan x="12.857" y="13.286">TO</tspan>
+                                </text>
+                <text font-size="19.286" transform="translate(178.464 482.929)">
+                                    <tspan x="27.857" y="19">1</tspan>
+                                </text>
+            </g>
+            <g fill="#FFF" font-family="Cinzel-Medium, Cinzel" font-weight="400" letter-spacing=".429">
+                <text font-size="19.286" transform="translate(247.036 482.929)">
+                                    <tspan x=".501" y="19">2</tspan>
+                                </text>
+                <text font-size="9.643" transform="translate(247.036 482.929)">
+                                    <tspan x="12.857" y="13.286">TO</tspan>
+                                </text>
+                <text font-size="19.286" transform="translate(247.036 482.929)">
+                                    <tspan x="27.857" y="19">1</tspan>
+                                </text>
+            </g>
+            <g fill="#FFF" font-family="Cinzel-Medium, Cinzel" font-weight="400">
+                <text font-size="22.5" letter-spacing="1.071" transform="rotate(90 .107 84.536)">
+                                        <tspan x=".829" y="22">1</tspan>
+                                    </text>
+                <text font-size="11.786" letter-spacing=".429" transform="rotate(90 .107 84.536)">
+                                        <tspan x="10.714" y="15.214">ST</tspan>
+                                    </text>
+                <text font-size="22.5" letter-spacing="1.071" transform="rotate(90 .107 84.536)">
+                                        <tspan x="26.786" y="22"> 12</tspan>
+                                    </text>
+                <g>
+                    <text font-size="22.5" letter-spacing="1.071" transform="rotate(90 -72.214 156.857)">
+                                        <tspan x=".014" y="22">2</tspan>
+                                    </text>
+                    <text font-size="11.786" letter-spacing=".429" transform="rotate(90 -72.214 156.857)">
+                                        <tspan x="15" y="15.214">ST</tspan>
+                                    </text>
+                    <text font-size="22.5" letter-spacing="1.071" transform="rotate(90 -72.214 156.857)">
+                                        <tspan x="31.071" y="22"> 12</tspan>
+                                    </text>
+                </g>
+                <g>
+                    <text font-size="22.5" letter-spacing="1.071" transform="rotate(90 -145.107 229.75)">
+                                        <tspan x=".161" y="22">3</tspan>
+                                    </text>
+                    <text font-size="11.786" letter-spacing=".429" transform="rotate(90 -145.107 229.75)">
+                                        <tspan x="13.929" y="15.214">RD</tspan>
+                                    </text>
+                    <text font-size="22.5" letter-spacing="1.071" transform="rotate(90 -145.107 229.75)">
+                                        <tspan x="31.071" y="22"> 12</tspan>
+                                    </text>
+                </g>
+            </g>
+            <text font-family="Cinzel-Medium, Cinzel" font-size="22.5" font-weight="400" letter-spacing="1.071" fill="#FFF" transform="rotate(90 -2.536 40.036)">
+                                    <tspan x="13.367" y="22">1-18</tspan>
+                                </text>
+            <text font-family="Cinzel-Medium, Cinzel" font-size="19.286" font-weight="400" letter-spacing="1.071" fill="#FFF" transform="rotate(90 -2.536 40.036)">
+                                    <tspan x="78.318" y="20.071">EVEN</tspan>
+                                </text>
+            <g transform="rotate(90 -2.536 40.036)">
+                <use fill="#000" filter="url(#nm264fywxar)" xlink:href="#zq4ta55a1as"/>
+                <use stroke="url(#ar6n6bi5yat)" stroke-width="1.071" fill="url(#w6qf7zox4au)" xlink:href="#zq4ta55a1as"/>
+            </g>
+            <g transform="rotate(90 -80.214 113.429)">
+                <mask id="j1l3w28txax" fill="#fff">
+                    <use xlink:href="#70gvylgu6av"/>
+                </mask>
+                <use fill="url(#1dm93mp16aw)" xlink:href="#70gvylgu6av"/>
+                <g mask="url(#j1l3w28txax)" stroke-width=".5">
+                    <path stroke="url(#mi8gkvnsmay)" d="M.857 0v21.429" transform="rotate(45 13.456 24.946)"/>
+                    <path stroke="#090809" opacity=".24" d="M21.96-1.83 6.807 13.323"/>
+                </g>
+                <g mask="url(#j1l3w28txax)" stroke-width=".5">
+                    <path stroke="url(#mi8gkvnsmay)" d="M.857 0v21.429" transform="rotate(45 9.576 26.553)"/>
+                    <path stroke="#090809" opacity=".24" d="M21.96 1.385 6.807 16.537"/>
+                </g>
+            </g>
+            <path d="m253.027 4.342 27.996 9.332a.268.268 0 0 1 0 .509l-27.996 9.332a.536.536 0 0 1-.34 0l-27.996-9.332a.268.268 0 0 1 0-.509l27.997-9.332a.536.536 0 0 1 .339 0z" stroke="url(#ar6n6bi5yat)" stroke-width="1.071" fill="url(#bw338hjw2az)" transform="rotate(90 -2.536 40.036)"/>
+            <g transform="rotate(90 -116.643 149.857)">
+                <mask id="5l753gkxzaB" fill="#fff">
+                    <use xlink:href="#jvhg50pf5aA"/>
+                </mask>
+                <use fill="url(#bw338hjw2az)" xlink:href="#jvhg50pf5aA"/>
+                <g mask="url(#5l753gkxzaB)" stroke-width=".5">
+                    <path stroke="url(#mi8gkvnsmay)" d="M.857 0v21.429" transform="rotate(45 13.456 24.946)"/>
+                    <path stroke="#090809" opacity=".24" d="M21.96-1.83 6.807 13.323"/>
+                </g>
+                <g mask="url(#5l753gkxzaB)" stroke-width=".5">
+                    <path stroke="url(#mi8gkvnsmay)" d="M.857 0v21.429" transform="rotate(45 9.576 26.553)"/>
+                    <path stroke="#090809" opacity=".24" d="M21.96 1.385 6.807 16.537"/>
+                </g>
+            </g>
+            <text font-family="Cinzel-Medium, Cinzel" font-size="19.286" font-weight="400" letter-spacing="1.071" fill="#FFF" transform="rotate(90 -2.536 40.036)">
+                                    <tspan x="300.579" y="20.071">ODD</tspan>
+                                </text>
+            <text font-family="Cinzel-Medium, Cinzel" font-size="22.5" font-weight="400" letter-spacing="1.071" fill="#FFF" transform="rotate(90 -2.536 40.036)">
+                                    <tspan x="368.915" y="22">19-36</tspan>
+                                </text>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,21 @@
+<svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+        <linearGradient x1="50%" y1="132.336%" x2="50%" y2="0%" id="m17wr9nj5a">
+            <stop stop-color="#635C4D" offset="0%"/>
+            <stop stop-color="#FFF" offset="100%"/>
+        </linearGradient>
+        <filter x="-3.4%" y="-2.6%" width="106.7%" height="105.3%" filterUnits="objectBoundingBox" id="2g7cs7b0cc">
+            <feOffset dy="1" in="SourceAlpha" result="shadowOffsetInner1"/>
+            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner1"/>
+            <feColorMatrix values="0 0 0 0 0.882352941 0 0 0 0 0.870588235 0 0 0 0 0.82745098 0 0 0 0.08 0" in="shadowInnerInner1"/>
+        </filter>
+        <path d="m8.527 0 6.383 5.89-6.383 5.89V6.167a5.157 5.157 0 0 0-3.448 9.548 5.152 5.152 0 0 0 7.042-1.887 1.25 1.25 0 0 1 2.166 1.25A7.652 7.652 0 0 1 3.829 17.88 7.655 7.655 0 0 1 8.527 3.642V0z" id="t27t1mny7b"/>
+    </defs>
+    <g fill="none" fill-rule="evenodd">
+        <g fill-rule="nonzero" transform="translate(4.55 2.547)">
+            <use fill="url(#m17wr9nj5a)" xlink:href="#t27t1mny7b"/>
+            <use fill="#000" filter="url(#2g7cs7b0cc)" xlink:href="#t27t1mny7b"/>
+        </g>
+        <path d="M13.077 6.189v2.525a5.168 5.168 0 0 0-2.825.312c.815-.755 1.635-1.76 2.18-2.883.215.006.43.021.645.046z" fill="#A5A5A5"/>
+    </g>
+</svg>

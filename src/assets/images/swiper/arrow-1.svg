@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="375px" height="208px" viewBox="0 0 375 208" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>arrow-1</title>
+    <g id="Swiper" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" opacity="0.300000012">
+        <g id="Swipe-Up" transform="translate(0.000000, -187.000000)" fill="#FFFFFF">
+            <path d="M187.5,187 L375,374.83557 L375,394.83557 L187.5,207 L-5.68434189e-14,394.83557 L-5.68434189e-14,374.83557 L187.5,187 Z" id="arrow-1"></path>
+        </g>
+    </g>
+</svg>

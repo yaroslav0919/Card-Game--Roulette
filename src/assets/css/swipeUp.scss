@@ -1,0 +1,105 @@
+.o-swipe-up{
+  width: 100%;
+  height: 100%;
+  background-color: #1a1d21;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 99999999;
+  overflow: hidden;
+  user-select: none;
+  .swiper-closer{
+    position: fixed;
+    right: 10px;
+    top: 20px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url('../../components/Icons/icon-close.svg') center center no-repeat;
+    z-index: 999;
+  }
+  &__logo{
+    width: 118px;
+    height: 118px;
+    display: inline-flex;
+    position: absolute;
+    left: 50%;
+    top: 20px;
+    transform: translateX(-50%);
+    background: url('../images/swiper/logo-livegames.svg') center center no-repeat;
+    background-size: 118px 34px;
+    &:before{
+      font-size: 34px;
+    }
+  }
+
+  &__arrow{
+    width: 100%;
+    height: 450px;
+    display: inline-flex;
+    position: absolute;
+    left: 50%;
+    top: 5%;
+    transform: translateX(-50%);
+    background-color: rgba($color: #fff, $alpha: 0.5);
+    mask: url('../images/swiper/arrow-1.svg') center center no-repeat;
+  }
+
+  &__content{
+    width: 100%;
+    display: inline-flex;
+    flex-wrap: wrap;
+    position: absolute;
+    left: 0;
+    top: calc(100vh - 300px);
+    justify-content: center;
+    font-size: 16px;
+    color: #fff;
+    &__arrows{
+      width: 100%;
+      height: 100px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      justify-content: center;
+      position: relative;
+      span{
+        width: 100%;
+        margin-bottom: 5px;
+        flex-shrink: 0;
+        display: inline-flex;
+        justify-content: center;
+        animation: swipeUp 1.5s ease-in infinite;
+        &:nth-child(1){
+          width: 100%;
+          height: 36px;
+          display: flex;
+          background: url('../images/swiper/arrow-2.svg') center center no-repeat;
+          background-size: 36px 36px;
+        }
+        &:nth-child(2){
+          animation-delay: 0.1s;
+          width: 100%;
+          height: 26px;
+          margin-top: -55px;
+          background: url('../images/swiper/arrow-3.svg') center center no-repeat;
+          background-size: 26px 26px;
+        }
+      }
+    }
+  }
+}
+
+@keyframes swipeUp {
+  0%{
+    transform: translate(0, 0);
+  }
+  100%{
+    transform: translate(0, -60px);
+    opacity: 0;
+  }
+}

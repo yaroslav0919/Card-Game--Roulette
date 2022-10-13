@@ -1,0 +1,14 @@
+{
+  "urls": [
+    "music.ogg",
+    "music.m4a",
+    "music.mp3",
+    "music.ac3"
+  ],
+  "sprite": {
+    "bg-music": [
+      0,
+      115862.06349206349
+    ]
+  }
+}

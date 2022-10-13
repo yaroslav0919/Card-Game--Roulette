@@ -1,0 +1,51 @@
+.notification {
+  color: #fff;
+  font-size: 13px;
+  padding: 10px 15px 15px 15px;
+  border-radius: 16px;
+  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
+  border: solid 1px #4c5055;
+  background-color: rgba(34, 39, 45, 0.9);
+  box-sizing: border-box;
+  position: fixed;
+  right: 10px;
+  top: 10%;
+  transform: translate(-10%, 0%);
+  z-index: 10001;
+  width: 380px;
+
+  &-icon {
+    margin-left: -4px;
+    svg {
+      display: block;
+    }
+  }
+
+  &-header {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+  }
+
+  &-close {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+
+    svg {
+      display: block;
+    }
+  }
+
+  &-title {
+    letter-spacing: 0.4px;
+    margin-left: 5px;
+  }
+
+  &-content {
+    line-height: 1.46;
+    margin-top: 7px;
+  }
+}

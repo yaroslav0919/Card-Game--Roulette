@@ -1,0 +1,25 @@
+.favorites-wrapper {
+  height: 360px !important;
+  overflow-y: auto !important;
+  scrollbar-color: #505151 transparent !important;
+  scrollbar-width: 3px !important;
+
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: rgba(76, 80, 85, 0.3);
+    border-radius: 100px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 100px;
+    border-left: 0;
+    border-right: 0;
+    background-color: #fff;
+  }
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: #505151;
+  }
+}

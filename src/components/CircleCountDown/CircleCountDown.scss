@@ -1,0 +1,61 @@
+.circle-countdown {
+	position: absolute;
+  right: 2px;
+  top: 51px;
+	z-index: 1;
+  user-select: none;
+
+  @media only screen and (min-width: 992px) {
+		position: relative;
+		top: 10px;
+	}
+
+  &__number {
+		width: 100%;
+		height: 100%;
+		text-align: center;
+		position: absolute;
+		left: 0;
+		top: 0;
+		font-size: 30px;
+		line-height: 60px;
+		font-weight: 500;
+		color: #ffffff;
+		text-shadow: 0 3px 11px rgba(0,0,0,0.5);
+
+		.vip & {
+			font-family: "CinzelMedium";
+			font-weight: normal;
+			font-size: 29px;
+			text-align: center;
+			background-image: linear-gradient(to bottom, #fff, #8f9193);
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+		}
+  }
+
+	&__triangle {
+		margin: 0;
+		position: absolute;
+		top: 3px;
+		left: 3px;
+		width: 54px;
+		height: 54px;
+		z-index: 10;
+		transform-origin: 50% 50%;
+		will-change: transform;
+
+		@media only screen and (min-width: 992px) {
+			width: 64px;
+			height: 64px;
+		}
+
+		img {
+			position: absolute;
+			top: -5.5px;
+			left: 46%;
+			width: 18px;
+			transform: translateX(-50%);
+		}
+	}
+}

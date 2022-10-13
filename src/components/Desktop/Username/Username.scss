@@ -1,0 +1,11 @@
+.username {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.5);
+  margin-left: 10px;
+  display: flex;
+  align-items: center;
+  svg{
+    margin-right: 4px;
+    opacity: .5;
+  }
+}

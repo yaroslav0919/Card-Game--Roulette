@@ -1,0 +1,9 @@
+.statistics-standart {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 15px;
+
+  .statistics-hot, .statistics-cold {
+    padding-top: 18px;
+  }
+}

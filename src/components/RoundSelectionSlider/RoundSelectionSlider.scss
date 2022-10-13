@@ -1,0 +1,37 @@
+.round-selection {
+  border-radius: 8px;
+  background-color: rgba(34, 39, 45, 0.8);
+  box-sizing: border-box;
+  padding: 15px;
+
+  &__title {
+    font-size: 13px;
+    font-weight: 500;
+    color: #ffffff;
+    margin-bottom: 4px;
+  }
+
+  &__slider {
+    display: flex;
+    align-items: center;
+
+    & > div:not(.round-selection__label) {
+      width: 100%;
+      height: 4px;
+      background: #4c5055;
+    }
+  }
+
+  &__label {
+    height: 20px;
+    border-radius: 10px;
+    background-color: #4c5055;
+    font-size: 11px;
+    letter-spacing: 0.4px;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    padding: 0 8px;
+    margin-left: 15px;
+  }
+}

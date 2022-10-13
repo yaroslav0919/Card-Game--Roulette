@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="30px" height="20px" viewBox="0 0 30 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>icon/PT</title>
+    <g id="Menu" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Auto-Mobile---Menu---Dil-Secimi" transform="translate(-65.000000, -333.000000)">
+            <g id="languages" transform="translate(15.000000, 137.000000)">
+                <g id="Group-7" transform="translate(0.000000, 184.000000)">
+                    <g id="icon/PT" transform="translate(50.000000, 12.000000)">
+                        <rect id="Mask-Copy" fill="#FF2936" x="0" y="0" width="30" height="20" rx="2"></rect>
+                        <path d="M0,18.0092049 C0,19.1086907 0.896091834,20 2.0055715,20 L11.6666667,20 L11.6666667,0 L2.0055715,0 C0.897924946,0 0,0.898212381 0,1.99079514 L0,18.0092049 Z" id="Rectangle-2-Copy" fill="#128415"></path>
+                        <circle id="Oval-1" stroke="#FAF94F" stroke-width="1.33333333" cx="11.6666667" cy="10" r="3.33333333"></circle>
+                        <path d="M10.3333333,8.34103775 C10.3333333,8.1526878 10.4767049,8 10.660319,8 L12.6730143,8 C12.8536035,8 13,8.15192032 13,8.34103775 L13,10.6680579 C13,11.4036692 12.4081802,12 11.6666667,12 L11.6666667,12 C10.930287,12 10.3333333,11.4097862 10.3333333,10.6680579 L10.3333333,8.34103775 Z" id="Rectangle-429" fill="#FFFFFF"></path>
+                        <path d="M11.6666667,10.6666667 C12.0348565,10.6666667 12.3333333,9.70152317 12.3333333,9.33333333 C12.3333333,8.9651435 12.0348565,8.66666667 11.6666667,8.66666667 C11.2984768,8.66666667 11,8.9651435 11,9.33333333 C11,9.70152317 11.2984768,10.6666667 11.6666667,10.6666667 Z" id="Oval-27" fill="#1D50B5"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,24 @@
+<svg class="mobile-table-svg" width="301px" height="498px" viewBox="0 0 301 498" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>grids / grid / vip final</title>
+    <defs>
+        <linearGradient x1="50%" y1="100%" x2="50%" y2="3.061617e-15%" id="linearGradient-1">
+            <stop stop-color="#8D794E" offset="0%"></stop>
+            <stop stop-color="#E4D5A8" offset="100%"></stop>
+        </linearGradient>
+        <path d="M293,488 C288.029437,488 284,492.029437 284,497 L104,497 L104,497 C104,492.029437 99.9705627,488 95,488 L95,463 L16,463 L16,463 C16,458.029437 11.9705627,454 7,454 L7,263 L14,256 L7,249 L7,58 L7,58 C11.9705627,58 16,53.9705627 16,49 L95,49 L95,24 L95,24 C99.9705627,24 104,19.9705627 104,15 L184.833,14.9994917 L194,26 L203.167,14.9994917 L284,15 L284,15 C284,19.9705627 288.029437,24 293,24 L293,249 L286,256 L293,263 L293,488 L293,488 Z" id="path-2"></path>
+        <filter x="-0.3%" y="-0.2%" width="100.5%" height="100.4%" filterUnits="objectBoundingBox" id="filter-3">
+            <feMorphology radius="0.5" operator="dilate" in="SourceAlpha" result="shadowSpreadOuter1"></feMorphology>
+            <feOffset dx="0" dy="0.5" in="shadowSpreadOuter1" result="shadowOffsetOuter1"></feOffset>
+            <feMorphology radius="1" operator="erode" in="SourceAlpha" result="shadowInner"></feMorphology>
+            <feOffset dx="0" dy="0.5" in="shadowInner" result="shadowInner"></feOffset>
+            <feComposite in="shadowOffsetOuter1" in2="shadowInner" operator="out" result="shadowOffsetOuter1"></feComposite>
+            <feColorMatrix values="0 0 0 0 0.0352941176   0 0 0 0 0.031372549   0 0 0 0 0.0352941176  0 0 0 0.15 0" type="matrix" in="shadowOffsetOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="grids-/-grid-/-vip-final" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="gold-frame">
+            <use fill="black" fill-opacity="1" filter="url(#filter-3)" xlink:href="#path-2"></use>
+            <path stroke="url(#linearGradient-1)" stroke-width="0.5" d="M203.049906,14.7494909 L284.253488,14.7500016 C284.183374,17.2651248 285.17494,19.5493091 286.812816,21.1871843 C288.450691,22.8250599 290.734876,23.816626 293.25,23.7465121 L293.25,23.7465121 L293.25,249.103553 L286.353553,256 L293.25,262.896447 L293.25,488.253488 C290.734876,488.183374 288.450691,489.17494 286.812816,490.812816 C285.17494,492.450691 284.183374,494.734876 284.253488,497.25 L284.253488,497.25 L103.746512,497.25 C103.816626,494.734876 102.82506,492.450691 101.187184,490.812816 C99.5493088,489.17494 97.2651238,488.183374 94.75,488.253488 L94.75,488.253488 L94.75,463.25 L15.7465121,463.25 C15.816626,460.734876 14.8250599,458.450691 13.1871843,456.812816 C11.5493088,455.17494 9.26512381,454.183374 6.75,454.253488 L6.75,454.253488 L6.75,262.896447 L13.6464466,256 L6.75,249.103553 L6.75,57.7465121 C9.26512381,57.816626 11.5493088,56.8250599 13.1871843,55.1871843 C14.8250599,53.5493088 15.816626,51.2651238 15.7465121,48.75 L15.7465121,48.75 L94.75,48.75 L94.75,23.7465121 C97.2651238,23.816626 99.5493088,22.8250599 101.187184,21.1871843 C102.82506,19.5493091 103.816626,17.2651248 103.746512,14.7500016 L103.746512,14.7500016 L184.950094,14.7494909 L194,25.6094852 L203.049906,14.7494909 Z"></path>
+        </g>
+    </g>
+</svg>

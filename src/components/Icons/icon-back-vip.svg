@@ -1,0 +1,35 @@
+<svg width="25" height="24" viewBox="0 0 25 24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+        <linearGradient x1="50%" y1="132.336%" x2="50%" y2="0%" id="2hlawtwnda">
+            <stop stop-color="#635C4D" offset="0%"/>
+            <stop stop-color="#FFF" offset="100%"/>
+        </linearGradient>
+        <linearGradient x1="50%" y1="132.336%" x2="50%" y2="0%" id="kyi4q0u34d">
+            <stop stop-color="#635C4D" offset="0%"/>
+            <stop stop-color="#FFF" offset="100%"/>
+        </linearGradient>
+        <filter x="-6.7%" y="-4.2%" width="113.3%" height="108.3%" filterUnits="objectBoundingBox" id="udnvdmb9mc">
+            <feOffset dy="1" in="SourceAlpha" result="shadowOffsetInner1"/>
+            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner1"/>
+            <feColorMatrix values="0 0 0 0 0.882352941 0 0 0 0 0.870588235 0 0 0 0 0.82745098 0 0 0 0.08 0" in="shadowInnerInner1"/>
+        </filter>
+        <filter x="-6.2%" y="-16.7%" width="112.5%" height="133.3%" filterUnits="objectBoundingBox" id="4ww2w2aydf">
+            <feOffset dy="1" in="SourceAlpha" result="shadowOffsetInner1"/>
+            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner1"/>
+            <feColorMatrix values="0 0 0 0 0.882352941 0 0 0 0 0.870588235 0 0 0 0 0.82745098 0 0 0 0.08 0" in="shadowInnerInner1"/>
+        </filter>
+        <path id="h8udotvp9b" d="M15.5 12 8 6l7.5-6z"/>
+        <path id="5tpwmqj7te" d="M0 4.5h8v3H0z"/>
+    </defs>
+    <g fill="none" fill-rule="evenodd">
+        <g fill-rule="nonzero" transform="matrix(-1 0 0 1 28.25 6)">
+            <use fill="url(#2hlawtwnda)" xlink:href="#h8udotvp9b"/>
+            <use fill="#000" filter="url(#udnvdmb9mc)" xlink:href="#h8udotvp9b"/>
+        </g>
+        <g fill-rule="nonzero" transform="translate(4.75 6)">
+            <use fill="url(#kyi4q0u34d)" xlink:href="#5tpwmqj7te"/>
+            <use fill="#000" filter="url(#4ww2w2aydf)" xlink:href="#5tpwmqj7te"/>
+        </g>
+        <path d="m10.535 13.501 2.215-.001v-3h-.12c-.335 1.243-1.28 2.36-2.095 3.001z" fill="#A5A5A5"/>
+    </g>
+</svg>

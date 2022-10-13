@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="30" height="30" viewBox="0 0 30 30">
+    <defs>
+        <filter id="bkeb9uawtb" width="105%" height="106%" x="-2.5%" y="-3%" filterUnits="objectBoundingBox">
+            <feOffset dy="1" in="SourceAlpha" result="shadowOffsetInner1"/>
+            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" k2="-1" k3="1" operator="arithmetic" result="shadowInnerInner1"/>
+            <feColorMatrix in="shadowInnerInner1" values="0 0 0 0 0.847058824 0 0 0 0 0.847058824 0 0 0 0 0.847058824 0 0 0 1 0"/>
+        </filter>
+        <path id="0uhg6tyxma" d="M21.484 7.72c3.9 1.606 4.892 6.586 1.257 10.06-1.823 1.77-4.29 3.833-7.4 6.185-.105.074-.219.111-.341.111-.122 0-.236-.037-.342-.11-2.953-2.236-5.327-4.209-7.12-5.919l-.279-.268C3.624 14.306 4.617 9.326 8.516 7.72c2.51-.925 4.709-.316 6.484 1.745 1.775-2.06 3.974-2.67 6.484-1.745z"/>
+    </defs>
+    <g fill="none" fill-rule="evenodd">
+        <g fill-rule="nonzero">
+            <g>
+                <g transform="translate(-336 -627) translate(0 612) translate(336 15)">
+                    <use fill="#FFF" xlink:href="#0uhg6tyxma"/>
+                    <use fill="#000" filter="url(#bkeb9uawtb)" xlink:href="#0uhg6tyxma"/>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

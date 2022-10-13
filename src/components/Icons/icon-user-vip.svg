@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>icon/user</title>
+    <defs>
+        <linearGradient x1="50%" y1="132.336301%" x2="50%" y2="3.061617e-15%" id="user-vip-linearGradient-1">
+            <stop stop-color="#8C794E" offset="0%"></stop>
+            <stop stop-color="#FFFFFF" offset="100%"></stop>
+        </linearGradient>
+        <path d="M14.235745,13.6876233 C15.4705129,13.6876233 16.47149,14.6663565 16.47149,15.8736851 L16.47149,15.8736851 L16.47149,15.966716 C16.47149,16.5190007 16.0237748,16.966716 15.47149,16.966716 L15.47149,16.966716 L8.52850996,16.966716 C7.97622521,16.966716 7.52850996,16.5190007 7.52850996,15.966716 L7.52850996,15.966716 L7.52850996,15.8736851 C7.52850996,14.6663565 8.5294871,13.6876233 9.76425498,13.6876233 L9.76425498,13.6876233 L14.235745,13.6876233 Z M12,7.12943787 C13.2347678,7.12943787 14.235745,8.13040125 14.235745,9.36515216 C14.235745,10.5999031 13.2347678,11.6008664 12,11.6008664 C10.7652321,11.6008664 9.76425496,10.5999031 9.76425496,9.36515216 C9.76425496,8.13040125 10.7652321,7.12943787 12,7.12943787 Z" id="user-vip-path-2"></path>
+        <filter x="-5.6%" y="-5.1%" width="111.2%" height="110.2%" filterUnits="objectBoundingBox" id="user-vip-filter-3">
+            <feOffset dx="0" dy="1" in="SourceAlpha" result="shadowOffsetInner1"></feOffset>
+            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner1"></feComposite>
+            <feColorMatrix values="0 0 0 0 0.882352941   0 0 0 0 0.870588235   0 0 0 0 0.82745098  0 0 0 0.08 0" type="matrix" in="shadowInnerInner1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="icon/user" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g fill-rule="nonzero">
+            <use fill="url(#user-vip-linearGradient-1)" xlink:href="#user-vip-path-2"></use>
+            <use fill="black" fill-opacity="1" filter="url(#user-vip-filter-3)" xlink:href="#user-vip-path-2"></use>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,105 @@
+.temperature-bar {
+  $self: &;
+  width: 36px;
+  height: 190px;
+  border-radius: 8px;
+  border: solid 1px #4c5055;
+  overflow: hidden;
+
+  &__icon {
+    width: 100%;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__item {
+    font-size: 15px;
+    color: #ffffff;
+    height: calc((100% - 36px) / 5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &--red {
+      color: #ce3726;
+    }
+  }
+
+  &--hot {
+    #{$self}__icon {
+      background-color: #ce3726;
+    }
+  }
+
+  &--cold {
+    #{$self}__icon {
+      background-color: #2679ce;
+    }
+  }
+}
+
+.vip {
+  .temperature-bar {
+    position: relative;
+    border: none;
+    /*padding: 1px 1px 2px 1px;*/
+    padding: 1px 1px 3px 1px;
+    box-sizing: border-box;
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: -1px;
+      left: -1px;
+      background: linear-gradient(to top, #635c4d, #e1ded3);
+      width: calc(100% + 2px);
+      height: calc(100% + 2px);
+    }
+
+    &__icon {
+      border-top-left-radius: 6px;
+      border-top-right-radius: 6px;
+    }
+
+    > * {
+      position: relative;
+      z-index: 1;
+      background: #141519;
+
+      &:last-child {
+        border-bottom-left-radius: 6px;
+        border-bottom-right-radius: 6px;
+      }
+    }
+
+    &--hot {
+      /*margin-left: 1px;*/
+
+      .temperature-bar__icon {
+        border-image-source: linear-gradient(to bottom, #635c4d, #e1ded3);
+        border-image-slice: 1;
+        border-width: 0;
+        border-bottom-width: 1px;
+        border-style: solid;
+        background-image: radial-gradient(circle at 90% 119%, #a7321b, #b75138 100%), linear-gradient(to bottom, #635c4d, #e1ded3);
+        background-origin: border-box;
+        background-clip: content-box, border-box;
+      }
+    }
+
+    &--cold {
+      .temperature-bar__icon {
+        border-image-source: linear-gradient(to bottom, #635c4d, #e1ded3);
+        border-image-slice: 1;
+        border-width: 0;
+        border-bottom-width: 1px;
+        border-style: solid;
+        background-image: radial-gradient(circle at 90% 119%, #1b5fa7, #3878b7 100%), linear-gradient(to bottom, #635c4d, #e1ded3);
+        background-origin: border-box;
+        background-clip: content-box, border-box;
+      }
+    }
+  }
+}

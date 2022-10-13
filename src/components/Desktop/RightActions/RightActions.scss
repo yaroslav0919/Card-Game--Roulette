@@ -1,0 +1,139 @@
+.right-actions {
+  z-index: 2;
+  transition: transform 0.5s;
+  display: flex;
+  align-items: center;
+
+  justify-content: space-between;
+
+  &__item {
+    position: relative;
+    -webkit-backdrop-filter: blur(2px);
+    backdrop-filter: blur(2px);
+    background-color: rgba(34, 39, 45, 0.8);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    padding: 6px;
+    cursor: pointer;
+    box-sizing: border-box;
+    &:hover {
+      background-color: #40464e;
+    }
+    &.autoplay-button {
+      border: 1px solid #52d4f3;
+      box-sizing: border-box;
+      &.right-actions__item-active {
+        border: 1px solid #52d4f3;
+        box-sizing: border-box;
+      }
+      // &:hover {
+      //   border: 1px solid #52d4f3;
+      //   box-sizing: border-box;
+      // }
+    }
+    // &-active {
+    //   border: 1px solid #52d4f3;
+    //   box-sizing: border-box;
+    // }
+    // &:hover {
+    //   border: 1px solid #52d4f3;
+    //   box-sizing: border-box;
+    // }
+
+    @media screen and (max-device-height: 610px) {
+      margin-top: 4px;
+      width: 32px;
+      height: 32px;
+
+      svg {
+        transform: scale(0.8);
+      }
+    }
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+  &--move {
+  }
+}
+
+.repeat-action {
+  position: relative;
+  animation: pulse 2s infinite;
+  border: 1px solid #d44030;
+  opacity: 1;
+  &:hover {
+    border-color: #d44030;
+  }
+}
+
+@-webkit-keyframes pulse {
+  0% {
+    background: rgba(212, 64, 48, 0.28);
+  }
+  50% {
+    background: rgba(212, 64, 48, 0.5);
+  }
+  75% {
+    background: rgba(212, 64, 48, 0.75);
+  }
+  100% {
+    background: rgba(212, 64, 48, 1);
+  }
+}
+@keyframes pulse {
+  0% {
+    background: rgba(212, 64, 48, 0.28);
+  }
+  50% {
+    background: rgba(212, 64, 48, 0.5);
+  }
+  75% {
+    background: rgba(212, 64, 48, 0.75);
+  }
+  100% {
+    background: rgba(212, 64, 48, 1);
+  }
+}
+
+.right-action-tooltip {
+  z-index: 9999999 !important;
+  width: auto !important;
+  padding: 0 20px;
+  top: 65px !important;
+  white-space: nowrap;
+  &::before {
+    right: 60px !important;
+  }
+  &::after {
+    right: 58px !important;
+  }
+  &.header-tooltip-last-el{
+    &::before {
+      right: 17px !important;
+    }
+    &::after {
+      right: 15px !important;
+    }
+  }
+}
+
+.vip {
+  .right-actions {
+    &__item {
+      border: 1px solid transparent;
+
+      svg {
+        width: 32px;
+        height: 32px;
+        display: block;
+      }
+    }
+  }
+}

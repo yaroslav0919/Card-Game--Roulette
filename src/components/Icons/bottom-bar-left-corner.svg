@@ -1,0 +1,26 @@
+<svg width="34" height="34" viewBox="0 0 34 34" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+        <linearGradient x1="50%" y1="100%" x2="50%" y2="0%" id="k9kq7l83kc">
+            <stop stop-color="#8D794E" offset="0%"/>
+            <stop stop-color="#E4D5A8" offset="100%"/>
+        </linearGradient>
+        <linearGradient x1="50%" y1="100%" x2="50%" y2="0%" id="fer74zz0fd">
+            <stop stop-color="#8D794E" offset="0%"/>
+            <stop stop-color="#E4D5A8" offset="100%"/>
+        </linearGradient>
+        <path id="loyscm8esa" d="M0 0h34v34H0z"/>
+    </defs>
+    <g transform="matrix(1 0 0 -1 0 34)" fill="none" fill-rule="evenodd">
+        <mask id="tn9p4pt7cb" fill="#fff">
+            <use xlink:href="#loyscm8esa"/>
+        </mask>
+        <g stroke-width=".3" mask="url(#tn9p4pt7cb)">
+            <path stroke="url(#k9kq7l83kc)" d="M.8 0v22" transform="rotate(135 -.247 20.483)"/>
+            <path stroke="#090809" opacity=".24" d="M13.708 35.496-1.85 19.939"/>
+            <g>
+                <path stroke="url(#fer74zz0fd)" d="M.8 0v18" transform="rotate(135 -1.747 19.862)"/>
+                <path stroke="#090809" opacity=".24" d="M10.708 35.496-2.02 22.768"/>
+            </g>
+        </g>
+    </g>
+</svg>

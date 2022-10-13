@@ -1,0 +1,265 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="282" height="478" viewBox="0 0 282 478">
+    <defs>
+        <linearGradient id="68ru6kykta" x1="50%" x2="50%" y1="100%" y2="0%">
+            <stop offset="0%" stop-color="#22873E"/>
+            <stop offset="100%" stop-color="#20B33A"/>
+        </linearGradient>
+        <linearGradient id="pw6v6qxp9b" x1="50%" x2="50%" y1="100%" y2="0%">
+            <stop offset="1.473%" stop-color="#BE361A"/>
+            <stop offset="100%" stop-color="#D44030"/>
+        </linearGradient>
+        <linearGradient id="f7neb557qc" x1="50%" x2="50%" y1="100%" y2="0%">
+            <stop offset="1.473%" stop-color="#BE361A"/>
+            <stop offset="100%" stop-color="#D44030"/>
+        </linearGradient>
+    </defs>
+    <g fill="none" fill-rule="evenodd">
+        <g>
+            <g>
+                <g>
+                    <path id="p-0" fill="url(#68ru6kykta)"  d="M93.074 14.207L181.53.386c1.637-.256 3.303-.256 4.94 0l88.456 13.821c2.92.457 5.074 2.972 5.074 5.928V34H88V20.135c0-2.956 2.153-5.471 5.074-5.928z" transform="translate(-19 -124) translate(20 125)"/>
+                    <path id="p-1" fill="url(#pw6v6qxp9b)" data-hover-fill="#D2614F" data-default-fill="url(#68ru6kykta)" d="M88 34H152V68H88z" transform="translate(-19 -124) translate(20 125)"/>
+                    <path id="p-2" fill="#090809" data-hover-fill="#3A393A" data-default-fill="#090809" d="M152 34H216V68H152z" transform="translate(-19 -124) translate(20 125)"/>
+
+                    <path fill="#090809" d="M88 68H152V102H88z" transform="translate(-19 -124) translate(20 125)"/>
+                    <path fill="url(#pw6v6qxp9b)" d="M88 102H152V136H88z" transform="translate(-19 -124) translate(20 125)"/>
+                    <path fill="#090809" d="M88 136H152V170H88z" transform="translate(-19 -124) translate(20 125)"/>
+                    <path fill="url(#pw6v6qxp9b)" d="M88 170H152V204H88z" transform="translate(-19 -124) translate(20 125)"/>
+                    <path fill="#090809" d="M88 204H152V238H88z" transform="translate(-19 -124) translate(20 125)"/>
+                    <path fill="url(#pw6v6qxp9b)" d="M88 238H152V272H88z" transform="translate(-19 -124) translate(20 125)"/>
+                    <path fill="#090809" d="M88 272H152V306H88z" transform="translate(-19 -124) translate(20 125)"/>
+                    <path fill="url(#pw6v6qxp9b)" d="M88 306H152V340H88z" transform="translate(-19 -124) translate(20 125)"/>
+                    <path fill="#090809" d="M88 340H152V374H88z" transform="translate(-19 -124) translate(20 125)"/>
+                    <path fill="url(#pw6v6qxp9b)" d="M88 374H152V408H88z" transform="translate(-19 -124) translate(20 125)"/>
+                    <path fill="#090809" d="M88 408H152V442H88z" transform="translate(-19 -124) translate(20 125)"/>
+                    <path fill="#000" fill-opacity=".3" d="M88 442h64v34H94c-3.314 0-6-2.686-6-6v-28z" transform="translate(-19 -124) translate(20 125)"/>
+                    <path fill="url(#pw6v6qxp9b)" d="M152 68H216V102H152z" transform="translate(-19 -124) translate(20 125)"/>
+                    <path fill="#090809" d="M152 102H216V136H152z" transform="translate(-19 -124) translate(20 125)"/>
+                    <path fill="url(#pw6v6qxp9b)" d="M152 136H216V170H152z" transform="translate(-19 -124) translate(20 125)"/>
+                    <path fill="#090809" d="M152 170H216V204H152z" transform="translate(-19 -124) translate(20 125)"/>
+                    <path fill="url(#pw6v6qxp9b)" d="M152 204H216V238H152z" transform="translate(-19 -124) translate(20 125)"/>
+                    <path fill="#090809" d="M152 238H216V272H152z" transform="translate(-19 -124) translate(20 125)"/>
+                    <path fill="url(#pw6v6qxp9b)" d="M152 272H216V306H152z" transform="translate(-19 -124) translate(20 125)"/>
+                    <path fill="#090809" d="M152 306H216V340H152z" transform="translate(-19 -124) translate(20 125)"/>
+                    <path fill="url(#pw6v6qxp9b)" d="M152 340H216V374H152z" transform="translate(-19 -124) translate(20 125)"/>
+                    <path fill="#090809" d="M152 374H216V408H152z" transform="translate(-19 -124) translate(20 125)"/>
+                    <path fill="url(#pw6v6qxp9b)" d="M152 408H216V442H152z" transform="translate(-19 -124) translate(20 125)"/>
+                    <path fill="#000" fill-opacity=".3" d="M152 442H216V476H152z" transform="translate(-19 -124) translate(20 125)"/>
+                    <path fill="url(#pw6v6qxp9b)" d="M216 34H280V68H216z" transform="translate(-19 -124) translate(20 125)"/>
+                    <path fill="#090809" d="M216 68H280V102H216z" transform="translate(-19 -124) translate(20 125)"/>
+                    <path fill="url(#pw6v6qxp9b)" d="M216 102H280V136H216z" transform="translate(-19 -124) translate(20 125)"/>
+                    <path fill="#090809" d="M216 136H280V170H216z" transform="translate(-19 -124) translate(20 125)"/>
+                    <path fill="url(#pw6v6qxp9b)" d="M216 170H280V204H216z" transform="translate(-19 -124) translate(20 125)"/>
+                    <path fill="#090809" d="M216 204H280V238H216z" transform="translate(-19 -124) translate(20 125)"/>
+                    <path fill="url(#pw6v6qxp9b)" d="M216 238H280V272H216z" transform="translate(-19 -124) translate(20 125)"/>
+                    <path fill="#090809" d="M216 272H280V306H216z" transform="translate(-19 -124) translate(20 125)"/>
+                    <path fill="url(#pw6v6qxp9b)" d="M216 306H280V340H216z" transform="translate(-19 -124) translate(20 125)"/>
+                    <path fill="#090809" d="M216 340H280V374H216z" transform="translate(-19 -124) translate(20 125)"/>
+                    <path fill="url(#pw6v6qxp9b)" d="M216 374H280V408H216z" transform="translate(-19 -124) translate(20 125)"/>
+                    <path fill="#090809" d="M216 408H280V442H216z" transform="translate(-19 -124) translate(20 125)"/>
+                    <path fill="#000" fill-opacity=".3" d="M216 442h64v28c0 3.314-2.686 6-6 6h-58v-34zM44 34H88V170H44zM44 170H88V306H44zM44 306H88V442H44zM6 34h38v68H0V40c0-3.314 2.686-6 6-6zM0 102H44V170H0zM0 170H44V238H0zM0 238H44V306H0zM0 306H44V374H0zM0 374h44v68H6c-3.314 0-6-2.686-6-6v-62z" transform="translate(-19 -124) translate(20 125)"/>
+                </g>
+                <g stroke="#FFF">
+                    <path d="M93.074 14.207L181.53.386c1.637-.256 3.303-.256 4.94 0l88.456 13.821c2.92.457 5.074 2.972 5.074 5.928V34h0H88V20.135c0-2.956 2.153-5.471 5.074-5.928zM88 34H152V68H88zM88 68H152V102H88zM88 102H152V136H88zM88 136H152V170H88zM88 170H152V204H88zM88 204H152V238H88zM88 238H152V272H88zM88 272H152V306H88zM88 306H152V340H88zM88 340H152V374H88zM88 374H152V408H88zM88 408H152V442H88zM88 442h64v34H94c-3.314 0-6-2.686-6-6v-28h0zM152 34H216V68H152zM152 68H216V102H152zM152 102H216V136H152zM152 136H216V170H152zM152 170H216V204H152zM152 204H216V238H152zM152 238H216V272H152zM152 272H216V306H152zM152 306H216V340H152zM152 340H216V374H152zM152 374H216V408H152zM152 408H216V442H152zM152 442H216V476H152zM216 34H280V68H216zM216 68H280V102H216zM216 102H280V136H216zM216 136H280V170H216zM216 170H280V204H216zM216 204H280V238H216zM216 238H280V272H216zM216 272H280V306H216zM216 306H280V340H216zM216 340H280V374H216zM216 374H280V408H216zM216 408H280V442H216zM216 442h64v28c0 3.314-2.686 6-6 6h-58 0v-34zM44 34H88V170H44zM44 170H88V306H44zM44 306H88V442H44zM6 34h38v68H0V40c0-3.314 2.686-6 6-6zM0 102H44V170H0zM0 170H44V238H0zM0 238H44V306H0zM0 306H44V374H0zM0 374h44v68H6c-3.314 0-6-2.686-6-6v-62h0z" transform="translate(-19 -124) translate(20 125)"/>
+                </g>
+                <g>
+                    <text fill="#FFF" font-family="CircularStd-Book, Circular Std" font-size="21.282" letter-spacing="1.013" transform="translate(-19 -124) translate(20 125) translate(9.991 6.094)">
+                        <tspan x="166.968" y="17.906">0</tspan>
+                    </text>
+                    <text fill="#FFF" font-family="CircularStd-Book, Circular Std" font-size="21.282" letter-spacing="1.013" transform="translate(-19 -124) translate(20 125) translate(9.991 6.094)">
+                        <tspan x="105.746" y="51.906">1</tspan>
+                    </text>
+                    <text fill="#FFF" font-family="CircularStd-Book, Circular Std" font-size="21.282" letter-spacing="1.013" transform="translate(-19 -124) translate(20 125) translate(9.991 6.094)">
+                        <tspan x="103.394" y="85.906">4</tspan>
+                    </text>
+                    <text fill="#FFF" font-family="CircularStd-Book, Circular Std" font-size="21.282" letter-spacing="1.013" transform="translate(-19 -124) translate(20 125) translate(9.991 6.094)">
+                        <tspan x="167.873" y="51.906">2</tspan>
+                    </text>
+                    <text fill="#FFF" font-family="CircularStd-Book, Circular Std" font-size="21.282" letter-spacing="1.013" transform="translate(-19 -124) translate(20 125) translate(9.991 6.094)">
+                        <tspan x="167.671" y="85.906">5</tspan>
+                    </text>
+                    <text fill="#FFF" font-family="CircularStd-Book, Circular Std" font-size="21.282" letter-spacing="1.013" transform="translate(-19 -124) translate(20 125) translate(9.991 6.094)">
+                        <tspan x="231.617" y="51.906">3</tspan>
+                    </text>
+                    <text fill="#FFF" font-family="CircularStd-Book, Circular Std" font-size="21.282" letter-spacing="1.013" transform="translate(-19 -124) translate(20 125) translate(9.991 6.094)">
+                        <tspan x="231.33" y="85.906">6</tspan>
+                    </text>
+                    <text fill="#FFF" font-family="CircularStd-Book, Circular Std" font-size="21.282" letter-spacing="1.013" transform="translate(-19 -124) translate(20 125) translate(9.991 6.094)">
+                        <tspan x="104.362" y="119.906">7</tspan>
+                    </text>
+                    <text fill="#FFF" font-family="CircularStd-Book, Circular Std" font-size="21.282" letter-spacing="1.013" transform="translate(-19 -124) translate(20 125) translate(9.991 6.094)">
+                        <tspan x="167.543" y="119.906">8</tspan>
+                    </text>
+                    <text fill="#FFF" font-family="CircularStd-Book, Circular Std" font-size="21.282" letter-spacing="1.013" transform="translate(-19 -124) translate(20 125) translate(9.991 6.094)">
+                        <tspan x="231.32" y="119.906">9</tspan>
+                    </text>
+                    <text fill="#FFF" font-family="CircularStd-Book, Circular Std" font-size="21.282" letter-spacing="1.013" transform="translate(-19 -124) translate(20 125) translate(9.991 6.094)">
+                        <tspan x="98.705" y="153.906">10</tspan>
+                    </text>
+                    <text fill="#FFF" font-family="CircularStd-Book, Circular Std" font-size="21.282" letter-spacing="1.013" transform="translate(-19 -124) translate(20 125) translate(9.991 6.094)">
+                        <tspan x="165.483" y="153.906">11</tspan>
+                    </text>
+                    <text fill="#FFF" font-family="CircularStd-Book, Circular Std" font-size="21.282" letter-spacing="1.013" transform="translate(-19 -124) translate(20 125) translate(9.991 6.094)">
+                        <tspan x="227.557" y="153.906">12</tspan>
+                    </text>
+                    <text fill="#FFF" font-family="CircularStd-Book, Circular Std" font-size="21.282" letter-spacing="1.013" transform="translate(-19 -124) translate(20 125) translate(9.991 6.094)">
+                        <tspan x="99.354" y="187.906">13</tspan>
+                    </text>
+                    <text fill="#FFF" font-family="CircularStd-Book, Circular Std" font-size="21.282" letter-spacing="1.013" transform="translate(-19 -124) translate(20 125) translate(9.991 6.094)">
+                        <tspan x="163.131" y="187.906">14</tspan>
+                    </text>
+                    <text fill="#FFF" font-family="CircularStd-Book, Circular Std" font-size="21.282" letter-spacing="1.013" transform="translate(-19 -124) translate(20 125) translate(9.991 6.094)">
+                        <tspan x="227.408" y="187.906">15</tspan>
+                    </text>
+                    <text fill="#FFF" font-family="CircularStd-Book, Circular Std" font-size="21.282" letter-spacing="1.013" transform="translate(-19 -124) translate(20 125) translate(9.991 6.094)">
+                        <tspan x="99.067" y="221.906">16</tspan>
+                    </text>
+                    <text fill="#FFF" font-family="CircularStd-Book, Circular Std" font-size="21.282" letter-spacing="1.013" transform="translate(-19 -124) translate(20 125) translate(9.991 6.094)">
+                        <tspan x="164.046" y="221.906">17</tspan>
+                    </text>
+                    <text fill="#FFF" font-family="CircularStd-Book, Circular Std" font-size="21.282" letter-spacing="1.013" transform="translate(-19 -124) translate(20 125) translate(9.991 6.094)">
+                        <tspan x="227.28" y="221.906">18</tspan>
+                    </text>
+                    <text fill="#FFF" font-family="CircularStd-Book, Circular Std" font-size="21.282" letter-spacing="1.013" transform="translate(-19 -124) translate(20 125) translate(9.991 6.094)">
+                        <tspan x="99.057" y="255.906">19</tspan>
+                    </text>
+                    <text fill="#FFF" font-family="CircularStd-Book, Circular Std" font-size="21.282" letter-spacing="1.013" transform="translate(-19 -124) translate(20 125) translate(9.991 6.094)">
+                        <tspan x="160.833" y="255.906">20</tspan>
+                    </text>
+                    <text fill="#FFF" font-family="CircularStd-Book, Circular Std" font-size="21.282" letter-spacing="1.013" transform="translate(-19 -124) translate(20 125) translate(9.991 6.094)">
+                        <tspan x="227.503" y="255.906">21</tspan>
+                    </text>
+                    <text fill="#FFF" font-family="CircularStd-Book, Circular Std" font-size="21.282" letter-spacing="1.013" transform="translate(-19 -124) translate(20 125) translate(9.991 6.094)">
+                        <tspan x="97.737" y="289.906">22</tspan>
+                    </text>
+                    <text fill="#FFF" font-family="CircularStd-Book, Circular Std" font-size="21.282" letter-spacing="1.013" transform="translate(-19 -124) translate(20 125) translate(9.991 6.094)">
+                        <tspan x="161.482" y="289.906">23</tspan>
+                    </text>
+                    <text fill="#FFF" font-family="CircularStd-Book, Circular Std" font-size="21.282" letter-spacing="1.013" transform="translate(-19 -124) translate(20 125) translate(9.991 6.094)">
+                        <tspan x="225.418" y="289.906">24</tspan>
+                    </text>
+                    <text fill="#FFF" font-family="CircularStd-Book, Circular Std" font-size="21.282" letter-spacing="1.013" transform="translate(-19 -124) translate(20 125) translate(9.991 6.094)">
+                        <tspan x="97.535" y="323.906">25</tspan>
+                    </text>
+                    <text fill="#FFF" font-family="CircularStd-Book, Circular Std" font-size="21.282" letter-spacing="1.013" transform="translate(-19 -124) translate(20 125) translate(9.991 6.094)">
+                        <tspan x="161.194" y="323.906">26</tspan>
+                    </text>
+                    <text fill="#FFF" font-family="CircularStd-Book, Circular Std" font-size="21.282" letter-spacing="1.013" transform="translate(-19 -124) translate(20 125) translate(9.991 6.094)">
+                        <tspan x="226.227" y="323.906">27</tspan>
+                    </text>
+                    <text fill="#FFF" font-family="CircularStd-Book, Circular Std" font-size="21.282" letter-spacing="1.013" transform="translate(-19 -124) translate(20 125) translate(9.991 6.094)">
+                        <tspan x="97.407" y="357.906">28</tspan>
+                    </text>
+                    <text fill="#FFF" font-family="CircularStd-Book, Circular Std" font-size="21.282" letter-spacing="1.013" transform="translate(-19 -124) translate(20 125) translate(9.991 6.094)">
+                        <tspan x="161.184" y="357.906">29</tspan>
+                    </text>
+                    <text fill="#FFF" font-family="CircularStd-Book, Circular Std" font-size="21.282" letter-spacing="1.013" transform="translate(-19 -124) translate(20 125) translate(9.991 6.094)">
+                        <tspan x="224.577" y="357.906">30</tspan>
+                    </text>
+                    <text fill="#FFF" font-family="CircularStd-Book, Circular Std" font-size="21.282" letter-spacing="1.013" transform="translate(-19 -124) translate(20 125) translate(9.991 6.094)">
+                        <tspan x="99.408" y="391.906">31</tspan>
+                    </text>
+                    <text fill="#FFF" font-family="CircularStd-Book, Circular Std" font-size="21.282" letter-spacing="1.013" transform="translate(-19 -124) translate(20 125) translate(9.991 6.094)">
+                        <tspan x="161.482" y="391.906">32</tspan>
+                    </text>
+                    <text fill="#FFF" font-family="CircularStd-Book, Circular Std" font-size="21.282" letter-spacing="1.013" transform="translate(-19 -124) translate(20 125) translate(9.991 6.094)">
+                        <tspan x="225.226" y="391.906">33</tspan>
+                    </text>
+                    <text fill="#FFF" font-family="CircularStd-Book, Circular Std" font-size="21.282" letter-spacing="1.013" transform="translate(-19 -124) translate(20 125) translate(9.991 6.094)">
+                        <tspan x="97.003" y="425.906">34</tspan>
+                    </text>
+                    <text fill="#FFF" font-family="CircularStd-Book, Circular Std" font-size="21.282" letter-spacing="1.013" transform="translate(-19 -124) translate(20 125) translate(9.991 6.094)">
+                        <tspan x="161.279" y="425.906">35</tspan>
+                    </text>
+                    <text fill="#FFF" font-family="CircularStd-Book, Circular Std" font-size="21.282" letter-spacing="1.013" transform="translate(-19 -124) translate(20 125) translate(9.991 6.094)">
+                        <tspan x="224.939" y="425.906">36</tspan>
+                    </text>
+                    <g fill="#FFF" letter-spacing=".4">
+                        <text font-family="CircularStd-Book, Circular Std" font-size="18" transform="translate(-19 -124) translate(20 125) translate(9.991 6.094) translate(94.509 443.906)">
+                            <tspan x="0" y="15">2</tspan>
+                        </text>
+                        <text font-family="CircularStd-Medium, Circular Std" font-size="9" font-weight="400" transform="translate(-19 -124) translate(20 125) translate(9.991 6.094) translate(94.509 443.906)">
+                            <tspan x="10" y="10">TO</tspan>
+                        </text>
+                        <text font-family="CircularStd-Book, Circular Std" font-size="18" transform="translate(-19 -124) translate(20 125) translate(9.991 6.094) translate(94.509 443.906)">
+                            <tspan x="24" y="15">1</tspan>
+                        </text>
+                    </g>
+                    <g fill="#FFF" letter-spacing=".4">
+                        <text font-family="CircularStd-Book, Circular Std" font-size="18" transform="translate(-19 -124) translate(20 125) translate(9.991 6.094) translate(158.509 443.906)">
+                            <tspan x="0" y="15">2</tspan>
+                        </text>
+                        <text font-family="CircularStd-Medium, Circular Std" font-size="9" font-weight="400" transform="translate(-19 -124) translate(20 125) translate(9.991 6.094) translate(158.509 443.906)">
+                            <tspan x="10" y="10">TO</tspan>
+                        </text>
+                        <text font-family="CircularStd-Book, Circular Std" font-size="18" transform="translate(-19 -124) translate(20 125) translate(9.991 6.094) translate(158.509 443.906)">
+                            <tspan x="24" y="15">1</tspan>
+                        </text>
+                    </g>
+                    <g fill="#FFF" letter-spacing=".4">
+                        <text font-family="CircularStd-Book, Circular Std" font-size="18" transform="translate(-19 -124) translate(20 125) translate(9.991 6.094) translate(222.509 443.906)">
+                            <tspan x="0" y="15">2</tspan>
+                        </text>
+                        <text font-family="CircularStd-Medium, Circular Std" font-size="9" font-weight="400" transform="translate(-19 -124) translate(20 125) translate(9.991 6.094) translate(222.509 443.906)">
+                            <tspan x="10" y="10">TO</tspan>
+                        </text>
+                        <text font-family="CircularStd-Book, Circular Std" font-size="18" transform="translate(-19 -124) translate(20 125) translate(9.991 6.094) translate(222.509 443.906)">
+                            <tspan x="24" y="15">1</tspan>
+                        </text>
+                    </g>
+                    <g fill="#FFF">
+                        <g>
+                            <text font-family="CircularStd-Book, Circular Std" font-size="21" letter-spacing="1" transform="translate(-19 -124) translate(20 125) translate(9.991 6.094) rotate(90 -1.771 67.817) translate(.318 .037)">
+                                <tspan x=".294" y="17">1</tspan>
+                            </text>
+                            <text font-family="CircularStd-Medium, Circular Std" font-size="11" font-weight="400" letter-spacing=".4" transform="translate(-19 -124) translate(20 125) translate(9.991 6.094) rotate(90 -1.771 67.817) translate(.318 .037)">
+                                <tspan x="9" y="11">ST</tspan>
+                            </text>
+                            <text font-family="CircularStd-Book, Circular Std" font-size="21" letter-spacing="1" transform="translate(-19 -124) translate(20 125) translate(9.991 6.094) rotate(90 -1.771 67.817) translate(.318 .037)">
+                                <tspan x="24.061" y="17"> 12</tspan>
+                            </text>
+                        </g>
+                        <g>
+                            <text font-family="CircularStd-Book, Circular Std" font-size="21" letter-spacing="1" transform="translate(-19 -124) translate(20 125) translate(9.991 6.094) rotate(90 -1.771 67.817) translate(135.318 .037)">
+                                <tspan x=".446" y="17">2</tspan>
+                            </text>
+                            <text font-family="CircularStd-Medium, Circular Std" font-size="11" font-weight="400" letter-spacing=".4" transform="translate(-19 -124) translate(20 125) translate(9.991 6.094) rotate(90 -1.771 67.817) translate(135.318 .037)">
+                                <tspan x="13" y="11">ST</tspan>
+                            </text>
+                            <text font-family="CircularStd-Book, Circular Std" font-size="21" letter-spacing="1" transform="translate(-19 -124) translate(20 125) translate(9.991 6.094) rotate(90 -1.771 67.817) translate(135.318 .037)">
+                                <tspan x="28.061" y="17"> 12</tspan>
+                            </text>
+                        </g>
+                        <g>
+                            <text font-family="CircularStd-Book, Circular Std" font-size="21" letter-spacing="1" transform="translate(-19 -124) translate(20 125) translate(9.991 6.094) rotate(90 -1.771 67.817) translate(270.318 .037)">
+                                <tspan x=".194" y="17">3</tspan>
+                            </text>
+                            <text font-family="CircularStd-Medium, Circular Std" font-size="11" font-weight="400" letter-spacing=".4" transform="translate(-19 -124) translate(20 125) translate(9.991 6.094) rotate(90 -1.771 67.817) translate(270.318 .037)">
+                                <tspan x="13" y="11">RD</tspan>
+                            </text>
+                            <text font-family="CircularStd-Book, Circular Std" font-size="21" letter-spacing="1" transform="translate(-19 -124) translate(20 125) translate(9.991 6.094) rotate(90 -1.771 67.817) translate(270.318 .037)">
+                                <tspan x="29.061" y="17"> 12</tspan>
+                            </text>
+                        </g>
+                    </g>
+                    <g>
+                        <text fill="#FFF" font-family="CircularStd-Book, Circular Std" font-size="21" letter-spacing="1" transform="translate(-19 -124) translate(20 125) translate(9.991 6.094) rotate(90 -3.44 26.402)">
+                            <tspan x="12.98" y="17.953">1-18</tspan>
+                        </text>
+                        <text fill="#FFF" font-family="CircularStd-Book, Circular Std" font-size="18" letter-spacing="1" transform="translate(-19 -124) translate(20 125) translate(9.991 6.094) rotate(90 -3.44 26.402)">
+                            <tspan x="74.826" y="16.953">EVEN</tspan>
+                        </text>
+                        <path fill="url(#f7neb557qc)" stroke="#FFF" d="M165.342 2.333c1.767-.588 3.677-.588 5.444 0h0l21.552 7.184c.396.133.701.413.875.76.173.346.214.758.082 1.155-.15.452-.505.806-.957.957h0l-21.552 7.184c-1.767.589-3.677.589-5.444 0h0l-21.552-7.184c-.397-.132-.702-.413-.875-.759-.173-.346-.214-.759-.082-1.155.15-.452.505-.807.957-.958h0z" transform="translate(-19 -124) translate(20 125) translate(9.991 6.094) rotate(90 -3.44 26.402)"/>
+                        <path fill="#090809" stroke="#FFF" stroke-linejoin="round" d="M233.342 2.333c1.767-.588 3.677-.588 5.444 0h0l21.552 7.184c.396.133.701.413.875.76.173.346.214.758.082 1.155-.15.452-.505.806-.957.957h0l-21.552 7.184c-1.767.589-3.677.589-5.444 0h0l-21.552-7.184c-.397-.132-.702-.413-.875-.759-.173-.346-.214-.759-.082-1.155.15-.452.505-.807.957-.958h0z" transform="translate(-19 -124) translate(20 125) translate(9.991 6.094) rotate(90 -3.44 26.402)"/>
+                        <text fill="#FFF" font-family="CircularStd-Book, Circular Std" font-size="18" letter-spacing="1" transform="translate(-19 -124) translate(20 125) translate(9.991 6.094) rotate(90 -3.44 26.402)">
+                            <tspan x="282.386" y="16.953">ODD</tspan>
+                        </text>
+                        <text fill="#FFF" font-family="CircularStd-Book, Circular Std" font-size="21" letter-spacing="1" transform="translate(-19 -124) translate(20 125) translate(9.991 6.094) rotate(90 -3.44 26.402)">
+                            <tspan x="344.07" y="17.953">19-36</tspan>
+                        </text>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

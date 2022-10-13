@@ -1,0 +1,56 @@
+.old-numbers {
+  display: flex;
+  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
+  background-color: rgba(34, 39, 45, 0.85);
+  height: 24px;
+
+  .old-number {
+    width: calc(100% / 11);
+    height: 100%;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    color: #fff;
+    line-height: 0em;
+
+    &--current {
+      border: solid 2px rgba(255, 255, 255, 0.5);
+    }
+
+    &--red {
+      color: #e17e73;
+    }
+
+    &--green {
+      color: #569c0b;
+    }
+  }
+}
+
+.vip {
+  .old-numbers {
+    .old-number {
+      span {
+        background-image: linear-gradient(to bottom, #fff, #8f9193);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        line-height: 1;
+      }
+
+      &--red {
+        span {
+          background-image: linear-gradient(to bottom, #e17e73, #7b423c);
+        }
+      }
+
+      &--green {
+        span {
+          background-image: linear-gradient(to bottom, #72d875, #3c713e);
+        }
+      }
+    }
+  }
+}

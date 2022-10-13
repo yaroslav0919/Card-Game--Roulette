@@ -1,0 +1,31 @@
+<svg width="14px" height="14px" viewBox="0 0 14 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+        <linearGradient x1="50%" y1="100%" x2="50%" y2="0.231592138%" id="corner-bottom-right-1">
+            <stop stop-color="#635C4D" offset="0%"></stop>
+            <stop stop-color="#F6E9B5" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="100%" x2="50%" y2="0.231592138%" id="corner-bottom-right-2">
+            <stop stop-color="#635C4D" offset="0%"></stop>
+            <stop stop-color="#F6E9B5" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="100%" x2="50%" y2="0.231592138%" id="corner-bottom-right-3">
+            <stop stop-color="#635C4D" offset="0%"></stop>
+            <stop stop-color="#F6E9B5" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Mobile" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linejoin="round">
+        <g id="Statistics---Standard" transform="translate(-370.000000, -760.000000)" fill="#22272D" stroke-width="0.5">
+            <g id="Group-5" transform="translate(4.000000, 294.000000)">
+                <g id="Group-7" transform="translate(3.000000, 3.000000)">
+                    <g id="corner---bottom-right" transform="translate(370.000000, 470.000000) scale(-1, -1) translate(-370.000000, -470.000000) translate(364.000000, 464.000000)">
+                        <g id="Group-6">
+                            <polygon id="base" stroke="url(#corner-bottom-right-1)" points="0 0 7.5 3 12 0"></polygon>
+                            <polygon id="base" stroke="url(#corner-bottom-right-2)" points="0 0 3 7.5 0 12"></polygon>
+                        </g>
+                        <polygon id="base" stroke="url(#corner-bottom-right-3)" points="0 0 7.5 3 10 10 3 7.5"></polygon>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

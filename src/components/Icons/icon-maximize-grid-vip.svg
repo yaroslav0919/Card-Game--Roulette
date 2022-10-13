@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>icon/maximize-grid</title>
+    <defs>
+        <linearGradient x1="50%" y1="132.336301%" x2="50%" y2="3.061617e-15%" id="linearGradient-1">
+            <stop stop-color="#8C794E" offset="0%"></stop>
+            <stop stop-color="#FFFFFF" offset="100%"></stop>
+        </linearGradient>
+        <path d="M17.3,0 C17.6543827,0 17.9472582,0.263343623 17.9936098,0.605014146 L18,0.7 L18,4.4 L16.6,4.4 L16.6,1.4 L1.4,1.4 L1.4,16.6 L8.4,16.6 L8.4,18 L0.7,18 C0.345617286,18 0.0527417698,17.7366564 0.00639017493,17.3949859 L0,17.3 L0,0.7 C0,0.345617286 0.263343623,0.0527417698 0.605014146,0.00639017493 L0.7,0 L17.3,0 Z" id="path-2"></path>
+        <filter x="-2.8%" y="-2.8%" width="105.6%" height="105.6%" filterUnits="objectBoundingBox" id="filter-3">
+            <feOffset dx="0" dy="1" in="SourceAlpha" result="shadowOffsetInner1"></feOffset>
+            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner1"></feComposite>
+            <feColorMatrix values="0 0 0 0 0.882352941   0 0 0 0 0.870588235   0 0 0 0 0.82745098  0 0 0 0.08 0" type="matrix" in="shadowInnerInner1"></feColorMatrix>
+        </filter>
+        <path d="M13.5949747,7.6 L8.59497475,7.6 C8.20837542,7.6 7.89497475,7.91340068 7.89497475,8.3 L7.89497475,17.3 C7.89497475,17.6865993 8.20837542,18 8.59497475,18 L13.5949747,18 C13.9815741,18 14.2949747,17.6865993 14.2949747,17.3 L14.2949747,8.3 C14.2949747,7.91340068 13.9815741,7.6 13.5949747,7.6 Z M4.70502525,9.4 L1.40097475,6.095 L1.4,8.30502525 L9.23705556e-14,8.30502525 L9.32587341e-14,3.70502525 L4.6,3.70502525 L4.6,5.10502525 L2.38997475,5.106 L5.69497475,8.41005051 L4.70502525,9.4 Z" id="path-4"></path>
+        <filter x="-3.5%" y="-3.5%" width="107.0%" height="107.0%" filterUnits="objectBoundingBox" id="filter-5">
+            <feOffset dx="0" dy="1" in="SourceAlpha" result="shadowOffsetInner1"></feOffset>
+            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner1"></feComposite>
+            <feColorMatrix values="0 0 0 0 0.882352941   0 0 0 0 0.870588235   0 0 0 0 0.82745098  0 0 0 0.08 0" type="matrix" in="shadowInnerInner1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="icon/maximize-grid" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="icon/minimize-grid" transform="translate(3.000000, 3.000000)" fill-rule="nonzero">
+            <g id="Path" opacity="0.5" transform="translate(9.000000, 9.000000) scale(-1, 1) translate(-9.000000, -9.000000) ">
+                <use fill="url(#linearGradient-1)" xlink:href="#path-2"></use>
+                <use fill="black" fill-opacity="1" filter="url(#filter-3)" xlink:href="#path-2"></use>
+            </g>
+            <g id="Combined-Shape" transform="translate(7.147487, 10.852513) scale(-1, 1) translate(-7.147487, -10.852513) ">
+                <use fill="url(#linearGradient-1)" xlink:href="#path-4"></use>
+                <use fill="black" fill-opacity="1" filter="url(#filter-5)" xlink:href="#path-4"></use>
+            </g>
+        </g>
+    </g>
+</svg>

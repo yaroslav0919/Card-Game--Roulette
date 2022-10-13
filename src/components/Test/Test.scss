@@ -1,0 +1,56 @@
+.table {
+  width: 280px;
+  height: 476px;
+  box-sizing: border-box;
+  //border: 1px solid red;
+  position: absolute;
+  left: 20px;
+  bottom: 66px;
+  transition: transform 0.5s;
+  transform-origin: left bottom;
+
+  .item {
+    position: absolute;
+    box-sizing: border-box;
+    border: 1px solid cyan;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #06ff00;
+    font-weight: bold;
+  }
+
+  .chips {
+    text-align: center;
+    display: flex;
+  }
+
+  .test {
+    width: 28px;
+    height: 28px;
+    flex-shrink: 0;
+    flex-grow: 0;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  .add-chip {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    z-index: 9;
+    //transition: all 0.001ms !important;
+
+    img {
+      width: 26px;
+      display: block;
+      position: absolute;
+      transform: translate(-50%, -50%);
+      left: 50%;
+      top: 50%;
+    }
+  }
+}

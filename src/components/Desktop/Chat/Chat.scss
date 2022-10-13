@@ -1,0 +1,123 @@
+.chat {
+  &--hide {
+    display: none !important;
+  }
+  margin-left: 12px;
+  margin-top: 13px;
+  width: 225px;
+
+  &__action {
+    -webkit-backdrop-filter: blur(2px);
+    backdrop-filter: blur(2px);
+    box-shadow: 0 -0.5px 0 0 #4c5055;
+    background-color: rgba(34, 39, 45, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    position: absolute;
+    right: 13px;
+    bottom: 121px;
+
+    &--menu {
+      width: 48px;
+      height: 48px;
+      bottom: 58px;
+      right: 7px;
+    }
+  }
+
+  &__messages {
+    width: 100%;
+
+    max-height: 200px;
+    overflow-y: auto !important;
+    scrollbar-color: #505151 transparent !important;
+    scrollbar-width: thin !important;
+    &::-webkit-scrollbar {
+      width: 18px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background-color: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: #262929;
+      border-radius: 18px;
+      border: 6px solid transparent;
+      background-clip: content-box;
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+      background-color: #505151;
+    }
+  }
+
+  &__message {
+    padding: 5px 10px;
+    border-radius: 13.5px;
+    -webkit-backdrop-filter: blur(2px);
+    backdrop-filter: blur(2px);
+    background-color: rgba(23, 28, 33, 0.72);
+    font-size: 13px;
+    line-height: 1.46;
+    color: #ffffff;
+    margin-bottom: 5px;
+    display: inline-flex;
+    max-width: calc(100%);
+  }
+
+  &__bar {
+    width: 225px;
+    height: 28px;
+    border-radius: 22px;
+    -webkit-backdrop-filter: blur(2px);
+    backdrop-filter: blur(2px);
+    border: solid 1px #4c5055;
+    background-color: rgba(34, 39, 45, 0.8);
+    box-sizing: border-box;
+    margin-bottom: 5px;
+
+    input {
+      width: 100%;
+      height: 100%;
+      background: none;
+      box-sizing: border-box;
+      border: none;
+      padding: 0 40px 0 10px;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+      font-size: 13px;
+      color: #fff;
+      letter-spacing: 0.4px;
+      display: block;
+      height: 28px;
+      line-height: 28px;
+
+      user-select: auto;
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    &__send {
+      cursor: pointer;
+      position: absolute;
+      right: -3px;
+      top: 0;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 50px;
+      svg {
+        g {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}

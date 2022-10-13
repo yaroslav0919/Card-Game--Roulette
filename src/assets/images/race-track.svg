@@ -1,0 +1,234 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="150" height="459" viewBox="0 0 150 459">
+    <defs>
+        <linearGradient id="lmik3w5aca" x1="50%" x2="50%" y1="100%" y2="0%">
+            <stop offset="1.473%" stop-color="#BE361A"/>
+            <stop offset="100%" stop-color="#D44030"/>
+        </linearGradient>
+        <linearGradient id="0g3aerzfob" x1="50%" x2="50%" y1="100%" y2="0%">
+            <stop offset="1.473%" stop-color="#BE361A"/>
+            <stop offset="100%" stop-color="#D44030"/>
+        </linearGradient>
+        <linearGradient id="347h4kp7gc" x1="50%" x2="50%" y1="100%" y2="0%">
+            <stop offset="0%" stop-color="#22873E"/>
+            <stop offset="100%" stop-color="#20B33A"/>
+        </linearGradient>
+        <linearGradient id="cvmqkc2rsd" x1="50%" x2="50%" y1="100%" y2="0%">
+            <stop offset="1.473%" stop-color="#BE361A"/>
+            <stop offset="100%" stop-color="#D44030"/>
+        </linearGradient>
+        <linearGradient id="c4oj4qfoqe" x1="50%" x2="50%" y1="100%" y2="0%">
+            <stop offset="1.473%" stop-color="#BE361A"/>
+            <stop offset="100%" stop-color="#D44030"/>
+        </linearGradient>
+        <linearGradient id="x91vjhkzaf" x1="50%" x2="50%" y1="100%" y2="0%">
+            <stop offset="1.473%" stop-color="#BE361A"/>
+            <stop offset="100%" stop-color="#D44030"/>
+        </linearGradient>
+        <linearGradient id="obke2390eg" x1="50%" x2="50%" y1="100%" y2="0%">
+            <stop offset="1.473%" stop-color="#BE361A"/>
+            <stop offset="100%" stop-color="#D44030"/>
+        </linearGradient>
+        <path id="2v162l0wkh" d="M76 0v44h-2c-16.292 0-29.5 13.208-29.5 29.5S57.708 103 74 103h2v44h-2C33.407 147 .5 114.093.5 73.5S33.407 0 74 0h2z"/>
+        <path id="ou3xcre2pj" d="M76 0v44h-2c-16.292 0-29.5 13.208-29.5 29.5S57.708 103 74 103h2v44h-2C33.407 147 .5 114.093.5 73.5S33.407 0 74 0h2z"/>
+    </defs>
+    <g fill="none" fill-rule="evenodd">
+        <g>
+            <g>
+                <g>
+                    <path fill="url(#lmik3w5aca)" d="M73 0H97V44H73z" transform="translate(-113 -124) translate(114 124) rotate(90 73.5 74)"/>
+                    <path fill="#090809" d="M97 0H121V44H97z" transform="translate(-113 -124) translate(114 124) rotate(90 73.5 74)"/>
+                    <path fill="url(#lmik3w5aca)" d="M121 0H145V44H121z" transform="translate(-113 -124) translate(114 124) rotate(90 73.5 74)"/>
+                    <path fill="#090809" d="M145 0H169V44H145z" transform="translate(-113 -124) translate(114 124) rotate(90 73.5 74)"/>
+                    <path fill="url(#lmik3w5aca)" d="M169 0H193V44H169z" transform="translate(-113 -124) translate(114 124) rotate(90 73.5 74)"/>
+                    <path fill="#090809" d="M193 0H217V44H193z" transform="translate(-113 -124) translate(114 124) rotate(90 73.5 74)"/>
+                    <path fill="url(#lmik3w5aca)" d="M217 0H241V44H217z" transform="translate(-113 -124) translate(114 124) rotate(90 73.5 74)"/>
+                    <path fill="#090809" d="M241 0H265V44H241z" transform="translate(-113 -124) translate(114 124) rotate(90 73.5 74)"/>
+                    <path fill="url(#lmik3w5aca)" d="M265 0H289V44H265z" transform="translate(-113 -124) translate(114 124) rotate(90 73.5 74)"/>
+                    <path fill="#090809" d="M289 0H313V44H289z" transform="translate(-113 -124) translate(114 124) rotate(90 73.5 74)"/>
+                    <path fill="url(#lmik3w5aca)" d="M313 0H337V44H313z" transform="translate(-113 -124) translate(114 124) rotate(90 73.5 74)"/>
+                    <path fill="#090809" d="M337 0H361V44H337z" transform="translate(-113 -124) translate(114 124) rotate(90 73.5 74)"/>
+                    <path fill="url(#lmik3w5aca)" d="M361 0H385V44H361z" transform="translate(-113 -124) translate(114 124) rotate(90 73.5 74)"/>
+                    <path fill="#090809" d="M73 103H97V147H73z" transform="translate(-113 -124) translate(114 124) rotate(90 73.5 74)"/>
+                    <path fill="url(#lmik3w5aca)" d="M97 103H121V147H97z" transform="translate(-113 -124) translate(114 124) rotate(90 73.5 74)"/>
+                    <path fill="#090809" d="M121 103H145V147H121z" transform="translate(-113 -124) translate(114 124) rotate(90 73.5 74)"/>
+                    <path fill="url(#lmik3w5aca)" d="M145 103H169V147H145z" transform="translate(-113 -124) translate(114 124) rotate(90 73.5 74)"/>
+                    <path fill="#090809" d="M169 103H193V147H169z" transform="translate(-113 -124) translate(114 124) rotate(90 73.5 74)"/>
+                    <path fill="url(#lmik3w5aca)" d="M193 103H217V147H193z" transform="translate(-113 -124) translate(114 124) rotate(90 73.5 74)"/>
+                    <path fill="#090809" d="M217 103H241V147H217z" transform="translate(-113 -124) translate(114 124) rotate(90 73.5 74)"/>
+                    <path fill="url(#lmik3w5aca)" d="M241 103H265V147H241z" transform="translate(-113 -124) translate(114 124) rotate(90 73.5 74)"/>
+                    <path fill="#090809" d="M265 103H289V147H265z" transform="translate(-113 -124) translate(114 124) rotate(90 73.5 74)"/>
+                    <path fill="url(#lmik3w5aca)" d="M289 103H313V147H289z" transform="translate(-113 -124) translate(114 124) rotate(90 73.5 74)"/>
+                    <path fill="#090809" d="M313 103H337V147H313z" transform="translate(-113 -124) translate(114 124) rotate(90 73.5 74)"/>
+                    <path fill="url(#lmik3w5aca)" d="M337 103H361V147H337z" transform="translate(-113 -124) translate(114 124) rotate(90 73.5 74)"/>
+                    <path fill="#090809" d="M361 103H385V147H361z" transform="translate(-113 -124) translate(114 124) rotate(90 73.5 74)"/>
+                    <g>
+                        <path fill="url(#0g3aerzfob)" d="M57.728 98.11c4.392 2.91 9.607 4.675 15.221 4.872l.563.014L74 103h-1v43.993c-15.301-.204-29.474-5.083-41.154-13.275L57.728 98.11z" transform="translate(-113 -124) translate(114 124) rotate(90 73.5 74) matrix(-1 0 0 1 458 0)"/>
+                        <path fill="url(#347h4kp7gc)" d="M56.904 97.544L31.03 133.138c-12.31-8.884-21.759-21.486-26.702-36.16L46.195 83.38c2.044 5.753 5.824 10.684 10.709 14.164z" transform="translate(-113 -124) translate(114 124) rotate(90 73.5 74) matrix(-1 0 0 1 458 0)"/>
+                        <path fill="#090809" d="M4.017 50.973l41.86 13.595c-.895 2.817-1.377 5.818-1.377 8.932 0 3.113.482 6.114 1.377 8.931L4.017 96.027C1.733 88.928.5 81.358.5 73.5c0-7.556 1.14-14.846 3.258-21.706l.259-.821z" transform="translate(-113 -124) translate(114 124) rotate(90 73.5 74) matrix(-1 0 0 1 458 0)"/>
+                        <path fill="url(#cvmqkc2rsd)" d="M31.031 13.862l25.873 35.594c-4.885 3.48-8.665 8.411-10.709 14.164L4.329 50.023c4.943-14.675 14.392-27.277 26.702-36.161z" transform="translate(-113 -124) translate(114 124) rotate(90 73.5 74) matrix(-1 0 0 1 458 0)"/>
+                        <path fill="#090809" d="M73 .007v44.01c-5.634.187-10.868 1.955-15.272 4.873L31.846 13.282C43.526 5.09 57.7.21 73 .007z" transform="translate(-113 -124) translate(114 124) rotate(90 73.5 74) matrix(-1 0 0 1 458 0)"/>
+                    </g>
+                    <g>
+                        <path fill="url(#c4oj4qfoqe)" d="M58.685 98.718c4.036 2.456 8.707 3.97 13.71 4.24l.604.024.001 44.011c-13.24-.176-25.637-3.854-36.304-10.15l21.989-38.125z" transform="translate(-113 -124) translate(114 124) rotate(90 73.5 74)"/>
+                        <path fill="#090809" d="M57.84 98.184l-22.002 38.145C25.597 130.095 17 121.428 10.85 111.13l38.11-22.024c2.268 3.63 5.304 6.733 8.88 9.079z" transform="translate(-113 -124) translate(114 124) rotate(90 73.5 74)"/>
+                        <path fill="url(#x91vjhkzaf)" d="M.542 76h44.062c.372 4.433 1.725 8.588 3.84 12.247l-38.1 22.02C4.473 100.129.957 88.458.541 76z" transform="translate(-113 -124) translate(114 124) rotate(90 73.5 74)"/>
+                        <path fill="#090809" d="M8.68 39.77l38.208 22.083C45.351 65.426 44.5 69.363 44.5 73.5c0 .503.013 1.003.037 1.5H.515C.505 74.5.5 74 .5 73.5c0-12.159 2.952-23.628 8.18-33.73z" transform="translate(-113 -124) translate(114 124) rotate(90 73.5 74)"/>
+                        <path fill="url(#obke2390eg)" d="M34.145 11.733L56.2 49.973c-3.784 2.867-6.855 6.626-8.9 10.964L9.145 38.885c5.901-11.034 14.536-20.386 25-27.152z" transform="translate(-113 -124) translate(114 124) rotate(90 73.5 74)"/>
+                        <path fill="#090809" d="M73 .007v44.01c-5.942.198-11.44 2.153-15.988 5.363L34.988 11.196C45.826 4.396 58.565.345 72.226.021L73 .007z" transform="translate(-113 -124) translate(114 124) rotate(90 73.5 74)"/>
+                    </g>
+                </g>
+                <g transform="translate(-113 -124) translate(114 124) rotate(90 73.5 74)">
+                    <rect width="369" height="59" x="44" y="44" stroke="#FFF" rx="29.5"/>
+                    <path stroke="#FFF" d="M74 0h310c40.593 0 73.5 32.907 73.5 73.5S424.593 147 384 147H74C33.407 147 .5 114.093.5 73.5S33.407 0 74 0z"/>
+                    <g stroke="#FFF">
+                        <path d="M0 0H24V44H0zM24 0H48V44H24zM48 0H72V44H48zM72 0H96V44H72zM96 0H120V44H96zM120 0H144V44H120zM144 0H168V44H144zM168 0H192V44H168zM192 0H216V44H192zM216 0H240V44H216zM240 0H264V44H240zM264 0H288V44H264zM288 0H312V44H288z" transform="translate(73)"/>
+                    </g>
+                    <g stroke="#FFF">
+                        <path d="M0 0H24V44H0zM24 0H48V44H24zM48 0H72V44H48zM72 0H96V44H72zM96 0H120V44H96zM120 0H144V44H120zM144 0H168V44H144zM168 0H192V44H168zM192 0H216V44H192zM216 0H240V44H216zM240 0H264V44H240zM264 0H288V44H264zM288 0H312V44H288z" transform="translate(73 103)"/>
+                    </g>
+                    <g transform="matrix(-1 0 0 1 458 0)">
+                        <mask id="nobcv7lzbi" fill="#fff">
+                            <use xlink:href="#2v162l0wkh"/>
+                        </mask>
+                        <path stroke="#FFF" stroke-linecap="square" d="M120.575 10.801L29.425 136.2M148.742 49.55L1.258 97.45m147.484 0L1.258 49.55M120.575 136.2L29.425 10.8M81.892-4v155" mask="url(#nobcv7lzbi)"/>
+                    </g>
+                    <g>
+                        <mask id="gk1rqwtrlk" fill="#fff">
+                            <use xlink:href="#ou3xcre2pj"/>
+                        </mask>
+                        <path stroke="#FFF" stroke-linecap="square" d="M110.226 8.357L32.774 142.643M138.617 36.71L4.384 114.289M149 75.5H-6m144.575 38.765L4.425 36.735m105.8 105.908L32.776 8.357M78.39-2v155" mask="url(#gk1rqwtrlk)"/>
+                    </g>
+                    <rect width="76" height="59" x="337" y="44" stroke="#FFF" opacity=".75" rx="29.5"/>
+                    <path stroke="#FFF" d="M241 40L241 107M120.5 43.5L169.5 103.5" opacity=".75"/>
+                </g>
+                <g fill="#FFF" font-family="CircularStd-Book, Circular Std" font-size="16">
+                    <text transform="translate(-113 -124) translate(114 124) rotate(90 62 73.5) rotate(-90 73.5 9.5)">
+                        <tspan x="66.036" y="14.5">16</tspan>
+                    </text>
+                    <text transform="translate(-113 -124) translate(114 124) rotate(90 62 73.5) rotate(-90 97.5 9.5)">
+                        <tspan x="88.652" y="14.5">33</tspan>
+                    </text>
+                    <text transform="translate(-113 -124) translate(114 124) rotate(90 62 73.5) rotate(-90 121.5 9.5)">
+                        <tspan x="118.676" y="14.5">1</tspan>
+                    </text>
+                    <text transform="translate(-113 -124) translate(114 124) rotate(90 62 73.5) rotate(-90 145.5 9.5)">
+                        <tspan x="136.356" y="14.5">20</tspan>
+                    </text>
+                    <text transform="translate(-113 -124) translate(114 124) rotate(90 62 73.5) rotate(-90 169.5 9.5)">
+                        <tspan x="162.084" y="14.5">14</tspan>
+                    </text>
+                    <text transform="translate(-113 -124) translate(114 124) rotate(90 62 73.5) rotate(-90 193.5 9.5)">
+                        <tspan x="186.252" y="14.5">31</tspan>
+                    </text>
+                    <text transform="translate(-113 -124) translate(114 124) rotate(90 62 73.5) rotate(-90 217.5 9.5)">
+                        <tspan x="212.852" y="14.5">9</tspan>
+                    </text>
+                    <text transform="translate(-113 -124) translate(114 124) rotate(90 62 73.5) rotate(-90 241.5 9.5)">
+                        <tspan x="233.036" y="14.5">22</tspan>
+                    </text>
+                    <text transform="translate(-113 -124) translate(114 124) rotate(90 62 73.5) rotate(-90 265.5 9.5)">
+                        <tspan x="258.196" y="14.5">18</tspan>
+                    </text>
+                    <text transform="translate(-113 -124) translate(114 124) rotate(90 62 73.5) rotate(-90 289.5 9.5)">
+                        <tspan x="280.62" y="14.5">29</tspan>
+                    </text>
+                    <text transform="translate(-113 -124) translate(114 124) rotate(90 62 73.5) rotate(-90 313.5 9.5)">
+                        <tspan x="309.636" y="14.5">7</tspan>
+                    </text>
+                    <text transform="translate(-113 -124) translate(114 124) rotate(90 62 73.5) rotate(-90 337.5 9.5)">
+                        <tspan x="328.788" y="14.5">28</tspan>
+                    </text>
+                    <text transform="translate(-113 -124) translate(114 124) rotate(90 62 73.5) rotate(-90 361.5 9.5)">
+                        <tspan x="354.444" y="14.5">12</tspan>
+                    </text>
+                    <text transform="translate(-113 -124) translate(114 124) rotate(90 62 73.5) rotate(-90 388.5 113.5)">
+                        <tspan x="379.844" y="118.5">32</tspan>
+                    </text>
+                    <text transform="translate(-113 -124) translate(114 124) rotate(90 62 73.5) rotate(-90 416.5 93.5)">
+                        <tspan x="411.588" y="98.5">0</tspan>
+                    </text>
+                    <text transform="translate(-113 -124) translate(114 124) rotate(90 62 73.5) rotate(-90 427.5 61.5)">
+                        <tspan x="418.628" y="66.5">26</tspan>
+                    </text>
+                    <text transform="translate(-113 -124) translate(114 124) rotate(90 62 73.5) rotate(-90 416.5 29.5)">
+                        <tspan x="412.076" y="34.5">3</tspan>
+                    </text>
+                    <text transform="translate(-113 -124) translate(114 124) rotate(90 62 73.5) rotate(-90 388.5 9.5)">
+                        <tspan x="379.692" y="14.5">35</tspan>
+                    </text>
+                    <text transform="translate(-113 -124) translate(114 124) rotate(90 62 73.5) rotate(-90 361.5 113.5)">
+                        <tspan x="354.292" y="118.5">15</tspan>
+                    </text>
+                    <text transform="translate(-113 -124) translate(114 124) rotate(90 62 73.5) rotate(-90 337.5 113.5)">
+                        <tspan x="330.028" y="118.5">19</tspan>
+                    </text>
+                    <text transform="translate(-113 -124) translate(114 124) rotate(90 62 73.5) rotate(-90 313.5 113.5)">
+                        <tspan x="308.908" y="118.5">4</tspan>
+                    </text>
+                    <text transform="translate(-113 -124) translate(114 124) rotate(90 62 73.5) rotate(-90 289.5 113.5)">
+                        <tspan x="282.444" y="118.5">21</tspan>
+                    </text>
+                    <text transform="translate(-113 -124) translate(114 124) rotate(90 62 73.5) rotate(-90 265.5 113.5)">
+                        <tspan x="261.268" y="118.5">2</tspan>
+                    </text>
+                    <text transform="translate(-113 -124) translate(114 124) rotate(90 62 73.5) rotate(-90 241.5 113.5)">
+                        <tspan x="232.884" y="118.5">25</tspan>
+                    </text>
+                    <text transform="translate(-113 -124) translate(114 124) rotate(90 62 73.5) rotate(-90 217.5 113.5)">
+                        <tspan x="210.812" y="118.5">17</tspan>
+                    </text>
+                    <text transform="translate(-113 -124) translate(114 124) rotate(90 62 73.5) rotate(-90 193.5 113.5)">
+                        <tspan x="184.484" y="118.5">34</tspan>
+                    </text>
+                    <text transform="translate(-113 -124) translate(114 124) rotate(90 62 73.5) rotate(-90 169.5 113.5)">
+                        <tspan x="164.86" y="118.5">6</tspan>
+                    </text>
+                    <text transform="translate(-113 -124) translate(114 124) rotate(90 62 73.5) rotate(-90 145.5 113.5)">
+                        <tspan x="137.404" y="118.5">27</tspan>
+                    </text>
+                    <text transform="translate(-113 -124) translate(114 124) rotate(90 62 73.5) matrix(0 -1 1 0 8 235)">
+                        <tspan x="114.252" y="118.5">13</tspan>
+                    </text>
+                    <text transform="translate(-113 -124) translate(114 124) rotate(90 62 73.5) rotate(-90 97.5 113.5)">
+                        <tspan x="88.436" y="118.5">36</tspan>
+                    </text>
+                    <text transform="translate(-113 -124) translate(114 124) rotate(90 62 73.5) rotate(-90 73.5 113.5)">
+                        <tspan x="67.852" y="118.5">11</tspan>
+                    </text>
+                    <text transform="translate(-113 -124) translate(114 124) rotate(90 62 73.5) rotate(-90 47.5 9.5)">
+                        <tspan x="38.676" y="14.5">24</tspan>
+                    </text>
+                    <text transform="translate(-113 -124) translate(114 124) rotate(90 62 73.5) rotate(-90 22.5 24.5)">
+                        <tspan x="18.116" y="29.5">5</tspan>
+                    </text>
+                    <text transform="translate(-113 -124) translate(114 124) rotate(90 62 73.5) rotate(-90 8.5 49.5)">
+                        <tspan x=".764" y="54.5">10</tspan>
+                    </text>
+                    <text transform="translate(-113 -124) translate(114 124) rotate(90 62 73.5) rotate(-90 8.5 76.5)">
+                        <tspan x="-.156" y="81.5">23</tspan>
+                    </text>
+                    <text transform="translate(-113 -124) translate(114 124) rotate(90 62 73.5) rotate(-90 22.5 99.5)">
+                        <tspan x="18.02" y="104.5">8</tspan>
+                    </text>
+                    <text transform="translate(-113 -124) translate(114 124) rotate(90 62 73.5) rotate(-90 47.5 113.5)">
+                        <tspan x="38.164" y="118.5">30</tspan>
+                    </text>
+                </g>
+                <g fill="#FFF" font-family="CircularStd-Medium, Circular Std" font-size="11" font-weight="400" letter-spacing="1">
+                    <text transform="translate(-113 -124) translate(114 124) rotate(90 9 91.5) rotate(-90 6 26.5)">
+                        <tspan x="-7.566" y="30">TIER</tspan>
+                    </text>
+                    <text transform="translate(-113 -124) translate(114 124) rotate(90 9 91.5) rotate(-90 120 26.5)">
+                        <tspan x="100.203" y="24.5">ORPH-</tspan> <tspan x="102.138" y="35.5">ELINS</tspan>
+                    </text>
+                    <text transform="translate(-113 -124) translate(114 124) rotate(90 9 91.5) rotate(-90 207.5 26.5)">
+                        <tspan x="181.857" y="30">VOISINS</tspan>
+                    </text>
+                    <text transform="translate(-113 -124) translate(114 124) rotate(90 9 91.5) rotate(-90 293 26.5)">
+                        <tspan x="276.452" y="30">ZERO</tspan>
+                    </text>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

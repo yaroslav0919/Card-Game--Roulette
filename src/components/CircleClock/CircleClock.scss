@@ -1,0 +1,59 @@
+.circle-clock{
+  width: 60px;
+  height: 60px;
+  position: absolute;
+  left: 20px;
+  top: 10px;
+  transform-origin: center center;
+  &:before{
+    content: '';
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: url('../../assets/images/clock/clock-circle.svg') left top no-repeat;
+    animation: spin360 2s infinite forwards ease-in-out;
+  }
+  &:after{
+    content: '';
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: url('../../assets/images/clock/clock-element.svg') center center no-repeat;
+  }
+  &.last-call{
+    animation: pulse 1s infinite forwards;
+    &:before{
+      background: url('../../assets/images/clock/clock-circle-yellow.svg') left top no-repeat;
+    }
+    &:after{
+      background: url('../../assets/images/clock/clock-element-yellow.svg') center center no-repeat;
+    }
+  }
+}
+
+.mobile{
+  .circle-clock{
+    left: auto;
+    right: 4px;
+    top: 53px;
+  }
+}
+
+@keyframes spin360 {
+  100%{
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse {
+  50%{
+    transform: scale(1.05);
+  }
+  100%{
+    transform: scale(1);
+  }
+}

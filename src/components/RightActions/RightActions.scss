@@ -1,0 +1,81 @@
+.right-actions {
+  position: absolute;
+  right: 7px;
+  bottom: 127px;
+  z-index: 2;
+  transition: transform 0.5s;
+
+  &__item {
+    -webkit-backdrop-filter: blur(2px);
+    backdrop-filter: blur(2px);
+    box-shadow: 0 -0.5px 0 0 #4c5055;
+    background-color: rgba(34, 39, 45, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin-top: 15px;
+    width: 36px;
+    height: 36px;
+    margin-left: auto;
+    margin-right: auto;
+
+
+    @media screen and (max-device-height: 610px) {
+      margin-top: 4px;
+      width: 32px;
+      height: 32px;
+
+      svg {
+        transform: scale(0.8);
+      }
+    }
+
+    &:first-child {
+      margin-top: 0;
+    }
+
+    &--menu {
+      width: 48px;
+      height: 48px;
+    }
+  }
+
+  &--move {
+    transform: translateY(50px);
+  }
+}
+
+.vip {
+  .right-actions {
+    right: 10px;
+
+    &__item {
+      box-shadow: none;
+      background: none;
+      width: 42px;
+      height: 49px;
+      border-radius: unset;
+      margin-top: 10px;
+
+      .button-base {
+        position: relative;
+
+        svg, img {
+          display: block;
+
+          &:last-child {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+          }
+
+          &.icon-race-track {
+            transform: translate(-50%, -50%) scale(1.2);
+          }
+        }
+      }
+    }
+  }
+}

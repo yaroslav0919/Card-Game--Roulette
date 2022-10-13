@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="30px" height="20px" viewBox="0 0 30 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>icon/DE</title>
+    <g id="Menu" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Auto-Mobile---Menu---Dil-Secimi" transform="translate(-65.000000, -286.000000)">
+            <g id="languages" transform="translate(15.000000, 137.000000)">
+                <g id="Group-7" transform="translate(0.000000, 138.000000)">
+                    <g id="icon/DE" transform="translate(50.000000, 11.000000)">
+                        <path d="M0,6.66666667 L30,6.66666667 L30,2.00021982 C30,0.895528918 29.1021596,0 28.008383,0 L1.99161703,0 C0.891677316,0 0,0.89909633 0,2.00021982 L0,6.66666667 Z" id="Rectangle-2" fill="#262626"></path>
+                        <rect id="Rectangle-2" fill="#F01515" x="0" y="6.66666667" width="30" height="6.66666667"></rect>
+                        <path d="M0,17.9997802 C0,19.1044711 0.89784041,20 1.99161703,20 L28.008383,20 C29.1083227,20 30,19.1009037 30,17.9997802 L30,13.3333333 L0,13.3333333 L0,17.9997802 Z" id="Rectangle-2" fill="#FFD521"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

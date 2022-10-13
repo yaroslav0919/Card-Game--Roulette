@@ -1,0 +1,336 @@
+$m: 9px;
+$s: 675px;
+$rs: 0.3333;
+
+$bg: #15181A;
+$r: #CE3725;
+$c: #4C5055;
+$f: #8cc63f;
+
+@mixin abs($top: auto, $right: auto, $bottom: auto, $left: auto) {
+  bottom: $bottom;
+  left: $left;
+  position: absolute;
+  right: $right;
+  top: $top;
+}
+
+.hot-cold-wheel {
+  border: solid 1px #ffffff;
+  box-sizing: border-box;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+
+  &__center {
+    width: 18px;
+    height: 18px;
+    background-color: #ffffff;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+    border-radius: 50%;
+  }
+
+  .roulette-wrap {
+    height: $s*$rs;
+    position: relative;
+    width: $s*$rs;
+  }
+
+  .roulette {
+    @include abs(50%, auto, auto, 50%);
+    height: $s;
+    margin-top: -$s/2;
+    margin-left: -$s/2;
+    transform: scale($rs);
+    width: $s;
+  }
+
+  .roulette-sections,
+  .roulette-numbers {
+    @include abs(0, auto, auto, 0);
+    animation: init 1s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-out;
+    background: $bg;
+    border-radius: 50%;
+    height: 100%;
+    overflow: hidden;
+    transform: rotateZ(-300deg);
+    width: 100%;
+    z-index: 8;
+  }
+
+  .roulette-numbers {
+    section {
+      span {
+        &:nth-child(even) {
+          color: #FFF;
+        }
+        &:nth-child(odd) {
+          color: #ce3726;
+        }
+        &.white {
+          color: #FFF;
+        }
+        &.green {
+          color: #54c157;
+        }
+      }
+    }
+  }
+
+  .roulette-sections {
+    height: 525.5px;
+    margin-left: 73.5px;
+    margin-top: 73.5px;
+    width: 525.5px;
+
+    &:after {
+      @include abs(0, 0, 0, 0);
+      border-radius: 50%;
+      content: '';
+      z-index: 9999;
+    }
+
+    > div {
+      @include abs(auto, auto, 50%, 50%);
+      height: 0;
+      width: 0;
+
+      & > div {
+        @include abs(auto, auto, auto, auto);
+        z-index: 1;
+      }
+
+      & > div b {
+
+        @include abs(auto, auto, 50%, 50%);
+        animation: rouletteSectionInit 1 0.3s ease-out;
+        animation-fill-mode: forwards;
+        border-style: solid;
+        border-color: transparent;
+        border-top-color: #000;
+        transition-property: border-top-width, border-left-width, border-right-width, margin-left;
+        transition: 200ms ease;
+        //border-top-width: $s*0.436;
+        //border-right-width: $m*2.9;
+        //border-bottom-width: 0;
+        //border-left-width: $m*2.9;
+        content: '';
+        display: block;
+        margin-left: -$m*2.9;
+        transform-origin: center bottom;
+        transform: scale(0);
+      }
+
+      &:nth-child(odd) > div b {
+        border-top-color: $r;
+      }
+      &:nth-child(even) > div b {
+        border-top-color: $c;
+      }
+      &.origin > div b {
+        border-top-color: $f;
+      }
+
+      $sl: 0.4;
+
+      @each $ss in $sl {
+        $n: index($sl, $ss);
+        $t: $n;
+        $v: $ss / 0.16;
+
+        &.h-#{$n} div b {
+          /*
+                  border-top-width: $s*$ss;
+                  border-right-width: $m*$v;
+                  border-left-width: $m*$v;
+                  margin-left: -#{$m*$v};
+          */
+        }
+      }
+
+      &:after {
+        @include abs(auto, auto, 0, 0);
+        background: #21242B;
+        content: '';
+        display: block;
+        height: $s/2;
+        transform-origin: center bottom;
+        transform: rotateZ(-5.2deg);
+        width: 3px;
+        z-index: 0;
+      }
+    }
+  }
+
+  .roulette-numbers {
+    animation: initReverse 1s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-out;
+    height: 100%;
+    transform: rotateZ(300deg);
+    width: 100%;
+    z-index: 7;
+
+    > div {
+      @include abs(auto, auto, 50%, 50%);
+      height: 0;
+      width: 0;
+    }
+
+    > div:before {
+      @include abs(auto, auto, 50%, 50%);
+      border-style: solid;
+      border-color: transparent;
+      border-top-width: $s*0.51;
+      border-right-width: $m*3.4;
+      border-bottom-width: 0;
+      border-left-width: $m*3.4;
+      content: '';
+      display: block;
+      margin-left: -$m*3.4;
+      transform-origin: center bottom;
+    }
+
+    div:nth-child(odd):before {
+      border-top-color: #282B2F;
+    }
+    div:nth-child(even):before {
+      border-top-color: #282B2F;
+    }
+    div.origin:before {
+      border-top-color: #282B2F;
+    }
+
+    section > span {
+      @include abs(50%, auto, auto, 50%);
+      animation: fadeIn 0.5s;
+      animation-fill-mode: forwards;
+      animation-timing-function: ease-out;
+      color: $bg;
+      font-size: 32px;
+      height: 0;
+      line-height: .6;
+      margin-left: -$m*2;
+      opacity: 0;
+      text-align: center;
+      width: $m*4;
+      z-index: 999;
+    }
+  }
+
+  @for $i from 1 through 37 {
+    .roulette-sections > div:nth-child(#{$i}) {
+      transform: rotateZ(360deg/37 * $i);
+      > div b {
+        animation-delay: #{$i/30}s;
+      }
+    }
+    .roulette-numbers > div:nth-child(#{$i}) {
+      transform: rotateZ(360deg/37 * $i);
+    }
+    .roulette-numbers section > span:nth-child(#{$i}) {
+      animation-delay: #{0.45 + ($i/40)}s;
+      transform: rotateZ(360deg/37 * $i) translateY(-$s*0.460);
+    }
+  }
+
+  @keyframes rouletteSectionInit {
+    0% {
+      transform: scale(0);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes init {
+    0% {
+      transform: rotateZ(-300deg);
+    }
+    100% {
+      transform: rotateZ(0deg);
+    }
+  }
+
+  @keyframes initReverse {
+    0% {
+      transform: rotateZ(300deg);
+    }
+    100% {
+      transform: rotateZ(0deg);
+    }
+  }
+
+}
+
+.vip {
+  .hot-cold-wheel {
+    position: relative;
+    overflow: visible;
+    border: none;
+
+    .roulette-numbers {
+      section {
+        position: absolute;
+        top: calc(50% - 22px);
+        left: 50%;
+
+        span {
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+          height: unset;
+          line-height: normal;
+          display: block;
+
+          &:nth-child(even) {
+            background-image: linear-gradient(to bottom, #fff, #8f9193);
+          }
+
+          &:nth-child(odd) {
+            background-image: linear-gradient(to bottom, #e17e73, #7b423c);
+          }
+
+          &.white {
+            background-image: linear-gradient(to bottom, #fff, #8f9193);
+          }
+
+          &.green {
+            background-image: linear-gradient(to bottom, #72d875, #3c713e);
+          }
+        }
+      }
+    }
+
+    &__center {
+      box-shadow: inset 0 1px 0 0 rgba(225, 222, 211, 0.08);
+      background-image: linear-gradient(to top, #8c794e -35%, #fff);
+    }
+
+    &:before {
+      content: '';
+      width: calc(100% + 2px);
+      height: calc(100% + 2px);
+      position: absolute;
+      top: -1px;
+      left: -1px;
+      background: linear-gradient(to top, #635c4d, #e1ded3);
+      border-radius: 50%;
+    }
+  }
+}

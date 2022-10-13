@@ -1,0 +1,218 @@
+.action-bar {
+  width: 100%;
+  height: 49px;
+  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
+  box-shadow: 0 -0.5px 0 0 #4c5055;
+  background-color: #22272d;
+  position: absolute;
+  bottom: 60px;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 9px;
+  box-sizing: border-box;
+  transform: translateY(0);
+  transition: transform 0.5s;
+  z-index: 12;
+
+  &__item {
+    transform: translateZ(0);
+    will-change: transform;
+    &--disabled {
+      opacity: 0.3;
+      pointer-events: none;
+    }
+  }
+
+  &__repeat, &__double {
+    position: absolute;
+    right: -52px;
+    margin-top: 4px;
+    svg {
+      display: block;
+    }
+  }
+
+  &__auto-play {
+    position: absolute;
+    right: -102px;
+    margin-top: 4px;
+    svg {
+      display: block;
+    }
+  }
+
+  &__undo {
+    position: absolute;
+    left: -52px;
+    margin-top: 4px;
+    svg {
+      display: block;
+    }
+  }
+
+  &__delete {
+    svg {
+      display: block;
+    }
+  }
+
+  &__favorite {
+    svg {
+      display: block;
+    }
+  }
+
+  &__center {
+    position: absolute;
+    bottom: 2px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: 53px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    img {
+      display: block;
+    }
+
+    & > div {
+      & > svg {
+        display: block;
+      }
+    }
+  }
+
+  &__chip {
+    width: 59px;
+
+    img, svg {
+      width: 100% !important;
+      height: auto !important;
+      display: block;
+    }
+
+    .chip {
+      &__number {
+        font-size: 18px;
+        letter-spacing: -0.6px;
+      }
+    }
+  }
+}
+
+.vip {
+  .action-bar {
+    z-index: 10;
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -1px;
+      width: calc(100% + 2px);
+      height: .5px;
+      -webkit-backdrop-filter: blur(2px);
+      backdrop-filter: blur(2px);
+      background: linear-gradient(to top, #8d794e, #e4d5a8)
+    }
+
+    &:after {
+      content: '';
+      position: absolute;
+      top: 2px;
+      left: 7px;
+      width: calc(100% - 14px);
+      height: .5px;
+      -webkit-backdrop-filter: blur(2px);
+      backdrop-filter: blur(2px);
+      background: linear-gradient(to top, #8d794e, #e4d5a8);
+    }
+
+    .left-corner, .right-corner {
+      display: inline-block;
+      position: absolute;
+      width: 8px;
+      height: 2px;
+      background: rgba(34, 39, 45, 0.8);
+      top: 4px;
+
+      svg {
+        display: none;
+      }
+    }
+
+    .left-corner {
+      transform: rotate(135deg);
+      width: 8px;
+      height: 3px;
+      background: rgba(34, 39, 45, 1);
+      top: 3px;
+      left: -1px;
+
+      &:before, &:after {
+        content: '';
+        width: 100%;
+        height: .5px;
+        background: linear-gradient(to top, #8d794e, #e4d5a8);
+        position: absolute;
+        left: 0;
+      }
+
+      &:before {
+        top: 0;
+        width: calc(100% + 4px);
+        left: -2px;
+      }
+
+      &:after {
+        top: 2px;
+      }
+    }
+
+    .right-corner {
+      transform: rotate(-135deg);
+      width: 8px;
+      height: 3px;
+      background: rgba(34, 39, 45, 1);
+      top: 3px;
+      right: -1px;
+
+      &:before, &:after {
+        content: '';
+        width: 100%;
+        height: .5px;
+        background: linear-gradient(to top, #8d794e, #e4d5a8);
+        position: absolute;
+        right: 0;
+      }
+
+      &:before {
+        top: 0;
+        width: calc(100% + 4px);
+        right: -2px;
+      }
+
+      &:after {
+        top: 2px;
+      }
+    }
+
+    &__chip {
+      > .chip {
+        box-shadow: 0 6px 12px -6px #000, inset 0 -1px 0 0 rgba(0, 0, 0, 0.25), inset 0 1px 0 0 rgba(255, 255, 255, 0.3);
+        background-blend-mode: darken, normal;
+        // background-image: linear-gradient(to bottom, #d8d8d8, #d8d8d8), linear-gradient(to bottom, #7b7b7b, #585858 100%);
+        border-radius: 50%;
+      }
+    }
+
+    &__center {
+      z-index: 111;
+    }
+  }
+}

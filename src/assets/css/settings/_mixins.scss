@@ -1,0 +1,19 @@
+@mixin transform($property) {
+  -webkit-transform: $property;
+  -ms-transform: $property;
+  transform: $property;
+}
+
+@mixin transition($transition...) {
+  -moz-transition:    $transition;
+  -o-transition:      $transition;
+  -webkit-transition: $transition;
+  transition:         $transition;
+}
+
+@mixin transitionOrigin($origin...) {
+  -moz-transform-origin:    $origin;
+  -o-transform-origin:      $origin;
+  -webkit-transform-origin: $origin;
+  transform-origin:         $origin;
+}

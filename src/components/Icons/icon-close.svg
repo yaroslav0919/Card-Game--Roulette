@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 24 24">
+    <defs>
+        <filter id="plmnqwq7gb" width="106.7%" height="106.7%" x="-3.3%" y="-3.3%" filterUnits="objectBoundingBox">
+            <feOffset dy=".8" in="SourceAlpha" result="shadowOffsetInner1"/>
+            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" k2="-1" k3="1" operator="arithmetic" result="shadowInnerInner1"/>
+            <feColorMatrix in="shadowInnerInner1" values="0 0 0 0 0.847058824 0 0 0 0 0.847058824 0 0 0 0 0.847058824 0 0 0 1 0"/>
+        </filter>
+        <path id="sd30huec3a" d="M7.613 6.21l.094.083L12 10.585l4.293-4.292c.36-.36.928-.388 1.32-.083l.094.083c.36.36.388.928.083 1.32l-.083.094L13.415 12l4.292 4.293.083.094c.305.392.278.96-.083 1.32l-.094.083c-.392.305-.96.278-1.32-.083L12 13.415l-4.293 4.292-.094.083c-.392.305-.96.278-1.32-.083-.39-.39-.39-1.024 0-1.414L10.585 12 6.293 7.707c-.39-.39-.39-1.024 0-1.414.36-.36.928-.388 1.32-.083z"/>
+    </defs>
+    <g fill="none" fill-rule="evenodd">
+        <g fill-rule="nonzero">
+            <g>
+                <g>
+                    <g>
+                        <g transform="translate(-332 -199) translate(0 40) translate(7 149) translate(15 10) translate(310)">
+                            <use fill="#FFF" xlink:href="#sd30huec3a"/>
+                            <use fill="#000" filter="url(#plmnqwq7gb)" xlink:href="#sd30huec3a"/>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
