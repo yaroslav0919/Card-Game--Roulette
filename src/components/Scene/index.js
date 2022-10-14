@@ -26,14 +26,13 @@ export default function Scene () {
       antialias: true
     })
 
-    console.log(Application, app)
-
     setApp(app)
 
     ref.current.appendChild(app.view)
 
-    app.start()
     app.view.addEventListener('pointerdown', onPointerDownHandler)
+
+    app.start()
 
     // drawRaceTrackTable(app)
     drawNormalTable(app, heatMapMode)

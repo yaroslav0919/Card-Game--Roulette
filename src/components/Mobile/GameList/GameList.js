@@ -68,11 +68,11 @@ export default function GameList () {
 
     let img = null
     try {
-      img = require(`../../../assets/images/games/${imageSuffix}.jpg`).default
+      img = require(`../../../assets/images/games/${imageSuffix}.jpg`)
     } catch (e) {
       console.log(`../../assets/images/games/${imageSuffix}.jpg`)
       imageSuffix = 'default-image'
-      img = require(`../../../assets/images/games/${imageSuffix}.jpg`).default
+      img = require(`../../../assets/images/games/${imageSuffix}.jpg`)
     }
 
     return (

@@ -44,7 +44,7 @@ const RoomItems = (props) => {
   if (!session) {
     return (
       <motion.a variants={item} whileTap={whileTap} className='rooms__item' href='#' onClick={(e) => { e.preventDefault() }} onTouchStart={(e) => { redirectToRoom() }}>
-        <img alt='' src={require('../../assets/images/rooms/' + images[props.bc]).default} width={52} height={52} />
+        <img alt='' src={require('../../assets/images/rooms/' + images[props.bc])} width={52} height={52} />
       </motion.a>
     )
   }
@@ -55,8 +55,8 @@ const RoomItems = (props) => {
         <WinningNumber number={parseFloat(session.result?.rewards?.[0].number)} showMoney={false} />}
       {session?.state === State.Open && <div className='rooms__open'>
         <div>{translate('status.open')}</div>
-      </div>}
-      <img alt='' src={require('../../assets/images/rooms/' + images[props.bc]).default} width={52} height={52} />
+                                        </div>}
+      <img alt='' src={require('../../assets/images/rooms/' + images[props.bc])} width={52} height={52} />
     </motion.a>
   )
 }
@@ -100,7 +100,7 @@ const Rooms = () => {
       className='rooms'
                     >
       {roomItems}
-                    </motion.div>}
+    </motion.div>}
     </>
   )
 }

@@ -40,8 +40,8 @@ class _Audio {
     if (this.effectPlayer) return
     this.effectPlayer = new Howl({
       src: [
-        require('../sounds/effects/effects.webm').default,
-        require('../sounds/effects/effects.mp3').default
+        require('../sounds/effects/effects.webm'),
+        require('../sounds/effects/effects.mp3')
       ],
       sprite: EffectsSprite.sprite,
       volume: 0.1
@@ -53,8 +53,8 @@ class _Audio {
 
     this.clickPlayer = new Howl({
       src: [
-        require('../sounds/effects/effects.webm').default,
-        require('../sounds/effects/effects.mp3').default
+        require('../sounds/effects/effects.webm'),
+        require('../sounds/effects/effects.mp3')
       ],
       sprite: EffectsSprite.sprite,
       volume: 0.5
@@ -65,8 +65,8 @@ class _Audio {
     if (this.musicPlayer) return
     this.musicPlayer = new Howl({
       src: [
-        require('../sounds/music/music.webm').default,
-        require('../sounds/music/music.mp3').default
+        require('../sounds/music/music.webm'),
+        require('../sounds/music/music.mp3')
       ],
       sprite: MusicSprite.sprite,
       volume: 0.080,
@@ -89,8 +89,8 @@ class _Audio {
 
     this.warningPlayer = new Howl({
       src: [
-        require(`../sounds/warnings/${lang}/warnings.webm`).default,
-        require(`../sounds/warnings/${lang}/warnings.mp3`).default
+        require(`../sounds/warnings/${lang}/warnings.webm`),
+        require(`../sounds/warnings/${lang}/warnings.mp3`)
       ],
       sprite,
       volume: 0.7

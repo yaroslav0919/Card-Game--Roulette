@@ -36,7 +36,7 @@ const RoomItems = (props) => {
   if (!session) {
     return (
       <a className='rooms__item' href='#' onClick={(e) => { redirectToRoom() }}>
-        <img alt='' src={require('../../../assets/images/rooms/' + images[props.bc]).default} />
+        <img alt='' src={require('../../../assets/images/rooms/' + images[props.bc])} />
       </a>
     )
   }
@@ -47,8 +47,8 @@ const RoomItems = (props) => {
         <WinningNumber number={parseFloat(session.result?.rewards?.[0].number)} showMoney={false} />}
       {session?.state === State.Open && <div className='rooms__open'>
         <div>{translate('status.open')}</div>
-      </div>}
-      <img alt='' src={require('../../../assets/images/rooms/' + images[props.bc]).default} />
+                                        </div>}
+      <img alt='' src={require('../../../assets/images/rooms/' + images[props.bc])} />
     </a>
   )
 }
@@ -75,7 +75,7 @@ const Rooms = () => {
   return (
     <><div className='rooms'>
       {roomItems}
-      </div>
+    </div>
     </>
   )
 }
