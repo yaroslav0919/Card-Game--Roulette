@@ -46,7 +46,7 @@ export default function Scene () {
   return (
     <>
       {heatMapMode ? <HeatMapView /> : null}
-      <div className='w-full h-full absolute top-0 left-0' ref={ref} />
+      <div className='canvasScene' ref={ref} />
     </>
   )
 }
