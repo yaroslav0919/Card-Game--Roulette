@@ -125,7 +125,7 @@ export default function useRaceTrackTable () {
       const redIndex = btnRed?.keys.findIndex((item) => item === i)
 
       const textStyle = new PIXI.TextStyle({
-        fontFamily: 'Circular Std',
+        fontFamily: 'CircularStd',
         fontSize: 17,
         fontWeight: '100',
         fill: [redIndex !== -1 ? 0xD44030 : 0xffffff]
@@ -241,7 +241,7 @@ export default function useRaceTrackTable () {
 
     otherKeys.forEach((item) => {
       const textStyle = new PIXI.TextStyle({
-        fontFamily: 'Circular Std',
+        fontFamily: 'CircularStd',
         fontSize: 13,
         fontWeight: '100',
         fill: [0xffffff],

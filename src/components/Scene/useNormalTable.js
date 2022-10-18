@@ -147,14 +147,14 @@ export default function useNormalTable () {
         app.stage.addChild(img)
       } else {
         const style = new PIXI.TextStyle({
-          fontFamily: 'Circular Std',
+          fontFamily: 'CircularStd',
           fontSize: 22,
           fontWeight: '100',
           fill: [heatMapMode ? 0xffffff : item.titleColor]
         })
 
         const smallStyle = new PIXI.TextStyle({
-          fontFamily: 'Circular Std',
+          fontFamily: 'CircularStd',
           fontSize: 12,
           fontWeight: '100',
           fill: [heatMapMode ? 0xffffff : item.titleColor]
