@@ -5,6 +5,8 @@ import useNormalTable from './useNormalTable'
 import useRaceTrackTable from './useRaceTrackTable'
 import useEvents from './useEvents'
 import useStore from '../../store'
+import useEntranceAnimation from './useEntranceAnimation'
+import useResource from './useResource'
 
 export default function Scene () {
   const ref = useRef(null)
@@ -12,6 +14,8 @@ export default function Scene () {
   const { drawNormalTable } = useNormalTable()
   const { drawRaceTrackTable } = useRaceTrackTable()
   const { onPointerDownHandler } = useEvents()
+  const { addEntranceAnimation } = useEntranceAnimation()
+  const { preLoadSpriteImages } = useResource()
 
   const [heatMapMode, setHeatMapMode] = useState(false)
 
@@ -36,6 +40,16 @@ export default function Scene () {
 
     // drawRaceTrackTable(app)
     drawNormalTable(app, heatMapMode)
+
+    const loadAndPlayAnimation = async () => {
+      const loader = preLoadSpriteImages()
+      loader.onComplete.add(() => {
+        addEntranceAnimation(app)
+      })
+      // console.error('hehehe')
+    }
+
+    loadAndPlayAnimation()
 
     return () => {
       app.view.removeEventListener('pointerdown', onPointerDownHandler)
