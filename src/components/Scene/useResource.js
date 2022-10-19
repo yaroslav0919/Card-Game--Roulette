@@ -20,7 +20,7 @@ export default function useResource() {
 
         loadSpriteImages('/assets/images/sparkles/sparkles_', 74)
 
-        loadSpriteImages('/assets/images/hand/hand_', 109)
+        loadSpriteImages('/assets/images/hand/hand_', 110)
 
         return loader.load(loader)
     }

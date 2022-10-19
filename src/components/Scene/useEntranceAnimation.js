@@ -21,6 +21,7 @@ export default function useEntranceAnimation() {
         sprite.y = window.innerHeight
         sprite.anchor.set(0.5, 1)
         sprite.loop = false
+        sprite.animationSpeed = 0.5
         sprite.play()
         app.stage.addChild(sprite)
     }
@@ -38,7 +39,7 @@ export default function useEntranceAnimation() {
     }
 
     const addMagicHandAnimation = (app) => {
-        playAnimatedSprite(app, '/assets/images/hand/hand_', 109)
+        playAnimatedSprite(app, '/assets/images/hand/hand_', 110)
     }
 
     const addEntranceAnimation = (app) => {
