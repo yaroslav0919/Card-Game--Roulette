@@ -14,7 +14,7 @@ export default function useEntranceAnimation() {
         }
 
         const sprite = new PIXI.AnimatedSprite(frames)
-
+        sprite.roundPixels = true
         sprite.width = window.innerWidth
         sprite.height = window.innerWidth * height / width
         sprite.x = window.innerWidth / 2

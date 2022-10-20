@@ -23,7 +23,7 @@ export default function useSparkleAnim() {
                     "min": 0.2,
                     "max": 0.8
                 },
-                "frequency": 0.0005,
+                "frequency": 0.0008,
                 "emitterLifetime": -1,
                 "maxParticles": 9999,
                 "addAtBack": false,
@@ -56,11 +56,11 @@ export default function useSparkleAnim() {
                                 "list": [
                                     {
                                         "time": 0,
-                                        "value": 30
+                                        "value": 20
                                     },
                                     {
                                         "time": 1,
-                                        "value": 15
+                                        "value": 10
                                     }
                                 ]
                             }
@@ -77,7 +77,7 @@ export default function useSparkleAnim() {
                                     },
                                     {
                                         "time": 1,
-                                        "value": 0.1
+                                        "value": 0.3
                                     }
                                 ]
                             },
