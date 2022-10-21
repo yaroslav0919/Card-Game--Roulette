@@ -20,10 +20,10 @@ export default function useSparkleAnim() {
             container,
             {
                 "lifetime": {
-                    "min": 0.2,
-                    "max": 0.8
+                    "min": 1.2,
+                    "max": 2.8
                 },
-                "frequency": 0.0008,
+                "frequency": 0.001,
                 "emitterLifetime": -1,
                 "maxParticles": 9999,
                 "addAtBack": false,
@@ -56,7 +56,7 @@ export default function useSparkleAnim() {
                                 "list": [
                                     {
                                         "time": 0,
-                                        "value": 20
+                                        "value": 15
                                     },
                                     {
                                         "time": 1,
@@ -73,11 +73,11 @@ export default function useSparkleAnim() {
                                 "list": [
                                     {
                                         "time": 0,
-                                        "value": 0.2
+                                        "value": 0.1
                                     },
                                     {
                                         "time": 1,
-                                        "value": 0.3
+                                        "value": 0.05
                                     }
                                 ]
                             },
