@@ -131,7 +131,6 @@ function HomePage () {
               }
             }
             if (Store.AppStore.state.autoGameRound === 0) {
-              Store.AppStore.updateState('autoGamePlay', false)
             }
           }
         } else {
@@ -245,11 +244,11 @@ function HomePage () {
         </Suspense>
       </div>
 
-      <Intro />
+      {/* <Intro />
       <LiveBroadcast />
       <div className='landscape-warning'>
         <p>Telefonunuzu dikey konuma getiriniz.</p>
-      </div>
+      </div> */}
     </>
   )
 }
