@@ -1,128 +1,132 @@
-import React, { useEffect, useRef, useState } from 'react'
-import { Application } from 'pixi.js'
-import HeatMapView from './heatMap'
-import useNormalTable from './useNormalTable'
-import useRaceTrackTable from './useRaceTrackTable'
-import useEvents from './useEvents'
-import useStore from '../../store'
-import useEntranceAnimation from './useEntranceAnimation'
-import useResource from './useResource'
-import useSparkleAnim from './useSparkleAnim'
+import React, { useEffect, useRef, useState } from "react";
+import { Application } from "pixi.js";
 
-import tableData from '../../constants/table'
+import HeatMapView from "./heatMap";
+import useNormalTable from "./useNormalTable";
+import useRaceTrackTable from "./useRaceTrackTable";
+import useEvents from "./useEvents";
+import useStore from "../../store";
+import useEntranceAnimation from "./useEntranceAnimation";
+import useResource from "./useResource";
+import useSparkleAnim from "./useSparkleAnim";
 
-export default function Scene () {
-	const ref = useRef(null)
+import tableData from "../../constants/table";
 
-	const { drawNormalTable } = useNormalTable()
-	const { drawRaceTrackTable } = useRaceTrackTable()
-	const { onPointerDownHandler } = useEvents()
-	const { addEntranceAnimation } = useEntranceAnimation()
-	const { preLoadSpriteImages } = useResource()
+export default function Scene() {
+  const ref = useRef(null);
 
-	const { addSparkleAnimation } = useSparkleAnim()
+  const { drawNormalTable } = useNormalTable();
+  const { drawRaceTrackTable } = useRaceTrackTable();
+  const { onPointerDownHandler } = useEvents();
+  const { addEntranceAnimation } = useEntranceAnimation();
+  const { preLoadSpriteImages } = useResource();
 
-	const [heatMapMode, setHeatMapMode] = useState(false)
+  const { addSparkleAnimation } = useSparkleAnim();
 
-	const setApp = useStore((state) => state.setApp)
+  const [heatMapMode, setHeatMapMode] = useState(false);
+
+  const setApp = useStore((state) => state.setApp);
 
   const playSparkleAnimation = (app) => {
-		const calcCenterOffset = () => {
-			const btn0 = tableData.find((item) => item.key === 'bn-0')
-			const btnEnd = tableData.find((item) => item.key === 'bg-3-36')
-		
-			const startPos = {
-				x: btn0?.bordersPos[0].x - 30,
-				y: btn0?.bordersPos[0].y + 50
-			}
-		
-			const endPos = {
-				x: (btnEnd?.bordersPos[0].x + btnEnd?.bordersPos[0].w),
-				y: (btnEnd?.bordersPos[0].y + btnEnd?.bordersPos[0].h)
-			}
-		
-			const centerPoint = {
-				x: startPos.x + (endPos.x - startPos.x) / 2,
-				y: startPos.y + (endPos.y - startPos.y) / 2
-			}
-		
-			const screenCenter = {
-				x: window.innerWidth / 2,
-				y: window.innerHeight / 2
-			}
-		
-			const offset = {
-				x: screenCenter.x - centerPoint.x,
-				y: screenCenter.y - centerPoint.y
-			}
-		
-			return offset
-		}
+    const calcCenterOffset = () => {
+      const btn0 = tableData.find((item) => item.key === "bn-0");
+      const btnEnd = tableData.find((item) => item.key === "bg-3-36");
 
-		const getNumberPosition = (number) => {
-			const btn = tableData.find((item) => {
-				return item.key === `bn-${number}`
-			})
+      const startPos = {
+        x: btn0?.bordersPos[0].x - 30,
+        y: btn0?.bordersPos[0].y + 50,
+      };
 
-			const centerOffset = calcCenterOffset()
-			
-			const x = btn.bordersPos[0].x + btn.bordersPos[0].w / 2 + centerOffset.x
-			const y = btn.bordersPos[0].y + btn.bordersPos[0].h / 2 + centerOffset.y
+      const endPos = {
+        x: btnEnd?.bordersPos[0].x + btnEnd?.bordersPos[0].w,
+        y: btnEnd?.bordersPos[0].y + btnEnd?.bordersPos[0].h,
+      };
 
-			return { x, y }
-		}
+      const centerPoint = {
+        x: startPos.x + (endPos.x - startPos.x) / 2,
+        y: startPos.y + (endPos.y - startPos.y) / 2,
+      };
 
-		const points = []
-		points.push(getNumberPosition(24))
-		points.push(getNumberPosition(16))
-		points.push(getNumberPosition(5))
+      const screenCenter = {
+        x: window.innerWidth / 2,
+        y: window.innerHeight / 2,
+      };
 
-    	addSparkleAnimation(app, points)
-  }
+      const offset = {
+        x: screenCenter.x - centerPoint.x,
+        y: screenCenter.y - centerPoint.y,
+      };
 
-	useEffect(() => {
-		const app = new Application({
-			resizeTo: window,
-			backgroundAlpha: 0,
-			width: window.innerWidth,
-			height: window.innerHeight,
-			antialias: true
-		})
+      return offset;
+    };
 
-		setApp(app)
+    const getNumberPosition = (number) => {
+      const btn = tableData.find((item) => {
+        return item.key === `bn-${number}`;
+      });
 
-		ref.current.appendChild(app.view)
+      const centerOffset = calcCenterOffset();
 
-		app.view.addEventListener('pointerdown', onPointerDownHandler)
+      const x = btn.bordersPos[0].x + btn.bordersPos[0].w / 2 + centerOffset.x;
+      const y = btn.bordersPos[0].y + btn.bordersPos[0].h / 2 + centerOffset.y;
 
-		app.start()
+      return { x, y };
+    };
 
-		// drawRaceTrackTable(app)
+    const points = [];
+    points.push(getNumberPosition(24));
+    points.push(getNumberPosition(16));
+    points.push(getNumberPosition(5));
 
-		const loadAndPlayAnimation = () => {
-			const loader = preLoadSpriteImages()
-			loader.onComplete.add(() => {
-				drawNormalTable(app, heatMapMode)
-				addEntranceAnimation(app)
+    addSparkleAnimation(app, points);
+  };
 
-				setTimeout(() => {
-					playSparkleAnimation(app)
-				}, 3000)
-			})
-		}
+  useEffect(() => {
+    const app = new Application({
+      resizeTo: window,
+      backgroundAlpha: 0,
+      width: window.innerWidth,
+      height: window.innerHeight,
+      antialias: true,
+    });
 
-		loadAndPlayAnimation()
+    setApp(app);
 
-		return () => {
-			app.view.removeEventListener('pointerdown', onPointerDownHandler)
-			app.destroy(true, true)
-		}
-	}, [])
+    ref.current.appendChild(app.view);
 
-	return (
-		<>
-			{heatMapMode ? <HeatMapView /> : null}
-			<div className='canvasScene' ref={ref} />
-		</>
-	)
+    app.view.addEventListener("pointerdown", onPointerDownHandler);
+
+    app.start();
+
+    // drawRaceTrackTable(app)
+
+    // const loadAndPlayAnimation = () => {
+    //   const loader = preLoadSpriteImages();
+    //   loader.onComplete.add(() => {
+    //     drawNormalTable(app, heatMapMode);
+    //     addEntranceAnimation(app);
+
+    // setTimeout(() => {
+    //   playSparkleAnimation(app);
+    // }, 3000);
+    //   });
+    // };
+
+    // loadAndPlayAnimation();
+    drawNormalTable(app, heatMapMode);
+    addEntranceAnimation(app);
+
+    // addEntranceAnimation(app);
+    return () => {
+      app.view.removeEventListener("pointerdown", onPointerDownHandler);
+      app.destroy(true, true);
+    };
+  }, []);
+
+  return (
+    <>
+      {heatMapMode ? <HeatMapView /> : null}
+      <div className="canvasScene" ref={ref} />
+    </>
+  );
 }

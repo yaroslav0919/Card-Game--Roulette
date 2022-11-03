@@ -1,54 +1,174 @@
-import * as PIXI from 'pixi.js'
-import { gsap } from 'gsap'
-import { PixiPlugin } from 'gsap/PixiPlugin'
-
-PixiPlugin.registerPIXI(PIXI)
+import * as PIXI from "pixi.js";
+import { gsap } from "gsap";
+import MotionPathPlugin from "gsap/MotionPathPlugin";
+import { PixiPlugin } from "gsap/PixiPlugin";
+import { ang2Rad } from "../../utils/math.js";
+PixiPlugin.registerPIXI(PIXI);
 
 export default function useEntranceAnimation() {
-    const playAnimatedSprite = (app, path, count, alpha = 1, width = 1080, height = 1920) => {
-        const frames = []
+  const halfX = window.innerWidth / 2;
+  const Y = window.innerHeight;
+  const playAnimatedSprite = (app) => {};
 
-        for( let i = 1; i <= count; i++ ) {
-            const texture = PIXI.Texture.from(path + (i < 10 ? '0000' : i < 100 ? '000' : '00') + i + '.png')
-            frames.push(texture)
-        }
+  const addHatAnimation = (app) => {
+    // playAnimatedSprite(app, "/assets/images/hat/magic-1_", 161, 1);
+    const hatTexture = new PIXI.Texture.from("/assets/image/hat.png");
+    const hat = new PIXI.Sprite(hatTexture);
+    hat.roundPixels = true;
+    hat.anchor.set(0.5, 0.5);
+    hat.x = halfX;
+    hat.y = Y;
 
-        const sprite = new PIXI.AnimatedSprite(frames)
-        sprite.roundPixels = true
-        sprite.width = window.innerWidth
-        sprite.height = window.innerWidth * height / width
-        sprite.x = window.innerWidth / 2
-        sprite.y = window.innerHeight
-        sprite.anchor.set(0.5, 1)
-        sprite.loop = false
-        sprite.animationSpeed = 0.5
-        sprite.alpha = alpha
-        sprite.play()
-        app.stage.addChild(sprite)
+    gsap.to(hat, {
+      y: Y - 100,
+      duration: 2,
+      onComplete() {
+        gsap.to(hat, {
+          x: halfX - 100,
+          rotation: ang2Rad(40),
+          delay: 4,
+          duration: 2,
+          // onComplete() {
+          //   gsap.to(hat, {
+          //     rotation: ang2Rad(45),
+          //     duration: 2,
+          //   });
+          // },
+        });
+      },
+    });
+
+    app.stage.addChild(hat);
+  };
+
+  // const addPlayBackEffect = (app) => {
+  //   playAnimatedSprite(app, "/assets/images/magic/magic_", 149, 1);
+  // };
+
+  const addSparkleAnimations = (app) => {
+    const offset = [
+      [0, 0, -0, -300, -100, -200, -100, -200, -0, -300, -80, -425],
+      [0, 0, -0, -300, -60, -250, -60, -250, -0, -300, -80, -425],
+      [0, 0, -0, -300, -0, -300, -0, -300, -0, -300, -80, -425],
+      [0, 0, -0, -300, 60, -250, 60, -250, 0, -300, -80, -425],
+      [0, 0, -0, -300, 100, -200, 100, -200, 0, -300, -80, -425],
+    ];
+    sparkleAnimation(app, offset[0], 40);
+    sparkleAnimation(app, offset[1], 60);
+    sparkleAnimation(app, offset[2], 80);
+    sparkleAnimation(app, offset[3], 60);
+    sparkleAnimation(app, offset[4], 40);
+  };
+  const sparkleAnimation = (app, offset, size) => {
+    const pathLine = new PIXI.Graphics();
+    pathLine.lineStyle(1, 0xffffff, 1).moveTo(halfX, Y);
+    pathLine.bezierCurveTo(
+      halfX + offset[0],
+      Y + offset[1],
+      halfX + offset[2],
+      Y + offset[3],
+      halfX + offset[4],
+      Y + offset[5]
+    );
+
+    app.stage.addChild(pathLine);
+    pathLine.bezierCurveTo(
+      halfX + offset[6],
+      Y + offset[7],
+      halfX + offset[8],
+      Y + offset[9],
+      halfX + offset[10],
+      Y + offset[11]
+    );
+    app.stage.addChild(pathLine);
+
+    const sparkleTexture = new PIXI.Texture.from("/assets/image/sparkle.png");
+    const sparkle = new PIXI.Sprite(sparkleTexture);
+    sparkle.width = size;
+    sparkle.height = size;
+    sparkle.roundPixels = true;
+    sparkle.anchor.set(0.5, 0.5);
+    sparkle.x = halfX;
+    sparkle.y = Y;
+
+    const pathObject1 = [{ x: halfX + offset[0], y: Y + offset[1] }];
+    const pathObject2 = [{ x: halfX + offset[6], y: Y + offset[7] }];
+    for (let i = 0; i < 6; i += 2) {
+      pathObject1.push({ x: halfX + offset[i], y: Y + offset[i + 1] });
+      pathObject2.push({ x: halfX + offset[i + 6], y: Y + offset[i + 7] });
     }
 
-    const addHatAnimation = (app) => {
-        playAnimatedSprite(app, '/assets/images/hat/magic-1_', 161, 1)
-    }
+    gsap.registerPlugin(MotionPathPlugin);
+    gsap.to(sparkle, {
+      duration: 2,
+      ease: "none",
+      motionPath: {
+        path: pathObject1,
+        type: "cubic",
+      },
+      onComplete() {
+        gsap.to(sparkle, {
+          ease: "none",
+          motionPath: {
+            path: pathObject2,
+            type: "cubic",
+          },
+          delay: 2,
+          duration: 1,
+          onComplete() {
+            app.stage.removeChild(sparkle);
+          },
+        });
+      },
+    });
+    app.stage.addChild(sparkle);
+  };
 
-    const addPlayBackEffect = (app) => {
-        playAnimatedSprite(app, '/assets/images/magic/magic_', 149, 1)
-    }
+  const addMagicHandAnimation = (app) => {
+    const handTexture = new PIXI.Texture.from("/assets/image/hand.png");
+    const hand = new PIXI.Sprite(handTexture);
 
-    const addSparkleEffect = (app) => {
-        playAnimatedSprite(app, '/assets/images/sparkles/sparkles_', 74, 0.9)
-    }
+    hand.roundPixels = true;
+    hand.anchor.set(0.5, 0.5);
+    hand.x = halfX;
+    hand.y = Y;
 
-    const addMagicHandAnimation = (app) => {
-        playAnimatedSprite(app, '/assets/images/hand/hand_', 110, 1)
-    }
+    gsap.to(hand, {
+      y: Y - 350,
+      duration: 2,
+      delay: 2,
+      rotation: ang2Rad(60),
+      onComplete() {
+        gsap.to(hand, {
+          x: halfX + 10,
+          rotation: ang2Rad(120),
+          duration: 1,
+          onComplete() {
+            gsap.to(hand, {
+              rotation: ang2Rad(30),
+              duration: 2,
+              delay: 1,
+              // onComplete() {
+              //   gsap.to(hand, {
+              //     rotation: ang2Rad(70),
+              //     duration: 1,
+              //   });
+              // },
+            });
+          },
+        });
+      },
+    });
 
-    const addEntranceAnimation = (app) => {
-        addPlayBackEffect(app)
-        addSparkleEffect(app)
-        addMagicHandAnimation(app)
-        addHatAnimation(app)
-    }
+    app.stage.addChild(hand);
+  };
 
-    return { addEntranceAnimation }
+  const addEntranceAnimation = (app) => {
+    // addPlayBackEffect(app);
+    addSparkleAnimations(app);
+    addMagicHandAnimation(app);
+    addHatAnimation(app);
+  };
+
+  return { addEntranceAnimation };
 }
