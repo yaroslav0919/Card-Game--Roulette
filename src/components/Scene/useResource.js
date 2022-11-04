@@ -24,7 +24,13 @@ export default function useResource() {
     // return loader.load(loader)
 
     const loader = new PIXI.Loader();
+    loader.add("assets/image/hat.png");
     loader.add("assets/image/sparkle.png");
+    loader.add("assets/image/back-sparkles.png");
+    loader.add("assets/image/beam.png");
+    loader.add("assets/image/glare.png");
+    loader.add("assets/image/hand.png");
+
     return loader.load(loader);
   };
 
