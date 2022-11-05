@@ -19,6 +19,7 @@ export default function useEntranceAnimation() {
     hat.y = Y;
     hat.width = 250;
     hat.height = 200;
+    hat.zIndex = 0;
     gsap.to(hat, {
       y: Y - 100,
       duration: 2,
@@ -262,6 +263,9 @@ export default function useEntranceAnimation() {
   };
 
   const addEntranceAnimation = (app) => {
+    // const multiplierTxture = new PIXI.Texture.from("/assets/image/30x.png");
+    // const multiplier = new PIXI.Sprite(multiplierTxture);
+    // app.stage.addChild(multiplier);
     addPlayBackEffect(app);
     addSparkleAnimations(app);
     addMagicHandAnimation(app);

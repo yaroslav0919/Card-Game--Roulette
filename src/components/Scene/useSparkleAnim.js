@@ -6,12 +6,13 @@ import { PixiPlugin } from "gsap/PixiPlugin";
 import useSelectAnimation from "./useSelectAnimation";
 import tableData from "../../constants/table";
 import useNormalTable from "./useNormalTable";
+import useMultiplierAnimation from "./useMultiplierAnimation";
 PixiPlugin.registerPIXI(PIXI);
 
 export default function useSparkleAnim() {
   const { drawPolishRect } = useSelectAnimation();
   const { calcCenterOffset } = useNormalTable();
-
+  const { multiplierCircle } = useMultiplierAnimation();
   const getNumberPosition = (number) => {
     const btn = tableData.find((item) => {
       return item.key === `bn-${number}`;
@@ -33,10 +34,11 @@ export default function useSparkleAnim() {
       y: window.innerHeight - 205,
     };
     const points = [];
-    points.push(initPos);
+    // points.push(initPos);
     numberArray.forEach((number) => {
       points.push(getNumberPosition(number));
     });
+
     const emitter = new Particles.Emitter(container, {
       lifetime: {
         min: 1.2,
@@ -148,44 +150,45 @@ export default function useSparkleAnim() {
         },
       ],
     });
-
+    emitter.emit = true;
     var elapsed = Date.now();
 
     let pointIndex = 0;
-    const frameCount = 60;
+
+    const frameCount = 40;
     const speed = {
-      x: 0,
-      y: 0,
+      x: (points[pointIndex].x - emitter.spawnPos.x) / frameCount,
+      y: (points[pointIndex].y - emitter.spawnPos.y) / frameCount,
     };
 
     let canStart = false;
     setTimeout(() => {
       canStart = true;
     }, 1000);
+
     app.ticker.add(() => {
-      if (
-        canStart &&
-        Math.ceil(emitter.spawnPos.x) === Math.ceil(points[pointIndex].x)
-      ) {
-        if (pointIndex) drawPolishRect(app, numberArray[pointIndex - 1]);
-        pointIndex++;
-        if (pointIndex >= points.length) {
-          speed.x = 0;
-          speed.y = 0;
-          pointIndex = points.length - 1;
-        } else {
+      if (canStart) {
+        if (Math.ceil(emitter.spawnPos.x) === Math.ceil(points[pointIndex].x)) {
+          if (pointIndex === 2) {
+            emitter.emit = false;
+            drawPolishRect(app, numberArray[pointIndex]);
+            canStart = false;
+          } else {
+            drawPolishRect(app, numberArray[pointIndex]);
+            if (!pointIndex) multiplierCircle(app);
+            pointIndex++;
+          }
+
           speed.x = (points[pointIndex].x - emitter.spawnPos.x) / frameCount;
           speed.y = (points[pointIndex].y - emitter.spawnPos.y) / frameCount;
         }
+        emitter.spawnPos.x += speed.x;
+        emitter.spawnPos.y += speed.y;
       }
-
-      emitter.spawnPos.x += speed.x;
-      emitter.spawnPos.y += speed.y;
-      if (!speed) app.stage.Emitter.clear();
       const now = Date.now();
+      emitter.update((now - elapsed) * 0.001);
       elapsed = now;
     });
-    emitter.emit = true;
   };
 
   return { addSparkleAnimation };

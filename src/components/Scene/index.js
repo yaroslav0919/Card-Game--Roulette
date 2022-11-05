@@ -61,7 +61,6 @@ export default function Scene() {
         }, 9000);
       });
     };
-
     loadAndPlayAnimation();
 
     return () => {
