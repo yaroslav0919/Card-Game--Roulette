@@ -1,27 +1,17 @@
 import * as PIXI from "pixi.js";
-
+import useStore from "../../store";
 export default function useResource() {
+  const setMultiStore = useStore((state) => state.setMultiStore);
+
   const preLoadSpriteImages = () => {
-    // const loader = new PIXI.Loader()
-
-    // const assetsArray = []
-
-    // const loadSpriteImages = (path, count) => {
-    //     for( let i = 1; i <= count; i++ ) {
-    //         loader.add(path + i, path + (i < 10 ? '0000' : i < 100 ? '000' : '00') + i + '.png')
-    //         // assetsArray.push(path + i)
-    //     }
-    // }
-
-    // loadSpriteImages('/assets/images/hat/magic-1_', 161)
-
-    // loadSpriteImages('/assets/images/magic/magic_', 149)
-
-    // loadSpriteImages('/assets/images/sparkles/sparkles_', 74)
-
-    // loadSpriteImages('/assets/images/hand/hand_', 110)
-
-    // return loader.load(loader)
+    // const multiArray = [];
+    // const multiTexture1 = new PIXI.Texture.from("/assets/image/30x.png");
+    // const multiTexture2 = new PIXI.Texture.from("/assets/image/500x.png");
+    // const multiTexture3 = new PIXI.Texture.from("/assets/image/10x.png");
+    // multiArray.push(new PIXI.Sprite(multiTexture1));
+    // multiArray.push(new PIXI.Sprite(multiTexture2));
+    // multiArray.push(new PIXI.Sprite(multiTexture3));
+    // setMultiStore(multiArray);
 
     const loader = new PIXI.Loader();
     loader.add("assets/image/hat.png");
