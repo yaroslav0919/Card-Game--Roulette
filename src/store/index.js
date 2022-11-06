@@ -22,7 +22,7 @@ const useStore = create((set) => ({
       })
     ),
 
-  timeLine : null;
+  timeLine: null,
   setTime: (payload) =>
     set(
       produce((state) => {

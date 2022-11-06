@@ -173,9 +173,10 @@ export default function useSparkleAnim() {
             emitter.emit = false;
             drawPolishRect(app, numberArray[pointIndex]);
             canStart = false;
+            multiplierCircle(pointIndex);
           } else {
             drawPolishRect(app, numberArray[pointIndex]);
-            if (!pointIndex) multiplierCircle(app);
+            multiplierCircle(pointIndex);
             pointIndex++;
           }
 

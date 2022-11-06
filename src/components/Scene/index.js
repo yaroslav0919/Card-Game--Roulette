@@ -26,7 +26,7 @@ export default function Scene() {
   const [heatMapMode, setHeatMapMode] = useState(false);
   const numberArray = [24, 16, 5];
   const setApp = useStore((state) => state.setApp);
-
+  const multiStore = useStore((state) => state.multiStore);
   useEffect(() => {
     const app = new Application({
       resizeTo: window,
@@ -50,6 +50,7 @@ export default function Scene() {
       const loader = preLoadSpriteImages();
       loader.onComplete.add(() => {
         drawNormalTable(app, heatMapMode);
+
         addEntranceAnimation(app);
 
         setTimeout(() => {
@@ -62,6 +63,7 @@ export default function Scene() {
       });
     };
     loadAndPlayAnimation();
+    // addEntranceAnimation(app);
 
     return () => {
       app.view.removeEventListener("pointerdown", onPointerDownHandler);

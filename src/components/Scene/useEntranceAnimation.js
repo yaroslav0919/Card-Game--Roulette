@@ -1,14 +1,23 @@
 import * as PIXI from "pixi.js";
+
 import { gsap } from "gsap";
 import MotionPathPlugin from "gsap/MotionPathPlugin";
 import { PixiPlugin } from "gsap/PixiPlugin";
+import * as Particles from "@pixi/particle-emitter";
+
 import { ang2Rad } from "../../utils/math.js";
+import useStore from "../../store/index";
+import { useEffect } from "react";
 PixiPlugin.registerPIXI(PIXI);
 
 export default function useEntranceAnimation() {
   const halfX = window.innerWidth / 2;
   const Y = window.innerHeight;
-  const playAnimatedSprite = (app) => {};
+  const multiStore = useStore((state) => state.multiStore);
+
+  function R(max, min) {
+    return Math.random() * (max - min) + min;
+  }
 
   const addHatAnimation = (app) => {
     const hatTexture = new PIXI.Texture.from("/assets/image/hat.png");
@@ -19,7 +28,7 @@ export default function useEntranceAnimation() {
     hat.y = Y;
     hat.width = 250;
     hat.height = 200;
-    hat.zIndex = 0;
+
     gsap.to(hat, {
       y: Y - 100,
       duration: 2,
@@ -36,13 +45,22 @@ export default function useEntranceAnimation() {
               height: (hat.height * 3) / 4,
               duration: 1,
               delay: 1,
+              onComplete() {
+                gsap.to(hat, {
+                  x: -200,
+                  duration: 1,
+                  delay: 3,
+                });
+              },
             });
           },
         });
       },
     });
-
-    app.stage.addChild(hat);
+    const hatContainer = new PIXI.Container();
+    hatContainer.zIndex = 1;
+    hatContainer.addChild(hat);
+    app.stage.addChild(hatContainer);
   };
 
   const addPlayBackEffect = (app) => {
@@ -92,36 +110,95 @@ export default function useEntranceAnimation() {
     });
     app.stage.addChild(beam);
     ///beam end///
-    ///dozens of sparkle start///
-    const bgSparklesTexture = new PIXI.Texture.from(
-      "/assets/image/back-sparkles.png"
-    );
-    const bgSparkles = new PIXI.Sprite(bgSparklesTexture);
 
-    bgSparkles.roundPixels = true;
-    bgSparkles.anchor.set(0.5, 1);
-    bgSparkles.x = halfX;
-    bgSparkles.y = Y - 100;
-    bgSparkles.width = 100;
-    bgSparkles.height = 50;
-    bgSparkles.alpha = 0;
-    gsap.to(bgSparkles, {
-      delay: 2,
-      alpha: 1,
-      y: Y - 180,
-      width: 300,
-      height: 200,
+    ///dozens of sparkle start///
+    // const bgSparklesTexture = new PIXI.Texture.from(
+    //   "/assets/image/back-sparkles.png"
+    // );
+    // const bgSparkles = new PIXI.Sprite(bgSparklesTexture);
+
+    // bgSparkles.roundPixels = true;
+    // bgSparkles.anchor.set(0.5, 1);
+    // bgSparkles.x = halfX;
+    // bgSparkles.y = Y - 100;
+    // bgSparkles.width = 100;
+    // bgSparkles.height = 50;
+    // bgSparkles.alpha = 0;
+    // gsap.to(bgSparkles, {
+    //   delay: 2,
+    //   alpha: 1,
+    //   y: Y - 180,
+    //   width: 300,
+    //   height: 200,
+    //   duration: 2,
+    //   onComplete() {
+    //     gsap.to(bgSparkles, {
+    //       alpha: 0,
+    //       duration: 1,
+    //       delay: 2,
+    //     });
+    //   },
+    // });
+    // app.stage.addChild(bgSparkles);
+  };
+  const addDozenSparkleEffect = (app) => {
+    const spotTexture = new PIXI.Texture.from("/assets/image/sparkle.png");
+    const w = 300;
+    const h = 200;
+    const spots = new PIXI.ParticleContainer(100, {
+      scale: true,
+      position: true,
+      rotation: false,
+      uvs: true,
+      alpha: true,
+    });
+    spots.x = halfX;
+    spots.y = Y - 200;
+
+    // spots.anchor.set(0.5, 0.5);
+    let repeat = gsap.timeline({ repeat: -1, yoyo: true });
+    for (let i = 0; i < 150; i++) {
+      const spot = new PIXI.Sprite(spotTexture);
+      spot.x = R(-w / 2, w / 2);
+      spot.y = R(-h / 2, h / 2);
+      const rd = R(1, 10);
+      spot.width = rd;
+      spot.height = rd;
+      repeat.to(spot, {
+        x: spot.x + R(-5, 5),
+        y: spot.y + R(-5, 5),
+        alpha: R(0, 0.7),
+        duration: 0.01,
+      });
+      spots.addChild(spot);
+    }
+
+    gsap.to(spots, {
+      y: Y - 300,
       duration: 2,
+      delay: 1,
       onComplete() {
-        gsap.to(bgSparkles, {
-          alpha: 0,
-          duration: 1,
-          delay: 2,
-        });
+        gsap.to(spots, { delay: 3, alpha: 0, duration: 1 });
       },
     });
-    app.stage.addChild(bgSparkles);
-    ///dozens of sparkle start///
+
+    app.stage.addChild(spots);
+
+    // const tl = gsap.timeline({ repeat: 1, yoyo: true });
+    // const part = spots.children;
+    // const p = Math.sqrt(w * w + h * h);
+    // tl.fromTo(
+    //   part,
+    //   { scaleX: 0, scaleY: 0, x: halfX, y: Y - 200 },
+    //   {
+    //     scaleX: 0.5,
+    //     scaleY: 0.5,
+    //     x: part.x + R(-w / 2, w / 2),
+    //     y: part.y + R(-h / 2, h / 2),
+    //     duration: 1,
+    //     // onComplete(part, gsap)
+    //   }
+    // );
   };
 
   const addSparkleAnimations = (app) => {
@@ -138,6 +215,7 @@ export default function useEntranceAnimation() {
     sparkleAnimation(app, offset[3], 60);
     sparkleAnimation(app, offset[4], 40);
   };
+
   const sparkleAnimation = (app, offset, size) => {
     // const pathLine = new PIXI.Graphics();
     // pathLine.lineStyle(1, 0xffffff, 1).moveTo(halfX, Y);
@@ -261,14 +339,16 @@ export default function useEntranceAnimation() {
 
     app.stage.addChild(hand);
   };
-
+  const preLoad = () => {};
   const addEntranceAnimation = (app) => {
-    // const multiplierTxture = new PIXI.Texture.from("/assets/image/30x.png");
-    // const multiplier = new PIXI.Sprite(multiplierTxture);
-    // app.stage.addChild(multiplier);
+    app.stage.addChild(multiStore[0]);
+    app.stage.addChild(multiStore[1]);
+    app.stage.addChild(multiStore[2]);
     addPlayBackEffect(app);
     addSparkleAnimations(app);
+    addDozenSparkleEffect(app);
     addMagicHandAnimation(app);
+
     addHatAnimation(app);
   };
 
