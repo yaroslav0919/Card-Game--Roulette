@@ -151,45 +151,59 @@ export default function useSparkleAnim() {
       ],
     });
     emitter.emit = true;
-    var elapsed = Date.now();
-
-    let pointIndex = 0;
-
-    const frameCount = 40;
-    const speed = {
-      x: (points[pointIndex].x - emitter.spawnPos.x) / frameCount,
-      y: (points[pointIndex].y - emitter.spawnPos.y) / frameCount,
-    };
-
-    let canStart = false;
-    setTimeout(() => {
-      canStart = true;
-    }, 1000);
-
-    app.ticker.add(() => {
-      if (canStart) {
-        if (Math.ceil(emitter.spawnPos.x) === Math.ceil(points[pointIndex].x)) {
-          if (pointIndex === 2) {
-            emitter.emit = false;
-            drawPolishRect(app, numberArray[pointIndex]);
-            canStart = false;
-            multiplierCircle(pointIndex);
-          } else {
-            drawPolishRect(app, numberArray[pointIndex]);
-            multiplierCircle(pointIndex);
-            pointIndex++;
-          }
-
-          speed.x = (points[pointIndex].x - emitter.spawnPos.x) / frameCount;
-          speed.y = (points[pointIndex].y - emitter.spawnPos.y) / frameCount;
-        }
-        emitter.spawnPos.x += speed.x;
-        emitter.spawnPos.y += speed.y;
-      }
-      const now = Date.now();
-      emitter.update((now - elapsed) * 0.001);
-      elapsed = now;
+    const pathObject1 = [
+      { x: emitter.spawnPos.x, y: emitter.spawnPos.y },
+      { x: 500, y: 500 },
+      { x: 400, y: 400 },
+      { x: 400, y: 400 },
+    ];
+    gsap.to(emitter, {
+      duration: 2,
+      ease: "none",
+      motionPath: {
+        path: pathObject1,
+        type: "cubic",
+      },
     });
+    // var elapsed = Date.now();
+
+    // let pointIndex = 0;
+
+    // const frameCount = 40;
+    // const speed = {
+    //   x: (points[pointIndex].x - emitter.spawnPos.x) / frameCount,
+    //   y: (points[pointIndex].y - emitter.spawnPos.y) / frameCount,
+    // };
+
+    // let canStart = false;
+    // setTimeout(() => {
+    //   canStart = true;
+    // }, 1000);
+
+    // app.ticker.add(() => {
+    //   if (canStart) {
+    //     if (Math.ceil(emitter.spawnPos.x) === Math.ceil(points[pointIndex].x)) {
+    //       if (pointIndex === 2) {
+    //         emitter.emit = false;
+    //         drawPolishRect(app, numberArray[pointIndex]);
+    //         canStart = false;
+    //         multiplierCircle(pointIndex);
+    //       } else {
+    //         drawPolishRect(app, numberArray[pointIndex]);
+    //         multiplierCircle(pointIndex);
+    //         pointIndex++;
+    //       }
+
+    //       speed.x = (points[pointIndex].x - emitter.spawnPos.x) / frameCount;
+    //       speed.y = (points[pointIndex].y - emitter.spawnPos.y) / frameCount;
+    //     }
+    //     emitter.spawnPos.x += speed.x;
+    //     emitter.spawnPos.y += speed.y;
+    //   }
+    //   const now = Date.now();
+    //   emitter.update((now - elapsed) * 0.001);
+    //   elapsed = now;
+    // });
   };
 
   return { addSparkleAnimation };

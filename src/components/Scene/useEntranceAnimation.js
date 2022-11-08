@@ -143,8 +143,8 @@ export default function useEntranceAnimation() {
   };
   const addDozenSparkleEffect = (app) => {
     const spotTexture = new PIXI.Texture.from("/assets/image/sparkle.png");
-    const w = 300;
-    const h = 200;
+    const w = 250;
+    const h = 300;
     const spots = new PIXI.ParticleContainer(100, {
       scale: true,
       position: true,
@@ -152,33 +152,56 @@ export default function useEntranceAnimation() {
       uvs: true,
       alpha: true,
     });
-    spots.x = halfX;
-    spots.y = Y - 200;
-
+    spots.setTransform(halfX, Y - 200, 0, 0, 0, 0, 0, 0.5, 1);
+    // spots.x = halfX;
+    // spots.y = Y - 200;
+    // spots.width = 0;
+    // spots.height = 0;
     // spots.anchor.set(0.5, 0.5);
-    let repeat = gsap.timeline({ repeat: -1, yoyo: true });
-    for (let i = 0; i < 150; i++) {
+    let repeat = gsap.timeline({ repeat: -1 });
+
+    for (let i = 0; i < 100; i++) {
       const spot = new PIXI.Sprite(spotTexture);
-      spot.x = R(-w / 2, w / 2);
-      spot.y = R(-h / 2, h / 2);
-      const rd = R(1, 10);
+      spot.x = 0;
+      spot.y = h;
+      const rd = R(3, 6);
       spot.width = rd;
       spot.height = rd;
-      repeat.to(spot, {
-        x: spot.x + R(-5, 5),
-        y: spot.y + R(-5, 5),
-        alpha: R(0, 0.7),
-        duration: 0.01,
+
+      gsap.to(spot, {
+        x: R(-w / 2, w / 2),
+        y: R(0, h / 2),
+        duration: 3,
+        // onComplete() {
+        //   repeat.to(spot, {
+        //     x: spot.x + R(-5, 5),
+        //     y: spot.y + R(-5, 5),
+        //     alpha: R(0, 0.7),
+        //     duration: 0.01,
+        //   });
+        // },
       });
+      repeat.fromTo(
+        spot,
+        0.01,
+        {
+          alpha: R(0.5, 1),
+        },
+        { alpha: R(0, 0.5) }
+      );
+
       spots.addChild(spot);
     }
 
     gsap.to(spots, {
-      y: Y - 300,
+      y: Y - 350,
       duration: 2,
-      delay: 1,
+      // delay: 1,
+      // width: 200,
+      // height: 300,
+
       onComplete() {
-        gsap.to(spots, { delay: 3, alpha: 0, duration: 1 });
+        gsap.to(spots, { delay: 3, alpha: 0, duration: 2 });
       },
     });
 
