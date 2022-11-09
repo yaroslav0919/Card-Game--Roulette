@@ -22,6 +22,7 @@ export default function Scene() {
   const { preLoadSpriteImages } = useResource();
   const { drawPolishRect } = useSelectAnimation();
   const { addSparkleAnimation } = useSparkleAnim();
+  const { asd } = useSparkleAnim();
 
   const [heatMapMode, setHeatMapMode] = useState(false);
   const numberArray = [24, 16, 5];
@@ -63,8 +64,8 @@ export default function Scene() {
       });
     };
     loadAndPlayAnimation();
-    // addEntranceAnimation(app);
 
+    // addSparkleAnimation(app, numberArray);
     return () => {
       app.view.removeEventListener("pointerdown", onPointerDownHandler);
       app.destroy(true, true);

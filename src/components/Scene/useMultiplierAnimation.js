@@ -87,7 +87,6 @@ export default function useMultiplierAnimation() {
     setMultiStore(multiplier3);
   };
   const multiplierCircle = (index) => {
-    console.log(index);
     index === 0 && firstMultiplier();
     index === 1 && secondMultiplier();
     index === 2 && thirdMultiplier();

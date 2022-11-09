@@ -162,6 +162,7 @@ export default function useEntranceAnimation() {
 
     for (let i = 0; i < 100; i++) {
       const spot = new PIXI.Sprite(spotTexture);
+      spot.blendMode = PIXI.BLEND_MODES.ADD;
       spot.x = 0;
       spot.y = h;
       const rd = R(3, 6);
@@ -261,9 +262,9 @@ export default function useEntranceAnimation() {
     //   Y + offset[11]
     // );
     // app.stage.addChild(pathLine);
-
     const sparkleTexture = new PIXI.Texture.from("/assets/image/sparkle.png");
     const sparkle = new PIXI.Sprite(sparkleTexture);
+    sparkle.blendMode = PIXI.BLEND_MODES.ADD;
     sparkle.width = size;
     sparkle.height = size;
     sparkle.roundPixels = true;
@@ -362,7 +363,6 @@ export default function useEntranceAnimation() {
 
     app.stage.addChild(hand);
   };
-  const preLoad = () => {};
   const addEntranceAnimation = (app) => {
     app.stage.addChild(multiStore[0]);
     app.stage.addChild(multiStore[1]);
