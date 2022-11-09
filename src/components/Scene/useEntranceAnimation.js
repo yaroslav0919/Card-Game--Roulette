@@ -294,12 +294,12 @@ export default function useEntranceAnimation() {
             path: pathObject2,
             type: "cubic",
           },
+          width: 20,
+          height: 20,
           delay: 2,
           duration: 1,
           onComplete() {
             gsap.to(sparkle, {
-              width: 20,
-              height: 20,
               delay: 0.5,
               onComplete() {
                 app.stage.removeChild(sparkle);
