@@ -87,9 +87,9 @@ export default function useMultiplierAnimation() {
     setMultiStore(multiplier3);
   };
   const multiplierCircle = (index) => {
-    index === 0 && firstMultiplier();
-    index === 1 && secondMultiplier();
-    index === 2 && thirdMultiplier();
+    index === 1 && firstMultiplier();
+    index === 2 && secondMultiplier();
+    index === 3 && thirdMultiplier();
   };
   return { multiplierCircle };
 }

@@ -278,7 +278,7 @@ export default function useSparkleAnim() {
     const container = new PIXI.Container();
     app.stage.addChild(container);
     const g = new PIXI.Graphics();
-    g.beginFill(0xffcf5b);
+    g.beginFill(0xf7e34d);
     g.drawCircle(2, 2, 2);
     g.endFill();
     const texture = app.renderer.generateTexture(g);
@@ -303,15 +303,14 @@ export default function useSparkleAnim() {
         scale: {
           list: [
             {
-              value: 0.5,
+              value: 1,
               time: 0,
             },
             {
-              value: 0.1,
+              value: 0.5,
               time: 1,
             },
           ],
-          minimumScaleMultiplier: 2,
           isStepped: false,
         },
         color: {
@@ -330,11 +329,11 @@ export default function useSparkleAnim() {
         speed: {
           list: [
             {
-              value: 15,
+              value: 6,
               time: 0,
             },
             {
-              value: 10,
+              value: 5,
               time: 1,
             },
           ],
@@ -366,13 +365,12 @@ export default function useSparkleAnim() {
         spawnCircle: {
           x: 0,
           y: 0,
-          r: 10,
+          r: 5,
         },
       }
     );
 
     const sprite = new PIXI.Sprite(texture);
-    // sprite.anchor.set(0.5);
     sprite.renderable = false;
     gsap.set(sprite, {
       x: initPos.x,
@@ -382,45 +380,26 @@ export default function useSparkleAnim() {
 
     container.addChild(sprite);
 
-    // const pathLine = new PIXI.Graphics();
-    // pathLine.lineStyle(0.5, 0xffffff, 1).moveTo(initPos.x, initPos.y);
-    // pathLine.bezierCurveTo(
-    //   initPos.x,
-    //   initPos.y,
-    //   initPos.x,
-    //   initPos.y,
-    //   points[0].x,
-    //   points[0].y
-    // );
-    // app.stage.addChild(pathLine);
-
-    // const pointIndex = 1;
     gsap.registerPlugin(MotionPathPlugin);
 
     const go = (pointIndex) => {
-      gsap.to(
-        sprite,
-
-        {
-          motionPath: generateRandomCurve(
-            points[pointIndex - 1],
-            points[pointIndex]
-          ),
-          duration: 2,
-          onComplete: () => {
-            console.log(pointIndex);
-            // if (pointIndex !== 3) {
-            //   pointIndex++;
-            //   go();
-            // } else emitter.emit = false;
-            if (pointIndex !== 3) go(pointIndex + 1);
-            else emitter.emit = false;
-          },
-          onUpdate: () => {
-            emitter.updateSpawnPos(sprite.x, sprite.y);
-          },
-        }
-      );
+      gsap.to(sprite, {
+        motionPath: generateRandomCurve(
+          points[pointIndex - 1],
+          points[pointIndex]
+        ),
+        duration: 2,
+        delay: pointIndex === 1 && 1,
+        onComplete: () => {
+          drawPolishRect(app, numberArray[pointIndex - 1]);
+          multiplierCircle(pointIndex);
+          if (pointIndex !== 3) go(pointIndex + 1);
+          else emitter.emit = false;
+        },
+        onUpdate: () => {
+          emitter.updateSpawnPos(sprite.x, sprite.y);
+        },
+      });
     };
     go(1);
     // go(2);
