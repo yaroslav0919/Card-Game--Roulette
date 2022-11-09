@@ -67,7 +67,7 @@ export default function useEntranceAnimation() {
     ///faded background start///
     const glareTexture = new PIXI.Texture.from("/assets/image/glare.png");
     const glare = new PIXI.Sprite(glareTexture);
-
+    glare.blendMode = PIXI.BLEND_MODES.ADD;
     glare.roundPixels = true;
     glare.anchor.set(0.5, 1);
     glare.x = halfX;
@@ -89,7 +89,7 @@ export default function useEntranceAnimation() {
     ///beam start///
     const beamTexture = new PIXI.Texture.from("/assets/image/beam.png");
     const beam = new PIXI.Sprite(beamTexture);
-
+    beam.blendMode = PIXI.BLEND_MODES.ADD;
     beam.roundPixels = true;
     beam.anchor.set(0.5, 1);
     beam.x = halfX;
@@ -298,6 +298,8 @@ export default function useEntranceAnimation() {
           duration: 1,
           onComplete() {
             gsap.to(sparkle, {
+              width: 20,
+              height: 20,
               delay: 0.5,
               onComplete() {
                 app.stage.removeChild(sparkle);
@@ -313,7 +315,6 @@ export default function useEntranceAnimation() {
   const addMagicHandAnimation = (app) => {
     const handTexture = new PIXI.Texture.from("/assets/image/hand.png");
     const hand = new PIXI.Sprite(handTexture);
-
     hand.roundPixels = true;
     hand.anchor.set(0.5, 0.5);
     hand.x = halfX;
