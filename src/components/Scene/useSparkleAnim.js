@@ -29,226 +29,6 @@ export default function useSparkleAnim() {
     return { x, y };
   };
 
-  // const addSparkleAnimation = (app, numberArray) => {
-  //   const container = new PIXI.Container();
-  //   app.stage.addChild(container);
-  //   const initPos = {
-  //     x: window.innerWidth / 2 - 32,
-  //     y: window.innerHeight - 205,
-  //   };
-  //   const points = [];
-  //   // points.push(initPos);
-  //   numberArray.forEach((number) => {
-  //     points.push(getNumberPosition(number));
-  //   });
-
-  //   const emitter = new Particles.Emitter(container, {
-  //     lifetime: {
-  //       min: 1.2,
-  //       max: 2.8,
-  //     },
-  //     frequency: 0.001,
-  //     emitterLifetime: -1,
-  //     maxParticles: 9999,
-  //     addAtBack: false,
-  //     pos: {
-  //       x: initPos.x,
-  //       y: initPos.y,
-  //     },
-  //     behaviors: [
-  //       {
-  //         type: "alpha",
-  //         config: {
-  //           alpha: {
-  //             list: [
-  //               {
-  //                 time: 0,
-  //                 value: 0.8,
-  //               },
-  //               {
-  //                 time: 1,
-  //                 value: 0.1,
-  //               },
-  //             ],
-  //           },
-  //         },
-  //       },
-  //       {
-  //         type: "moveSpeed",
-  //         config: {
-  //           speed: {
-  //             list: [
-  //               {
-  //                 time: 0,
-  //                 value: 15,
-  //               },
-  //               {
-  //                 time: 1,
-  //                 value: 10,
-  //               },
-  //             ],
-  //           },
-  //         },
-  //       },
-  //       {
-  //         type: "movePath",
-  //         config: {
-  //           path: "sin(x/10)*20",
-  //           speed: {
-  //             list: [
-  //               {
-  //                 time: 0,
-  //                 value: 150,
-  //               },
-  //               {
-  //                 time: 1,
-  //                 value: 100,
-  //               },
-  //             ],
-  //           },
-  //           minMult: 1,
-  //         },
-  //       },
-  //       {
-  //         type: "scale",
-  //         config: {
-  //           scale: {
-  //             list: [
-  //               {
-  //                 time: 0,
-  //                 value: 0.1,
-  //               },
-  //               {
-  //                 time: 1,
-  //                 value: 0.05,
-  //               },
-  //             ],
-  //           },
-  //           minMult: 0.5,
-  //         },
-  //       },
-  //       {
-  //         type: "color",
-  //         config: {
-  //           color: {
-  //             list: [
-  //               {
-  //                 time: 0,
-  //                 value: "ffcf5b",
-  //               },
-  //               {
-  //                 time: 1,
-  //                 value: "ffffff",
-  //               },
-  //             ],
-  //           },
-  //         },
-  //       },
-  //       {
-  //         type: "rotationStatic",
-  //         config: {
-  //           min: 0,
-  //           max: 360,
-  //         },
-  //       },
-  //       {
-  //         type: "textureRandom",
-  //         config: {
-  //           textures: ["/assets/images/particle.png"],
-  //         },
-  //       },
-  //       {
-  //         type: "spawnShape",
-  //         config: {
-  //           type: "torus",
-  //           data: {
-  //             x: 0,
-  //             y: 0,
-  //             radius: 1,
-  //             innerRadius: 0,
-  //             affectRotation: false,
-  //           },
-  //         },
-  //       },
-  //     ],
-  //   });
-  //   emitter.emit = true;
-
-  //   const pathObject1 = [
-  //     { x: emitter.spawnPos.x, y: emitter.spawnPos.y },
-  //     { x: 500, y: 500 },
-  //     { x: 400, y: 400 },
-  //     { x: 400, y: 400 },
-  //   ];
-
-  //   const pathLine = new PIXI.Graphics();
-  //   pathLine
-  //     .lineStyle(0.5, 0xffffff, 1)
-  //     .moveTo(emitter.spawnPos.x, emitter.spawnPos.y);
-  //   pathLine.bezierCurveTo(500, 500, 400, 400, 400, 400);
-  //   app.stage.addChild(pathLine);
-
-  //   // const sparkleTexture = new PIXI.Texture.from("/assets/image/hat.png");
-  //   // const sparkle = new PIXI.Sprite(sparkleTexture);
-  //   // sparkle.x = emitter.spawnPos.x;
-  //   // sparkle.y = emitter.spawnPos.y;
-  //   // sparkle.width = 50;
-  //   // sparkle.height = 50;
-  //   // sparkle.anchor.set(0.5);
-
-  //   gsap.registerPlugin(MotionPathPlugin);
-  //   gsap.to(emitter, {
-  //     duration: 2,
-  //     ease: "none",
-  //     motionPath: {
-  //       path: pathObject1,
-  //       type: "cubic",
-  //     },
-  //   });
-
-  //   app.ticker.add(() => {
-  //     emitter.update(0.01 * 0.001);
-  //   });
-  //   // var elapsed = Date.now();
-
-  //   // let pointIndex = 0;
-
-  //   // const frameCount = 40;
-  //   // const speed = {
-  //   //   x: (points[pointIndex].x - emitter.spawnPos.x) / frameCount,
-  //   //   y: (points[pointIndex].y - emitter.spawnPos.y) / frameCount,
-  //   // };
-
-  //   // let canStart = false;
-  //   // setTimeout(() => {
-  //   //   canStart = true;
-  //   // }, 1000);
-
-  //   // app.ticker.add(() => {
-  //   //   if (canStart) {
-  //   //     if (Math.ceil(emitter.spawnPos.x) === Math.ceil(points[pointIndex].x)) {
-  //   //       if (pointIndex === 2) {
-  //   //         emitter.emit = false;
-  //   //         drawPolishRect(app, numberArray[pointIndex]);
-  //   //         canStart = false;
-  //   //         multiplierCircle(pointIndex);
-  //   //       } else {
-  //   //         drawPolishRect(app, numberArray[pointIndex]);
-  //   //         multiplierCircle(pointIndex);
-  //   //         pointIndex++;
-  //   //       }
-
-  //   //       speed.x = (points[pointIndex].x - emitter.spawnPos.x) / frameCount;
-  //   //       speed.y = (points[pointIndex].y - emitter.spawnPos.y) / frameCount;
-  //   //     }
-  //   //     emitter.spawnPos.x += speed.x;
-  //   //     emitter.spawnPos.y += speed.y;
-  //   //   }
-  //   //   const now = Date.now();
-  //   //   emitter.update((now - elapsed) * 0.001);
-  //   //   elapsed = now;
-  //   // });
-  // };
   const generateRandomCurve = (firstPos, nextPos) => {
     const posArray = [];
     posArray.push(firstPos);
@@ -264,7 +44,7 @@ export default function useSparkleAnim() {
   };
   const addSparkleAnimation = (app, numberArray) => {
     const multiCount = numberArray.length;
-
+    const multis = [30, 500, 10];
     const initPos = {
       x: window.innerWidth / 2 - 32,
       y: window.innerHeight - 205,
@@ -279,7 +59,7 @@ export default function useSparkleAnim() {
     app.stage.addChild(container);
     const g = new PIXI.Graphics();
     g.beginFill(0xf7e34d);
-    g.drawCircle(2, 2, 2);
+    g.drawCircle(1, 1, 1);
     g.endFill();
     const texture = app.renderer.generateTexture(g);
     const emitter = new Particles.Emitter(
@@ -307,7 +87,7 @@ export default function useSparkleAnim() {
               time: 0,
             },
             {
-              value: 0.5,
+              value: 2,
               time: 1,
             },
           ],
@@ -329,11 +109,11 @@ export default function useSparkleAnim() {
         speed: {
           list: [
             {
-              value: 6,
+              value: 2,
               time: 0,
             },
             {
-              value: 5,
+              value: 3,
               time: 1,
             },
           ],
@@ -348,8 +128,8 @@ export default function useSparkleAnim() {
           max: 0,
         },
         lifetime: {
-          min: 1.2,
-          max: 2.8,
+          min: 3,
+          max: 3,
         },
         frequency: 0.001,
         spawnChance: 1,
@@ -361,11 +141,12 @@ export default function useSparkleAnim() {
           y: initPos.y,
         },
         addAtBack: false,
-        spawnType: "circle",
+        spawnType: "torus",
+
         spawnCircle: {
           x: 0,
           y: 0,
-          r: 5,
+          r: 1,
         },
       }
     );
@@ -389,11 +170,16 @@ export default function useSparkleAnim() {
           points[pointIndex]
         ),
         duration: 2,
+        delay: 0.3,
         ease: "slow",
         delay: pointIndex === 1 && 1,
         onComplete: () => {
-          drawPolishRect(app, numberArray[pointIndex - 1]);
-          multiplierCircle(pointIndex);
+          drawPolishRect(
+            app,
+            numberArray[pointIndex - 1],
+            multis[pointIndex - 1]
+          );
+          multiplierCircle(pointIndex, app);
           if (pointIndex !== 3) go(pointIndex + 1);
           else emitter.emit = false;
         },

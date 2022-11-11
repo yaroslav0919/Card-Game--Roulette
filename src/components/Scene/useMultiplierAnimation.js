@@ -4,6 +4,7 @@ import MotionPathPlugin from "gsap/MotionPathPlugin";
 import { PixiPlugin } from "gsap/PixiPlugin";
 import { ang2Rad } from "../../utils/math.js";
 import useStore from "../../store/index";
+import { AppLoaderPlugin } from "pixi.js";
 PixiPlugin.registerPIXI(PIXI);
 
 export default function useMultiplierAnimation() {
@@ -11,7 +12,6 @@ export default function useMultiplierAnimation() {
   const Y = window.innerHeight;
   const multiStore = useStore((state) => state.multiStore);
   const setMultiStore = useStore((state) => state.setMultiStore);
-
   const firstMultiplier = () => {
     const multiplier = multiStore[0];
     multiplier.visible = true;
@@ -86,10 +86,21 @@ export default function useMultiplierAnimation() {
     });
     setMultiStore(multiplier3);
   };
-  const multiplierCircle = (index) => {
-    index === 1 && firstMultiplier();
-    index === 2 && secondMultiplier();
-    index === 3 && thirdMultiplier();
+  const aroundAnim = (app) => {
+    const container = new PIXI.Container();
+    const text = new PIXI.Text("1231");
+    text.x = 50;
+    text.y = window.innerHeight - 50;
+    text.anchor.set(0.5);
+    container.addChild(text);
+
+    app.stage.addChild(container);
+  };
+  const multiplierCircle = (index, app) => {
+    // index === 1 && firstMultiplier();
+    // index === 2 && secondMultiplier();
+    // index === 3 && thirdMultiplier();
+    aroundAnim(app);
   };
   return { multiplierCircle };
 }

@@ -4,20 +4,16 @@ import { gsap } from "gsap";
 import MotionPathPlugin from "gsap/MotionPathPlugin";
 import { PixiPlugin } from "gsap/PixiPlugin";
 import * as Particles from "@pixi/particle-emitter";
-
-import { ang2Rad } from "../../utils/math.js";
-import useStore from "../../store/index";
 import { useEffect } from "react";
+import useStore from "../../store/index";
+import { getRB, ang2Rad } from "../../utils/math";
+
 PixiPlugin.registerPIXI(PIXI);
 
 export default function useEntranceAnimation() {
   const halfX = window.innerWidth / 2;
   const Y = window.innerHeight;
   const multiStore = useStore((state) => state.multiStore);
-
-  function R(max, min) {
-    return Math.random() * (max - min) + min;
-  }
 
   const addHatAnimation = (app) => {
     const hatTexture = new PIXI.Texture.from("/assets/image/hat.png");
@@ -58,7 +54,6 @@ export default function useEntranceAnimation() {
       },
     });
     const hatContainer = new PIXI.Container();
-    hatContainer.zIndex = 1;
     hatContainer.addChild(hat);
     app.stage.addChild(hatContainer);
   };
@@ -110,106 +105,63 @@ export default function useEntranceAnimation() {
     });
     app.stage.addChild(beam);
     ///beam end///
-
-    ///dozens of sparkle start///
-    // const bgSparklesTexture = new PIXI.Texture.from(
-    //   "/assets/image/back-sparkles.png"
-    // );
-    // const bgSparkles = new PIXI.Sprite(bgSparklesTexture);
-
-    // bgSparkles.roundPixels = true;
-    // bgSparkles.anchor.set(0.5, 1);
-    // bgSparkles.x = halfX;
-    // bgSparkles.y = Y - 100;
-    // bgSparkles.width = 100;
-    // bgSparkles.height = 50;
-    // bgSparkles.alpha = 0;
-    // gsap.to(bgSparkles, {
-    //   delay: 2,
-    //   alpha: 1,
-    //   y: Y - 180,
-    //   width: 300,
-    //   height: 200,
-    //   duration: 2,
-    //   onComplete() {
-    //     gsap.to(bgSparkles, {
-    //       alpha: 0,
-    //       duration: 1,
-    //       delay: 2,
-    //     });
-    //   },
-    // });
-    // app.stage.addChild(bgSparkles);
   };
   const addDozenSparkleEffect = (app) => {
-    const spotTexture = new PIXI.Texture.from("/assets/image/sparkle.png");
+    const spotGraphic = new PIXI.Graphics();
+    spotGraphic.beginFill(0xffff00);
+    spotGraphic.drawCircle(5, 5, 5);
+    spotGraphic.endFill();
+    const spotTexture = app.renderer.generateTexture(spotGraphic);
+
     const w = 250;
     const h = 300;
-    const spots = new PIXI.ParticleContainer(100, {
-      scale: true,
-      position: true,
-      rotation: false,
-      uvs: true,
-      alpha: true,
-    });
-    spots.setTransform(halfX, Y - 200, 0, 0, 0, 0, 0, 0.5, 1);
-    // spots.x = halfX;
-    // spots.y = Y - 200;
-    // spots.width = 0;
-    // spots.height = 0;
-    // spots.anchor.set(0.5, 0.5);
-    let repeat = gsap.timeline({ repeat: -1 });
+
+    const spotContainer = new PIXI.Container();
+    spotContainer.x = halfX - w / 2;
+    spotContainer.y = Y - 400;
+    spotContainer.width = w;
+    spotContainer.height = h;
+
+    spotContainer.blendMode = PIXI.BLEND_MODES.ADD;
 
     for (let i = 0; i < 100; i++) {
       const spot = new PIXI.Sprite(spotTexture);
-      spot.blendMode = PIXI.BLEND_MODES.ADD;
-      spot.x = 0;
-      spot.y = h;
-      const rd = R(3, 6);
-      spot.width = rd;
-      spot.height = rd;
+
+      const scale = getRB(0, 4);
+      gsap.set(spot, { x: w / 2, y: h, width: scale, height: scale });
+      gsap.to(spot, {
+        x: getRB(0, w),
+        y: getRB(0, h),
+        duration: 1,
+        alpha: getRB(0.4, 1),
+        delay: 1,
+        onComplete() {
+          gsap.to(spot, {
+            duration: 3,
+            x: getRB(0, w),
+            y: getRB(0, h),
+          });
+        },
+      });
 
       gsap.to(spot, {
-        x: R(-w / 2, w / 2),
-        y: R(0, h / 2),
-        duration: 3,
-        // onComplete() {
-        //   repeat.to(spot, {
-        //     x: spot.x + R(-5, 5),
-        //     y: spot.y + R(-5, 5),
-        //     alpha: R(0, 0.7),
-        //     duration: 0.01,
-        //   });
-        // },
+        repeat: -1,
+        alpha: getRB(0.5, 1),
       });
-      repeat.fromTo(
-        spot,
-        0.01,
-        {
-          alpha: R(0.5, 1),
-        },
-        { alpha: R(0, 0.5) }
-      );
 
-      spots.addChild(spot);
+      spotContainer.addChild(spot);
     }
 
-    gsap.to(spots, {
-      y: Y - 350,
-      duration: 2,
-      // delay: 1,
-      // width: 200,
-      // height: 300,
-
-      onComplete() {
-        gsap.to(spots, { delay: 3, alpha: 0, duration: 2 });
-      },
+    gsap.to(spotContainer, {
+      delay: 5,
+      alpha: 0,
+      duration: 1,
     });
 
-    app.stage.addChild(spots);
+    app.stage.addChild(spotContainer);
 
     // const tl = gsap.timeline({ repeat: 1, yoyo: true });
-    // const part = spots.children;
+    // const part = spotContainer.children;
     // const p = Math.sqrt(w * w + h * h);
     // tl.fromTo(
     //   part,
@@ -217,8 +169,8 @@ export default function useEntranceAnimation() {
     //   {
     //     scaleX: 0.5,
     //     scaleY: 0.5,
-    //     x: part.x + R(-w / 2, w / 2),
-    //     y: part.y + R(-h / 2, h / 2),
+    //     x: part.x + getRB(-w / 2, w / 2),
+    //     y: part.y + getRB(-h / 2, h / 2),
     //     duration: 1,
     //     // onComplete(part, gsap)
     //   }
@@ -227,11 +179,11 @@ export default function useEntranceAnimation() {
 
   const addSparkleAnimations = (app) => {
     const offset = [
-      [0, 0, -0, -300, -100, -200, -100, -200, -0, -300, -80, -425],
-      [0, 0, -0, -300, -60, -250, -60, -250, -0, -300, -80, -425],
-      [0, 0, -0, -300, -0, -300, -0, -300, -0, -300, -80, -425],
-      [0, 0, -0, -300, 60, -250, 60, -250, 0, -300, -80, -425],
-      [0, 0, -0, -300, 100, -200, 100, -200, 0, -300, -80, -425],
+      [0, 0, -0, -300, -100, -250, -100, -250, -0, -300, -82, -423],
+      [0, 0, -0, -300, -60, -300, -60, -300, -0, -300, -82, -423],
+      [0, 0, -0, -300, -0, -350, -0, -350, -0, -300, -82, -423],
+      [0, 0, -0, -300, 60, -300, 60, -300, 0, -300, -82, -423],
+      [0, 0, -0, -300, 100, -250, 100, -250, 0, -300, -82, -423],
     ];
     sparkleAnimation(app, offset[0], 40);
     sparkleAnimation(app, offset[1], 60);

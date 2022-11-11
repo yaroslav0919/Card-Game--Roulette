@@ -56,10 +56,6 @@ export default function Scene() {
 
         setTimeout(() => {
           addSparkleAnimation(app, numberArray);
-          // setTimeout(() => {
-          //   const numberPos = calcNumberFullPosition(24);
-          //   drawPolishRect(app, numberPos);
-          // }, 3000);
         }, 9000);
       });
     };
