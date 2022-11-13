@@ -1,5 +1,6 @@
 import * as PIXI from "pixi.js";
-import * as Particles from "pixi-particles";
+// import * as Particles from "pixi-particles";
+import * as Particles from "@pixi/particle-emitter";
 import MotionPathPlugin from "gsap/MotionPathPlugin";
 
 import { gsap } from "gsap";
@@ -62,94 +63,118 @@ export default function useSparkleAnim() {
     g.drawCircle(1, 1, 1);
     g.endFill();
     const texture = app.renderer.generateTexture(g);
-    const emitter = new Particles.Emitter(
-      container,
-      [texture],
 
-      {
-        alpha: {
-          list: [
-            {
-              value: 0.8,
-              time: 0,
+    const emitter = new Particles.Emitter(container, {
+      lifetime: {
+        min: 1.2,
+        max: 2.8,
+      },
+      frequency: 0.005,
+      emitterLifetime: -1,
+      maxParticles: 999,
+      addAtBack: false,
+      pos: {
+        x: initPos.x,
+        y: initPos.y,
+      },
+      behaviors: [
+        {
+          type: "alpha",
+          config: {
+            alpha: {
+              list: [
+                {
+                  time: 0,
+                  value: 0.8,
+                },
+                {
+                  time: 1,
+                  value: 0.3,
+                },
+              ],
             },
-            {
-              value: 0.1,
-              time: 1,
+          },
+        },
+        {
+          type: "moveSpeed",
+          config: {
+            speed: {
+              list: [
+                {
+                  time: 0,
+                  value: 10,
+                },
+                {
+                  time: 1,
+                  value: 5,
+                },
+              ],
             },
-          ],
-          isStepped: false,
+          },
         },
-        scale: {
-          list: [
-            {
-              value: 1,
-              time: 0,
+        {
+          type: "scale",
+          config: {
+            scale: {
+              list: [
+                {
+                  time: 0,
+                  value: 0.1,
+                },
+                {
+                  time: 1,
+                  value: 0.3,
+                },
+              ],
             },
-            {
-              value: 2,
-              time: 1,
+            minMult: 0.5,
+          },
+        },
+        {
+          type: "color",
+          config: {
+            color: {
+              list: [
+                {
+                  time: 0,
+                  value: "ffcf5b",
+                },
+                {
+                  time: 1,
+                  value: "fff23d",
+                },
+              ],
             },
-          ],
-          isStepped: false,
+          },
         },
-        color: {
-          list: [
-            {
-              value: "f7e34d",
-              time: 0,
+        {
+          type: "rotationStatic",
+          config: {
+            min: 0,
+            max: 360,
+          },
+        },
+        {
+          type: "textureRandom",
+          config: {
+            textures: ["/assets/images/particle.png"],
+          },
+        },
+        {
+          type: "spawnShape",
+          config: {
+            type: "torus",
+            data: {
+              x: 0,
+              y: 0,
+              radius: 0.1,
+              innerRadius: 0,
+              affectRotation: false,
             },
-            {
-              value: "9df054",
-              time: 1,
-            },
-          ],
-          isStepped: false,
+          },
         },
-        speed: {
-          list: [
-            {
-              value: 2,
-              time: 0,
-            },
-            {
-              value: 3,
-              time: 1,
-            },
-          ],
-          isStepped: false,
-        },
-        startRotation: {
-          min: 0,
-          max: 360,
-        },
-        rotationSpeed: {
-          min: 0,
-          max: 0,
-        },
-        lifetime: {
-          min: 3,
-          max: 3,
-        },
-        frequency: 0.001,
-        spawnChance: 1,
-        particlesPerWave: 1,
-        emitterLifetime: -1,
-        maxParticles: 9999,
-        pos: {
-          x: initPos.x,
-          y: initPos.y,
-        },
-        addAtBack: false,
-        spawnType: "torus",
-
-        spawnCircle: {
-          x: 0,
-          y: 0,
-          r: 1,
-        },
-      }
-    );
+      ],
+    });
 
     const sprite = new PIXI.Sprite(texture);
     sprite.renderable = false;
@@ -179,7 +204,12 @@ export default function useSparkleAnim() {
             numberArray[pointIndex - 1],
             multis[pointIndex - 1]
           );
-          multiplierCircle(pointIndex, app);
+          multiplierCircle(
+            pointIndex,
+            app,
+            multis[pointIndex - 1],
+            numberArray[pointIndex - 1]
+          );
           if (pointIndex !== 3) go(pointIndex + 1);
           else emitter.emit = false;
         },

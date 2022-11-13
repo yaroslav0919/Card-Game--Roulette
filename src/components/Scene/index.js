@@ -11,6 +11,7 @@ import useResource from "./useResource";
 import useSparkleAnim from "./useSparkleAnim";
 
 import useSelectAnimation from "./useSelectAnimation";
+import useMultiplierAnimation from "./useMultiplierAnimation";
 
 export default function Scene() {
   const ref = useRef(null);
@@ -23,7 +24,7 @@ export default function Scene() {
   const { drawPolishRect } = useSelectAnimation();
   const { addSparkleAnimation } = useSparkleAnim();
   const { asd } = useSparkleAnim();
-
+  const { multiplierCircle } = useMultiplierAnimation();
   const [heatMapMode, setHeatMapMode] = useState(false);
   const numberArray = [24, 16, 5];
   const setApp = useStore((state) => state.setApp);
@@ -62,6 +63,7 @@ export default function Scene() {
     loadAndPlayAnimation();
 
     // addSparkleAnimation(app, numberArray);
+    // multiplierCircle(1, app);
     return () => {
       app.view.removeEventListener("pointerdown", onPointerDownHandler);
       app.destroy(true, true);

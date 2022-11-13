@@ -13,7 +13,7 @@ PixiPlugin.registerPIXI(PIXI);
 export default function useEntranceAnimation() {
   const halfX = window.innerWidth / 2;
   const Y = window.innerHeight;
-  const multiStore = useStore((state) => state.multiStore);
+  // const multiStore = useStore((state) => state.multiStore);
 
   const addHatAnimation = (app) => {
     const hatTexture = new PIXI.Texture.from("/assets/image/hat.png");
@@ -100,6 +100,9 @@ export default function useEntranceAnimation() {
           duration: 3,
           delay: 3,
           alpha: 0,
+          onComplete() {
+            app.stage.removeChild(beam);
+          },
         });
       },
     });
@@ -156,6 +159,9 @@ export default function useEntranceAnimation() {
       delay: 5,
       alpha: 0,
       duration: 1,
+      onComplete() {
+        app.stage.removeChild(spotContainer);
+      },
     });
 
     app.stage.addChild(spotContainer);
@@ -302,6 +308,9 @@ export default function useEntranceAnimation() {
                           x: window.innerWidth + 100,
                           y: Y + 100,
                           duration: 1,
+                          onComplete() {
+                            app.stage.removeChild(hand);
+                          },
                         });
                       },
                     });
@@ -317,9 +326,9 @@ export default function useEntranceAnimation() {
     app.stage.addChild(hand);
   };
   const addEntranceAnimation = (app) => {
-    app.stage.addChild(multiStore[0]);
-    app.stage.addChild(multiStore[1]);
-    app.stage.addChild(multiStore[2]);
+    // app.stage.addChild(multiStore[0]);
+    // app.stage.addChild(multiStore[1]);
+    // app.stage.addChild(multiStore[2]);
     addPlayBackEffect(app);
     addSparkleAnimations(app);
     addDozenSparkleEffect(app);

@@ -2,9 +2,11 @@ import * as PIXI from "pixi.js";
 import { gsap } from "gsap";
 import MotionPathPlugin from "gsap/MotionPathPlugin";
 import { PixiPlugin } from "gsap/PixiPlugin";
-import { ang2Rad } from "../../utils/math.js";
+import { ang2Rad, getRB } from "../../utils/math.js";
 import useStore from "../../store/index";
 import { AppLoaderPlugin } from "pixi.js";
+import * as Particles from "@pixi/particle-emitter";
+
 PixiPlugin.registerPIXI(PIXI);
 
 export default function useMultiplierAnimation() {
@@ -12,95 +14,327 @@ export default function useMultiplierAnimation() {
   const Y = window.innerHeight;
   const multiStore = useStore((state) => state.multiStore);
   const setMultiStore = useStore((state) => state.setMultiStore);
-  const firstMultiplier = () => {
-    const multiplier = multiStore[0];
-    multiplier.visible = true;
-    multiplier.roundPixels = true;
-    multiplier.anchor.set(0.5, 0.5);
-    multiplier.x = -100;
-    multiplier.y = Y - 150;
-    multiplier.width = 0;
-    multiplier.height = 0;
-    gsap.to(multiplier, {
+  function circlePath(cx, cy, r) {
+    return (
+      "M " +
+      cx +
+      " " +
+      cy +
+      " m -" +
+      r +
+      ", 0 a " +
+      r +
+      "," +
+      r +
+      " 0 1,0 " +
+      r * 2 +
+      ",0 a " +
+      r +
+      "," +
+      r +
+      " 0 1,0 -" +
+      r * 2 +
+      ",0"
+    );
+  }
+
+  const firstMultiplier = (app, multiNum, selNum) => {
+    const circle = new PIXI.Container();
+    circle.x = halfX - 150;
+    circle.y = Y - 150;
+    circle.width = 100;
+    circle.height = 100;
+    circle.blendMode = PIXI.BLEND_MODES.ADD;
+    const radius = 50;
+
+    app.stage.addChild(circle);
+
+    gsap.to(circle, {
       x: halfX,
-      width: 150,
-      height: 150,
-      duration: 0.5,
-      onComplete() {
-        gsap.to(multiplier, {
-          x: halfX + 100,
-          width: 100,
-          height: 100,
-          duration: 1,
-          delay: 0.5,
+      duration: 2,
+      onComplete: () => {
+        gsap.to(circle, {
+          x: halfX + 150,
+          duration: 2,
         });
       },
     });
-    setMultiStore(multiplier);
+    multi(circle, radius, multiNum, selNum);
   };
-  const secondMultiplier = () => {
-    const multiplier2 = multiStore[1];
-    multiplier2.visible = true;
-    multiplier2.roundPixels = true;
-    multiplier2.anchor.set(0.5, 0.5);
-    multiplier2.x = -100;
-    multiplier2.y = Y - 150;
-    multiplier2.width = 0;
-    multiplier2.height = 0;
-    gsap.to(multiplier2, {
+  const secondMultiplier = (app, multiNum, selNum) => {
+    const circle = new PIXI.Container();
+    circle.x = halfX - 150;
+    circle.y = Y - 150;
+    circle.width = 100;
+    circle.height = 100;
+    circle.blendMode = PIXI.BLEND_MODES.ADD;
+    const radius = 50;
+
+    app.stage.addChild(circle);
+
+    gsap.to(circle, {
       x: halfX,
-      width: 150,
-      height: 150,
-      duration: 0.5,
-      onComplete() {
-        gsap.to(multiplier2, {
-          width: 100,
-          height: 100,
-          duration: 1,
-        });
+      duration: 2,
+      // onComplete: () => {
+      //   gsap.to(circle, {
+      //     x: halfX + 150,
+      //     duration: 2,
+      //   });
+      // },
+    });
+    multi(circle, radius, multiNum, selNum);
+  };
+  const thirdMultiplier = (app, multiNum, selNum) => {
+    const circle = new PIXI.Container();
+    circle.x = halfX - 150;
+    circle.y = Y - 150;
+    circle.width = 100;
+    circle.height = 100;
+    circle.blendMode = PIXI.BLEND_MODES.ADD;
+    const radius = 50;
+
+    app.stage.addChild(circle);
+
+    // gsap.to(circle, {
+    //   x: halfX,
+    //   duration: 2,
+    //   onComplete: () => {
+    //     gsap.to(circle, {
+    //       x: halfX + 150,
+    //       duration: 2,
+    //     });
+    //   },
+    // });
+    multi(circle, radius, multiNum, selNum);
+  };
+  const multi = (container, radius, multiNum, selNum) => {
+    const emiCont = new PIXI.Container();
+    emiCont.x = radius;
+    emiCont.y = radius;
+    emiCont.pivot.x = radius;
+    emiCont.pivot.y = radius;
+    const emitter = new Particles.Emitter(emiCont, {
+      lifetime: {
+        min: 1.2,
+        max: 2.8,
+      },
+      frequency: 0.005,
+      emitterLifetime: -1,
+      maxParticles: 100,
+      addAtBack: false,
+      pos: {
+        x: radius,
+        y: 0,
+      },
+      behaviors: [
+        {
+          type: "alpha",
+          config: {
+            alpha: {
+              list: [
+                {
+                  time: 0,
+                  value: 0.8,
+                },
+                {
+                  time: 1,
+                  value: 0.3,
+                },
+              ],
+            },
+          },
+        },
+        {
+          type: "moveSpeed",
+          config: {
+            speed: {
+              list: [
+                {
+                  time: 0,
+                  value: 6,
+                },
+                {
+                  time: 1,
+                  value: 3,
+                },
+              ],
+            },
+          },
+        },
+        {
+          type: "scale",
+          config: {
+            scale: {
+              list: [
+                {
+                  time: 0,
+                  value: 0.1,
+                },
+                {
+                  time: 1,
+                  value: 0.01,
+                },
+              ],
+            },
+            minMult: 0.5,
+          },
+        },
+        {
+          type: "color",
+          config: {
+            color: {
+              list: [
+                {
+                  time: 0,
+                  value: "ffcf5b",
+                },
+                {
+                  time: 1,
+                  value: "fff23d",
+                },
+              ],
+            },
+          },
+        },
+        {
+          type: "rotationStatic",
+          config: {
+            min: 0,
+            max: 360,
+          },
+        },
+        {
+          type: "textureRandom",
+          config: {
+            textures: ["/assets/images/particle.png"],
+          },
+        },
+        {
+          type: "spawnShape",
+          config: {
+            type: "torus",
+            data: {
+              x: 0,
+              y: 0,
+              radius: 0.1,
+              innerRadius: 0,
+              affectRotation: false,
+            },
+          },
+        },
+      ],
+    });
+    gsap.registerPlugin(MotionPathPlugin);
+
+    const spotGraphic = new PIXI.Graphics();
+    spotGraphic.beginFill(0xffff00);
+    spotGraphic.drawCircle(5, 5, 5);
+    spotGraphic.endFill();
+
+    gsap.to(spotGraphic, {
+      motionPath: circlePath(0, 0, 45),
+      duration: 2,
+      repeat: -1,
+      ease: "none",
+      onUpdate: () => {
+        emitter.spawnPos.x = spotGraphic.x;
+        emitter.spawnPos.y = spotGraphic.y;
       },
     });
-    setMultiStore(multiplier2);
-  };
-  const thirdMultiplier = () => {
-    const multiplier3 = multiStore[2];
-    multiplier3.visible = true;
-    multiplier3.roundPixels = true;
-    multiplier3.anchor.set(0.5, 0.5);
-    multiplier3.x = -100;
-    multiplier3.y = Y - 150;
-    multiplier3.width = 0;
-    multiplier3.height = 0;
-    gsap.to(multiplier3, {
-      x: halfX - 100,
-      width: 150,
-      height: 150,
-      duration: 0.5,
-      onComplete() {
-        gsap.to(multiplier3, {
-          width: 100,
-          height: 100,
-          duration: 1,
-        });
-      },
+    emitter.emit = true;
+    let elapsed = Date.now();
+    const update = function () {
+      requestAnimationFrame(update);
+      const now = Date.now();
+      emitter.update((now - elapsed) * 0.001);
+      emitter.rotate(100);
+      elapsed = now;
+    };
+    update();
+
+    container.addChild(emiCont);
+
+    const arc1 = new PIXI.Graphics();
+    arc1.lineStyle(2, 0x0000ff, 1);
+
+    arc1.arc(radius, radius, radius, 0, ang2Rad(100));
+    arc1.pivot.x = radius;
+    arc1.pivot.y = radius;
+    gsap.to(arc1, {
+      rotation: ang2Rad(-360),
+      duration: Math.random(),
+      ease: "none",
+      repeat: -1,
     });
-    setMultiStore(multiplier3);
-  };
-  const aroundAnim = (app) => {
-    const container = new PIXI.Container();
-    const text = new PIXI.Text("1231");
-    text.x = 50;
-    text.y = window.innerHeight - 50;
+    container.addChild(arc1);
+
+    const arc2 = new PIXI.Graphics();
+    arc2.lineStyle(2, 0xff0000, 1);
+    arc2.arc(radius - 10, radius - 10, radius, ang2Rad(124), ang2Rad(244));
+    arc2.pivot.x = radius - 10;
+    arc2.pivot.y = radius - 10;
+
+    gsap.to(arc2, {
+      rotation: ang2Rad(-360),
+      duration: getRB(0.5, 1),
+      ease: "none",
+      repeat: -1,
+    });
+    container.addChild(arc2);
+
+    const arc3 = new PIXI.Graphics();
+    arc3.lineStyle(2, 0xffff00, 1);
+    arc3.arc(radius + 10, radius + 10, radius, ang2Rad(240), ang2Rad(300));
+    arc3.pivot.x = radius + 10;
+    arc3.pivot.y = radius + 10;
+
+    gsap.to(arc3, {
+      rotation: ang2Rad(-360),
+      duration: getRB(0.5, 1),
+      ease: "none",
+      repeat: -1,
+    });
+    container.addChild(arc3);
+
+    const text = new PIXI.Text(multiNum + `x`, {
+      fontFamily: "Courier New",
+      dropShadow: true,
+      strokeThickness: 3,
+      dropShadowAngle: 1.4,
+      dropShadowColor: "#db4343",
+      dropShadowDistance: 2,
+      fill: "white",
+      fontSize: 22,
+    });
+    text.y = -(radius * 1) / 3;
     text.anchor.set(0.5);
     container.addChild(text);
 
-    app.stage.addChild(container);
+    const selText = new PIXI.Text(selNum, {
+      fontFamily: '"Palatino Linotype", "Book Antiqua", Palatino, serif',
+      dropShadow: true,
+      dropShadowAngle: 1.4,
+      dropShadowColor: "#db4343",
+      dropShadowDistance: 2,
+      fill: "white",
+      fontSize: 44,
+    });
+    selText.y = (radius * 1) / 3;
+    selText.anchor.set(0.5);
+    container.addChild(selText);
   };
-  const multiplierCircle = (index, app) => {
-    // index === 1 && firstMultiplier();
-    // index === 2 && secondMultiplier();
-    // index === 3 && thirdMultiplier();
-    aroundAnim(app);
+  const hatRender = (app) => {
+    // const temp = app.state
+    // app.stage.removeChild(hat);
+
+    console.log(app.stage.children);
+  };
+  const multiplierCircle = (index, app, multiNum, selNum) => {
+    if (!index) return;
+    hatRender(app);
+    index === 1 && firstMultiplier(app, multiNum, selNum);
+    index === 2 && secondMultiplier(app, multiNum, selNum);
+    index === 3 && thirdMultiplier(app, multiNum, selNum);
   };
   return { multiplierCircle };
 }
