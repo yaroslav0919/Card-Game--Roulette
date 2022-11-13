@@ -52,11 +52,20 @@ export default function useSelectAnimation() {
     const y = btn.area.y + btn.area.h / 2 + centerOffset.y;
     return { x: x, y: y };
   };
-  const drawBorder = (app, number) => {
+  const drawBorder = (container, number) => {
     const rect = calcNumberFullPosition(number);
     const [xVal, yVal, w, h] = [...rect];
+    const blackRect = new PIXI.Graphics();
+    blackRect.beginFill(0x000000, 0.9);
+    blackRect.drawRect(...rect);
+    container.addChild(blackRect);
+
+    const yellowBorder = new PIXI.Graphics();
+    yellowBorder.lineStyle(1, 0xffff00);
+    yellowBorder.drawRect(...rect);
+    container.addChild(yellowBorder);
     const emiCont = new PIXI.Container();
-    app.addChild(emiCont);
+    container.addChild(emiCont);
 
     const emitter = new Particles.Emitter(emiCont, {
       lifetime: {
