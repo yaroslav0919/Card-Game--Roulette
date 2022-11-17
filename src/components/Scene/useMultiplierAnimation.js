@@ -224,7 +224,7 @@ export default function useMultiplierAnimation() {
     spotGraphic.drawCircle(5, 5, 5);
     spotGraphic.endFill();
     gsap.to(spotGraphic, {
-      motionPath: circlePath(0, 0, 45),
+      motionPath: circlePath(0, 0, radius),
       duration: 2,
       repeat: -1,
       ease: "none",
@@ -245,54 +245,73 @@ export default function useMultiplierAnimation() {
     update();
     container.addChild(emiCont);
 
-    const arc1 = new PIXI.Graphics();
-    arc1.lineStyle(2, 0x0000ff, 1);
-    arc1.arc(radius, radius, radius, 0, ang2Rad(100));
-    arc1.pivot.x = radius;
-    arc1.pivot.y = radius;
-    gsap.to(arc1, {
-      rotation: ang2Rad(-360),
-      duration: Math.random(),
-      ease: "none",
-      repeat: -1,
-    });
-    container.addChild(arc1);
+    const oneCircle = (cx, cy, r) => {
+      const circlerTexture = new PIXI.Texture.from("assets/image/multi.png");
+      const circle1 = new PIXI.Sprite(circlerTexture);
+      circle1.anchor.set(0.5);
+      circle1.width = r * 2;
+      circle1.height = r * 2;
+      circle1.x = cx;
+      circle1.y = cy;
+      gsap.to(circle1, {
+        rotation: ang2Rad(360),
+        duration: getRB(2, 5),
+        ease: "none",
+        repeat: -1,
+      });
+      container.addChild(circle1);
+    };
+    for (let i = 0; i < 5; i++)
+      oneCircle(getRB(-5, 5), getRB(-5, 5), radius - getRB(-5, 5));
 
-    const arc2 = new PIXI.Graphics();
-    arc2.lineStyle(2, 0xff0000, 1);
-    arc2.arc(radius - 10, radius - 10, radius, ang2Rad(124), ang2Rad(244));
-    arc2.pivot.x = radius - 10;
-    arc2.pivot.y = radius - 10;
-    gsap.to(arc2, {
-      rotation: ang2Rad(-360),
-      duration: getRB(0.5, 1),
-      ease: "none",
-      repeat: -1,
-    });
-    container.addChild(arc2);
+    // const arc1 = new PIXI.Graphics();
+    // arc1.lineStyle(2, 0x0000ff, 1);
+    // arc1.arc(radius, radius, radius, 0, ang2Rad(100));
+    // arc1.pivot.x = radius;
+    // arc1.pivot.y = radius;
+    // gsap.to(arc1, {
+    //   rotation: ang2Rad(-360),
+    //   duration: Math.random(),
+    //   ease: "none",
+    //   repeat: -1,
+    // });
+    // container.addChild(arc1);
 
-    const arc3 = new PIXI.Graphics();
-    arc3.lineStyle(2, 0xffff00, 1);
-    arc3.arc(radius + 10, radius + 10, radius, ang2Rad(240), ang2Rad(300));
-    arc3.pivot.x = radius + 10;
-    arc3.pivot.y = radius + 10;
-    gsap.to(arc3, {
-      rotation: ang2Rad(-360),
-      duration: getRB(0.5, 1),
-      ease: "none",
-      repeat: -1,
-    });
-    container.addChild(arc3);
+    // const arc2 = new PIXI.Graphics();
+    // arc2.lineStyle(2, 0xff0000, 1);
+    // arc2.arc(radius - 10, radius - 10, radius, ang2Rad(124), ang2Rad(244));
+    // arc2.pivot.x = radius - 10;
+    // arc2.pivot.y = radius - 10;
+    // gsap.to(arc2, {
+    //   rotation: ang2Rad(-360),
+    //   duration: getRB(0.5, 1),
+    //   ease: "none",
+    //   repeat: -1,
+    // });
+    // container.addChild(arc2);
+
+    // const arc3 = new PIXI.Graphics();
+    // arc3.lineStyle(2, 0xffff00, 1);
+    // arc3.arc(radius + 10, radius + 10, radius, ang2Rad(240), ang2Rad(300));
+    // arc3.pivot.x = radius + 10;
+    // arc3.pivot.y = radius + 10;
+    // gsap.to(arc3, {
+    //   rotation: ang2Rad(-360),
+    //   duration: getRB(0.5, 1),
+    //   ease: "none",
+    //   repeat: -1,
+    // });
+    // container.addChild(arc3);
 
     const text = new PIXI.Text(multiNum + `x`, {
-      fontFamily: "Courier New",
       dropShadow: true,
-      strokeThickness: 3,
-      dropShadowAngle: 1.4,
-      dropShadowColor: "#db4343",
+      dropShadowAngle: 1.7,
+      dropShadowColor: "#63a215",
       dropShadowDistance: 2,
       fill: "white",
+      fontFamily: "Verdana, Geneva, sans-serif",
       fontSize: 22,
+      fontWeight: 100,
     });
     text.y = -(radius * 1) / 3;
     text.anchor.set(0.5);
@@ -310,16 +329,17 @@ export default function useMultiplierAnimation() {
     selText.y = (radius * 1) / 3;
     selText.anchor.set(0.5);
     container.addChild(selText);
-    const glareTexture = new PIXI.Texture.from("/assets/image/glare.png");
-    const glare = new PIXI.Sprite(glareTexture);
-    glare.blendMode = PIXI.BLEND_MODES.SCREEN;
-    glare.roundPixels = true;
-    glare.anchor.set(0);
-    glare.x = -50;
-    glare.y = 0;
-    glare.width = 20;
-    glare.height = 10;
-    container.addChild(glare);
+
+    // const glareTexture = new PIXI.Texture.from("/assets/image/glare.png");
+    // const glare = new PIXI.Sprite(glareTexture);
+    // glare.blendMode = PIXI.BLEND_MODES.SCREEN;
+    // glare.roundPixels = true;
+    // glare.anchor.set(0);
+    // glare.x = -50;
+    // glare.y = 0;
+    // glare.width = 20;
+    // glare.height = 10;
+    // container.addChild(glare);
   };
 
   const playAnimatedSprite = (app, radius) => {
@@ -335,7 +355,7 @@ export default function useMultiplierAnimation() {
     }
 
     const sprite = new PIXI.AnimatedSprite(frames);
-    sprite.width = 250;
+    sprite.width = 260;
     sprite.height = 250;
     sprite.x = halfX;
     sprite.y = Y - 100;

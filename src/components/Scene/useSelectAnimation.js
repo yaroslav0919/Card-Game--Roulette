@@ -55,10 +55,10 @@ export default function useSelectAnimation() {
   const drawBorder = (container, number) => {
     const rect = calcNumberFullPosition(number);
     const [xVal, yVal, w, h] = [...rect];
-    const blackRect = new PIXI.Graphics();
-    blackRect.beginFill(0x000000, 0.9);
-    blackRect.drawRect(...rect);
-    container.addChild(blackRect);
+    // const blackRect = new PIXI.Graphics();
+    // blackRect.beginFill(0x000000, 0.9);
+    // blackRect.drawRect(...rect);
+    // container.addChild(blackRect);
 
     const yellowBorder = new PIXI.Graphics();
     yellowBorder.lineStyle(1, 0xffff00);

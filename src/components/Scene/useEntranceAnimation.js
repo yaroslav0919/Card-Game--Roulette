@@ -14,7 +14,7 @@ export default function useEntranceAnimation() {
   const halfX = window.innerWidth / 2;
   const Y = window.innerHeight;
   // const multiStore = useStore((state) => state.multiStore);
-
+  const speed = 0.5;
   const addHatAnimation = (app) => {
     const hatTexture = new PIXI.Texture.from("/assets/image/hat.png");
     const hat = new PIXI.Sprite(hatTexture);
@@ -27,25 +27,25 @@ export default function useEntranceAnimation() {
 
     gsap.to(hat, {
       y: Y - 100,
-      duration: 2,
+      duration: 2 * speed,
       onComplete() {
         gsap.to(hat, {
           x: halfX - 100,
           rotation: ang2Rad(40),
-          delay: 4,
-          duration: 2,
+          delay: 4 * speed,
+          duration: 2 * speed,
           onComplete() {
             gsap.to(hat, {
               x: 50,
               width: (hat.width * 3) / 4,
               height: (hat.height * 3) / 4,
-              duration: 1,
-              delay: 1,
+              duration: 1 * speed,
+              delay: 1 * speed,
               onComplete() {
                 gsap.to(hat, {
                   x: -200,
-                  duration: 1,
-                  delay: 3,
+                  duration: 1 * speed,
+                  delay: 3 * speed,
                 });
               },
             });
@@ -70,11 +70,11 @@ export default function useEntranceAnimation() {
     glare.alpha = 0;
     gsap.to(glare, {
       alpha: 1,
-      duration: 3,
+      duration: 3 * speed,
       onComplete() {
         gsap.to(glare, {
-          duration: 3,
-          delay: 3,
+          duration: 3 * speed,
+          delay: 3 * speed,
           alpha: 0,
         });
       },
@@ -94,11 +94,11 @@ export default function useEntranceAnimation() {
     beam.height = 400;
     gsap.to(beam, {
       alpha: 1,
-      duration: 3,
+      duration: 3 * speed,
       onComplete() {
         gsap.to(beam, {
-          duration: 3,
-          delay: 3,
+          duration: 3 * speed,
+          delay: 3 * speed,
           alpha: 0,
           onComplete() {
             app.stage.removeChild(beam);
@@ -135,12 +135,12 @@ export default function useEntranceAnimation() {
       gsap.to(spot, {
         x: getRB(0, w),
         y: getRB(0, h),
-        duration: 1,
+        duration: 1 * speed,
         alpha: getRB(0.4, 1),
-        delay: 1,
+        delay: 1 * speed,
         onComplete() {
           gsap.to(spot, {
-            duration: 3,
+            duration: 3 * speed,
             x: getRB(0, w),
             y: getRB(0, h),
           });
@@ -156,9 +156,9 @@ export default function useEntranceAnimation() {
     }
 
     gsap.to(spotContainer, {
-      delay: 5,
+      delay: 5 * speed,
       alpha: 0,
-      duration: 1,
+      duration: 1 * speed,
       onComplete() {
         app.stage.removeChild(spotContainer);
       },
@@ -177,7 +177,7 @@ export default function useEntranceAnimation() {
     //     scaleY: 0.5,
     //     x: part.x + getRB(-w / 2, w / 2),
     //     y: part.y + getRB(-h / 2, h / 2),
-    //     duration: 1,
+    //     duration: 1*speed,
     //     // onComplete(part, gsap)
     //   }
     // );
@@ -239,7 +239,7 @@ export default function useEntranceAnimation() {
 
     gsap.registerPlugin(MotionPathPlugin);
     gsap.to(sparkle, {
-      duration: 2,
+      duration: 2 * speed,
       ease: "none",
       motionPath: {
         path: pathObject1,
@@ -254,11 +254,11 @@ export default function useEntranceAnimation() {
           },
           width: 20,
           height: 20,
-          delay: 2,
-          duration: 1,
+          delay: 2 * speed,
+          duration: 1 * speed,
           onComplete() {
             gsap.to(sparkle, {
-              delay: 0.5,
+              delay: 0 * speed,
               onComplete() {
                 app.stage.removeChild(sparkle);
               },
@@ -280,34 +280,34 @@ export default function useEntranceAnimation() {
 
     gsap.to(hand, {
       y: Y - 350,
-      duration: 2,
-      delay: 2,
+      duration: 2 * speed,
+      delay: 2 * speed,
       rotation: ang2Rad(60),
       onComplete() {
         gsap.to(hand, {
           x: halfX + 10,
           rotation: ang2Rad(120),
-          duration: 1,
+          duration: 1 * speed,
           onComplete() {
             gsap.to(hand, {
               x: halfX + 80,
               y: Y - 250,
               rotation: ang2Rad(60),
-              duration: 2,
-              delay: 1,
+              duration: 2 * speed,
+              delay: 1 * speed,
               onComplete() {
                 gsap.to(hand, {
                   rotation: ang2Rad(70),
-                  duration: 0.5,
+                  duration: 0 * speed,
                   onComplete() {
                     gsap.to(hand, {
                       rotation: ang2Rad(60),
-                      duration: 0.5,
+                      duration: 0 * speed,
                       onComplete() {
                         gsap.to(hand, {
                           x: window.innerWidth + 100,
                           y: Y + 100,
-                          duration: 1,
+                          duration: 1 * speed,
                           onComplete() {
                             app.stage.removeChild(hand);
                           },

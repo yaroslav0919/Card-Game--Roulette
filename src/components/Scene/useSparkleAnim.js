@@ -195,7 +195,7 @@ export default function useSparkleAnim() {
           points[pointIndex]
         ),
         duration: 2,
-        delay: 0.3,
+        delay: 1,
         ease: "slow",
         delay: pointIndex === 1 && 1,
         onComplete: () => {
@@ -219,10 +219,6 @@ export default function useSparkleAnim() {
       });
     };
     go(1);
-    // go(2);
-    // go(3);
-
-    // MotionPathHelper.create(sprite);
 
     let elapsed = Date.now();
     const update = function () {
