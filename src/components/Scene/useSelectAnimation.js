@@ -197,7 +197,7 @@ export default function useSelectAnimation() {
       fontWeight: "bolder",
       dropShadowDistance: 2,
       fill: "white",
-      fontSize: 26,
+      fontSize: 24,
     });
 
     text.x = pos.x;
