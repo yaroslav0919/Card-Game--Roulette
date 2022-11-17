@@ -6,6 +6,7 @@ import { ang2Rad, getRB } from "../../utils/math.js";
 import useStore from "../../store/index";
 import { AppLoaderPlugin } from "pixi.js";
 import * as Particles from "@pixi/particle-emitter";
+import { delay } from "framer-motion";
 
 PixiPlugin.registerPIXI(PIXI);
 
@@ -41,7 +42,7 @@ export default function useMultiplierAnimation() {
   const firstMultiplier = (app, multiNum, selNum) => {
     const circle = new PIXI.Container();
     circle.x = halfX - 150;
-    circle.y = Y - 150;
+    circle.y = Y - 185;
     circle.width = 100;
     circle.height = 100;
     circle.blendMode = PIXI.BLEND_MODES.ADD;
@@ -64,7 +65,7 @@ export default function useMultiplierAnimation() {
   const secondMultiplier = (app, multiNum, selNum) => {
     const circle = new PIXI.Container();
     circle.x = halfX - 150;
-    circle.y = Y - 150;
+    circle.y = Y - 185;
     circle.width = 100;
     circle.height = 100;
     circle.blendMode = PIXI.BLEND_MODES.ADD;
@@ -75,19 +76,14 @@ export default function useMultiplierAnimation() {
     gsap.to(circle, {
       x: halfX,
       duration: 2,
-      // onComplete: () => {
-      //   gsap.to(circle, {
-      //     x: halfX + 150,
-      //     duration: 2,
-      //   });
-      // },
+      onComplete: () => {},
     });
     multi(circle, radius, multiNum, selNum);
   };
   const thirdMultiplier = (app, multiNum, selNum) => {
     const circle = new PIXI.Container();
-    circle.x = halfX - 150;
-    circle.y = Y - 150;
+    circle.x = 0;
+    circle.y = Y - 185;
     circle.width = 100;
     circle.height = 100;
     circle.blendMode = PIXI.BLEND_MODES.ADD;
@@ -95,19 +91,18 @@ export default function useMultiplierAnimation() {
 
     app.stage.addChild(circle);
 
-    // gsap.to(circle, {
-    //   x: halfX,
-    //   duration: 2,
-    //   onComplete: () => {
-    //     gsap.to(circle, {
-    //       x: halfX + 150,
-    //       duration: 2,
-    //     });
-    //   },
-    // });
+    gsap.to(circle, {
+      x: halfX - 150,
+      duration: 2,
+      onComplete: () => {
+        // delay(playAnimatedSprite(app, radius), 0.5);
+        playAnimatedSprite(app, radius);
+      },
+    });
     multi(circle, radius, multiNum, selNum);
   };
   const multi = (container, radius, multiNum, selNum) => {
+    gsap.registerPlugin(MotionPathPlugin);
     const emiCont = new PIXI.Container();
     emiCont.x = radius;
     emiCont.y = radius;
@@ -224,13 +219,10 @@ export default function useMultiplierAnimation() {
         },
       ],
     });
-    gsap.registerPlugin(MotionPathPlugin);
-
     const spotGraphic = new PIXI.Graphics();
     spotGraphic.beginFill(0xffff00);
     spotGraphic.drawCircle(5, 5, 5);
     spotGraphic.endFill();
-
     gsap.to(spotGraphic, {
       motionPath: circlePath(0, 0, 45),
       duration: 2,
@@ -251,12 +243,10 @@ export default function useMultiplierAnimation() {
       elapsed = now;
     };
     update();
-
     container.addChild(emiCont);
 
     const arc1 = new PIXI.Graphics();
     arc1.lineStyle(2, 0x0000ff, 1);
-
     arc1.arc(radius, radius, radius, 0, ang2Rad(100));
     arc1.pivot.x = radius;
     arc1.pivot.y = radius;
@@ -273,7 +263,6 @@ export default function useMultiplierAnimation() {
     arc2.arc(radius - 10, radius - 10, radius, ang2Rad(124), ang2Rad(244));
     arc2.pivot.x = radius - 10;
     arc2.pivot.y = radius - 10;
-
     gsap.to(arc2, {
       rotation: ang2Rad(-360),
       duration: getRB(0.5, 1),
@@ -287,7 +276,6 @@ export default function useMultiplierAnimation() {
     arc3.arc(radius + 10, radius + 10, radius, ang2Rad(240), ang2Rad(300));
     arc3.pivot.x = radius + 10;
     arc3.pivot.y = radius + 10;
-
     gsap.to(arc3, {
       rotation: ang2Rad(-360),
       duration: getRB(0.5, 1),
@@ -322,13 +310,43 @@ export default function useMultiplierAnimation() {
     selText.y = (radius * 1) / 3;
     selText.anchor.set(0.5);
     container.addChild(selText);
+    const glareTexture = new PIXI.Texture.from("/assets/image/glare.png");
+    const glare = new PIXI.Sprite(glareTexture);
+    glare.blendMode = PIXI.BLEND_MODES.SCREEN;
+    glare.roundPixels = true;
+    glare.anchor.set(0);
+    glare.x = -50;
+    glare.y = 0;
+    glare.width = 20;
+    glare.height = 10;
+    container.addChild(glare);
   };
-  const hatRender = (app) => {
-    // const temp = app.state
-    // app.stage.removeChild(hat);
 
-    console.log(app.stage.children);
+  const playAnimatedSprite = (app, radius) => {
+    const path = "/assets/images/lion/Lion_";
+    const count = 140;
+    const frames = [];
+
+    for (let i = 1; i <= count; i++) {
+      const texture = PIXI.Texture.from(
+        path + (i < 10 ? "0000" : i < 100 ? "000" : "00") + i + ".png"
+      );
+      frames.push(texture);
+    }
+
+    const sprite = new PIXI.AnimatedSprite(frames);
+    sprite.width = 250;
+    sprite.height = 250;
+    sprite.x = halfX;
+    sprite.y = Y - 100;
+    sprite.anchor.set(0.5, 1);
+    sprite.loop = false;
+    sprite.animationSpeed = 0.5;
+    sprite.play();
+    app.stage.addChild(sprite);
   };
+
+  const hatRender = (app) => {};
   const multiplierCircle = (index, app, multiNum, selNum) => {
     if (!index) return;
     hatRender(app);
