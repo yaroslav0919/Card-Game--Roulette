@@ -28,7 +28,7 @@ export default function Scene() {
   const [heatMapMode, setHeatMapMode] = useState(false);
   const numberArray = [24, 16, 5];
   const setApp = useStore((state) => state.setApp);
-  const multiStore = useStore((state) => state.multiStore);
+
   useEffect(() => {
     const app = new Application({
       resizeTo: window,
@@ -59,9 +59,9 @@ export default function Scene() {
         }, 5000);
       });
     };
-    // loadAndPlayAnimation();
+    loadAndPlayAnimation();
 
-    addSparkleAnimation(app, numberArray);
+    // addSparkleAnimation(app, numberArray);
     // multiplierCircle(1, app);
     return () => {
       app.view.removeEventListener("pointerdown", onPointerDownHandler);

@@ -45,6 +45,9 @@ export default function useEntranceAnimation() {
                   x: -200,
                   duration: 1 * speed,
                   delay: 10 * speed,
+                  onComplete() {
+                    app.stage.removeChild(hatContainer);
+                  },
                 });
               },
             });
@@ -60,6 +63,7 @@ export default function useEntranceAnimation() {
 
   const addPlayBackEffect = (app) => {
     ///faded background start///
+    // const glareTexture = PIXI.Assets.load("/assets/image/glare.png");
     const glareTexture = new PIXI.Texture.from("/assets/image/glare.png");
     const glare = new PIXI.Sprite(glareTexture);
     glare.blendMode = PIXI.BLEND_MODES.ADD;
@@ -69,13 +73,16 @@ export default function useEntranceAnimation() {
     glare.y = Y;
     glare.alpha = 0;
     gsap.to(glare, {
-      alpha: 1,
+      alpha: 0.6,
       duration: 3 * speed,
       onComplete() {
         gsap.to(glare, {
           duration: 3 * speed,
           delay: 3 * speed,
           alpha: 0,
+          onComplete: () => {
+            app.stage.removeChild(glare);
+          },
         });
       },
     });

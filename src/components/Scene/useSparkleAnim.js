@@ -1,5 +1,4 @@
 import * as PIXI from "pixi.js";
-// import * as Particles from "pixi-particles";
 import * as Particles from "@pixi/particle-emitter";
 import MotionPathPlugin from "gsap/MotionPathPlugin";
 import { useState } from "react";
@@ -103,23 +102,23 @@ export default function useSparkleAnim() {
         y: initPos.y,
       },
       behaviors: [
-        {
-          type: "alpha",
-          config: {
-            alpha: {
-              list: [
-                {
-                  time: 0,
-                  value: 0.8,
-                },
-                {
-                  time: 1,
-                  value: 0.3,
-                },
-              ],
-            },
-          },
-        },
+        // {
+        //   type: "alpha",
+        //   config: {
+        //     alpha: {
+        //       list: [
+        //         {
+        //           time: 0,
+        //           value: 1,
+        //         },
+        //         {
+        //           time: 1,
+        //           value: 1,
+        //         },
+        //       ],
+        //     },
+        //   },
+        // },
         {
           type: "moveSpeed",
           config: {
@@ -162,11 +161,11 @@ export default function useSparkleAnim() {
               list: [
                 {
                   time: 0,
-                  value: "ffcf5b",
+                  value: "FFF6C9",
                 },
                 {
                   time: 1,
-                  value: "fff23d",
+                  value: "FFB119",
                 },
               ],
             },
@@ -185,19 +184,19 @@ export default function useSparkleAnim() {
             textures: ["/assets/images/particle.png"],
           },
         },
-        {
-          type: "spawnShape",
-          config: {
-            type: "torus",
-            data: {
-              x: 0,
-              y: 0,
-              radius: 0.1,
-              innerRadius: 0,
-              affectRotation: false,
-            },
-          },
-        },
+        // {
+        //   type: "spawnShape",
+        //   config: {
+        //     type: "torus",
+        //     data: {
+        //       x: 0,
+        //       y: 0,
+        //       radius: 0.1,
+        //       innerRadius: 0,
+        //       affectRotation: false,
+        //     },
+        //   },
+        // },
       ],
     });
 
@@ -220,7 +219,7 @@ export default function useSparkleAnim() {
           points[pointIndex]
         ),
         duration: 2,
-        delay: 1,
+        delay: 2,
         ease: "slow",
         delay: pointIndex === 1 && 1,
         onComplete: () => {

@@ -2,19 +2,18 @@ import * as PIXI from "pixi.js";
 import { gsap } from "gsap";
 import MotionPathPlugin from "gsap/MotionPathPlugin";
 import { PixiPlugin } from "gsap/PixiPlugin";
-import { ang2Rad, getRB } from "../../utils/math.js";
-import useStore from "../../store/index";
-import { AppLoaderPlugin } from "pixi.js";
 import * as Particles from "@pixi/particle-emitter";
-import { delay } from "framer-motion";
-
+// import { Assets } from "@pixi/assets";
+import FontFaceObserver from "fontfaceobserver";
+import { useState, useEffect } from "react";
+import { ang2Rad, getRB } from "../../utils/math.js";
+import tableData from "../../constants/table";
 PixiPlugin.registerPIXI(PIXI);
 
 export default function useMultiplierAnimation() {
   const halfX = window.innerWidth / 2;
   const Y = window.innerHeight;
-  const multiStore = useStore((state) => state.multiStore);
-  const setMultiStore = useStore((state) => state.setMultiStore);
+
   function circlePath(cx, cy, r) {
     return (
       "M " +
@@ -38,7 +37,11 @@ export default function useMultiplierAnimation() {
       ",0"
     );
   }
-
+  function isRed(num) {
+    const btnRed = tableData.find((item) => item.key === "bc-red");
+    const redIndex = btnRed?.keys.findIndex((item) => item === num);
+    return redIndex !== -1;
+  }
   const firstMultiplier = (app, multiNum, selNum) => {
     const circle = new PIXI.Container();
     circle.x = halfX - 175;
@@ -247,72 +250,34 @@ export default function useMultiplierAnimation() {
 
     const oneCircle = (cx, cy, r) => {
       const circlerTexture = new PIXI.Texture.from("assets/image/multi.png");
-      const circle1 = new PIXI.Sprite(circlerTexture);
-      circle1.anchor.set(0.5);
-      circle1.width = r * 2;
-      circle1.height = r * 2;
-      circle1.x = cx;
-      circle1.y = cy;
-      // circle1.rotation = ang2Rad(360);
-      circle1.angle = getRB(0, 90);
-      gsap.to(circle1, {
+      const circle = new PIXI.Sprite(circlerTexture);
+      circle.anchor.set(0.5);
+      circle.width = r * 2;
+      circle.height = r * 2;
+      circle.x = cx;
+      circle.y = cy;
+      circle.tint = 0xfff6c9;
+      circle.angle = getRB(0, 90);
+      gsap.to(circle, {
         width: r * 4,
         height: r * 4,
         duration: 1,
         onComplete: () => {
-          gsap.to(circle1, {
-            rotation: ang2Rad(360),
+          gsap.to(circle, {
+            angle: circle.angle + 360,
             duration: getRB(3, 5),
             ease: "none",
+            tint: 0xffb119,
             repeat: -1,
           });
         },
       });
-      container.addChild(circle1);
+      container.addChild(circle);
     };
     for (let i = 0; i < 5; i++) {
       // oneCircle(getRB(-5, 5), getRB(-5, 5), radius / 2 - getRB(-3, 3));
       oneCircle(getRB(-5, 5), getRB(-5, 5), radius / 2 + i - 2);
     }
-
-    // const arc1 = new PIXI.Graphics();
-    // arc1.lineStyle(2, 0x0000ff, 1);
-    // arc1.arc(radius, radius, radius, 0, ang2Rad(100));
-    // arc1.pivot.x = radius;
-    // arc1.pivot.y = radius;
-    // gsap.to(arc1, {
-    //   rotation: ang2Rad(-360),
-    //   duration: Math.random(),
-    //   ease: "none",
-    //   repeat: -1,
-    // });
-    // container.addChild(arc1);
-
-    // const arc2 = new PIXI.Graphics();
-    // arc2.lineStyle(2, 0xff0000, 1);
-    // arc2.arc(radius - 10, radius - 10, radius, ang2Rad(124), ang2Rad(244));
-    // arc2.pivot.x = radius - 10;
-    // arc2.pivot.y = radius - 10;
-    // gsap.to(arc2, {
-    //   rotation: ang2Rad(-360),
-    //   duration: getRB(0.5, 1),
-    //   ease: "none",
-    //   repeat: -1,
-    // });
-    // container.addChild(arc2);
-
-    // const arc3 = new PIXI.Graphics();
-    // arc3.lineStyle(2, 0xffff00, 1);
-    // arc3.arc(radius + 10, radius + 10, radius, ang2Rad(240), ang2Rad(300));
-    // arc3.pivot.x = radius + 10;
-    // arc3.pivot.y = radius + 10;
-    // gsap.to(arc3, {
-    //   rotation: ang2Rad(-360),
-    //   duration: getRB(0.5, 1),
-    //   ease: "none",
-    //   repeat: -1,
-    // });
-    // container.addChild(arc3);
 
     const text = new PIXI.Text(multiNum + `x`, {
       dropShadow: true,
@@ -320,7 +285,7 @@ export default function useMultiplierAnimation() {
       dropShadowColor: "#63a215",
       dropShadowDistance: 2,
       fill: "white",
-      fontFamily: "Verdana, Geneva, sans-serif",
+      fontFamily: "CircularStd",
       fontSize: 22,
       fontWeight: 100,
     });
@@ -340,12 +305,12 @@ export default function useMultiplierAnimation() {
     container.addChild(text);
 
     const selText = new PIXI.Text(selNum, {
-      fontFamily: '"Palatino Linotype", "Book Antiqua", Palatino, serif',
+      fontFamily: "selNumFont",
       dropShadow: true,
       dropShadowAngle: 1.4,
       dropShadowColor: "#db4343",
       dropShadowDistance: 2,
-      fill: "white",
+      fill: isRed(selNum) ? "red" : "white",
       fontSize: 44,
     });
     selText.y = radius / 6;
@@ -400,12 +365,25 @@ export default function useMultiplierAnimation() {
   };
 
   const hatRender = (app) => {};
-  const multiplierCircle = (index, app, multiNum, selNum) => {
+  const multiplierCircle = async (index, app, multiNum, selNum) => {
     if (!index) return;
     hatRender(app);
-    index === 1 && firstMultiplier(app, multiNum, selNum);
-    index === 2 && secondMultiplier(app, multiNum, selNum);
-    index === 3 && thirdMultiplier(app, multiNum, selNum);
+    const font = new FontFaceObserver("Sancreek");
+
+    font.load().then(() => {
+      // const text1 = new PIXI.Text(
+      //   "30",
+      //   new PIXI.TextStyle({
+      //     fontFamily: "Sancreek",
+      //     fill: "white",
+      //     fontSize: 50,
+      //   })
+      // );
+      // app.stage.addChild(text1);
+      index === 1 && firstMultiplier(app, multiNum, selNum);
+      index === 2 && secondMultiplier(app, multiNum, selNum);
+      index === 3 && thirdMultiplier(app, multiNum, selNum);
+    });
   };
   return { multiplierCircle };
 }
