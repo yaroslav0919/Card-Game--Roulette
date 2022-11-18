@@ -56,12 +56,12 @@ export default function Scene() {
 
         setTimeout(() => {
           addSparkleAnimation(app, numberArray);
-        }, 4500);
+        }, 5000);
       });
     };
-    loadAndPlayAnimation();
+    // loadAndPlayAnimation();
 
-    // addSparkleAnimation(app, numberArray);
+    addSparkleAnimation(app, numberArray);
     // multiplierCircle(1, app);
     return () => {
       app.view.removeEventListener("pointerdown", onPointerDownHandler);

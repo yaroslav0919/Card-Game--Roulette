@@ -324,8 +324,19 @@ export default function useMultiplierAnimation() {
       fontSize: 22,
       fontWeight: 100,
     });
-    text.y = -(radius * 1) / 3;
+    text.y = -radius / 6;
     text.anchor.set(0.5);
+    text.scale.x = 0.5;
+    text.scale.y = 0.5;
+    gsap.to(text, {
+      y: -radius / 3,
+      duration: 1,
+    });
+    gsap.to(text.scale, {
+      x: 1,
+      y: 1,
+      duration: 1,
+    });
     container.addChild(text);
 
     const selText = new PIXI.Text(selNum, {
@@ -337,8 +348,19 @@ export default function useMultiplierAnimation() {
       fill: "white",
       fontSize: 44,
     });
-    selText.y = (radius * 1) / 3;
+    selText.y = radius / 6;
     selText.anchor.set(0.5);
+    selText.scale.x = 0.5;
+    selText.scale.y = 0.5;
+    gsap.to(selText, {
+      y: radius / 3,
+      duration: 1,
+    });
+    gsap.to(selText.scale, {
+      x: 1,
+      y: 1,
+      duration: 1,
+    });
     container.addChild(selText);
 
     // const glareTexture = new PIXI.Texture.from("/assets/image/glare.png");
@@ -369,7 +391,7 @@ export default function useMultiplierAnimation() {
     sprite.width = 260;
     sprite.height = 250;
     sprite.x = halfX;
-    sprite.y = Y - 100;
+    sprite.y = Y - 85;
     sprite.anchor.set(0.5, 1);
     sprite.loop = false;
     sprite.animationSpeed = 0.5;
