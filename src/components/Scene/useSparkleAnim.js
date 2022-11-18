@@ -2,9 +2,10 @@ import * as PIXI from "pixi.js";
 // import * as Particles from "pixi-particles";
 import * as Particles from "@pixi/particle-emitter";
 import MotionPathPlugin from "gsap/MotionPathPlugin";
-
+import { useState } from "react";
 import { gsap } from "gsap";
 import { PixiPlugin } from "gsap/PixiPlugin";
+import { delay } from "framer-motion";
 import useSelectAnimation from "./useSelectAnimation";
 import tableData from "../../constants/table";
 import useNormalTable from "./useNormalTable";
@@ -17,6 +18,18 @@ export default function useSparkleAnim() {
   const { drawPolishRect } = useSelectAnimation();
   const { calcCenterOffset } = useNormalTable();
   const { multiplierCircle } = useMultiplierAnimation();
+  const centerOffset = calcCenterOffset();
+  const [arrive, setArrive] = useState();
+
+  const calcNumberFullPosition = (number) => {
+    const btn = tableData.find((item) => {
+      return item.key === `bn-${number}`;
+    });
+    const x = btn.area.x + centerOffset.x;
+    const y = btn.area.y + centerOffset.y;
+    return [x, y, btn.area.w, btn.area.h];
+  };
+
   const getNumberPosition = (number) => {
     const btn = tableData.find((item) => {
       return item.key === `bn-${number}`;
@@ -44,6 +57,16 @@ export default function useSparkleAnim() {
     return posArray;
   };
   const addSparkleAnimation = (app, numberArray) => {
+    // for (let i = 0; i < 3; i++) {
+    //   const rect = calcNumberFullPosition(numberArray[i]);
+    //   const temp = new PIXI.Graphics();
+    //   app.stage.addChild(temp);
+    //   temp.beginFill(0x000000, 1);
+    //   temp.drawRect(...rect);
+    //   temp.zIndex = 0;
+    //   blackBox.push(temp);
+    // }
+
     const multiCount = numberArray.length;
     const multis = [30, 500, 10];
     const initPos = {
@@ -57,6 +80,8 @@ export default function useSparkleAnim() {
     });
 
     const container = new PIXI.Container();
+    // container.sortableChildren = true;
+    container.zIndex = 1;
     app.stage.addChild(container);
     const g = new PIXI.Graphics();
     g.beginFill(0xf7e34d);

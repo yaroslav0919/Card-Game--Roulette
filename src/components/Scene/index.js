@@ -37,7 +37,6 @@ export default function Scene() {
       height: window.innerHeight,
       antialias: true,
     });
-
     setApp(app);
 
     ref.current.appendChild(app.view);
@@ -45,7 +44,7 @@ export default function Scene() {
     app.view.addEventListener("pointerdown", onPointerDownHandler);
 
     app.start();
-
+    app.stage.sortableChildren = true;
     // drawRaceTrackTable(app);
 
     const loadAndPlayAnimation = () => {
@@ -57,7 +56,7 @@ export default function Scene() {
 
         setTimeout(() => {
           addSparkleAnimation(app, numberArray);
-        }, 4000);
+        }, 4500);
       });
     };
     loadAndPlayAnimation();

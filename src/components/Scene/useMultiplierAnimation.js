@@ -41,8 +41,8 @@ export default function useMultiplierAnimation() {
 
   const firstMultiplier = (app, multiNum, selNum) => {
     const circle = new PIXI.Container();
-    circle.x = halfX - 150;
-    circle.y = Y - 185;
+    circle.x = halfX - 175;
+    circle.y = Y - 170;
     circle.width = 100;
     circle.height = 100;
     circle.blendMode = PIXI.BLEND_MODES.ADD;
@@ -52,7 +52,7 @@ export default function useMultiplierAnimation() {
 
     gsap.to(circle, {
       x: halfX,
-      duration: 2,
+      duration: 1,
       onComplete: () => {
         gsap.to(circle, {
           x: halfX + 150,
@@ -64,8 +64,8 @@ export default function useMultiplierAnimation() {
   };
   const secondMultiplier = (app, multiNum, selNum) => {
     const circle = new PIXI.Container();
-    circle.x = halfX - 150;
-    circle.y = Y - 185;
+    circle.x = halfX - 175;
+    circle.y = Y - 170;
     circle.width = 100;
     circle.height = 100;
     circle.blendMode = PIXI.BLEND_MODES.ADD;
@@ -75,15 +75,15 @@ export default function useMultiplierAnimation() {
 
     gsap.to(circle, {
       x: halfX,
-      duration: 2,
+      duration: 1,
       onComplete: () => {},
     });
     multi(circle, radius, multiNum, selNum);
   };
   const thirdMultiplier = (app, multiNum, selNum) => {
     const circle = new PIXI.Container();
-    circle.x = 0;
-    circle.y = Y - 185;
+    circle.x = halfX - 175;
+    circle.y = Y - 170;
     circle.width = 100;
     circle.height = 100;
     circle.blendMode = PIXI.BLEND_MODES.ADD;
@@ -93,7 +93,7 @@ export default function useMultiplierAnimation() {
 
     gsap.to(circle, {
       x: halfX - 150,
-      duration: 2,
+      duration: 1,
       onComplete: () => {
         // delay(playAnimatedSprite(app, radius), 0.5);
         playAnimatedSprite(app, radius);
@@ -253,16 +253,27 @@ export default function useMultiplierAnimation() {
       circle1.height = r * 2;
       circle1.x = cx;
       circle1.y = cy;
+      // circle1.rotation = ang2Rad(360);
+      circle1.angle = getRB(0, 90);
       gsap.to(circle1, {
-        rotation: ang2Rad(360),
-        duration: getRB(2, 5),
-        ease: "none",
-        repeat: -1,
+        width: r * 4,
+        height: r * 4,
+        duration: 1,
+        onComplete: () => {
+          gsap.to(circle1, {
+            rotation: ang2Rad(360),
+            duration: getRB(3, 5),
+            ease: "none",
+            repeat: -1,
+          });
+        },
       });
       container.addChild(circle1);
     };
-    for (let i = 0; i < 5; i++)
-      oneCircle(getRB(-5, 5), getRB(-5, 5), radius - getRB(-5, 5));
+    for (let i = 0; i < 5; i++) {
+      // oneCircle(getRB(-5, 5), getRB(-5, 5), radius / 2 - getRB(-3, 3));
+      oneCircle(getRB(-5, 5), getRB(-5, 5), radius / 2 + i - 2);
+    }
 
     // const arc1 = new PIXI.Graphics();
     // arc1.lineStyle(2, 0x0000ff, 1);

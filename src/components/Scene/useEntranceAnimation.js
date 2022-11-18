@@ -24,7 +24,6 @@ export default function useEntranceAnimation() {
     hat.y = Y;
     hat.width = 250;
     hat.height = 200;
-
     gsap.to(hat, {
       y: Y - 100,
       duration: 2 * speed,
@@ -36,7 +35,7 @@ export default function useEntranceAnimation() {
           duration: 2 * speed,
           onComplete() {
             gsap.to(hat, {
-              x: 50,
+              x: halfX - 175,
               width: (hat.width * 3) / 4,
               height: (hat.height * 3) / 4,
               duration: 1 * speed,
@@ -45,7 +44,7 @@ export default function useEntranceAnimation() {
                 gsap.to(hat, {
                   x: -200,
                   duration: 1 * speed,
-                  delay: 3 * speed,
+                  delay: 10 * speed,
                 });
               },
             });
@@ -55,6 +54,7 @@ export default function useEntranceAnimation() {
     });
     const hatContainer = new PIXI.Container();
     hatContainer.addChild(hat);
+    hatContainer.zIndex = 1;
     app.stage.addChild(hatContainer);
   };
 
@@ -298,16 +298,17 @@ export default function useEntranceAnimation() {
               onComplete() {
                 gsap.to(hand, {
                   rotation: ang2Rad(70),
-                  duration: 0 * speed,
+                  duration: 0.5 * speed,
                   onComplete() {
                     gsap.to(hand, {
                       rotation: ang2Rad(60),
-                      duration: 0 * speed,
+                      duration: 0.5 * speed,
                       onComplete() {
                         gsap.to(hand, {
                           x: window.innerWidth + 100,
                           y: Y + 100,
                           duration: 1 * speed,
+                          delay: 0.5 * speed,
                           onComplete() {
                             app.stage.removeChild(hand);
                           },
