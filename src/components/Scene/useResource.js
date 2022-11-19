@@ -1,9 +1,6 @@
 import * as PIXI from "pixi.js";
-// import FontFaceObserver from "fontfaceobserver";
-import useStore from "../../store";
-export default function useResource() {
-  const setMultiStore = useStore((state) => state.setMultiStore);
 
+export default function useResource() {
   const preLoadSpriteImages = () => {
     const loader = new PIXI.Loader();
 

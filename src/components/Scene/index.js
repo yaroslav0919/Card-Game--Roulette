@@ -12,7 +12,8 @@ import useSparkleAnim from "./useSparkleAnim";
 
 import useSelectAnimation from "./useSelectAnimation";
 import useMultiplierAnimation from "./useMultiplierAnimation";
-
+// import FontFaceObserver from "fontfaceobserver";
+const FontFaceObserver = require("fontfaceobserver");
 export default function Scene() {
   const ref = useRef(null);
 
@@ -47,8 +48,10 @@ export default function Scene() {
     app.stage.sortableChildren = true;
     // drawRaceTrackTable(app);
 
-    const loadAndPlayAnimation = () => {
+    const loadAndPlayAnimation = async () => {
       const loader = preLoadSpriteImages();
+      const font = new FontFaceObserver("Sancreek");
+      await font.load();
       loader.onComplete.add(() => {
         drawNormalTable(app, heatMapMode);
 

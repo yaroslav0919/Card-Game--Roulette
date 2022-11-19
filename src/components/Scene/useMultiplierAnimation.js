@@ -4,11 +4,12 @@ import MotionPathPlugin from "gsap/MotionPathPlugin";
 import { PixiPlugin } from "gsap/PixiPlugin";
 import * as Particles from "@pixi/particle-emitter";
 // import { Assets } from "@pixi/assets";
-import FontFaceObserver from "fontfaceobserver";
+// import FontFaceObserver from "fontfaceobserver";
 import { useState, useEffect } from "react";
 import { ang2Rad, getRB } from "../../utils/math.js";
 import tableData from "../../constants/table";
 PixiPlugin.registerPIXI(PIXI);
+// const FontFaceObserver = require("fontfaceobserver");
 
 export default function useMultiplierAnimation() {
   const halfX = window.innerWidth / 2;
@@ -305,7 +306,7 @@ export default function useMultiplierAnimation() {
     container.addChild(text);
 
     const selText = new PIXI.Text(selNum, {
-      fontFamily: "selNumFont",
+      fontFamily: "Sancreek",
       dropShadow: true,
       dropShadowAngle: 1.4,
       dropShadowColor: "#db4343",
@@ -364,26 +365,11 @@ export default function useMultiplierAnimation() {
     app.stage.addChild(sprite);
   };
 
-  const hatRender = (app) => {};
-  const multiplierCircle = async (index, app, multiNum, selNum) => {
+  const multiplierCircle = (index, app, multiNum, selNum) => {
     if (!index) return;
-    hatRender(app);
-    const font = new FontFaceObserver("Sancreek");
-
-    font.load().then(() => {
-      // const text1 = new PIXI.Text(
-      //   "30",
-      //   new PIXI.TextStyle({
-      //     fontFamily: "Sancreek",
-      //     fill: "white",
-      //     fontSize: 50,
-      //   })
-      // );
-      // app.stage.addChild(text1);
-      index === 1 && firstMultiplier(app, multiNum, selNum);
-      index === 2 && secondMultiplier(app, multiNum, selNum);
-      index === 3 && thirdMultiplier(app, multiNum, selNum);
-    });
+    index === 1 && firstMultiplier(app, multiNum, selNum);
+    index === 2 && secondMultiplier(app, multiNum, selNum);
+    index === 3 && thirdMultiplier(app, multiNum, selNum);
   };
   return { multiplierCircle };
 }
