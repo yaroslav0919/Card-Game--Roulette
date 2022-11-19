@@ -56,18 +56,9 @@ export default function useSparkleAnim() {
     return posArray;
   };
   const addSparkleAnimation = (app, numberArray) => {
-    // for (let i = 0; i < 3; i++) {
-    //   const rect = calcNumberFullPosition(numberArray[i]);
-    //   const temp = new PIXI.Graphics();
-    //   app.stage.addChild(temp);
-    //   temp.beginFill(0x000000, 1);
-    //   temp.drawRect(...rect);
-    //   temp.zIndex = 0;
-    //   blackBox.push(temp);
-    // }
-
     const multiCount = numberArray.length;
-    const multis = [30, 500, 10];
+    const multis = [30, 500, 10]; //get from api
+
     const initPos = {
       x: window.innerWidth / 2 - 32,
       y: window.innerHeight - 205,
@@ -79,7 +70,6 @@ export default function useSparkleAnim() {
     });
 
     const container = new PIXI.Container();
-    // container.sortableChildren = true;
     container.zIndex = 1;
     app.stage.addChild(container);
     const g = new PIXI.Graphics();
@@ -219,7 +209,7 @@ export default function useSparkleAnim() {
           points[pointIndex]
         ),
         duration: 2,
-        delay: 2,
+        delay: 1,
         ease: "slow",
         delay: pointIndex === 1 && 1,
         onComplete: () => {
@@ -228,14 +218,20 @@ export default function useSparkleAnim() {
             numberArray[pointIndex - 1],
             multis[pointIndex - 1]
           );
+
           multiplierCircle(
             pointIndex,
             app,
             multis[pointIndex - 1],
-            numberArray[pointIndex - 1]
+            numberArray[pointIndex - 1],
+            multiCount
           );
-          if (pointIndex !== 3) go(pointIndex + 1);
-          else emitter.emit = false;
+
+          if (pointIndex !== multiCount) {
+            setTimeout(() => {
+              go(pointIndex + 1);
+            }, 500);
+          } else emitter.emit = false;
         },
         onUpdate: () => {
           emitter.updateSpawnPos(sprite.x, sprite.y);

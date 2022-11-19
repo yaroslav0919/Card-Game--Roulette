@@ -14,7 +14,31 @@ PixiPlugin.registerPIXI(PIXI);
 export default function useMultiplierAnimation() {
   const halfX = window.innerWidth / 2;
   const Y = window.innerHeight;
-
+  const xArray = [
+    [{ x1: halfX, x2: halfX }],
+    [
+      { x1: halfX, x2: halfX + 80 },
+      { x1: halfX - 80, x2: halfX - 80 },
+    ],
+    [
+      { x1: halfX, x2: halfX + 100 },
+      { x1: halfX, x2: halfX },
+      { x1: halfX - 100, x2: halfX - 100 },
+    ],
+    [
+      { x1: halfX, x2: halfX + 140 },
+      { x1: halfX, x2: halfX + 47.5 },
+      { x1: halfX - 47.5, x2: halfX - 47.5 },
+      { x1: halfX - 140, x2: halfX - 140 },
+    ],
+    [
+      { x1: halfX, x2: halfX + 150 },
+      { x1: halfX, x2: halfX + 75 },
+      { x1: halfX, x2: halfX },
+      { x1: halfX - 75, x2: halfX - 75 },
+      { x1: halfX - 150, x2: halfX - 150 },
+    ],
+  ];
   function circlePath(cx, cy, r) {
     return (
       "M " +
@@ -276,8 +300,7 @@ export default function useMultiplierAnimation() {
       container.addChild(circle);
     };
     for (let i = 0; i < 5; i++) {
-      // oneCircle(getRB(-5, 5), getRB(-5, 5), radius / 2 - getRB(-3, 3));
-      oneCircle(getRB(-5, 5), getRB(-5, 5), radius / 2 + i - 2);
+      oneCircle(getRB(-3, 3), getRB(-3, 3), radius / 2 + i - 2);
     }
 
     const text = new PIXI.Text(multiNum + `x`, {
@@ -288,7 +311,6 @@ export default function useMultiplierAnimation() {
       fill: "white",
       fontFamily: "CircularStd",
       fontSize: 22,
-      fontWeight: 100,
     });
     text.y = -radius / 6;
     text.anchor.set(0.5);
@@ -365,11 +387,33 @@ export default function useMultiplierAnimation() {
     app.stage.addChild(sprite);
   };
 
-  const multiplierCircle = (index, app, multiNum, selNum) => {
+  const multiplierCircle = (index, app, multiNum, selNum, multiCount) => {
     if (!index) return;
-    index === 1 && firstMultiplier(app, multiNum, selNum);
-    index === 2 && secondMultiplier(app, multiNum, selNum);
-    index === 3 && thirdMultiplier(app, multiNum, selNum);
+    // index === 1 && firstMultiplier(app, multiNum, selNum);
+    // index === 2 && secondMultiplier(app, multiNum, selNum);
+    // index === 3 && thirdMultiplier(app, multiNum, selNum);
+    console.log(index, app, multiNum, selNum, multiCount);
+    const circle = new PIXI.Container();
+    circle.x = halfX - 175;
+    circle.y = Y - 170;
+    circle.blendMode = PIXI.BLEND_MODES.ADD;
+    const radius = 40;
+
+    app.stage.addChild(circle);
+    const firstX = xArray[multiCount - 1][index - 1].x1;
+    const secondX = xArray[multiCount - 1][index - 1].x2;
+
+    gsap.to(circle, {
+      x: firstX,
+      duration: 1,
+      onComplete: () => {
+        gsap.to(circle, {
+          x: secondX,
+          duration: 2,
+        });
+      },
+    });
+    multi(circle, radius, multiNum, selNum);
   };
   return { multiplierCircle };
 }
