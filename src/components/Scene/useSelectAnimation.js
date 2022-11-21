@@ -191,7 +191,7 @@ export default function useSelectAnimation() {
   };
   const numCounter = (app, multi, pos) => {
     const text = new PIXI.Text(multi + `x`, {
-      fontFamily: "Courier New",
+      fontFamily: "CircularStd",
       dropShadow: true,
       dropShadowAngle: 1.4,
       dropShadowColor: "#db4343",
