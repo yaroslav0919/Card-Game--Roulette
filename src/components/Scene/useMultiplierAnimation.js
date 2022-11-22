@@ -72,14 +72,14 @@ export default function useMultiplierAnimation() {
     gsap.registerPlugin(MotionPathPlugin);
 
     const blackCircle = new PIXI.Graphics();
-    blackCircle.beginFill(0x000000, 0.7);
+    blackCircle.beginFill(0x000000, 0.8);
     blackCircle.drawCircle(0, 0, radius);
     container.addChild(blackCircle);
-    blackCircle.scaleX = 0.5;
-    blackCircle.scaleY = 0.5;
+    blackCircle.width = radius;
+    blackCircle.height = radius;
     gsap.to(blackCircle, {
-      scaleX: 1,
-      scaleY: 1,
+      width: radius * 2,
+      height: radius * 2,
       duration: 1,
     });
     const emiCont = new PIXI.Container();
@@ -222,6 +222,7 @@ export default function useMultiplierAnimation() {
       elapsed = now;
     };
     update();
+
     container.addChild(emiCont);
 
     const oneCircle = (cx, cy, r) => {
@@ -256,7 +257,7 @@ export default function useMultiplierAnimation() {
 
     const oneArc = (cx, cy, r, v) => {
       const arc = new PIXI.Graphics();
-      arc.lineStyle(0.5, 0xfff6c9, 1);
+      arc.lineStyle(0.5, 0xffff00, 1);
       arc.arc(cx, cy, r, 0, getRB(5, 8), false);
       arc.width = r;
       arc.height = r;
@@ -273,7 +274,7 @@ export default function useMultiplierAnimation() {
             angle: arc.angle + 360,
             duration: v,
             ease: "none",
-            tint: 0xffb119,
+            // tint: 0xffb119,
             repeat: -1,
           });
         },
@@ -285,14 +286,15 @@ export default function useMultiplierAnimation() {
     }
     const text = new PIXI.Text(multiNum + `x`, {
       dropShadow: true,
+      fontWeight: 900,
       dropShadowAngle: 1.7,
       dropShadowColor: "#63a215",
       dropShadowDistance: 2,
       fill: "white",
       fontFamily: "CircularStd",
-      fontSize: 20,
+      fontSize: 18,
     });
-    text.y = -radius / 6;
+    text.y = -radius / 4;
     text.anchor.set(0.5);
     text.scale.x = 0.5;
     text.scale.y = 0.5;
@@ -313,14 +315,15 @@ export default function useMultiplierAnimation() {
       dropShadowColor: "#db4343",
       dropShadowDistance: 2,
       fill: isRed(selNum) ? "red" : "white",
-      fontSize: 36,
+      fontSize: 30,
+      fontWeight: 400,
     });
-    selText.y = radius / 6;
+    selText.y = radius / 8;
     selText.anchor.set(0.5);
     selText.scale.x = 0.5;
     selText.scale.y = 0.5;
     gsap.to(selText, {
-      y: radius / 3,
+      y: radius / 4,
       duration: 1,
     });
     gsap.to(selText.scale, {
@@ -336,22 +339,19 @@ export default function useMultiplierAnimation() {
     glare.tilt = 0xffff00;
     glare.roundPixels = true;
     glare.anchor.set(0.5);
-    // const filter = new PIXI.filters.ColorMatrixFilter();
-    // filter.colorTone(1, 1, 0xffff00, 0xff0000, true);
-    // glare.filters = filter;
-    glare.tint = 0xffff00;
+    // glare.tint = 0xffff00;
     glare.x = 0;
     glare.y = 0;
-    glare.width = radius;
-    glare.height = radius;
+    glare.width = radius + 5;
+    glare.height = radius + 5;
     container.addChild(glare);
     gsap.to(glare, {
-      width: radius * 2,
-      height: radius * 2,
+      width: radius * 2 + 10,
+      height: radius * 2 + 10,
       duration: 1,
     });
   };
-  const playAnimatedSprite = (app, radius) => {
+  const playAnimatedSprite = (app) => {
     const path = "/assets/images/lion/Lion_";
     const count = 140;
     const frames = [];
@@ -364,22 +364,27 @@ export default function useMultiplierAnimation() {
     }
 
     const sprite = new PIXI.AnimatedSprite(frames);
-    sprite.width = 260;
-    sprite.height = 250;
-    sprite.x = halfX;
-    sprite.y = Y - 85;
+    sprite.width = 230;
+    sprite.height = 240;
+    sprite.x = halfX - 3;
+    sprite.y = Y - 75;
     sprite.anchor.set(0.5, 1);
     sprite.loop = false;
     sprite.animationSpeed = 0.5;
     sprite.play();
     app.stage.addChild(sprite);
   };
+  const removeActionBar = () => {
+    const actionBar = document.getElementById("action-bar");
+    actionBar.remove();
+  };
   const multiplierCircle = (index, app, multiNum, selNum, multiCount) => {
+    // removeActionBar();
     if (!index) return;
     console.log(index, app, multiNum, selNum, multiCount);
     const circle = new PIXI.Container();
     circle.x = halfX - 175;
-    circle.y = Y - 170;
+    circle.y = Y - 150;
     circle.blendMode = PIXI.BLEND_MODES.ADD;
     const radius = 40;
 
@@ -398,7 +403,9 @@ export default function useMultiplierAnimation() {
       },
     });
     multi(circle, radius, multiNum, selNum);
-    setTimeout(playAnimatedSprite, multiCount * 3);
+    setTimeout(() => {
+      playAnimatedSprite(app);
+    }, multiCount * 3000);
   };
   return { multiplierCircle };
 }

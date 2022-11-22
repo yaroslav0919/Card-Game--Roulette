@@ -106,11 +106,11 @@ export default function useSelectAnimation() {
               list: [
                 {
                   time: 0,
-                  value: 0.1,
+                  value: 0.2,
                 },
                 {
                   time: 1,
-                  value: 0.01,
+                  value: 0.02,
                 },
               ],
             },
@@ -192,13 +192,13 @@ export default function useSelectAnimation() {
   const numCounter = (app, multi, pos) => {
     const text = new PIXI.Text(multi + `x`, {
       fontFamily: "CircularStd",
+      fontWeight: 900,
       dropShadow: true,
       dropShadowAngle: 1.4,
       dropShadowColor: "#db4343",
-      fontWeight: "bolder",
       dropShadowDistance: 2,
       fill: "white",
-      fontSize: 24,
+      fontSize: 22,
     });
 
     text.x = pos.x;

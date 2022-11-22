@@ -45,8 +45,8 @@ export default function useSparkleAnim() {
   const generateRandomCurve = (firstPos, nextPos) => {
     const posArray = [];
     posArray.push(firstPos);
-
-    for (let i = 0; i < 4; i++) {
+    const turns = Math.floor(getRB(2, 4));
+    for (let i = 0; i < turns; i++) {
       let randomX = getRB(firstPos.x, nextPos.x);
       let randomY = getRB(firstPos.y, nextPos.y);
 
@@ -92,23 +92,6 @@ export default function useSparkleAnim() {
         y: initPos.y,
       },
       behaviors: [
-        // {
-        //   type: "alpha",
-        //   config: {
-        //     alpha: {
-        //       list: [
-        //         {
-        //           time: 0,
-        //           value: 1,
-        //         },
-        //         {
-        //           time: 1,
-        //           value: 1,
-        //         },
-        //       ],
-        //     },
-        //   },
-        // },
         {
           type: "moveSpeed",
           config: {
@@ -174,19 +157,19 @@ export default function useSparkleAnim() {
             textures: ["/assets/images/particle.png"],
           },
         },
-        // {
-        //   type: "spawnShape",
-        //   config: {
-        //     type: "torus",
-        //     data: {
-        //       x: 0,
-        //       y: 0,
-        //       radius: 0.1,
-        //       innerRadius: 0,
-        //       affectRotation: false,
-        //     },
-        //   },
-        // },
+        {
+          type: "spawnShape",
+          config: {
+            type: "circle",
+            data: {
+              x: 0,
+              y: 0,
+              radius: 0.1,
+              innerRadius: 0,
+              affectRotation: false,
+            },
+          },
+        },
       ],
     });
 

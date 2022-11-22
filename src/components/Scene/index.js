@@ -59,7 +59,7 @@ export default function Scene() {
 
         setTimeout(() => {
           addSparkleAnimation(app, numberArray);
-        }, 5000);
+        }, 4500);
       });
     };
     loadAndPlayAnimation();
