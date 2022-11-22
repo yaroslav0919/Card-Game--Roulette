@@ -57,7 +57,7 @@ export default function useSelectAnimation() {
     const rect = calcNumberFullPosition(number);
     const [xVal, yVal, w, h] = [...rect];
     const blackRect = new PIXI.Graphics();
-    blackRect.beginFill(0x000000, 0.9);
+    blackRect.beginFill(0x000000, 0.8);
     blackRect.drawRect(...rect);
     container.addChild(blackRect);
 

@@ -63,7 +63,6 @@ export default function useEntranceAnimation() {
 
   const addPlayBackEffect = (app) => {
     ///faded background start///
-    // const glareTexture = PIXI.Assets.load("/assets/image/glare.png");
     const glareTexture = new PIXI.Texture.from("/assets/image/glare.png");
     const glare = new PIXI.Sprite(glareTexture);
     glare.blendMode = PIXI.BLEND_MODES.ADD;
@@ -100,7 +99,7 @@ export default function useEntranceAnimation() {
     beam.width = 600;
     beam.height = 400;
     gsap.to(beam, {
-      alpha: 1,
+      alpha: 0.6,
       duration: 3 * speed,
       onComplete() {
         gsap.to(beam, {

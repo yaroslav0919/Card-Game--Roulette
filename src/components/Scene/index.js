@@ -65,7 +65,7 @@ export default function Scene() {
     loadAndPlayAnimation();
 
     // addSparkleAnimation(app, numberArray);
-    // multiplierCircle(1, app);
+    // multiplierCircle(1, app, 500, 19, 3);
     return () => {
       app.view.removeEventListener("pointerdown", onPointerDownHandler);
       app.destroy(true, true);

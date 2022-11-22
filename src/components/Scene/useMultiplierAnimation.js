@@ -72,9 +72,16 @@ export default function useMultiplierAnimation() {
     gsap.registerPlugin(MotionPathPlugin);
 
     const blackCircle = new PIXI.Graphics();
-    blackCircle.beginFill(0x000000, 0.9);
+    blackCircle.beginFill(0x000000, 0.7);
     blackCircle.drawCircle(0, 0, radius);
     container.addChild(blackCircle);
+    blackCircle.scaleX = 0.5;
+    blackCircle.scaleY = 0.5;
+    gsap.to(blackCircle, {
+      scaleX: 1,
+      scaleY: 1,
+      duration: 1,
+    });
     const emiCont = new PIXI.Container();
     emiCont.x = radius;
     emiCont.y = radius;
@@ -243,10 +250,39 @@ export default function useMultiplierAnimation() {
       });
       container.addChild(circle);
     };
-    for (let i = 0; i < 5; i++) {
-      oneCircle(getRB(-3, 3), getRB(-3, 3), radius / 2 + i - 2);
-    }
+    // for (let i = 0; i < 5; i++) {
+    //   oneCircle(getRB(-3, 3), getRB(-3, 3), radius / 2 + i - 2);
+    // }
 
+    const oneArc = (cx, cy, r, v) => {
+      const arc = new PIXI.Graphics();
+      arc.lineStyle(0.5, 0xfff6c9, 1);
+      arc.arc(cx, cy, r, 0, getRB(5, 8), false);
+      arc.width = r;
+      arc.height = r;
+      // arc.pivot.set(0.5);
+      // arc.tint = 0xfff6c9;
+      arc.angle = getRB(0, 360);
+
+      gsap.to(arc, {
+        width: r * 2,
+        height: r * 2,
+        duration: 1,
+        onComplete: () => {
+          gsap.to(arc, {
+            angle: arc.angle + 360,
+            duration: v,
+            ease: "none",
+            tint: 0xffb119,
+            repeat: -1,
+          });
+        },
+      });
+      container.addChild(arc);
+    };
+    for (let i = 0; i < 5; i++) {
+      oneArc(getRB(-4, 4), getRB(-4, 4), radius + i - 2, getRB(1, 3));
+    }
     const text = new PIXI.Text(multiNum + `x`, {
       dropShadow: true,
       dropShadowAngle: 1.7,
@@ -254,7 +290,7 @@ export default function useMultiplierAnimation() {
       dropShadowDistance: 2,
       fill: "white",
       fontFamily: "CircularStd",
-      fontSize: 22,
+      fontSize: 20,
     });
     text.y = -radius / 6;
     text.anchor.set(0.5);
@@ -277,7 +313,7 @@ export default function useMultiplierAnimation() {
       dropShadowColor: "#db4343",
       dropShadowDistance: 2,
       fill: isRed(selNum) ? "red" : "white",
-      fontSize: 44,
+      fontSize: 36,
     });
     selText.y = radius / 6;
     selText.anchor.set(0.5);
@@ -293,8 +329,51 @@ export default function useMultiplierAnimation() {
       duration: 1,
     });
     container.addChild(selText);
-  };
 
+    const glareTexture = new PIXI.Texture.from("/assets/image/multi-fade2.png");
+    const glare = new PIXI.Sprite(glareTexture);
+    glare.blendMode = PIXI.BLEND_MODES.ADD;
+    glare.tilt = 0xffff00;
+    glare.roundPixels = true;
+    glare.anchor.set(0.5);
+    // const filter = new PIXI.filters.ColorMatrixFilter();
+    // filter.colorTone(1, 1, 0xffff00, 0xff0000, true);
+    // glare.filters = filter;
+    glare.tint = 0xffff00;
+    glare.x = 0;
+    glare.y = 0;
+    glare.width = radius;
+    glare.height = radius;
+    container.addChild(glare);
+    gsap.to(glare, {
+      width: radius * 2,
+      height: radius * 2,
+      duration: 1,
+    });
+  };
+  const playAnimatedSprite = (app, radius) => {
+    const path = "/assets/images/lion/Lion_";
+    const count = 140;
+    const frames = [];
+
+    for (let i = 1; i <= count; i++) {
+      const texture = PIXI.Texture.from(
+        path + (i < 10 ? "0000" : i < 100 ? "000" : "00") + i + ".png"
+      );
+      frames.push(texture);
+    }
+
+    const sprite = new PIXI.AnimatedSprite(frames);
+    sprite.width = 260;
+    sprite.height = 250;
+    sprite.x = halfX;
+    sprite.y = Y - 85;
+    sprite.anchor.set(0.5, 1);
+    sprite.loop = false;
+    sprite.animationSpeed = 0.5;
+    sprite.play();
+    app.stage.addChild(sprite);
+  };
   const multiplierCircle = (index, app, multiNum, selNum, multiCount) => {
     if (!index) return;
     console.log(index, app, multiNum, selNum, multiCount);
@@ -319,6 +398,7 @@ export default function useMultiplierAnimation() {
       },
     });
     multi(circle, radius, multiNum, selNum);
+    setTimeout(playAnimatedSprite, multiCount * 3);
   };
   return { multiplierCircle };
 }
