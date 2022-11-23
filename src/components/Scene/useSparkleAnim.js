@@ -80,18 +80,37 @@ export default function useSparkleAnim() {
 
     const emitter = new Particles.Emitter(container, {
       lifetime: {
-        min: 1.2,
-        max: 2.8,
+        min: 0.3,
+        max: 0.9,
       },
-      frequency: 0.005,
+      blendMode: "screen",
+      frequency: 0.001,
       emitterLifetime: -1,
-      maxParticles: 999,
-      addAtBack: false,
+      maxParticles: 500,
+      maxSpeed: 0,
+      // noRotation: false,
       pos: {
         x: initPos.x,
         y: initPos.y,
       },
       behaviors: [
+        {
+          type: "alpha",
+          config: {
+            alpha: {
+              list: [
+                {
+                  value: 1,
+                  time: 0,
+                },
+                {
+                  value: 0.66,
+                  time: 1,
+                },
+              ],
+            },
+          },
+        },
         {
           type: "moveSpeed",
           config: {
@@ -99,7 +118,7 @@ export default function useSparkleAnim() {
               list: [
                 {
                   time: 0,
-                  value: 10,
+                  value: 20,
                 },
                 {
                   time: 1,
@@ -107,8 +126,26 @@ export default function useSparkleAnim() {
                 },
               ],
             },
+            minMult: 0.5,
           },
         },
+        // {
+        //   type: "alpha",
+        //   config: {
+        //     speed: {
+        //       list: [
+        //         {
+        //           time: 0,
+        //           value: 1,
+        //         },
+        //         {
+        //           time: 1,
+        //           value: 0.66,
+        //         },
+        //       ],
+        //     },
+        //   },
+        // },
         {
           type: "scale",
           config: {
@@ -120,7 +157,7 @@ export default function useSparkleAnim() {
                 },
                 {
                   time: 1,
-                  value: 0.3,
+                  value: 0.01,
                 },
               ],
             },
@@ -151,6 +188,13 @@ export default function useSparkleAnim() {
             max: 360,
           },
         },
+        // {
+        //   type: "rotationSpeed",
+        //   config: {
+        //     min: 5,
+        //     max: 5,
+        //   },
+        // },
         {
           type: "textureRandom",
           config: {
@@ -164,9 +208,9 @@ export default function useSparkleAnim() {
             data: {
               x: 0,
               y: 0,
-              radius: 0.1,
-              innerRadius: 0,
-              affectRotation: false,
+              radius: 0,
+              // innerRadius: 0,
+              // affectRotation: false,
             },
           },
         },
