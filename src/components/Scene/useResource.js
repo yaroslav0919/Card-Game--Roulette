@@ -18,6 +18,9 @@ export default function useResource() {
     loader.add("assets/image/beam.png");
     loader.add("assets/image/glare.png");
     loader.add("assets/image/hand.png");
+    loader.add("assets/image/circle.png");
+    loader.add("assets/image/circle-shine.png");
+
     return loader.load(loader);
   };
 

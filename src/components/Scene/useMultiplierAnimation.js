@@ -12,6 +12,7 @@ PixiPlugin.registerPIXI(PIXI);
 // const FontFaceObserver = require("fontfaceobserver");
 
 export default function useMultiplierAnimation() {
+  console.log("multiplier");
   const halfX = window.innerWidth / 2;
   const Y = window.innerHeight;
   const xArray = [
@@ -226,7 +227,7 @@ export default function useMultiplierAnimation() {
     container.addChild(emiCont);
 
     const oneCircle = (cx, cy, r) => {
-      const circlerTexture = new PIXI.Texture.from("assets/image/multi.png");
+      const circlerTexture = new PIXI.Texture.from("assets/image/circle.png");
       const circle = new PIXI.Sprite(circlerTexture);
       circle.anchor.set(0.5);
       circle.width = r * 2;
@@ -235,6 +236,7 @@ export default function useMultiplierAnimation() {
       circle.y = cy;
       circle.tint = 0xfff6c9;
       circle.angle = getRB(0, 90);
+      circle.alpha = 0.5;
       gsap.to(circle, {
         width: r * 4,
         height: r * 4,
@@ -251,39 +253,39 @@ export default function useMultiplierAnimation() {
       });
       container.addChild(circle);
     };
-    // for (let i = 0; i < 5; i++) {
-    //   oneCircle(getRB(-3, 3), getRB(-3, 3), radius / 2 + i - 2);
-    // }
-
-    const oneArc = (cx, cy, r, v) => {
-      const arc = new PIXI.Graphics();
-      arc.lineStyle(0.5, 0xffff00, 1);
-      arc.arc(cx, cy, r, 0, getRB(5, 8), false);
-      arc.width = r;
-      arc.height = r;
-      // arc.pivot.set(0.5);
-      // arc.tint = 0xfff6c9;
-      arc.angle = getRB(0, 360);
-
-      gsap.to(arc, {
-        width: r * 2,
-        height: r * 2,
-        duration: 1,
-        onComplete: () => {
-          gsap.to(arc, {
-            angle: arc.angle + 360,
-            duration: v,
-            ease: "none",
-            // tint: 0xffb119,
-            repeat: -1,
-          });
-        },
-      });
-      container.addChild(arc);
-    };
     for (let i = 0; i < 5; i++) {
-      oneArc(getRB(-4, 4), getRB(-4, 4), radius + i - 2, getRB(1, 3));
+      oneCircle(getRB(-3, 3), getRB(-3, 3), radius / 2 + i - 2);
     }
+
+    // const oneArc = (cx, cy, r, v) => {
+    //   const arc = new PIXI.Graphics();
+    //   arc.lineStyle(0.5, 0xffff00, 1);
+    //   arc.arc(cx, cy, r, 0, getRB(5, 8), false);
+    //   arc.width = r;
+    //   arc.height = r;
+    //   // arc.pivot.set(0.5);
+    //   // arc.tint = 0xfff6c9;
+    //   arc.angle = getRB(0, 360);
+
+    //   gsap.to(arc, {
+    //     width: r * 2,
+    //     height: r * 2,
+    //     duration: 1,
+    //     onComplete: () => {
+    //       gsap.to(arc, {
+    //         angle: arc.angle + 360,
+    //         duration: v,
+    //         ease: "none",
+    //         // tint: 0xffb119,
+    //         repeat: -1,
+    //       });
+    //     },
+    //   });
+    //   container.addChild(arc);
+    // };
+    // for (let i = 0; i < 5; i++) {
+    //   oneArc(getRB(-4, 4), getRB(-4, 4), radius + i - 2, getRB(1, 3));
+    // }
     const text = new PIXI.Text(multiNum + `x`, {
       dropShadow: true,
       fontWeight: 900,
@@ -333,13 +335,15 @@ export default function useMultiplierAnimation() {
     });
     container.addChild(selText);
 
-    const glareTexture = new PIXI.Texture.from("/assets/image/multi-fade2.png");
+    const glareTexture = new PIXI.Texture.from(
+      "/assets/image/circle-shine.png"
+    );
     const glare = new PIXI.Sprite(glareTexture);
     glare.blendMode = PIXI.BLEND_MODES.ADD;
-    glare.tilt = 0xffff00;
+    // glare.tilt = 0xffff00;
     glare.roundPixels = true;
     glare.anchor.set(0.5);
-    // glare.tint = 0xffff00;
+    glare.tint = 0xffff00;
     glare.x = 0;
     glare.y = 0;
     glare.width = radius + 5;
@@ -349,6 +353,13 @@ export default function useMultiplierAnimation() {
       width: radius * 2 + 10,
       height: radius * 2 + 10,
       duration: 1,
+      onComplete() {
+        gsap.to(glare, {
+          angle: 360,
+          duration: 100,
+          repeate: -1,
+        });
+      },
     });
   };
   const playAnimatedSprite = (app) => {
