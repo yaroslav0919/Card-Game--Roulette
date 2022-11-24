@@ -78,6 +78,7 @@ export default function useMultiplierAnimation() {
     container.addChild(blackCircle);
     blackCircle.width = radius;
     blackCircle.height = radius;
+    blackCircle.alpha = 0.7;
     gsap.to(blackCircle, {
       width: radius * 2,
       height: radius * 2,
