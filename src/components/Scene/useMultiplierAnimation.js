@@ -3,13 +3,10 @@ import { gsap } from "gsap";
 import MotionPathPlugin from "gsap/MotionPathPlugin";
 import { PixiPlugin } from "gsap/PixiPlugin";
 import * as Particles from "@pixi/particle-emitter";
-// import { Assets } from "@pixi/assets";
-// import FontFaceObserver from "fontfaceobserver";
 import { useState, useEffect } from "react";
 import { ang2Rad, getRB } from "../../utils/math.js";
 import tableData from "../../constants/table";
 PixiPlugin.registerPIXI(PIXI);
-// const FontFaceObserver = require("fontfaceobserver");
 
 export default function useMultiplierAnimation() {
   console.log("multiplier");
@@ -236,7 +233,8 @@ export default function useMultiplierAnimation() {
       circle.x = cx;
       circle.y = cy;
       circle.tint = 0xfff6c9;
-      circle.angle = getRB(0, 90);
+      circle.angle = getRB(0, 180);
+      circle.rotation = ang2Rad(getRB(0, 180));
       circle.alpha = 0.5;
       gsap.to(circle, {
         width: r * 4,
@@ -288,13 +286,13 @@ export default function useMultiplierAnimation() {
     //   oneArc(getRB(-4, 4), getRB(-4, 4), radius + i - 2, getRB(1, 3));
     // }
     const text = new PIXI.Text(multiNum + `x`, {
+      fontFamily: "CircularStdBold",
       dropShadow: true,
       fontWeight: 900,
       dropShadowAngle: 1.7,
       dropShadowColor: "#63a215",
       dropShadowDistance: 2,
       fill: "white",
-      fontFamily: "CircularStd",
       fontSize: 18,
     });
     text.y = -radius / 4;
@@ -349,7 +347,7 @@ export default function useMultiplierAnimation() {
     glare.y = 0;
     glare.width = radius + 5;
     glare.height = radius + 5;
-    container.addChild(glare);
+
     gsap.to(glare, {
       width: radius * 2 + 10,
       height: radius * 2 + 10,
@@ -362,6 +360,7 @@ export default function useMultiplierAnimation() {
         });
       },
     });
+    container.addChild(glare);
   };
   const playAnimatedSprite = (app) => {
     const path = "/assets/images/lion/Lion_";

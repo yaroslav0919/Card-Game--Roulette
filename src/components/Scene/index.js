@@ -12,8 +12,8 @@ import useSparkleAnim from "./useSparkleAnim";
 
 import useSelectAnimation from "./useSelectAnimation";
 import useMultiplierAnimation from "./useMultiplierAnimation";
-// import FontFaceObserver from "fontfaceobserver";
-const FontFaceObserver = require("fontfaceobserver");
+import FontFaceObserver from "fontfaceobserver";
+// const FontFaceObserver = require("fontfaceobserver");
 export default function Scene() {
   const ref = useRef(null);
 
@@ -27,7 +27,7 @@ export default function Scene() {
   const { asd } = useSparkleAnim();
   const { multiplierCircle } = useMultiplierAnimation();
   const [heatMapMode, setHeatMapMode] = useState(false);
-  const numberArray = [24, 16, 5];
+  const numberArray = [20, 14, 11];
   const setApp = useStore((state) => state.setApp);
 
   useEffect(() => {
@@ -50,8 +50,9 @@ export default function Scene() {
 
     const loadAndPlayAnimation = async () => {
       const loader = preLoadSpriteImages();
-      const font = new FontFaceObserver("Sancreek");
-      await font.load();
+
+      const font1 = new FontFaceObserver("Sancreek");
+      await font1.load();
       loader.onComplete.add(() => {
         drawNormalTable(app, heatMapMode);
 

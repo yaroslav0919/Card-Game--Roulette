@@ -7,6 +7,7 @@ export default function useResource() {
     const loadSpriteImages = (path, count) => {
       for (let i = 1; i <= count; i++) {
         loader.add(
+          `lion+${i}`,
           path + (i < 10 ? "0000" : i < 100 ? "000" : "00") + i + ".png"
         );
       }
@@ -20,7 +21,6 @@ export default function useResource() {
     loader.add("assets/image/hand.png");
     loader.add("assets/image/circle.png");
     loader.add("assets/image/circle-shine.png");
-
     return loader.load(loader);
   };
 

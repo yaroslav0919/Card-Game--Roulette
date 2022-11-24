@@ -3,7 +3,6 @@ import { TweenLite, gsap } from "gsap";
 import * as Particles from "@pixi/particle-emitter";
 import useNormalTable from "./useNormalTable";
 import tableData from "../../constants/table";
-import { t } from "i18next";
 
 export default function useSelectAnimation() {
   const { calcCenterOffset } = useNormalTable();
@@ -134,32 +133,13 @@ export default function useSelectAnimation() {
             },
           },
         },
-        // {
-        //   type: "rotationStatic",
-        //   config: {
-        //     min: 0,
-        //     max: 360,
-        //   },
-        // },
+
         {
           type: "textureRandom",
           config: {
             textures: ["/assets/images/particle.png"],
           },
         },
-        // {
-        //   type: "spawnShape",
-        //   config: {
-        //     type: "torus",
-        //     data: {
-        //       x: 0,
-        //       y: 0,
-        //       radius: 0.1,
-        //       innerRadius: 0,
-        //       affectRotation: false,
-        //     },
-        //   },
-        // },
       ],
     });
     const spotGraphic = new PIXI.Graphics();

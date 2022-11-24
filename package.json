@@ -53,6 +53,7 @@
     "mobile-detect": "^1.4.5",
     "mobx": "^6.6.2",
     "moment": "^2.29.4",
+    "pixi-webfont-loader": "^1.0.2",
     "pixi.js": "6.5.6",
     "postcss": "^8.4.4",
     "postcss-flexbugs-fixes": "^5.0.2",
