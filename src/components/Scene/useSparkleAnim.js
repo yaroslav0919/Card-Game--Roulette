@@ -139,11 +139,7 @@ export default function useSparkleAnim() {
     container.zIndex = 1;
     container.blendMode = PIXI.BLEND_MODES.SCREEN;
     app.stage.addChild(container);
-    // const g = new PIXI.Graphics();
-    // g.beginFill(0xf7e34d);
-    // g.drawCircle(1, 1, 1);
-    // g.endFill();
-    // const texture = app.renderer.generateTexture(g);
+
     const texture = new PIXI.Texture.from("/assets/images/particle.png");
     const emitter = new Emitter(container, texture, {
       alpha: {
@@ -337,20 +333,10 @@ export default function useSparkleAnim() {
     //   ],
     // });
 
-    const sprite = new PIXI.Sprite(texture);
-    sprite.renderable = false;
-    gsap.set(sprite, {
-      x: initPos.x,
-      y: initPos.y,
-      anchor: 0.5,
-    });
-
-    container.addChild(sprite);
-
     gsap.registerPlugin(MotionPathPlugin);
 
     const go = (pointIndex) => {
-      gsap.to(sprite, {
+      gsap.to(emitter.spawnPos, {
         motionPath: generateRandomCurve(
           pointIndex === 1 ? null : numberArray[pointIndex - 2],
           numberArray[pointIndex - 1],
@@ -379,9 +365,6 @@ export default function useSparkleAnim() {
               go(pointIndex + 1);
             }, 500);
           } else emitter.emit = false;
-        },
-        onUpdate: () => {
-          emitter.updateSpawnPos(sprite.x, sprite.y);
         },
       });
     };
