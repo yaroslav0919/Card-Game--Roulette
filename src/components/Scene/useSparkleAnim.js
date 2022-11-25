@@ -18,7 +18,11 @@ export default function useSparkleAnim() {
   const { calcCenterOffset } = useNormalTable();
   const { multiplierCircle } = useMultiplierAnimation();
   const centerOffset = calcCenterOffset();
-  // const [arrive, setArrive] = useState();
+  const initPos = {
+    x: window.innerWidth / 2 - 32,
+    y: window.innerHeight - 205,
+  };
+  console.log("sparkle start");
 
   // const calcNumberFullPosition = (number) => {
   //   const btn = tableData.find((item) => {
@@ -41,44 +45,84 @@ export default function useSparkleAnim() {
 
     return { x, y };
   };
-
-  const generateRandomCurve = (n1, n2) => {
-    //n1fromNumber //n2:toNumber
-    const p1 = getNumberPosition(n1);
+  const addRound = (pos, right = true) => {
+    let temp1X = right ? pos.x + 60 : pos.x - 60;
+    let temp1Y = pos.y;
+    let temp2X = right ? pos.x + 40 : pos.x - 40;
+    let temp2Y = pos.y + 20;
+    return [
+      { x: temp1X, y: temp1Y },
+      { x: temp2X, y: temp2Y },
+    ];
+  };
+  const generateRandomCurve = (fromNumber, toNumber, index) => {
+    const n1 = fromNumber ? fromNumber : 34;
+    const n2 = toNumber;
+    let p1;
+    if (fromNumber === null) {
+      //isInitPos
+      p1 = initPos;
+    } else {
+      p1 = getNumberPosition(n1);
+    }
     const p2 = getNumberPosition(n2);
+
     const posArray = [];
     posArray.push(p1);
 
-    if (p1.x === p2.x) {
-      //same col
-      const randomX =
-        p1.x(Math.ceil(p1 / 3)) % 2 === 0
-          ? (randomX -= getRB(100, 150))
-          : (randomX += getRB(100, 150)); //is odd row?
-      let randomY = getRB(p1.y, p2.y);
-      posArray.push({ x: randomX, y: randomY });
-      posArray.push(p2);
-      return posArray;
-    }
-    if (p1.y === p2.y) {
-      //same row
-      let randomX = getRB(p1.x, p2.x);
-      let randomY =
-        p1.y(p1 % 3) % 2 === 0
-          ? (randomY -= getRB(100, 150))
-          : (randomY += getRB(100, 150)); //is odd col?
-      posArray.push({ x: randomX, y: randomY });
-      posArray.push(p2);
-      return posArray;
-    }
-    // if(Math.abs(n1-n2)>=10){// more 4 row
-    //   pointArray.length()===1?
-    // }
     let randomX = getRB(p1.x, p2.x);
     let randomY = getRB(p1.y, p2.y);
-
     posArray.push({ x: randomX, y: randomY });
+    //same col?
+    if (p1.x === p2.x) {
+      posArray.pop();
+      let randomX = p1.x;
+      index % 2 === 0
+        ? (randomX -= getRB(100, 150))
+        : (randomX += getRB(100, 150));
+      let randomY = getRB(p1.y, p2.y);
+      posArray.push({ x: randomX, y: randomY });
+    }
+    //same row?
+    if (p1.y === p2.y) {
+      posArray.pop();
+      let randomX = getRB(p1.x, p2.x);
+      let randomY = p1.y;
+      index % 2 === 0
+        ? (randomY -= getRB(100, 150))
+        : (randomY += getRB(100, 150));
+      posArray.push({ x: randomX, y: randomY });
+    }
+    // more 4 row?
+    if (Math.abs(n1 - n2) >= 10) {
+      let lastPos = posArray[posArray.length - 1];
 
+      const roundPoints = addRound(lastPos);
+
+      posArray.push(roundPoints[0]);
+      posArray.push(roundPoints[1]);
+    }
+    //top left or right
+    if (Math.abs(p1.x - p2.x) === 65 && Math.abs(p1.y - p2.y) === 34) {
+      posArray.pop();
+      //is left?
+      if (p2.x > p1.x) {
+        let randomY = getRB(p1.y, p2.y);
+        let randomX = p1.x + getRB(100, 150);
+        let randomPos = { x: randomX, y: randomY };
+        posArray.push(randomPos);
+        posArray.push(addRound(randomPos)[0], addRound(randomPos)[1]);
+      } else {
+        let randomY = getRB(p1.y, p2.y);
+        let randomX = p1.x - getRB(100, 150);
+        let randomPos = { x: randomX, y: randomY };
+        posArray.push(randomPos);
+        posArray.push(
+          addRound(randomPos, false)[0],
+          addRound(randomPos, false)[1]
+        );
+      }
+    }
     posArray.push(p2);
     return posArray;
   };
@@ -87,10 +131,6 @@ export default function useSparkleAnim() {
     const multiCount = numberArray.length;
     const multis = [30, 500, 10]; //get from api
 
-    const initPos = {
-      x: window.innerWidth / 2 - 32,
-      y: window.innerHeight - 205,
-    };
     // const points = [];
     // points.push(initPos);
 
@@ -257,8 +297,9 @@ export default function useSparkleAnim() {
     const go = (pointIndex) => {
       gsap.to(sprite, {
         motionPath: generateRandomCurve(
+          pointIndex === 1 ? null : numberArray[pointIndex - 2],
           numberArray[pointIndex - 1],
-          numberArray[pointIndex]
+          pointIndex
         ),
         duration: 2,
         delay: 1,
