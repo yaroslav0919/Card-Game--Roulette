@@ -1,5 +1,6 @@
 import * as PIXI from "pixi.js";
-import * as Particles from "@pixi/particle-emitter";
+// import * as Particles from "@pixi/particle-emitter";
+import { Emitter } from "pixi-particles";
 import MotionPathPlugin from "gsap/MotionPathPlugin";
 import { useState } from "react";
 import { gsap } from "gsap";
@@ -136,14 +137,47 @@ export default function useSparkleAnim() {
 
     const container = new PIXI.Container();
     container.zIndex = 1;
+    container.blendMode = PIXI.BLEND_MODES.SCREEN;
     app.stage.addChild(container);
-    const g = new PIXI.Graphics();
-    g.beginFill(0xf7e34d);
-    g.drawCircle(1, 1, 1);
-    g.endFill();
-    const texture = app.renderer.generateTexture(g);
-
-    const emitter = new Particles.Emitter(container, {
+    // const g = new PIXI.Graphics();
+    // g.beginFill(0xf7e34d);
+    // g.drawCircle(1, 1, 1);
+    // g.endFill();
+    // const texture = app.renderer.generateTexture(g);
+    const texture = new PIXI.Texture.from("/assets/images/particle.png");
+    const emitter = new Emitter(container, texture, {
+      alpha: {
+        start: 1,
+        end: 0.66,
+      },
+      scale: {
+        start: 0.1,
+        end: 0.01,
+        minimumScaleMultiplier: 3,
+      },
+      color: {
+        start: "#fff6c9",
+        end: "#ffb119",
+      },
+      speed: {
+        start: 200,
+        end: 50,
+        minimumSpeedMultiplier: 0.5,
+      },
+      acceleration: {
+        x: 0,
+        y: 0,
+      },
+      maxSpeed: 0,
+      startRotation: {
+        min: 0,
+        max: 360,
+      },
+      noRotation: false,
+      rotationSpeed: {
+        min: 5,
+        max: 5,
+      },
       lifetime: {
         min: 0.3,
         max: 0.9,
@@ -152,135 +186,156 @@ export default function useSparkleAnim() {
       frequency: 0.001,
       emitterLifetime: -1,
       maxParticles: 500,
-      maxSpeed: 0,
-      // noRotation: false,
       pos: {
         x: initPos.x,
         y: initPos.y,
       },
-      behaviors: [
-        {
-          type: "alpha",
-          config: {
-            alpha: {
-              list: [
-                {
-                  value: 1,
-                  time: 0,
-                },
-                {
-                  value: 0.66,
-                  time: 1,
-                },
-              ],
-            },
-          },
-        },
-        {
-          type: "moveSpeed",
-          config: {
-            speed: {
-              list: [
-                {
-                  time: 0,
-                  value: 20,
-                },
-                {
-                  time: 1,
-                  value: 5,
-                },
-              ],
-            },
-            minMult: 0.5,
-          },
-        },
-        // {
-        //   type: "alpha",
-        //   config: {
-        //     speed: {
-        //       list: [
-        //         {
-        //           time: 0,
-        //           value: 1,
-        //         },
-        //         {
-        //           time: 1,
-        //           value: 0.66,
-        //         },
-        //       ],
-        //     },
-        //   },
-        // },
-        {
-          type: "scale",
-          config: {
-            scale: {
-              list: [
-                {
-                  time: 0,
-                  value: 0.1,
-                },
-                {
-                  time: 1,
-                  value: 0.01,
-                },
-              ],
-            },
-            minMult: 0.5,
-          },
-        },
-        {
-          type: "color",
-          config: {
-            color: {
-              list: [
-                {
-                  time: 0,
-                  value: "FFF6C9",
-                },
-                {
-                  time: 1,
-                  value: "FFB119",
-                },
-              ],
-            },
-          },
-        },
-        {
-          type: "rotationStatic",
-          config: {
-            min: 0,
-            max: 360,
-          },
-        },
-        // {
-        //   type: "rotationSpeed",
-        //   config: {
-        //     min: 5,
-        //     max: 5,
-        //   },
-        // },
-        {
-          type: "textureRandom",
-          config: {
-            textures: ["/assets/images/particle.png"],
-          },
-        },
-        {
-          type: "spawnShape",
-          config: {
-            type: "circle",
-            data: {
-              x: 0,
-              y: 0,
-              radius: 0,
-              // innerRadius: 0,
-              // affectRotation: false,
-            },
-          },
-        },
-      ],
+      addAtBack: false,
+      spawnType: "circle",
+      spawnCircle: {
+        x: 0,
+        y: 0,
+        r: 0,
+      },
     });
+    // const emitter = new Particles.Emitter(container, {
+    //   lifetime: {
+    //     min: 0.3,
+    //     max: 0.9,
+    //   },
+    //   // blendMode: "screen",
+    //   frequency: 0.001,
+    //   emitterLifetime: -1,
+    //   maxParticles: 500,
+    //   maxSpeed: 0,
+    //   // noRotation: false,
+    //   pos: {
+    //     x: initPos.x,
+    //     y: initPos.y,
+    //   },
+    //   behaviors: [
+    //     {
+    //       type: "alpha",
+    //       config: {
+    //         alpha: {
+    //           list: [
+    //             {
+    //               value: 1,
+    //               time: 0,
+    //             },
+    //             {
+    //               value: 0.66,
+    //               time: 1,
+    //             },
+    //           ],
+    //         },
+    //       },
+    //     },
+    //     {
+    //       type: "moveSpeed",
+    //       config: {
+    //         speed: {
+    //           list: [
+    //             {
+    //               time: 0,
+    //               value: 20,
+    //             },
+    //             {
+    //               time: 1,
+    //               value: 5,
+    //             },
+    //           ],
+    //         },
+    //         minMult: 0.5,
+    //       },
+    //     },
+    //     // {
+    //     //   type: "alpha",
+    //     //   config: {
+    //     //     speed: {
+    //     //       list: [
+    //     //         {
+    //     //           time: 0,
+    //     //           value: 1,
+    //     //         },
+    //     //         {
+    //     //           time: 1,
+    //     //           value: 0.66,
+    //     //         },
+    //     //       ],
+    //     //     },
+    //     //   },
+    //     // },
+    //     {
+    //       type: "scale",
+    //       config: {
+    //         scale: {
+    //           list: [
+    //             {
+    //               time: 0,
+    //               value: 0.1,
+    //             },
+    //             {
+    //               time: 1,
+    //               value: 0.01,
+    //             },
+    //           ],
+    //         },
+    //         minMult: 0.5,
+    //       },
+    //     },
+    //     {
+    //       type: "color",
+    //       config: {
+    //         color: {
+    //           list: [
+    //             {
+    //               time: 0,
+    //               value: "fff6c9",
+    //             },
+    //             {
+    //               time: 1,
+    //               value: "ffb119",
+    //             },
+    //           ],
+    //         },
+    //       },
+    //     },
+    //     {
+    //       type: "rotationStatic",
+    //       config: {
+    //         min: 0,
+    //         max: 360,
+    //       },
+    //     },
+    //     // {
+    //     //   type: "rotationSpeed",
+    //     //   config: {
+    //     //     min: 5,
+    //     //     max: 5,
+    //     //   },
+    //     // },
+    //     {
+    //       type: "textureRandom",
+    //       config: {
+    //         textures: ["/assets/images/particle.png"],
+    //       },
+    //     },
+    //     {
+    //       type: "spawnShape",
+    //       config: {
+    //         type: "circle",
+    //         data: {
+    //           x: 0,
+    //           y: 0,
+    //           radius: 0,
+    //           // innerRadius: 0,
+    //           // affectRotation: false,
+    //         },
+    //       },
+    //     },
+    //   ],
+    // });
 
     const sprite = new PIXI.Sprite(texture);
     sprite.renderable = false;
