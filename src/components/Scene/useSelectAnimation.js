@@ -52,13 +52,29 @@ export default function useSelectAnimation() {
     const y = btn.area.y + btn.area.h / 2 + centerOffset.y;
     return { x: x, y: y };
   };
-  const drawBorder = (container, number) => {
-    const rect = calcNumberFullPosition(number);
-    const [xVal, yVal, w, h] = [...rect];
+  const drawBlackRect = (container, rect) => {
     const blackRect = new PIXI.Graphics();
     blackRect.beginFill(0x000000, 0.8);
     blackRect.drawRect(...rect);
     container.addChild(blackRect);
+  };
+  const drawBorder = (container, number) => {
+    const rect = calcNumberFullPosition(number);
+    const [xVal, yVal, w, h] = [...rect];
+    if (number !== 0) {
+      drawBlackRect(container, rect);
+    } else {
+      const shape = new PIXI.Graphics();
+      shape.beginFill(0x000000, 0.8);
+
+      shape.moveTo(xVal, yVal + h);
+      shape.lineTo(xVal + w / 2, yVal);
+      shape.lineTo(xVal + w, yVal + h);
+      shape.lineTo(xVal, yVal + h);
+      shape.closePath();
+      shape.endFill();
+      container.addChild(shape);
+    }
 
     const yellowBorder = new PIXI.Graphics();
     yellowBorder.lineStyle(1, 0xffff00);
