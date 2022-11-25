@@ -9,7 +9,6 @@ import tableData from "../../constants/table";
 PixiPlugin.registerPIXI(PIXI);
 
 export default function useMultiplierAnimation() {
-  console.log("multiplier");
   const halfX = window.innerWidth / 2;
   const Y = window.innerHeight;
   const xArray = [
@@ -392,7 +391,6 @@ export default function useMultiplierAnimation() {
   const multiplierCircle = (index, app, multiNum, selNum, multiCount) => {
     // removeActionBar();
     if (!index) return;
-    console.log(index, app, multiNum, selNum, multiCount);
     const circle = new PIXI.Container();
     circle.x = halfX - 175;
     circle.y = Y - 150;

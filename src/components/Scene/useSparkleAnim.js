@@ -22,7 +22,6 @@ export default function useSparkleAnim() {
     x: window.innerWidth / 2 - 32,
     y: window.innerHeight - 205,
   };
-  console.log("sparkle start");
 
   // const calcNumberFullPosition = (number) => {
   //   const btn = tableData.find((item) => {
@@ -40,9 +39,9 @@ export default function useSparkleAnim() {
 
     const centerOffset = calcCenterOffset();
 
-    const x = btn.bordersPos[0].x + btn.bordersPos[0].w / 2 + centerOffset.x;
-    const y = btn.bordersPos[0].y + btn.bordersPos[0].h / 2 + centerOffset.y;
-
+    let x = btn.bordersPos[0].x + btn.bordersPos[0].w / 2 + centerOffset.x;
+    let y = btn.bordersPos[0].y + btn.bordersPos[0].h / 2 + centerOffset.y;
+    number === 0 && (x -= 1);
     return { x, y };
   };
   const addRound = (pos, right = true) => {
@@ -78,8 +77,8 @@ export default function useSparkleAnim() {
       posArray.pop();
       let randomX = p1.x;
       index % 2 === 0
-        ? (randomX -= getRB(100, 150))
-        : (randomX += getRB(100, 150));
+        ? (randomX += getRB(100, 150))
+        : (randomX -= getRB(100, 150));
       let randomY = getRB(p1.y, p2.y);
       posArray.push({ x: randomX, y: randomY });
     }
@@ -124,6 +123,7 @@ export default function useSparkleAnim() {
       }
     }
     posArray.push(p2);
+    console.log(posArray);
     return posArray;
   };
 
@@ -302,7 +302,6 @@ export default function useSparkleAnim() {
           pointIndex
         ),
         duration: 2,
-        delay: 1,
         ease: "slow",
         delay: pointIndex === 1 && 1,
         onComplete: () => {
