@@ -140,7 +140,14 @@ export default function useSparkleAnim() {
     container.blendMode = PIXI.BLEND_MODES.SCREEN;
     app.stage.addChild(container);
 
-    const texture = new PIXI.Texture.from("/assets/images/particle.png");
+    // const texture = new PIXI.Texture.from("/assets/images/particle.png");
+
+    const g = new PIXI.Graphics();
+    g.beginFill(0xffffff);
+    g.drawCircle(7, 7, 7);
+    g.endFill();
+    const texture = app.renderer.generateTexture(g);
+
     const emitter = new Emitter(container, texture, {
       alpha: {
         start: 1,
@@ -156,8 +163,8 @@ export default function useSparkleAnim() {
         end: "#ffb119",
       },
       speed: {
-        start: 200,
-        end: 50,
+        start: 50,
+        end: 10,
         minimumSpeedMultiplier: 0.5,
       },
       acceleration: {
@@ -183,8 +190,8 @@ export default function useSparkleAnim() {
       emitterLifetime: -1,
       maxParticles: 500,
       pos: {
-        x: 0,
-        y: 0,
+        x: initPos.x,
+        y: initPos.y,
       },
       addAtBack: false,
       spawnType: "circle",
