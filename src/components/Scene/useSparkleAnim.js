@@ -147,8 +147,8 @@ export default function useSparkleAnim() {
         end: 0.66,
       },
       scale: {
-        start: 0.07,
-        end: 0.007,
+        start: 0.1,
+        end: 0.01,
         minimumScaleMultiplier: 3,
       },
       color: {
@@ -156,8 +156,8 @@ export default function useSparkleAnim() {
         end: "#ffb119",
       },
       speed: {
-        start: 100,
-        end: 20,
+        start: 200,
+        end: 50,
         minimumSpeedMultiplier: 0.5,
       },
       acceleration: {
@@ -183,8 +183,8 @@ export default function useSparkleAnim() {
       emitterLifetime: -1,
       maxParticles: 500,
       pos: {
-        x: initPos.x,
-        y: initPos.y,
+        x: 0,
+        y: 0,
       },
       addAtBack: false,
       spawnType: "circle",
@@ -194,7 +194,6 @@ export default function useSparkleAnim() {
         r: 0,
       },
     });
-
     gsap.registerPlugin(MotionPathPlugin);
 
     const go = (pointIndex) => {
