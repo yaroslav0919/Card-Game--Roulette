@@ -1,6 +1,6 @@
 import * as PIXI from "pixi.js";
-import { TweenLite, gsap } from "gsap";
-import * as Particles from "@pixi/particle-emitter";
+import { gsap } from "gsap";
+import { Emitter } from "pixi-particles";
 import useNormalTable from "./useNormalTable";
 import tableData from "../../constants/table";
 import { ang2Rad } from "../../utils/math";
@@ -96,7 +96,7 @@ export default function useSelectAnimation() {
     blackRect.drawRect(...rect);
     container.addChild(blackRect);
   };
-  const drawBorder = (container, number) => {
+  const drawBorder = (container, number, texture) => {
     const rect = calcNumberFullPosition(number);
     const [xVal, yVal, w, h] = [...rect];
     if (number !== 0) {
@@ -146,82 +146,35 @@ export default function useSelectAnimation() {
 
     const emiCont = new PIXI.Container();
     container.addChild(emiCont);
-    const emitter = new Particles.Emitter(emiCont, {
+
+    const emitter = new Emitter(emiCont, texture, {
+      alpha: {
+        start: 1,
+        end: 0.3,
+      },
+      scale: {
+        start: 0.2,
+        end: 0.02,
+        minimumScaleMultiplier: 3,
+      },
+      color: {
+        start: "#ffcf5b",
+        end: "#fff23d",
+      },
       lifetime: {
         min: 1.2,
         max: 2.8,
       },
+      blendMode: "screen",
       frequency: 0.005,
       emitterLifetime: -1,
-      maxParticles: 1000,
-      addAtBack: false,
+      maxParticles: 900,
       pos: {
         x: xVal,
         y: yVal,
       },
-      behaviors: [
-        {
-          type: "alpha",
-          config: {
-            alpha: {
-              list: [
-                {
-                  time: 0,
-                  value: 1,
-                },
-                {
-                  time: 1,
-                  value: 0.3,
-                },
-              ],
-            },
-          },
-        },
-        {
-          type: "scale",
-          config: {
-            scale: {
-              list: [
-                {
-                  time: 0,
-                  value: 0.2,
-                },
-                {
-                  time: 1,
-                  value: 0.02,
-                },
-              ],
-            },
-            // minMult: 0.5,
-          },
-        },
-        {
-          type: "color",
-          config: {
-            color: {
-              list: [
-                {
-                  time: 0,
-                  value: "ffcf5b",
-                },
-                {
-                  time: 1,
-                  value: "fff23d",
-                },
-              ],
-            },
-          },
-        },
-
-        {
-          type: "textureRandom",
-          config: {
-            textures: ["/assets/images/particle.png"],
-          },
-        },
-      ],
+      addAtBack: false,
     });
-
     gsap.to(emitter.spawnPos, {
       motionPath: number !== 0 ? rectPath(...rect) : zeroPath(...rect),
       duration: 2,
@@ -243,7 +196,7 @@ export default function useSelectAnimation() {
   const numCounter = (app, multi, pos) => {
     const text = new PIXI.Text(multi + `x`, {
       fontFamily: "CircularStd",
-      fontWeight: 900,
+      // fontWeight: 900,
       dropShadow: true,
       dropShadowAngle: 1.4,
       dropShadowColor: "#db4343",
@@ -269,7 +222,12 @@ export default function useSelectAnimation() {
   const drawPolishRect = (app, number, multi) => {
     const pos = calcNumberCenter(number);
     const container = new PIXI.Container();
-    drawBorder(container, number);
+    const g = new PIXI.Graphics();
+    g.beginFill(0xf7e34d);
+    g.drawCircle(7, 7, 7);
+    g.endFill();
+    const texture = app.renderer.generateTexture(g);
+    drawBorder(container, number, texture);
     numCounter(container, multi, pos);
 
     app.stage.addChild(container);
