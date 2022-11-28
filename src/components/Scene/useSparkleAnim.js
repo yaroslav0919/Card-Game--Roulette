@@ -147,8 +147,8 @@ export default function useSparkleAnim() {
         end: 0.66,
       },
       scale: {
-        start: 0.1,
-        end: 0.01,
+        start: 0.07,
+        end: 0.007,
         minimumScaleMultiplier: 3,
       },
       color: {
@@ -156,8 +156,8 @@ export default function useSparkleAnim() {
         end: "#ffb119",
       },
       speed: {
-        start: 200,
-        end: 50,
+        start: 100,
+        end: 20,
         minimumSpeedMultiplier: 0.5,
       },
       acceleration: {
@@ -194,144 +194,6 @@ export default function useSparkleAnim() {
         r: 0,
       },
     });
-    // const emitter = new Particles.Emitter(container, {
-    //   lifetime: {
-    //     min: 0.3,
-    //     max: 0.9,
-    //   },
-    //   // blendMode: "screen",
-    //   frequency: 0.001,
-    //   emitterLifetime: -1,
-    //   maxParticles: 500,
-    //   maxSpeed: 0,
-    //   // noRotation: false,
-    //   pos: {
-    //     x: initPos.x,
-    //     y: initPos.y,
-    //   },
-    //   behaviors: [
-    //     {
-    //       type: "alpha",
-    //       config: {
-    //         alpha: {
-    //           list: [
-    //             {
-    //               value: 1,
-    //               time: 0,
-    //             },
-    //             {
-    //               value: 0.66,
-    //               time: 1,
-    //             },
-    //           ],
-    //         },
-    //       },
-    //     },
-    //     {
-    //       type: "moveSpeed",
-    //       config: {
-    //         speed: {
-    //           list: [
-    //             {
-    //               time: 0,
-    //               value: 20,
-    //             },
-    //             {
-    //               time: 1,
-    //               value: 5,
-    //             },
-    //           ],
-    //         },
-    //         minMult: 0.5,
-    //       },
-    //     },
-    //     // {
-    //     //   type: "alpha",
-    //     //   config: {
-    //     //     speed: {
-    //     //       list: [
-    //     //         {
-    //     //           time: 0,
-    //     //           value: 1,
-    //     //         },
-    //     //         {
-    //     //           time: 1,
-    //     //           value: 0.66,
-    //     //         },
-    //     //       ],
-    //     //     },
-    //     //   },
-    //     // },
-    //     {
-    //       type: "scale",
-    //       config: {
-    //         scale: {
-    //           list: [
-    //             {
-    //               time: 0,
-    //               value: 0.1,
-    //             },
-    //             {
-    //               time: 1,
-    //               value: 0.01,
-    //             },
-    //           ],
-    //         },
-    //         minMult: 0.5,
-    //       },
-    //     },
-    //     {
-    //       type: "color",
-    //       config: {
-    //         color: {
-    //           list: [
-    //             {
-    //               time: 0,
-    //               value: "fff6c9",
-    //             },
-    //             {
-    //               time: 1,
-    //               value: "ffb119",
-    //             },
-    //           ],
-    //         },
-    //       },
-    //     },
-    //     {
-    //       type: "rotationStatic",
-    //       config: {
-    //         min: 0,
-    //         max: 360,
-    //       },
-    //     },
-    //     // {
-    //     //   type: "rotationSpeed",
-    //     //   config: {
-    //     //     min: 5,
-    //     //     max: 5,
-    //     //   },
-    //     // },
-    //     {
-    //       type: "textureRandom",
-    //       config: {
-    //         textures: ["/assets/images/particle.png"],
-    //       },
-    //     },
-    //     {
-    //       type: "spawnShape",
-    //       config: {
-    //         type: "circle",
-    //         data: {
-    //           x: 0,
-    //           y: 0,
-    //           radius: 0,
-    //           // innerRadius: 0,
-    //           // affectRotation: false,
-    //         },
-    //       },
-    //     },
-    //   ],
-    // });
 
     gsap.registerPlugin(MotionPathPlugin);
 

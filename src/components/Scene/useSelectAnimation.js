@@ -3,7 +3,7 @@ import { TweenLite, gsap } from "gsap";
 import * as Particles from "@pixi/particle-emitter";
 import useNormalTable from "./useNormalTable";
 import tableData from "../../constants/table";
-
+import { ang2Rad } from "../../utils/math";
 export default function useSelectAnimation() {
   const { calcCenterOffset } = useNormalTable();
   const centerOffset = calcCenterOffset();
@@ -31,7 +31,45 @@ export default function useSelectAnimation() {
       " Z"
     );
   };
-
+  const zeroPath = (x, y, w, h) => {
+    const x1 = x;
+    const y1 = y + 19;
+    const x2 = x + w / 2;
+    const y2 = y;
+    const x3 = x + w;
+    const y3 = y + 19;
+    const x4 = x + w;
+    const y4 = y + h;
+    const x5 = x;
+    const y5 = y + h;
+    return (
+      "M " +
+      x5 +
+      "," +
+      y5 +
+      " L " +
+      x1 +
+      "," +
+      y1 +
+      " L " +
+      x2 +
+      "," +
+      y2 +
+      " L " +
+      x3 +
+      "," +
+      y3 +
+      " L " +
+      x4 +
+      "," +
+      y4 +
+      "L " +
+      x5 +
+      "," +
+      y5 +
+      " Z"
+    );
+  };
   const calcNumberFullPosition = (number) => {
     const btn = tableData.find((item) => {
       return item.key === `bn-${number}`;
@@ -66,7 +104,6 @@ export default function useSelectAnimation() {
     } else {
       const shape = new PIXI.Graphics();
       shape.beginFill(0x000000, 0.8);
-
       shape.moveTo(xVal, yVal + h);
       shape.lineTo(xVal + w / 2, yVal);
       shape.lineTo(xVal + w, yVal + h);
@@ -78,11 +115,37 @@ export default function useSelectAnimation() {
 
     const yellowBorder = new PIXI.Graphics();
     yellowBorder.lineStyle(1, 0xffff00);
-    yellowBorder.drawRect(...rect);
+    if (number !== 0) {
+      yellowBorder.drawRect(...rect);
+    } else {
+      const topOffset = 15;
+      const cornerRadius = 10;
+      yellowBorder.moveTo(xVal, yVal + h);
+      yellowBorder.lineTo(xVal, yVal + topOffset + cornerRadius);
+      yellowBorder.arc(
+        xVal + cornerRadius,
+        yVal + topOffset + cornerRadius,
+        cornerRadius,
+        ang2Rad(180),
+        ang2Rad(270)
+      );
+      yellowBorder.lineTo(xVal + w / 2, yVal);
+      yellowBorder.lineTo(xVal + w - cornerRadius, yVal + topOffset);
+      yellowBorder.arc(
+        xVal + w - cornerRadius,
+        yVal + topOffset + cornerRadius,
+        cornerRadius,
+        ang2Rad(270),
+        ang2Rad(360)
+      );
+      yellowBorder.lineTo(xVal + w, yVal + h);
+      yellowBorder.lineTo(xVal, yVal + h);
+    }
+
     container.addChild(yellowBorder);
+
     const emiCont = new PIXI.Container();
     container.addChild(emiCont);
-
     const emitter = new Particles.Emitter(emiCont, {
       lifetime: {
         min: 1.2,
@@ -158,20 +221,12 @@ export default function useSelectAnimation() {
         },
       ],
     });
-    const spotGraphic = new PIXI.Graphics();
-    spotGraphic.beginFill(0xffff00);
-    spotGraphic.drawCircle(5, 5, 5);
-    spotGraphic.endFill();
 
-    gsap.to(spotGraphic, {
-      motionPath: rectPath(...rect),
+    gsap.to(emitter.spawnPos, {
+      motionPath: number !== 0 ? rectPath(...rect) : zeroPath(...rect),
       duration: 2,
       repeat: -1,
       ease: "none",
-      onUpdate: () => {
-        emitter.spawnPos.x = spotGraphic.x;
-        emitter.spawnPos.y = spotGraphic.y;
-      },
     });
     emitter.emit = true;
     let elapsed = Date.now();
