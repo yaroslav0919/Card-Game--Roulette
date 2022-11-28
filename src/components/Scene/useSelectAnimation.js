@@ -105,7 +105,11 @@ export default function useSelectAnimation() {
       const shape = new PIXI.Graphics();
       shape.beginFill(0x000000, 0.8);
       shape.moveTo(xVal, yVal + h);
+      shape.lineTo(xVal, yVal + 25);
+      shape.arc(xVal + 10, yVal + 25, 10, ang2Rad(180), ang2Rad(270));
       shape.lineTo(xVal + w / 2, yVal);
+      shape.lineTo(xVal + w - 10, yVal + 15);
+      shape.arc(xVal + w - 10, yVal + 25, 10, ang2Rad(270), ang2Rad(360));
       shape.lineTo(xVal + w, yVal + h);
       shape.lineTo(xVal, yVal + h);
       shape.closePath();
