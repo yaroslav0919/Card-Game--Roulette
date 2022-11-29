@@ -173,7 +173,7 @@ export default function useEntranceAnimation() {
       const spot = new PIXI.Sprite(spotTexture);
 
       const scale = getRB(0, 4);
-      gsap.set(spot, { x: w / 2, y: h, width: scale, height: scale });
+      gsap.set(spot, { x: w / 2, y: h, width: scale, height: scale, alpha: 0 });
       gsap.to(spot, {
         x: getRB(0, w),
         y: getRB(0, h),

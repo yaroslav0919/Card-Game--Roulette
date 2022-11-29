@@ -226,7 +226,7 @@ export default function useMultiplierAnimation() {
     const oneCircle = (cx, cy, r) => {
       const circlerTexture = new PIXI.Texture.from("assets/image/circle.png");
       const circle = new PIXI.Sprite(circlerTexture);
-      circle.blendMode = PIXI.BLEND_MODES.ADD;
+      circle.blendMode = PIXI.BLEND_MODES.SCREEN;
       circle.anchor.set(0.5);
       circle.width = r * 2;
       circle.height = r * 2;
@@ -259,48 +259,51 @@ export default function useMultiplierAnimation() {
     const text = new PIXI.Text(multiNum + `x`, {
       fontFamily: "CircularStdBold",
       dropShadow: true,
-      // fontWeight: 900,
+      fontWeight: 900,
       dropShadowAngle: 1.7,
-      dropShadowColor: "#63a215",
-      dropShadowDistance: 2,
+      dropShadowColor: "#A77C28",
+      dropShadowDistance: 4,
       fill: "white",
-      fontSize: 18,
+      fontSize: 35,
     });
-    text.y = -radius / 4;
+    text.y = -radius / 6;
     text.anchor.set(0.5);
-    text.scale.x = 0.5;
-    text.scale.y = 0.5;
+    text.scale.x = 0.25;
+    text.scale.y = 0.25;
     gsap.to(text, {
       y: -radius / 3,
       duration: 1,
     });
     gsap.to(text.scale, {
-      x: 1,
-      y: 1,
+      x: 0.5,
+      y: 0.5,
       duration: 1,
     });
     container.addChild(text);
+
     const selText = new PIXI.Text(selNum, {
       fontFamily: "Sancreek",
       dropShadow: true,
       dropShadowAngle: 1.4,
-      dropShadowColor: "#db4343",
-      dropShadowDistance: 2,
-      fill: isRed(selNum) ? "red" : "white",
-      fontSize: 30,
-      // fontWeight: 400,
+      dropShadowColor: isRed(selNum) ? "#BD392A" : "#6E6E6E",
+      dropShadowDistance: 4,
+      fill: isRed(selNum) ? "#BD392A" : "#f5f1e2",
+      fontSize: 62,
+      fontWeight: 400,
+      stroke: isRed(selNum) ? "#E1C63F" : "#f4ff4d",
+      strokeThickness: 3,
     });
-    selText.y = radius / 8;
+    selText.y = radius / 6;
     selText.anchor.set(0.5);
-    selText.scale.x = 0.5;
-    selText.scale.y = 0.5;
+    selText.scale.x = 0.25;
+    selText.scale.y = 0.25;
     gsap.to(selText, {
-      y: radius / 4,
+      y: radius / 3,
       duration: 1,
     });
     gsap.to(selText.scale, {
-      x: 1,
-      y: 1,
+      x: 0.5,
+      y: 0.5,
       duration: 1,
     });
     container.addChild(selText);
@@ -309,7 +312,7 @@ export default function useMultiplierAnimation() {
       "/assets/image/circle-shine.png"
     );
     const glare = new PIXI.Sprite(glareTexture);
-    glare.blendMode = PIXI.BLEND_MODES.ADD;
+    glare.blendMode = PIXI.BLEND_MODES.SCREEN;
     // glare.tilt = 0xffff00;
     glare.roundPixels = true;
     glare.anchor.set(0.5);
@@ -366,7 +369,6 @@ export default function useMultiplierAnimation() {
     const circle = new PIXI.Container();
     circle.x = halfX - 175;
     circle.y = Y - 150;
-    // circle.blendMode = PIXI.BLEND_MODES.ADD;
     const radius = 40;
 
     app.stage.addChild(circle);
