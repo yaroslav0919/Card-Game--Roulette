@@ -92,7 +92,7 @@ export default function useSelectAnimation() {
   };
   const drawBlackRect = (container, rect) => {
     const blackRect = new PIXI.Graphics();
-    blackRect.beginFill(0x000000, 0.9);
+    blackRect.beginFill(0x000000, 0.7);
     blackRect.drawRect(...rect);
     container.addChild(blackRect);
   };
@@ -202,9 +202,9 @@ export default function useSelectAnimation() {
       fontFamily: "CircularStd",
       fontWeight: 900,
       dropShadow: true,
-      dropShadowAngle: 1.7,
+      dropShadowAngle: ang2Rad(90),
       dropShadowColor: "#A77C28",
-      dropShadowDistance: 6,
+      dropShadowDistance: 3,
       fill: "white",
       fontSize: 44,
     });
