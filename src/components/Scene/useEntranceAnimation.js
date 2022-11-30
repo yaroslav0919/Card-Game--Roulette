@@ -27,11 +27,12 @@ export default function useEntranceAnimation() {
     gsap.to(hat, {
       y: Y - 100,
       duration: 2 * speed,
+      delay: 1 * speed,
       onComplete() {
         gsap.to(hat, {
           x: halfX - 100,
           rotation: ang2Rad(40),
-          delay: 4 * speed,
+          delay: 3 * speed,
           duration: 1.5 * speed,
           onComplete() {
             gsap.to(hat, {
@@ -171,12 +172,13 @@ export default function useEntranceAnimation() {
 
     for (let i = 0; i < 100; i++) {
       const spot = new PIXI.Sprite(spotTexture);
-
       const scale = getRB(0, 4);
-      gsap.set(spot, { x: w / 2, y: h, width: scale, height: scale, alpha: 0 });
+      gsap.set(spot, { x: w / 2, y: h, width: 0, height: 0, alpha: 0 });
       gsap.to(spot, {
         x: getRB(0, w),
         y: getRB(0, h),
+        width: scale,
+        height: scale,
         duration: 1 * speed,
         alpha: getRB(0.4, 1),
         delay: 1 * speed,
@@ -261,6 +263,7 @@ export default function useEntranceAnimation() {
     gsap.registerPlugin(MotionPathPlugin);
     gsap.to(sparkle, {
       duration: 2 * speed,
+      delay: 2 * speed,
       ease: "none",
       motionPath: {
         path: pathObject1,
@@ -275,7 +278,7 @@ export default function useEntranceAnimation() {
           },
           width: 0,
           height: 0,
-          delay: 2 * speed,
+          // delay: 1 * speed,
           duration: 1 * speed,
           onComplete() {
             gsap.to(sparkle, {
@@ -302,13 +305,14 @@ export default function useEntranceAnimation() {
     gsap.to(hand, {
       y: Y - 350,
       duration: 2 * speed,
-      delay: 2 * speed,
+      delay: 1 * speed,
       rotation: ang2Rad(60),
       onComplete() {
         gsap.to(hand, {
           x: halfX + 10,
           rotation: ang2Rad(120),
           duration: 1 * speed,
+          delay: 1 * speed,
           onComplete() {
             gsap.to(hand, {
               x: halfX + 80,
