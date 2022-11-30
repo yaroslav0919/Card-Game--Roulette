@@ -152,32 +152,83 @@ export default function useSelectAnimation() {
     container.addChild(emiCont);
 
     const emitter = new Emitter(emiCont, texture, {
+      // alpha: {
+      //   start: 1,
+      //   end: 0.3,
+      // },
+      // scale: {
+      //   start: 0.2,
+      //   end: 0.02,
+      //   minimumScaleMultiplier: 3,
+      // },
+      // color: {
+      //   start: "#ffcf5b",
+      //   end: "#fff23d",
+      // },
+      // lifetime: {
+      //   min: 1.2,
+      //   max: 2.8,
+      // },
+      // blendMode: "screen",
+      // frequency: 0.005,
+      // emitterLifetime: -1,
+      // maxParticles: 900,
+      // pos: {
+      //   x: xVal,
+      //   y: number ? yVal : yVal + h,
+      // },
+      // addAtBack: false,
       alpha: {
         start: 1,
-        end: 0.3,
+        end: 0.66,
       },
       scale: {
-        start: 0.2,
-        end: 0.02,
+        start: 0.1,
+        end: 0.01,
         minimumScaleMultiplier: 3,
       },
       color: {
-        start: "#ffcf5b",
-        end: "#fff23d",
+        start: "#fff6c9",
+        end: "#ffb119",
+      },
+      speed: {
+        start: 50,
+        end: 10,
+        minimumSpeedMultiplier: 0.5,
+      },
+      acceleration: {
+        x: 0,
+        y: 0,
+      },
+      maxSpeed: 0,
+      startRotation: {
+        min: 0,
+        max: 360,
+      },
+      noRotation: false,
+      rotationSpeed: {
+        min: 5,
+        max: 5,
       },
       lifetime: {
-        min: 1.2,
-        max: 2.8,
+        min: 0.3,
+        max: 0.9,
       },
       blendMode: "screen",
-      frequency: 0.005,
+      frequency: 0.001,
       emitterLifetime: -1,
-      maxParticles: 900,
+      maxParticles: 500,
       pos: {
         x: xVal,
         y: number ? yVal : yVal + h,
       },
       addAtBack: false,
+      spawnType: "circle",
+      spawnCircle: {
+        x: 0,
+        y: 0,
+        r: 0,
+      },
     });
     gsap.to(emitter.spawnPos, {
       motionPath: number !== 0 ? rectPath(...rect) : zeroPath(...rect),
