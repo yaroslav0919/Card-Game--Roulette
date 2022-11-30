@@ -62,7 +62,7 @@ export default function useEntranceAnimation() {
                           duration: 0.5 * speed,
                           yoyo: true,
                           repeat: 1,
-                          delay: 4 * speed,
+                          // delay: 4 * speed,
                           onComplete() {
                             gsap.to(hat, {
                               x: halfX - 178,
