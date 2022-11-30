@@ -175,7 +175,7 @@ export default function useSelectAnimation() {
       maxParticles: 900,
       pos: {
         x: xVal,
-        y: yVal,
+        y: number ? yVal : yVal + h,
       },
       addAtBack: false,
     });
@@ -202,9 +202,9 @@ export default function useSelectAnimation() {
       fontFamily: "CircularStd",
       fontWeight: 900,
       dropShadow: true,
-      dropShadowAngle: 1.4,
-      dropShadowColor: "#db4343",
-      dropShadowDistance: 4,
+      dropShadowAngle: 1.7,
+      dropShadowColor: "#A77C28",
+      dropShadowDistance: 6,
       fill: "white",
       fontSize: 44,
     });

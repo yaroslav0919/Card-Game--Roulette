@@ -27,7 +27,7 @@ export default function Scene() {
   const { asd } = useSparkleAnim();
   const { multiplierCircle } = useMultiplierAnimation();
   const [heatMapMode, setHeatMapMode] = useState(false);
-  const numberArray = [1, 2, 0];
+  const numberArray = [27, 15, 0];
   const setApp = useStore((state) => state.setApp);
 
   useEffect(() => {
