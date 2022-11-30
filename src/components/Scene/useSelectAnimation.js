@@ -118,7 +118,7 @@ export default function useSelectAnimation() {
     }
 
     const yellowBorder = new PIXI.Graphics();
-    yellowBorder.lineStyle(1, 0xffff00);
+    yellowBorder.lineStyle(2, 0xffff00);
     if (number !== 0) {
       yellowBorder.drawRect(...rect);
     } else {
