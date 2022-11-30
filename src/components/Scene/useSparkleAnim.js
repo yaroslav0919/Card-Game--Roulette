@@ -77,9 +77,7 @@ export default function useSparkleAnim() {
     if (p1.x === p2.x) {
       posArray.pop();
       let randomX = p1.x;
-      index % 2 === 0
-        ? (randomX += getRB(100, 150))
-        : (randomX -= getRB(100, 150));
+      index % 2 === 0 ? (randomX += getRB(50, 70)) : (randomX -= getRB(50, 70));
       let randomY = getRB(p1.y, p2.y);
       posArray.push({ x: randomX, y: randomY });
     }
@@ -136,7 +134,7 @@ export default function useSparkleAnim() {
     // points.push(initPos);
 
     const container = new PIXI.Container();
-    container.zIndex = 1;
+    container.zIndex = 2;
     container.blendMode = PIXI.BLEND_MODES.SCREEN;
     app.stage.addChild(container);
 
@@ -212,7 +210,7 @@ export default function useSparkleAnim() {
         ),
         duration: 1,
         ease: "none",
-        delay: pointIndex === 1 ? 0.5 : 0,
+        delay: pointIndex === 1 ? 1 : 0,
         onComplete: () => {
           drawPolishRect(
             app,

@@ -263,7 +263,7 @@ export default function useEntranceAnimation() {
     gsap.registerPlugin(MotionPathPlugin);
     gsap.to(sparkle, {
       duration: 2 * speed,
-      delay: 2 * speed,
+      delay: 1 * speed,
       ease: "none",
       motionPath: {
         path: pathObject1,
@@ -278,7 +278,7 @@ export default function useEntranceAnimation() {
           },
           width: 0,
           height: 0,
-          // delay: 1 * speed,
+          delay: 1 * speed,
           duration: 1 * speed,
           onComplete() {
             gsap.to(sparkle, {

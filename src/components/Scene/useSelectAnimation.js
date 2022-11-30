@@ -192,8 +192,8 @@ export default function useSelectAnimation() {
         end: "#ffb119",
       },
       speed: {
-        start: 50,
-        end: 10,
+        start: 20,
+        end: 5,
         minimumSpeedMultiplier: 0.5,
       },
       acceleration: {
