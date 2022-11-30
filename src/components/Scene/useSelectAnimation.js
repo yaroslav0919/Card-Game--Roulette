@@ -75,10 +75,10 @@ export default function useSelectAnimation() {
       return item.key === `bn-${number}`;
     });
 
-    const x = btn.area.x + centerOffset.x;
-    const y = btn.area.y + centerOffset.y;
+    const x = btn.bordersPos[0].x + centerOffset.x;
+    const y = btn.bordersPos[0].y + centerOffset.y;
 
-    return [x, y, btn.area.w, btn.area.h];
+    return [x, y, btn.bordersPos[0].w, btn.bordersPos[0].h];
   };
 
   const calcNumberCenter = (number) => {
@@ -86,8 +86,8 @@ export default function useSelectAnimation() {
       return item.key === `bn-${number}`;
     });
 
-    const x = btn.area.x + btn.area.w / 2 + centerOffset.x;
-    const y = btn.area.y + btn.area.h / 2 + centerOffset.y;
+    const x = btn.bordersPos[0].x + btn.bordersPos[0].w / 2 + centerOffset.x;
+    const y = btn.bordersPos[0].y + btn.bordersPos[0].h / 2 + centerOffset.y;
     return { x: x, y: y };
   };
   const drawBlackRect = (container, rect) => {
