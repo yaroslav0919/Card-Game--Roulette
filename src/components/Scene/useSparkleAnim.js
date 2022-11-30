@@ -210,9 +210,9 @@ export default function useSparkleAnim() {
           numberArray[pointIndex - 1],
           pointIndex
         ),
-        duration: 2,
-        ease: "slow",
-        delay: pointIndex === 1 && 1,
+        duration: 1,
+        ease: "none",
+        delay: pointIndex === 1 ? 0.5 : 0,
         onComplete: () => {
           drawPolishRect(
             app,

@@ -226,14 +226,13 @@ export default function useMultiplierAnimation() {
     const oneCircle = (cx, cy, r) => {
       const circlerTexture = new PIXI.Texture.from("assets/image/circle.png");
       const circle = new PIXI.Sprite(circlerTexture);
-      circle.blendMode = PIXI.BLEND_MODES.SCREEN;
+      circle.blendMode = PIXI.BLEND_MODES.ADD;
       circle.anchor.set(0.5);
       circle.width = r * 2;
       circle.height = r * 2;
       circle.x = cx;
       circle.y = cy;
       circle.tint = 0xfff6c9;
-      // circle.angle = getRB(0, 180);
       circle.rotation = ang2Rad(getRB(0, 360));
       circle.alpha = 0.5;
       gsap.to(circle, {
@@ -252,8 +251,8 @@ export default function useMultiplierAnimation() {
       });
       container.addChild(circle);
     };
-    for (let i = 0; i < 5; i++) {
-      oneCircle(getRB(-3, 3), getRB(-3, 3), radius / 2 + i - 2);
+    for (let i = 0; i < 7; i++) {
+      oneCircle(getRB(-2, 2), getRB(-2, 2), radius / 2 + i / 2 - 2);
     }
 
     const text = new PIXI.Text(multiNum + `x`, {
@@ -262,16 +261,16 @@ export default function useMultiplierAnimation() {
       fontWeight: 900,
       dropShadowAngle: 1.7,
       dropShadowColor: "#A77C28",
-      dropShadowDistance: 4,
+      dropShadowDistance: 6,
       fill: "white",
-      fontSize: 35,
+      fontSize: 40,
     });
-    text.y = -radius / 6;
+    text.y = -radius / 5;
     text.anchor.set(0.5);
     text.scale.x = 0.25;
     text.scale.y = 0.25;
     gsap.to(text, {
-      y: -radius / 3,
+      y: -radius / 2.5,
       duration: 1,
     });
     gsap.to(text.scale, {
@@ -286,9 +285,9 @@ export default function useMultiplierAnimation() {
       dropShadow: true,
       dropShadowAngle: 1.4,
       dropShadowColor: isRed(selNum) ? "#BD392A" : "#6E6E6E",
-      dropShadowDistance: 4,
+      dropShadowDistance: 6,
       fill: isRed(selNum) ? "#BD392A" : "#f5f1e2",
-      fontSize: 62,
+      fontSize: 65,
       fontWeight: 400,
       stroke: isRed(selNum) ? "#E1C63F" : "#f4ff4d",
       strokeThickness: 3,
@@ -312,15 +311,14 @@ export default function useMultiplierAnimation() {
       "/assets/image/circle-shine.png"
     );
     const glare = new PIXI.Sprite(glareTexture);
-    glare.blendMode = PIXI.BLEND_MODES.SCREEN;
-    // glare.tilt = 0xffff00;
+    glare.blendMode = PIXI.BLEND_MODES.ADD;
     glare.roundPixels = true;
     glare.anchor.set(0.5);
     glare.tint = 0xffff00;
     glare.x = 0;
     glare.y = 0;
-    glare.width = radius + 5;
-    glare.height = radius + 5;
+    glare.width = radius;
+    glare.height = radius;
 
     gsap.to(glare, {
       width: radius * 2 + 10,
@@ -355,16 +353,11 @@ export default function useMultiplierAnimation() {
     sprite.y = Y - 75;
     sprite.anchor.set(0.5, 1);
     sprite.loop = false;
-    sprite.animationSpeed = 0.5;
+    sprite.animationSpeed = 1;
     sprite.play();
     app.stage.addChild(sprite);
   };
-  const removeActionBar = () => {
-    const actionBar = document.getElementById("action-bar");
-    actionBar.remove();
-  };
   const multiplierCircle = (index, app, multiNum, selNum, multiCount) => {
-    // removeActionBar();
     if (!index) return;
     const circle = new PIXI.Container();
     circle.x = halfX - 175;
@@ -386,9 +379,12 @@ export default function useMultiplierAnimation() {
       },
     });
     multi(circle, radius, multiNum, selNum);
-    setTimeout(() => {
-      playAnimatedSprite(app);
-    }, multiCount * 3000);
+
+    if (index === multiCount) {
+      setTimeout(() => {
+        playAnimatedSprite(app);
+      }, 500);
+    }
   };
   return { multiplierCircle };
 }
