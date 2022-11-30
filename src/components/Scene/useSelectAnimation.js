@@ -92,7 +92,7 @@ export default function useSelectAnimation() {
   };
   const drawBlackRect = (container, rect) => {
     const blackRect = new PIXI.Graphics();
-    blackRect.beginFill(0x000000, 0.8);
+    blackRect.beginFill(0x000000, 0.9);
     blackRect.drawRect(...rect);
     container.addChild(blackRect);
   };
@@ -227,6 +227,7 @@ export default function useSelectAnimation() {
   const drawPolishRect = (app, number, multi) => {
     const pos = calcNumberCenter(number);
     const container = new PIXI.Container();
+    container.zIndex = 1;
     const g = new PIXI.Graphics();
     g.beginFill(0xf7e34d);
     g.drawCircle(7, 7, 7);
