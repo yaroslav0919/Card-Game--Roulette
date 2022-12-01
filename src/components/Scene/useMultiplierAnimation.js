@@ -350,7 +350,7 @@ export default function useMultiplierAnimation() {
     sprite.width = 230;
     sprite.height = 240;
     sprite.x = pos - 3;
-    sprite.y = Y - 75;
+    sprite.y = Y - 95;
     sprite.anchor.set(0.5, 1);
     sprite.loop = false;
     sprite.animationSpeed = 1;
@@ -368,13 +368,13 @@ export default function useMultiplierAnimation() {
     if (!index) return;
     const circle = new PIXI.Container();
     circle.x = halfX - 175;
-    circle.y = Y - 150;
+    circle.y = Y - 170;
     const radius = 40;
 
     app.stage.addChild(circle);
-    const firstX = xArray[multiCount - 1][index - 1].x1;
-    const secondX = xArray[multiCount - 1][index - 1].x2;
-    const lionPos = xArray[multiCount - 1][maxMultiNum].x2;
+    const firstX = xArray[multiCount - 1][index - 1].x1 - 25;
+    const secondX = xArray[multiCount - 1][index - 1].x2 - 25;
+    const lionPos = xArray[multiCount - 1][maxMultiNum].x2 - 25;
     gsap.to(circle, {
       x: firstX,
       duration: 1,

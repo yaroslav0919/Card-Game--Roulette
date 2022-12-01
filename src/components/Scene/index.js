@@ -19,7 +19,7 @@ export default function Scene() {
 
   const { drawNormalTable, calcCenterOffset } = useNormalTable();
   const { drawRaceTrackTable } = useRaceTrackTable();
-  const { onPointerDownHandler } = useEvents();
+  const { onPointerDownHandler } = useEvents(); 
   const { addEntranceAnimation } = useEntranceAnimation();
   const { preLoadSpriteImages } = useResource();
   const { drawPolishRect } = useSelectAnimation();
@@ -33,10 +33,10 @@ export default function Scene() {
   // const multis = [30, 500];
   // const numberArray = [30, 28, 0];
   // const multis = [30, 500, 10];
-  // const numberArray = [30, 28, 8, 0];
-  // const multis = [30, 500, 10, 600];
-  const numberArray = [30, 28, 23, 8, 0];
-  const multis = [30, 500, 10, 200, 600];
+  const numberArray = [30, 28, 8, 0];
+  const multis = [30, 500, 10, 600];
+  // const numberArray = [30, 28, 23, 8, 0];
+  // const multis = [30, 500, 10, 200, 600];
   const setApp = useStore((state) => state.setApp);
 
   useEffect(() => {
