@@ -21,6 +21,9 @@ export default function useResource() {
     loader.add("assets/image/hand.png");
     loader.add("assets/image/circle.png");
     loader.add("assets/image/circle-shine.png");
+
+    loader.add("assets/tiles/tile-black.svg");
+    loader.add("assets/tiles/tile-red.svg");
     return loader.load(loader);
   };
 
