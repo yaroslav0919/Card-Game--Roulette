@@ -86,9 +86,7 @@ export default function useSparkleAnim() {
       posArray.pop();
       let randomX = getRB(p1.x, p2.x);
       let randomY = p1.y;
-      index % 2 === 0
-        ? (randomY -= getRB(100, 150))
-        : (randomY += getRB(100, 150));
+      index % 2 === 0 ? (randomY -= getRB(50, 70)) : (randomY += getRB(50, 70));
       posArray.push({ x: randomX, y: randomY });
     }
     // more 4 row?
