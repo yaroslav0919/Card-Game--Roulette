@@ -256,12 +256,12 @@ export default function useMultiplierAnimation() {
     }
 
     const text = new PIXI.Text(multiNum + `x`, {
-      fontFamily: "CircularStdBold",
+      fontFamily: "CircularStdBlack",
       dropShadow: true,
       fontWeight: 900,
-      dropShadowAngle: 1.7,
+      dropShadowAngle: ang2Rad(90),
       dropShadowColor: "#A77C28",
-      dropShadowDistance: 6,
+      dropShadowDistance: 3,
       fill: "white",
       fontSize: 40,
     });

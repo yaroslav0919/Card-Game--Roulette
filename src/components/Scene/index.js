@@ -52,7 +52,9 @@ export default function Scene() {
       const loader = preLoadSpriteImages();
 
       const font1 = new FontFaceObserver("Sancreek");
+      const font2 = new FontFaceObserver("CircularStdBlack");
       await font1.load();
+      await font2.load();
       loader.onComplete.add(() => {
         drawNormalTable(app, heatMapMode);
 
