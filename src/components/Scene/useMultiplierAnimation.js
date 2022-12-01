@@ -334,7 +334,7 @@ export default function useMultiplierAnimation() {
     });
     container.addChild(glare);
   };
-  const playAnimatedSprite = (app) => {
+  const playAnimatedSprite = (app, pos) => {
     const path = "/assets/images/lion/Lion_";
     const count = 140;
     const frames = [];
@@ -349,7 +349,7 @@ export default function useMultiplierAnimation() {
     const sprite = new PIXI.AnimatedSprite(frames);
     sprite.width = 230;
     sprite.height = 240;
-    sprite.x = halfX - 3;
+    sprite.x = pos - 3;
     sprite.y = Y - 75;
     sprite.anchor.set(0.5, 1);
     sprite.loop = false;
@@ -357,7 +357,14 @@ export default function useMultiplierAnimation() {
     sprite.play();
     app.stage.addChild(sprite);
   };
-  const multiplierCircle = (index, app, multiNum, selNum, multiCount) => {
+  const multiplierCircle = (
+    index,
+    app,
+    multiNum,
+    selNum,
+    multiCount,
+    maxMultiNum
+  ) => {
     if (!index) return;
     const circle = new PIXI.Container();
     circle.x = halfX - 175;
@@ -367,23 +374,25 @@ export default function useMultiplierAnimation() {
     app.stage.addChild(circle);
     const firstX = xArray[multiCount - 1][index - 1].x1;
     const secondX = xArray[multiCount - 1][index - 1].x2;
-
+    const lionPos = xArray[multiCount - 1][maxMultiNum].x2;
     gsap.to(circle, {
       x: firstX,
       duration: 1,
       onComplete: () => {
         gsap.to(circle, {
           x: secondX,
-          duration: 2,
+          duration: 1,
+          delay: 0.7,
         });
       },
     });
     multi(circle, radius, multiNum, selNum);
+    //catch biggest multi
 
     if (index === multiCount) {
       setTimeout(() => {
-        playAnimatedSprite(app);
-      }, 500);
+        playAnimatedSprite(app, lionPos);
+      }, 1000);
     }
   };
   return { multiplierCircle };

@@ -15,7 +15,7 @@ export default function useEntranceAnimation() {
   const Y = window.innerHeight;
   // const multiStore = useStore((state) => state.multiStore);
   const speed = 0.5;
-  const addHatAnimation = (app) => {
+  const addHatAnimation = (app, multiCount) => {
     const hatTexture = new PIXI.Texture.from("/assets/image/hat.png");
     const hat = new PIXI.Sprite(hatTexture);
     hat.roundPixels = true;
@@ -55,34 +55,35 @@ export default function useEntranceAnimation() {
                       height: (hat.height * 3) / 4,
                       duration: 1 * speed,
                       delay: 0.5 * speed,
+                      // onComplete() {
+                      //   gsap.to(hat, {
+                      //     x: halfX - 172,
+                      //     y: Y - 95,
+                      //     duration: 0.5 * speed,
+                      //     yoyo: true,
+                      //     repeat: 1,
+                      //     // delay: multiCount,
                       onComplete() {
                         gsap.to(hat, {
-                          x: halfX - 172,
-                          y: Y - 95,
-                          duration: 0.5 * speed,
+                          x: halfX - 178,
+                          y: Y - 105,
+                          duration: 1 * speed,
+                          repeat: multiCount * 2 - 1,
                           yoyo: true,
-                          repeat: 1,
-                          // delay: 4 * speed,
+                          delay: 1.4,
                           onComplete() {
                             gsap.to(hat, {
-                              x: halfX - 178,
-                              y: Y - 105,
+                              x: -200,
                               duration: 1 * speed,
-                              repeat: 8,
-                              yoyo: true,
                               onComplete() {
-                                gsap.to(hat, {
-                                  x: -200,
-                                  duration: 1 * speed,
-                                  onComplete() {
-                                    app.stage.removeChild(hatContainer);
-                                  },
-                                });
+                                app.stage.removeChild(hatContainer);
                               },
                             });
                           },
                         });
                       },
+                      // });
+                      // },
                     });
                   },
                 });
@@ -351,7 +352,7 @@ export default function useEntranceAnimation() {
 
     app.stage.addChild(hand);
   };
-  const addEntranceAnimation = (app) => {
+  const addEntranceAnimation = (app, multiCount) => {
     // app.stage.addChild(multiStore[0]);
     // app.stage.addChild(multiStore[1]);
     // app.stage.addChild(multiStore[2]);
@@ -360,7 +361,7 @@ export default function useEntranceAnimation() {
     addDozenSparkleEffect(app);
     addMagicHandAnimation(app);
 
-    addHatAnimation(app);
+    addHatAnimation(app, multiCount);
   };
 
   return { addEntranceAnimation };

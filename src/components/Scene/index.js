@@ -27,7 +27,16 @@ export default function Scene() {
   const { asd } = useSparkleAnim();
   const { multiplierCircle } = useMultiplierAnimation();
   const [heatMapMode, setHeatMapMode] = useState(false);
-  const numberArray = [30, 8, 0];
+  // const numberArray = [20];
+  // const multis = [10];
+  // const numberArray = [30, 28];
+  // const multis = [30, 500];
+  // const numberArray = [30, 28, 0];
+  // const multis = [30, 500, 10];
+  // const numberArray = [30, 28, 8, 0];
+  // const multis = [30, 500, 10, 600];
+  const numberArray = [30, 28, 23, 8, 0];
+  const multis = [30, 500, 10, 200, 600];
   const setApp = useStore((state) => state.setApp);
 
   useEffect(() => {
@@ -58,10 +67,10 @@ export default function Scene() {
       loader.onComplete.add(() => {
         drawNormalTable(app, heatMapMode);
 
-        addEntranceAnimation(app);
+        addEntranceAnimation(app, multis.length);
 
         setTimeout(() => {
-          addSparkleAnimation(app, numberArray);
+          addSparkleAnimation(app, numberArray, multis);
         }, 4400);
       });
     };

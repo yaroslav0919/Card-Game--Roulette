@@ -122,13 +122,19 @@ export default function useSparkleAnim() {
       }
     }
     posArray.push(p2);
-    console.log(posArray);
     return posArray;
   };
 
-  const addSparkleAnimation = (app, numberArray) => {
+  const addSparkleAnimation = (app, numberArray, multis) => {
     const multiCount = numberArray.length;
-    const multis = [30, 500, 10]; //get from api
+    const maxMultiNum = Math.max(...multis);
+    const maxMultiIndex = multis.findIndex((item) => item === maxMultiNum);
+    console.log(maxMultiIndex);
+    // let maxMultiIndex = 0;
+    // for (let i; i < multis.length; i++) {
+    //   if (multis[i] > maxMultiIndex) maxMultiIndex = multis[i];
+    // }
+    // console.log(maxMultiIndex);
 
     // const points = [];
     // points.push(initPos);
@@ -223,7 +229,8 @@ export default function useSparkleAnim() {
             app,
             multis[pointIndex - 1],
             numberArray[pointIndex - 1],
-            multiCount
+            multiCount,
+            maxMultiIndex
           );
 
           if (pointIndex !== multiCount) {
