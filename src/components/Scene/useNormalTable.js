@@ -412,15 +412,23 @@ export default function drawOnce() {
   const t1 = new gsap.timeline({ ease: "none", paused: true });
   const drawNormalTable = (app, heatMapMode) => {
     const container = new PIXI.Container();
+    container.id = "table";
     container.x = calcCenterOffset().x;
     container.y = calcCenterOffset().y;
+
     app.stage.addChild(container);
 
     t1.add(
       gsap.to(container, {
         x: window.innerWidth / 2 - 220,
-        y: window.innerHeight - 350,
+        y: window.innerHeight - 500,
         duration: 2,
+        onComplete: () => {
+          gsap.to(container, {
+            y: window.innerHeight - 350,
+            duration: 1,
+          });
+        },
       }),
       "<"
     );

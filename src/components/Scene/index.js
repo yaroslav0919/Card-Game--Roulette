@@ -8,10 +8,11 @@ import useStore from "../../store";
 import useEntranceAnimation from "./useEntranceAnimation";
 import useResource from "./useResource";
 import useSparkleAnim from "./useSparkleAnim";
-
 import useSelectAnimation from "./useSelectAnimation";
 import useMultiplierAnimation from "./useMultiplierAnimation";
 import FontFaceObserver from "fontfaceobserver";
+import useSelectAnimationa from "./useSelectAnimation";
+import useWinAnimation from "./useWinAnimation";
 // const FontFaceObserver = require("fontfaceobserver");
 export default function Scene() {
   const ref = useRef(null);
@@ -23,9 +24,14 @@ export default function Scene() {
   const { preLoadSpriteImages } = useResource();
   const { drawPolishRect } = useSelectAnimation();
   const { addSparkleAnimation } = useSparkleAnim();
+  const { standardWin } = useWinAnimation();
   const { asd } = useSparkleAnim();
   const { multiplierCircle } = useMultiplierAnimation();
   const [heatMapMode, setHeatMapMode] = useState(false);
+
+  //remove hook
+  const { removeSelectCont } = useSelectAnimation();
+
   // const numberArray = [20];
   // const multis = [10];
   // const numberArray = [30, 28];
@@ -73,15 +79,24 @@ export default function Scene() {
         }, 4400);
         setTimeout(() => {
           t1.play();
-          console.log(app.stage.children);
-          app.stage.removeChildren(1, 10);
+          // app.stage.children.forEach((child) => {
+          // if (child.id === "select") {
+          //   console.log(child);
+          //   child.destroy();
+          // }
+          // });
+
+          app.stage.removeChildren(1, app.stage.children.length);
           app.view.removeEventListener("pointerdown", onPointerDownHandler);
+          setTimeout(() => {
+            standardWin(app);
+          }, 1000);
         }, 15000);
       });
     };
     loadAndPlayAnimation();
     // drawNormalTable(app, heatMapMode);
-
+    // standardWin(app);
     return () => {
       app.view.removeEventListener("pointerdown", onPointerDownHandler);
       app.destroy(true, true);

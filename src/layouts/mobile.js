@@ -315,11 +315,21 @@ function HomePage() {
         </Suspense>
       </div>
 
-      <Intro />
+      {/* <Intro />
       <LiveBroadcast />
       <div className="landscape-warning">
         <p>Telefonunuzu dikey konuma getiriniz.</p>
-      </div>
+      </div> */}
+      <div
+        style={{
+          position: "absolute",
+          top: "0",
+          backgroundSize: "contain",
+          width: "100vw",
+          height: "100vh",
+          backgroundImage: `url("/assets/image/back.jpeg")`,
+        }}
+      />
     </>
   );
 }

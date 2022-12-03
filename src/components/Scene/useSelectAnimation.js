@@ -275,9 +275,12 @@ export default function useSelectAnimation() {
       },
     });
   };
+
   const drawPolishRect = (app, number, multi) => {
     const pos = calcNumberCenter(number);
+    console.log(1);
     const container = new PIXI.Container();
+    container.id = "select";
     container.zIndex = 1;
     const g = new PIXI.Graphics();
     g.beginFill(0xf7e34d);
@@ -286,7 +289,6 @@ export default function useSelectAnimation() {
     const texture = app.renderer.generateTexture(g);
     drawBorder(container, number, texture);
     numCounter(container, multi, pos);
-
     app.stage.addChild(container);
   };
 

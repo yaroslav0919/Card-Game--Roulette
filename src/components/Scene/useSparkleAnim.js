@@ -127,22 +127,10 @@ export default function useSparkleAnim() {
     const multiCount = numberArray.length;
     const maxMultiNum = Math.max(...multis);
     const maxMultiIndex = multis.findIndex((item) => item === maxMultiNum);
-    console.log(maxMultiIndex);
-    // let maxMultiIndex = 0;
-    // for (let i; i < multis.length; i++) {
-    //   if (multis[i] > maxMultiIndex) maxMultiIndex = multis[i];
-    // }
-    // console.log(maxMultiIndex);
-
-    // const points = [];
-    // points.push(initPos);
-
     const container = new PIXI.Container();
     container.zIndex = 2;
     container.blendMode = PIXI.BLEND_MODES.SCREEN;
     app.stage.addChild(container);
-
-    // const texture = new PIXI.Texture.from("/assets/images/particle.png");
 
     const g = new PIXI.Graphics();
     g.beginFill(0xffffff);
@@ -235,7 +223,10 @@ export default function useSparkleAnim() {
             setTimeout(() => {
               go(pointIndex + 1);
             }, 500);
-          } else emitter.emit = false;
+          } else {
+            emitter.emit = false;
+            app.stage.removeChild(container);
+          }
         },
       });
     };
