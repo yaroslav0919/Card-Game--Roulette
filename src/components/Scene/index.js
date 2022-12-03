@@ -16,7 +16,7 @@ import FontFaceObserver from "fontfaceobserver";
 export default function Scene() {
   const ref = useRef(null);
 
-  const { drawNormalTable, calcCenterOffset } = useNormalTable();
+  const { drawNormalTable, calcCenterOffset, t1 } = useNormalTable();
   const { drawRaceTrackTable } = useRaceTrackTable();
   const { onPointerDownHandler } = useEvents();
   const { addEntranceAnimation } = useEntranceAnimation();
@@ -71,10 +71,13 @@ export default function Scene() {
         setTimeout(() => {
           addSparkleAnimation(app, numberArray, multis);
         }, 4400);
+        setTimeout(() => {
+          t1.play();
+        }, 15000);
       });
     };
-    // loadAndPlayAnimation();
-    drawNormalTable(app, heatMapMode);
+    loadAndPlayAnimation();
+    // drawNormalTable(app, heatMapMode);
 
     return () => {
       app.view.removeEventListener("pointerdown", onPointerDownHandler);

@@ -2,7 +2,7 @@ import tableData from "../../constants/table";
 import otherKeys from "../../constants/tile";
 import * as PIXI from "pixi.js";
 import { ang2Rad } from "../../utils/math";
-import { gsap, Timeline } from "gsap";
+import { gsap, Timeline, Tween } from "gsap";
 export default function drawOnce() {
   const calcCenterOffset = () => {
     const btn0 = tableData.find((item) => item.key === "bn-0");
@@ -36,7 +36,7 @@ export default function drawOnce() {
     return offset;
   };
 
-  const drawOnce = (app, heatMapMode, dTime) => {
+  const drawOnce = (app, heatMapMode, t1) => {
     // const centerOffset = calcCenterOffset();
     const centerOffset = { x: 0, y: 0 };
     const tileData = [];
@@ -240,13 +240,19 @@ export default function drawOnce() {
 
       graphics.closePath();
       // graphics.scale = { x: 1, y: 1 };
-      gsap.to(graphics, {
-        width: graphics.width / 2,
-        height: graphics.height / 2,
-        // scale: { x: 0.5, y: 0.5 },
-        duration: 2,
-        delay: dTime,
-      });
+      t1.add(
+        gsap.fromTo(
+          graphics,
+          { scale: { x: 1, y: 1 } },
+          {
+            width: graphics.width / 2,
+            height: graphics.height / 2,
+            // scale: { x: 0.5, y: 0.5 },
+            duration: 2,
+          }
+        ),
+        "<"
+      );
       if (!heatMapMode) {
         graphics.endFill();
       }
@@ -260,16 +266,16 @@ export default function drawOnce() {
         img.height = 50;
         img.anchor.set(0.5);
         app.addChild(img);
-        console.log(img.width);
-        console.log(img.scale);
-        gsap.to(img, {
-          x: img.x / 2,
-          y: img.y / 2,
-          width: 10,
-          height: 25,
-          duration: 2,
-          delay: dTime,
-        });
+        t1.add(
+          gsap.to(img, {
+            x: img.x / 2,
+            y: img.y / 2,
+            width: 10,
+            height: 25,
+            duration: 2,
+          }),
+          "<"
+        );
       } else {
         const style = new PIXI.TextStyle({
           fontFamily: "CircularStd",
@@ -349,30 +355,36 @@ export default function drawOnce() {
           app.addChild(label1);
           app.addChild(label2);
           app.addChild(label3);
-          gsap.to(label1, {
-            x: label1.x / 2,
-            y: label1.y / 2,
-            width: label1.width / 2,
-            height: label1.height / 2,
-            duration: 2,
-            delay: dTime,
-          });
-          gsap.to(label2, {
-            x: label2.x / 2,
-            y: label2.y / 2,
-            width: label2.width / 2,
-            height: label2.height / 2,
-            duration: 2,
-            delay: dTime,
-          });
-          gsap.to(label3, {
-            x: label3.x / 2,
-            y: label3.y / 2,
-            width: label3.width / 2,
-            height: label3.height / 2,
-            duration: 2,
-            delay: dTime,
-          });
+          t1.add(
+            gsap.to(label1, {
+              x: label1.x / 2,
+              y: label1.y / 2,
+              width: label1.width / 2,
+              height: label1.height / 2,
+              duration: 2,
+            }),
+            "<"
+          );
+          t1.add(
+            gsap.to(label2, {
+              x: label2.x / 2,
+              y: label2.y / 2,
+              width: label2.width / 2,
+              height: label2.height / 2,
+              duration: 2,
+            }),
+            "<"
+          );
+          t1.add(
+            gsap.to(label3, {
+              x: label3.x / 2,
+              y: label3.y / 2,
+              width: label3.width / 2,
+              height: label3.height / 2,
+              duration: 2,
+            }),
+            "<"
+          );
         } else {
           const label = new PIXI.Text(item.title, style);
           label.x = item.position.x + item.size.width / 2 + centerOffset.x;
@@ -382,35 +394,40 @@ export default function drawOnce() {
             label.rotation = Math.PI / 2;
           }
           app.addChild(label);
-          gsap.to(label, {
-            x: label.x / 2,
-            y: label.y / 2,
-            width: label.width / 2,
-            height: label.height / 2,
-            duration: 2,
-            delay: dTime,
-          });
+          t1.add(
+            gsap.to(label, {
+              x: label.x / 2,
+              y: label.y / 2,
+              width: label.width / 2,
+              height: label.height / 2,
+              duration: 2,
+            }),
+            "<"
+          );
         }
       }
     });
   };
-  const drawNormalTable = (app, heatMapMode, dTime = 5) => {
+
+  const t1 = new gsap.timeline({ ease: "none", paused: true });
+  const drawNormalTable = (app, heatMapMode) => {
     const container = new PIXI.Container();
     container.x = calcCenterOffset().x;
     container.y = calcCenterOffset().y;
     app.stage.addChild(container);
-    // const t1 = new gsap.timeline({ ease: "none" });
-    // t1.add(
-    gsap.to(container, {
-      x: window.innerWidth / 2 - 220,
-      y: window.innerHeight - 350,
-      duration: 2,
-      delay: dTime,
-    });
-    // );
+
+    t1.add(
+      gsap.to(container, {
+        x: window.innerWidth / 2 - 220,
+        y: window.innerHeight - 350,
+        duration: 2,
+      }),
+      "<"
+    );
+
+    drawOnce(container, heatMapMode, t1);
     // t1.play();
-    drawOnce(container, heatMapMode, dTime);
   };
 
-  return { calcCenterOffset, drawNormalTable };
+  return { calcCenterOffset, drawNormalTable, t1 };
 }
