@@ -15,7 +15,7 @@ export default function useEvents () {
   const calcCenterOffset = () => {
     const btn0 = tableData.find((item) => item.key === 'bn-0')
     const btnEnd = tableData.find((item) => item.key === 'bg-3-36')
-
+    
     const startPos = {
       x: btn0?.bordersPos[0].x - 30,
       y: btn0?.bordersPos[0].y + 50

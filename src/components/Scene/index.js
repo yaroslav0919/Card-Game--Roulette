@@ -73,6 +73,9 @@ export default function Scene() {
         }, 4400);
         setTimeout(() => {
           t1.play();
+          console.log(app.stage.children);
+          app.stage.removeChildren(1, 10);
+          app.view.removeEventListener("pointerdown", onPointerDownHandler);
         }, 15000);
       });
     };
