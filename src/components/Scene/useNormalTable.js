@@ -2,8 +2,8 @@ import tableData from "../../constants/table";
 import otherKeys from "../../constants/tile";
 import * as PIXI from "pixi.js";
 import { ang2Rad } from "../../utils/math";
-
-export default function useNormalTable() {
+import { gsap, Timeline } from "gsap";
+export default function drawOnce() {
   const calcCenterOffset = () => {
     const btn0 = tableData.find((item) => item.key === "bn-0");
     const btnEnd = tableData.find((item) => item.key === "bg-3-36");
@@ -36,9 +36,9 @@ export default function useNormalTable() {
     return offset;
   };
 
-  const drawNormalTable = (app, heatMapMode) => {
-    const centerOffset = calcCenterOffset();
-
+  const drawOnce = (app, heatMapMode, dTime) => {
+    // const centerOffset = calcCenterOffset();
+    const centerOffset = { x: 0, y: 0 };
     const tileData = [];
 
     const btnRed = tableData.find((item) => item.key === "bc-red");
@@ -95,10 +95,8 @@ export default function useNormalTable() {
         specialTitle: item.specialTitle,
       });
     });
-
     const graphics = new PIXI.Graphics();
-    app.stage.addChild(graphics);
-
+    app.addChild(graphics);
     tileData.forEach((item) => {
       /* drag background rectangles */
       if (!heatMapMode) {
@@ -241,22 +239,37 @@ export default function useNormalTable() {
       }
 
       graphics.closePath();
-
+      // graphics.scale = { x: 1, y: 1 };
+      gsap.to(graphics, {
+        width: graphics.width / 2,
+        height: graphics.height / 2,
+        // scale: { x: 0.5, y: 0.5 },
+        duration: 2,
+        delay: dTime,
+      });
       if (!heatMapMode) {
         graphics.endFill();
       }
       /** end drawing */
 
       if (item.titleImg) {
-        // const texture = new PIXI.Texture.from(
-        //   `/assets/tiles/${item.titleImg}.svg`
-        // );
-        // const img = new PIXI.Sprite(texture);
         const img = PIXI.Sprite.from(`/assets/tiles/${item.titleImg}.svg`);
         img.x = item.position.x + item.size.width / 2 + centerOffset.x;
         img.y = item.position.y + item.size.height / 2 + centerOffset.y;
-        img.anchor.set(0.5, 0.5);
-        app.stage.addChild(img);
+        img.width = 20;
+        img.height = 50;
+        img.anchor.set(0.5);
+        app.addChild(img);
+        console.log(img.width);
+        console.log(img.scale);
+        gsap.to(img, {
+          x: img.x / 2,
+          y: img.y / 2,
+          width: 10,
+          height: 25,
+          duration: 2,
+          delay: dTime,
+        });
       } else {
         const style = new PIXI.TextStyle({
           fontFamily: "CircularStd",
@@ -274,14 +287,13 @@ export default function useNormalTable() {
 
         if (item.specialTitle) {
           const label1 = new PIXI.Text(item.title[0], style);
-          label1.anchor.set(0.5, 0.5);
+          label1.anchor.set(0.5);
 
           const label2 = new PIXI.Text(item.title.slice(1, 3), smallStyle);
-          label2.anchor.set(0.5, 0.5);
+          label2.anchor.set(0.5);
 
           const label3 = new PIXI.Text(item.title.slice(3), style);
-          label3.anchor.set(0.5, 0.5);
-
+          label3.anchor.set(0.5);
           if (item.textDirection === "vertical") {
             const offset = 20;
 
@@ -334,21 +346,70 @@ export default function useNormalTable() {
             label3.y = item.position.y + item.size.height / 2 + centerOffset.y;
           }
 
-          app.stage.addChild(label1);
-          app.stage.addChild(label2);
-          app.stage.addChild(label3);
+          app.addChild(label1);
+          app.addChild(label2);
+          app.addChild(label3);
+          gsap.to(label1, {
+            x: label1.x / 2,
+            y: label1.y / 2,
+            width: label1.width / 2,
+            height: label1.height / 2,
+            duration: 2,
+            delay: dTime,
+          });
+          gsap.to(label2, {
+            x: label2.x / 2,
+            y: label2.y / 2,
+            width: label2.width / 2,
+            height: label2.height / 2,
+            duration: 2,
+            delay: dTime,
+          });
+          gsap.to(label3, {
+            x: label3.x / 2,
+            y: label3.y / 2,
+            width: label3.width / 2,
+            height: label3.height / 2,
+            duration: 2,
+            delay: dTime,
+          });
         } else {
           const label = new PIXI.Text(item.title, style);
           label.x = item.position.x + item.size.width / 2 + centerOffset.x;
           label.y = item.position.y + item.size.height / 2 + centerOffset.y;
-          label.anchor.set(0.5, 0.5);
+          label.anchor.set(0.5);
           if (item.textDirection === "vertical") {
             label.rotation = Math.PI / 2;
           }
-          app.stage.addChild(label);
+          app.addChild(label);
+          gsap.to(label, {
+            x: label.x / 2,
+            y: label.y / 2,
+            width: label.width / 2,
+            height: label.height / 2,
+            duration: 2,
+            delay: dTime,
+          });
         }
       }
     });
+  };
+  const drawNormalTable = (app, heatMapMode, dTime = 5) => {
+    const container = new PIXI.Container();
+    container.x = calcCenterOffset().x;
+    container.y = calcCenterOffset().y;
+    app.stage.addChild(container);
+    // const t1 = new gsap.timeline({ ease: "none" });
+    // t1.add(
+    gsap.to(container, {
+      x: window.innerWidth / 2 - 220,
+      y: window.innerHeight - 350,
+      duration: 2,
+      delay: dTime,
+    });
+    // );
+    // t1.play();
+    drawOnce(container, heatMapMode, dTime);
   };
 
   return { calcCenterOffset, drawNormalTable };

@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Application } from "pixi.js";
-
 import HeatMapView from "./heatMap";
 import useNormalTable from "./useNormalTable";
 import useRaceTrackTable from "./useRaceTrackTable";
@@ -19,7 +18,7 @@ export default function Scene() {
 
   const { drawNormalTable, calcCenterOffset } = useNormalTable();
   const { drawRaceTrackTable } = useRaceTrackTable();
-  const { onPointerDownHandler } = useEvents(); 
+  const { onPointerDownHandler } = useEvents();
   const { addEntranceAnimation } = useEntranceAnimation();
   const { preLoadSpriteImages } = useResource();
   const { drawPolishRect } = useSelectAnimation();
@@ -74,10 +73,9 @@ export default function Scene() {
         }, 4400);
       });
     };
-    loadAndPlayAnimation();
+    // loadAndPlayAnimation();
+    drawNormalTable(app, heatMapMode);
 
-    // addSparkleAnimation(app, numberArray);
-    // multiplierCircle(1, app, 500, 19, 3);
     return () => {
       app.view.removeEventListener("pointerdown", onPointerDownHandler);
       app.destroy(true, true);
