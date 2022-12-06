@@ -37,6 +37,9 @@ export default function useWinAnimation() {
     borderLight.blendMode = PIXI.BLEND_MODES.SCREEN;
 
     container.addChild(borderLight);
+    const mask = new PIXI.Graphics();
+    container.addChild(mask);
+
     const winText = new PIXI.Text("YOU WIN", {
       fontFamily: "CircularStd",
       dropShadow: true,
@@ -49,7 +52,47 @@ export default function useWinAnimation() {
     });
     winText.anchor.set(0.5);
     winText.y = -30;
+    // winText.mask = mask;
     container.addChild(winText);
+
+    mask.beginFill(0xffff00);
+    mask.drawRect(
+      winText.x - winText.width / 2,
+      winText.y - winText.height / 2,
+      winText.width * 0.75,
+      winText.height
+    );
+
+    mask.endFill();
+    // gsap.to(mask, {
+    //   width: 300,
+    //   duration: 2,
+    //   ease: "none",
+    // });
+    const earn = 720;
+    const earnText = new PIXI.Text(`$${earn}`, {
+      fontFamily: "CircularStd",
+      fontWeight: 500,
+      fill: "white",
+      fontSize: 42,
+      letterSpacing: 3,
+      stroke: "#8F5D0B",
+      strokeThickness: 3,
+    });
+    console.log(earnText);
+    earnText.anchor.set(0.5);
+    earnText.y = 30;
+
+    const textObj = { tex: earn };
+    gsap.from(textObj, {
+      duration: 2,
+      tex: 0,
+      onUpdate: () => {
+        earnText.text = `$` + Math.floor(textObj.tex);
+      },
+    });
+
+    container.addChild(earnText);
   };
   return { standardWin };
 }
