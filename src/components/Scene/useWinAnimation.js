@@ -3,25 +3,28 @@ import { gsap } from "gsap";
 import { ang2Rad } from "../../utils/math";
 import { fire } from "./useFireworks";
 export default function useWinAnimation() {
-  const standardWin = (app) => {
-    fire(216, 310, 216, 200);
+  const addDefaultAnim = (app, winType, timeLine) => {
     const container = new PIXI.Container();
     container.pivot.set(0.5);
     // container.blendMode = PIXI.BLEND_MODES.SCREEN;
+    timeLine.add(
+      gsap.fromTo(
+        container,
+        {
+          x: window.innerWidth / 2,
+          y: 310,
+          alpha: 0,
+        },
+        {
+          y: 260,
 
-    gsap.fromTo(
-      container,
-      {
-        x: window.innerWidth / 2,
-        y: 310,
-        alpha: 0,
-      },
-      {
-        y: 260,
-        duration: 0.5,
-        alpha: 1,
-      }
+          alpha: 1,
+          duration: 1,
+          delay: 1,
+        }
+      )
     );
+
     app.stage.addChild(container);
 
     const shadow = new PIXI.Sprite.from("assets/image/win-shadow.png");
@@ -57,10 +60,9 @@ export default function useWinAnimation() {
     borderLight.animationSpeed = 0.05;
     borderLight.blendMode = PIXI.BLEND_MODES.SCREEN;
     borderLight.play();
-
     container.addChild(borderLight);
 
-    const winText = new PIXI.Text("YOU WIN", {
+    const winText = new PIXI.Text(winType, {
       fontFamily: "CircularStd",
       // dropShadow: true,
       fontWeight: 900,
@@ -72,15 +74,8 @@ export default function useWinAnimation() {
     });
     winText.anchor.set(0.5);
     winText.y = -30;
-    // winText.mask = mask;
     container.addChild(winText);
 
-    // const g = new PIXI.Graphics();
-    // g.beginFill(0xffff00);
-    // g.drawCircle(50, 0, 100);
-    // g.endFill();
-    // g.filters = [new PIXI.filters.BlurFilter(50)];
-    // app.stage.addChild(g);
     const g = new PIXI.Graphics();
     g.beginFill(0xffffff);
     g.drawRect(0, 0, 50, 20);
@@ -91,24 +86,25 @@ export default function useWinAnimation() {
       g.endFill();
     }
 
-    // g.filters = [new PIXI.filters.BlurFilter(10)];
-
     const maskTexture = app.renderer.generateTexture(g);
     const mask = new PIXI.Sprite(maskTexture);
     mask.x = winText.x - winText.width / 2;
     mask.y = winText.y - winText.height / 2;
-    mask.width = winText.width + 50;
+    mask.width = (winText.width * 6) / 5;
     mask.height = winText.height;
     mask.anchor.set(0);
-    // mask.alpha = 0.6;
     container.addChild(mask);
     winText.mask = mask;
-    gsap.from(mask, {
-      width: 0,
-      duration: 2,
-      delay: 1,
-      ease: "none",
-    });
+    timeLine.add(
+      gsap.from(mask, {
+        width: 0,
+        duration: 1.5,
+        delay: 0.5,
+        ease: "none",
+      }),
+      "<"
+    );
+
     const earn = 720;
     const earnText = new PIXI.Text(``, {
       fontFamily: "CircularStd",
@@ -123,21 +119,36 @@ export default function useWinAnimation() {
     earnText.y = 30;
 
     const textObj = { tex: earn };
-    gsap.from(textObj, {
-      duration: earn / 500,
-      delay: 3,
-      tex: 0,
-      onUpdate: () => {
-        earnText.text = `$` + Math.floor(textObj.tex);
-      },
-    });
+    timeLine.add(
+      gsap.from(textObj, {
+        duration: earn / 500,
+        tex: 0,
+        onUpdate: () => {
+          earnText.text = `$` + Math.floor(textObj.tex);
+        },
+      }),
+      ">-0.5"
+    );
 
     container.addChild(earnText);
   };
-
+  const addFireworksAnim = (t2) => {
+    t2.add(fire(216, 310, 216, 200));
+  };
+  const addFireframeAnim = (t2) => {};
   const winAnim = (app, winType) => {
-    // const t2 = new gsap.timeline({ ease: "none", paused: true });
-    standardWin(app);
+    const t2 = new gsap.timeline({ ease: "none", paused: true });
+    addDefaultAnim(app, winType, t2);
+    switch (winType) {
+      case "BIG WIN":
+        addFireworksAnim(t2);
+        t2.add();
+        break;
+      case "SENSATIONAL WIN":
+        addFireframeAnim(t2);
+        break;
+    }
+    t2.play();
   };
   return { winAnim };
 }
