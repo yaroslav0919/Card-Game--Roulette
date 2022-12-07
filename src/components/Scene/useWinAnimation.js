@@ -1,20 +1,25 @@
 import * as PIXI from "pixi.js";
 import { gsap } from "gsap";
 import { ang2Rad } from "../../utils/math";
+import { fire } from "./useFireworks";
 export default function useWinAnimation() {
   const standardWin = (app) => {
+    fire(216, 310, 216, 200);
     const container = new PIXI.Container();
     container.pivot.set(0.5);
     // container.blendMode = PIXI.BLEND_MODES.SCREEN;
+
     gsap.fromTo(
       container,
       {
         x: window.innerWidth / 2,
         y: 310,
+        alpha: 0,
       },
       {
         y: 260,
-        duration: 1,
+        duration: 0.5,
+        alpha: 1,
       }
     );
     app.stage.addChild(container);
@@ -57,11 +62,11 @@ export default function useWinAnimation() {
 
     const winText = new PIXI.Text("YOU WIN", {
       fontFamily: "CircularStd",
-      dropShadow: true,
+      // dropShadow: true,
       fontWeight: 900,
-      dropShadowAngle: ang2Rad(90),
-      dropShadowColor: "#ff0000",
-      dropShadowDistance: 3,
+      // dropShadowAngle: ang2Rad(90),
+      // dropShadowColor: "#ff0000",
+      // dropShadowDistance: 3,
       fill: "#FFCC01",
       fontSize: 44,
     });
@@ -80,29 +85,13 @@ export default function useWinAnimation() {
     g.beginFill(0xffffff);
     g.drawRect(0, 0, 50, 20);
     g.endFill();
-    g.beginFill(0xffffff, 0.9);
-    g.drawRect(50, 0, 1, 20);
-    g.endFill();
-    g.beginFill(0xffffff, 0.8);
-    g.drawRect(51, 0, 1, 20);
-    g.endFill();
-    g.beginFill(0xffffff, 0.7);
-    g.drawRect(52, 0, 1, 20);
-    g.endFill();
-    g.beginFill(0xffffff, 0.6);
-    g.drawRect(53, 0, 1, 20);
-    g.endFill();
-    g.beginFill(0xffffff, 0.5);
-    g.drawRect(54, 0, 1, 20);
-    g.endFill();
-    g.beginFill(0xffffff, 0.4);
-    g.drawRect(55, 0, 1, 20);
-    g.endFill();
-    g.beginFill(0xffffff, 0.3);
-    g.drawRect(56, 0, 1, 20);
-    g.endFill();
+    for (let i = 1; i < 10; i++) {
+      g.beginFill(0xffffff, 1 - i / 10);
+      g.drawRect(49, 0, 1, 20);
+      g.endFill();
+    }
+
     // g.filters = [new PIXI.filters.BlurFilter(10)];
-    app.stage.addChild(g);
 
     const maskTexture = app.renderer.generateTexture(g);
     const mask = new PIXI.Sprite(maskTexture);
@@ -117,10 +106,11 @@ export default function useWinAnimation() {
     gsap.from(mask, {
       width: 0,
       duration: 2,
+      delay: 1,
       ease: "none",
     });
     const earn = 720;
-    const earnText = new PIXI.Text(`$${earn}`, {
+    const earnText = new PIXI.Text(``, {
       fontFamily: "CircularStd",
       fontWeight: 500,
       fill: "white",
@@ -129,14 +119,13 @@ export default function useWinAnimation() {
       stroke: "#8F5D0B",
       strokeThickness: 3,
     });
-    console.log(earnText);
     earnText.anchor.set(0.5);
     earnText.y = 30;
 
     const textObj = { tex: earn };
     gsap.from(textObj, {
-      duration: 2,
-      delay: 1,
+      duration: earn / 500,
+      delay: 3,
       tex: 0,
       onUpdate: () => {
         earnText.text = `$` + Math.floor(textObj.tex);
@@ -145,5 +134,10 @@ export default function useWinAnimation() {
 
     container.addChild(earnText);
   };
-  return { standardWin };
+
+  const winAnim = (app, winType) => {
+    // const t2 = new gsap.timeline({ ease: "none", paused: true });
+    standardWin(app);
+  };
+  return { winAnim };
 }
