@@ -16,7 +16,7 @@ export default function useWinAnimation() {
           alpha: 0,
         },
         {
-          y: 260,
+          y: 230,
 
           alpha: 1,
           duration: 1,
@@ -62,18 +62,41 @@ export default function useWinAnimation() {
     borderLight.play();
     container.addChild(borderLight);
 
+    const winText2 = new PIXI.Text(winType, {
+      fontFamily: "CircularStd",
+      fill: "#ED2E22",
+      fontSize: 44,
+      fontWeight: 900,
+
+      dropShadow: true,
+      dropShadowAngle: ang2Rad(90),
+      dropShadowDistance: 3,
+      dropShadowBlur: 5,
+
+      stroke: "#C60301",
+      strokeThickness: 6,
+      lineJoin: "bevel",
+    });
+    winText2.anchor.set(0.5);
+    winText2.y = -8;
+    winText2.x = 1;
+
+    container.addChild(winText2);
+
     const winText = new PIXI.Text(winType, {
       fontFamily: "CircularStd",
-      // dropShadow: true,
+      dropShadow: true,
       fontWeight: 900,
-      // dropShadowAngle: ang2Rad(90),
-      // dropShadowColor: "#ff0000",
-      // dropShadowDistance: 3,
+      dropShadowAngle: ang2Rad(250),
+
+      dropShadowColor: "#FAFD66",
+
+      dropShadowDistance: 1,
       fill: "#FFCC01",
       fontSize: 44,
     });
     winText.anchor.set(0.5);
-    winText.y = -30;
+    winText.y = -10;
     container.addChild(winText);
 
     const g = new PIXI.Graphics();
@@ -93,8 +116,9 @@ export default function useWinAnimation() {
     mask.width = (winText.width * 6) / 5;
     mask.height = winText.height;
     mask.anchor.set(0);
-    container.addChild(mask);
-    winText.mask = mask;
+    // container.addChild(mask);
+    // winText.mask = mask;
+    // winText2.mask = mask;
     timeLine.add(
       gsap.from(mask, {
         width: 0,
@@ -114,9 +138,14 @@ export default function useWinAnimation() {
       letterSpacing: 3,
       stroke: "#8F5D0B",
       strokeThickness: 3,
+
+      dropShadow: true,
+      dropShadowDistance: 3,
+      dropShadowAngle: ang2Rad(90),
+      dropShadowBlur: 5,
     });
     earnText.anchor.set(0.5);
-    earnText.y = 30;
+    earnText.y = 40;
 
     const textObj = { tex: earn };
     timeLine.add(
@@ -125,6 +154,15 @@ export default function useWinAnimation() {
         tex: 0,
         onUpdate: () => {
           earnText.text = `$` + Math.floor(textObj.tex);
+        },
+        onComplete: () => {
+          gsap.to(earnText, {
+            duration: 0.5,
+            width: earnText.width * 1.2,
+            height: earnText.height * 1.2,
+            repeat: 1,
+            yoyo: true,
+          });
         },
       }),
       ">-0.5"
@@ -136,13 +174,12 @@ export default function useWinAnimation() {
     t2.add(fire(216, 310, 216, 200));
   };
   const addFireframeAnim = (t2) => {};
-  const winAnim = (app, winType) => {
+  const winAnim = async (app, winType) => {
     const t2 = new gsap.timeline({ ease: "none", paused: true });
     addDefaultAnim(app, winType, t2);
     switch (winType) {
       case "BIG WIN":
         addFireworksAnim(t2);
-        t2.add();
         break;
       case "SENSATIONAL WIN":
         addFireframeAnim(t2);
