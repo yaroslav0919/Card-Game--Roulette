@@ -13,18 +13,19 @@ import useMultiplierAnimation from "./useMultiplierAnimation";
 import FontFaceObserver from "fontfaceobserver";
 import useSelectAnimationa from "./useSelectAnimation";
 import useWinAnimation from "./useWinAnimation";
-// const FontFaceObserver = require("fontfaceobserver");
+import gsap from "gsap";
+import CustomEase from "gsap/CustomEase";
 export default function Scene() {
   const ref = useRef(null);
 
-  const { drawNormalTable, calcCenterOffset, t1 } = useNormalTable();
+  const { drawNormalTable, calcCenterOffset, tinyTable } = useNormalTable();
   const { drawRaceTrackTable } = useRaceTrackTable();
   const { onPointerDownHandler } = useEvents();
   const { addEntranceAnimation } = useEntranceAnimation();
   const { preLoadSpriteImages } = useResource();
   const { drawPolishRect } = useSelectAnimation();
   const { addSparkleAnimation } = useSparkleAnim();
-  const { standardWin } = useWinAnimation();
+  const { winAnim } = useWinAnimation();
   const { asd } = useSparkleAnim();
   const { multiplierCircle } = useMultiplierAnimation();
   const [heatMapMode, setHeatMapMode] = useState(false);
@@ -40,9 +41,48 @@ export default function Scene() {
   // const multis = [30, 500, 10];
   const numberArray = [30, 28, 8, 0];
   const multis = [30, 500, 10, 600];
+  const timeOffset = { sparkle: 4.4, zoomOut: 13, win: 3 };
   // const numberArray = [30, 28, 23, 8, 0];
   // const multis = [30, 500, 10, 200, 600];
   const setApp = useStore((state) => state.setApp);
+  const removeContainers = (app) => {
+    let selected = [];
+    app.stage.children.forEach((child) => {
+      child.id === "select" && selected.push(child);
+    });
+    app.stage.removeChild(...selected);
+
+    let multis = [];
+    app.stage.children.forEach((child) => {
+      child.id === "multi" && multis.push(child);
+    });
+    setTimeout(() => {
+      app.stage.removeChild(...multis.splice(0, multis.length - 1));
+      const topMulti = multis[multis.length - 1];
+      console.log(topMulti);
+      gsap.to(topMulti, {
+        x: window.innerWidth / 2,
+        duration: 1,
+        onComplete: () => {
+          gsap.to(topMulti, {
+            y: window.innerHeight + 100,
+            alpha: 0,
+            duration: 1,
+            delay: 3,
+            ease: CustomEase.create(
+              "custom",
+              "M0,0 C0.012,-0.234 0.574,-0.107 0.584,-0.014 0.646,0.586 0.78,1 1,1 "
+            ),
+            onComplete: () => {
+              app.stage.removeChild(1, app.stag.children.length - 1);
+            },
+          });
+        },
+      });
+    }, 3000);
+
+    app.view.removeEventListener("pointerdown", onPointerDownHandler);
+  };
 
   useEffect(() => {
     const app = new Application({
@@ -60,43 +100,39 @@ export default function Scene() {
 
     app.start();
     app.stage.sortableChildren = true;
-    // drawRaceTrackTable(app);
 
     const loadAndPlayAnimation = async () => {
       const loader = preLoadSpriteImages();
 
       const font1 = new FontFaceObserver("Sancreek");
       const font2 = new FontFaceObserver("CircularStdBlack");
+      const font3 = new FontFaceObserver("CircularStd");
       await font1.load();
       await font2.load();
+      await font3.load();
       loader.onComplete.add(() => {
+        // winAnim(app, "BIG WIN");
         drawNormalTable(app, heatMapMode);
-
         addEntranceAnimation(app, multis.length);
 
-        setTimeout(() => {
-          addSparkleAnimation(app, numberArray, multis);
-        }, 4400);
-        setTimeout(() => {
-          t1.play();
-          // app.stage.children.forEach((child) => {
-          // if (child.id === "select") {
-          //   console.log(child);
-          //   child.destroy();
-          // }
-          // });
-
-          app.stage.removeChildren(1, app.stage.children.length);
-          app.view.removeEventListener("pointerdown", onPointerDownHandler);
-          setTimeout(() => {
-            standardWin(app);
-          }, 1000);
-        }, 15000);
+        gsap.delayedCall(timeOffset.sparkle, () =>
+          addSparkleAnimation(app, numberArray, multis)
+        );
+        gsap.delayedCall(timeOffset.sparkle + timeOffset.zoomOut, () => {
+          removeContainers(app);
+          tinyTable.play();
+        });
+        gsap.delayedCall(
+          timeOffset.sparkle + timeOffset.zoomOut + timeOffset.win,
+          () => {
+            winAnim(app, "BIG WIN");
+          }
+        );
       });
     };
-    loadAndPlayAnimation();
+    // loadAndPlayAnimation();
     // drawNormalTable(app, heatMapMode);
-    // standardWin(app);
+    winAnim(app, "SENSATIONAL");
     return () => {
       app.view.removeEventListener("pointerdown", onPointerDownHandler);
       app.destroy(true, true);

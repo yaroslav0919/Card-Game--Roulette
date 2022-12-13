@@ -266,7 +266,7 @@ export default function useWinAnimation() {
     update();
   };
   const addFireframeAnim = (app) => {
-    const oneFire = (num, count, upon) => {
+    const oneFire = (num, count) => {
       const path = `/assets/frames/fire${num}/f`;
       const frames = [];
 
@@ -288,7 +288,40 @@ export default function useWinAnimation() {
       // sprite.play();
       // app.stage.addChild(sprite);
     };
-    const first = [...oneFire(1, 15, true), ...oneFire(2, 20, true)];
+    const firstFire = () => {
+      const firstFlames = [...oneFire(1, 15), ...oneFire(2, 20)];
+      const sprite = new PIXI.AnimatedSprite(firstFlames);
+      sprite.scale.set(1 / 5, 1 / 5);
+      sprite.anchor.set(0.5);
+      sprite.x = window.innerWidth / 2;
+      sprite.y = 230;
+
+      sprite.zIndex = 0;
+      sprite.loop = false;
+      sprite.animationSpeed = 0.1;
+
+      sprite.play();
+      // sprite.onComplete(nextFire);
+      app.stage.addChild(sprite);
+    };
+    // const nextFire = () => {
+    //   const secondFlames = [...oneFire(3, 9), ...oneFire(3, 9)];
+    //   const sprite = new PIXI.AnimatedSprite(secondFlames);
+    //   sprite.scale.set(1 / 5, 1 / 5);
+    //   sprite.anchor.set(0.5);
+    //   sprite.x = window.innerWidth / 2;
+    //   sprite.y = 130;
+
+    //   sprite.zIndex = -1;
+    //   sprite.loop = true;
+    //   sprite.animationSpeed = 0.1;
+
+    //   sprite.play();
+    //   sprite.onComplete({});
+    //   app.stage.addChild(sprite);
+    // };
+    firstFire();
+    // gsap.delayedCall(3, () => firstFire);
     // const timeline = new gsap.timeline({ ease: "none", paused: true });
     // timeline.add(() => oneFire(1, 15, true), "<3");
     // timeline.add(() => oneFire(2, 20, true), "<");

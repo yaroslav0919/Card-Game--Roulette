@@ -1,19 +1,22 @@
 var canvas = document.createElement("canvas");
 var canvasContainer = document.getElementById("main-container");
-
+var stopOption = false;
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 canvas.style = "position:absolute; top:0px;";
 
 canvasContainer.append(canvas);
-var startX, startY, targetX, targetY;
+var startX = 216,
+  startY = 310,
+  targetX = 216,
+  targetY = 200;
 var ctx = canvas.getContext("2d"),
   cw = window.innerWidth,
   ch = window.innerHeight,
   fireworks = [],
   particles = [],
   hue = 250,
-  timerTotal = 80,
+  timerTotal = 100,
   timerTick = 0;
 
 function random(min, max) {
@@ -50,8 +53,8 @@ class Firework {
       this.coordinates.push([this.x, this.y]);
     }
     this.angle = Math.atan2(ty - sy, tx - sx);
-    this.speed = 2;
-    this.acceleration = 1.05;
+    this.speed = 7;
+    this.acceleration = 1.02;
     this.brightness = random(50, 70);
     // circle target indicator radius
     this.targetRadius = 1;
@@ -121,23 +124,23 @@ class Particle {
     this.y = y;
     // track the past coordinates of each particle to create a trail effect, increase the coordinate count to create more prominent trails
     this.coordinates = [];
-    this.coordinateCount = 5;
+    this.coordinateCount = 4;
     while (this.coordinateCount--) {
       this.coordinates.push([this.x, this.y]);
     }
     // set a random angle in all possible directions, in radians
     this.angle = random(0, Math.PI * 2);
-    this.speed = random(1, 10);
+    this.speed = random(1, 20);
     // friction will slow the particle down
-    this.friction = 0.95;
+    this.friction = 0.9;
     // gravity will be applied and pull the particle down
-    this.gravity = 1;
+    this.gravity = 1.2;
     // set the hue to a random number +-20 of the overall hue variable
     this.hue = random(hue - 20, hue + 20);
     this.brightness = random(50, 80);
     this.alpha = 1;
     // set how fast the particle fades out
-    this.decay = random(0.015, 0.03);
+    this.decay = 0.03;
   }
   // update particle
   update(index) {
@@ -186,7 +189,7 @@ function createParticles(x, y) {
   }
 }
 
-function loop() {
+export function loop() {
   console.log("loop");
 
   ctx.globalCompositeOperation = "destination-out";
@@ -205,10 +208,13 @@ function loop() {
     particles[i].draw();
     particles[i].update(i);
   }
-  timerTick === 0 &&
-    fireworks.push(new Firework(startX, startY, targetX, targetY));
-
-  timerTick < timerTotal && window.requestAnimationFrame(loop);
+  // timerTick === 0 &&
+  // fireworks.push(new Firework(startX, startY, targetX, targetY));
+  !stopOption && window.requestAnimationFrame(loop);
+  // if (timerTick < timerTotal) {
+  //   window.requestAnimationFrame(loop);
+  //   timerTick++;
+  // } else timerTick = 0;
   timerTick++;
 }
 export function fire(sx, sy, tx, ty) {
@@ -216,5 +222,8 @@ export function fire(sx, sy, tx, ty) {
   startY = sy;
   targetX = tx;
   targetY = ty;
-  loop();
+  fireworks.push(new Firework(startX, startY, targetX, targetY));
+}
+export function stop() {
+  stopOption = true;
 }

@@ -335,14 +335,12 @@ export default function useMultiplierAnimation() {
     container.addChild(glare);
   };
   const playAnimatedSprite = (app, pos) => {
-    const path = "/assets/images/lion/Lion_";
+    const path = "/assets/frames/lion/l";
     const count = 140;
     const frames = [];
 
     for (let i = 1; i <= count; i++) {
-      const texture = PIXI.Texture.from(
-        path + (i < 10 ? "0000" : i < 100 ? "000" : "00") + i + ".png"
-      );
+      const texture = PIXI.Texture.from(path + "(" + i + ")" + ".png");
       frames.push(texture);
     }
 
@@ -367,6 +365,7 @@ export default function useMultiplierAnimation() {
   ) => {
     if (!index) return;
     const circle = new PIXI.Container();
+    circle.id = "multi";
     circle.x = halfX - 175;
     circle.y = Y - 170;
     const radius = 40;

@@ -36,7 +36,7 @@ export default function drawOnce() {
     return offset;
   };
 
-  const drawOnce = (app, heatMapMode, t1) => {
+  const drawOnce = (app, heatMapMode, tinyTable) => {
     // const centerOffset = calcCenterOffset();
     const centerOffset = { x: 0, y: 0 };
     const tileData = [];
@@ -240,7 +240,7 @@ export default function drawOnce() {
 
       graphics.closePath();
       // graphics.scale = { x: 1, y: 1 };
-      t1.add(
+      tinyTable.add(
         gsap.fromTo(
           graphics,
           { scale: { x: 1, y: 1 } },
@@ -266,7 +266,7 @@ export default function drawOnce() {
         img.height = 50;
         img.anchor.set(0.5);
         app.addChild(img);
-        t1.add(
+        tinyTable.add(
           gsap.to(img, {
             x: img.x / 2,
             y: img.y / 2,
@@ -355,7 +355,7 @@ export default function drawOnce() {
           app.addChild(label1);
           app.addChild(label2);
           app.addChild(label3);
-          t1.add(
+          tinyTable.add(
             gsap.to(label1, {
               x: label1.x / 2,
               y: label1.y / 2,
@@ -365,7 +365,7 @@ export default function drawOnce() {
             }),
             "<"
           );
-          t1.add(
+          tinyTable.add(
             gsap.to(label2, {
               x: label2.x / 2,
               y: label2.y / 2,
@@ -375,7 +375,7 @@ export default function drawOnce() {
             }),
             "<"
           );
-          t1.add(
+          tinyTable.add(
             gsap.to(label3, {
               x: label3.x / 2,
               y: label3.y / 2,
@@ -394,7 +394,7 @@ export default function drawOnce() {
             label.rotation = Math.PI / 2;
           }
           app.addChild(label);
-          t1.add(
+          tinyTable.add(
             gsap.to(label, {
               x: label.x / 2,
               y: label.y / 2,
@@ -409,7 +409,7 @@ export default function drawOnce() {
     });
   };
 
-  const t1 = new gsap.timeline({ ease: "none", paused: true });
+  const tinyTable = new gsap.timeline({ ease: "none", paused: true });
   const drawNormalTable = (app, heatMapMode) => {
     const container = new PIXI.Container();
     container.id = "table";
@@ -418,24 +418,24 @@ export default function drawOnce() {
 
     app.stage.addChild(container);
 
-    t1.add(
+    tinyTable.add(
       gsap.to(container, {
-        x: window.innerWidth / 2 - 220,
+        x: window.innerWidth / 2 - 200,
         y: window.innerHeight - 500,
         duration: 2,
         onComplete: () => {
           gsap.to(container, {
             y: window.innerHeight - 350,
             duration: 1,
+            delay: 1,
           });
         },
       }),
       "<"
     );
 
-    drawOnce(container, heatMapMode, t1);
-    // t1.play();
+    drawOnce(container, heatMapMode, tinyTable);
   };
 
-  return { calcCenterOffset, drawNormalTable, t1 };
+  return { calcCenterOffset, drawNormalTable, tinyTable };
 }

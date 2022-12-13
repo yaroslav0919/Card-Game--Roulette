@@ -4,15 +4,19 @@ export default function useResource() {
   const preLoadSpriteImages = () => {
     const loader = new PIXI.Loader();
 
-    const loadSpriteImages = (path, count) => {
+    const loadSpriteImages = (name, path, count) => {
       for (let i = 1; i <= count; i++) {
-        loader.add(
-          `lion+${i}`,
-          path + (i < 10 ? "0000" : i < 100 ? "000" : "00") + i + ".png"
-        );
+        loader.add(`${name},${i}`, path + "(" + i + ")" + ".png");
       }
     };
-    loadSpriteImages("/assets/images/lion/Lion_", 140);
+    loadSpriteImages("lion", "/assets/frames/lion/l", 140);
+    loadSpriteImages("fire1", "/assets/frames/fire1/f", 15);
+    loadSpriteImages("fire2", "/assets/frames/fire2/f", 20);
+    loadSpriteImages("fire3", "/assets/frames/fire3/f", 9);
+    loadSpriteImages("fire4", "/assets/frames/fire4/f", 9);
+    loadSpriteImages("fire5", "/assets/frames/fire5/f", 9);
+    loadSpriteImages("fire6", "/assets/frames/fire6/f", 9);
+
     loader.add("assets/image/hat.png");
     loader.add("assets/image/sparkle.png");
     loader.add("assets/image/back-sparkles.png");
