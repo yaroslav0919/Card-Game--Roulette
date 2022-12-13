@@ -4,6 +4,7 @@ import MotionPathPlugin from "gsap/MotionPathPlugin";
 import { Emitter } from "pixi-particles";
 import { ang2Rad } from "../../utils/math";
 import { fire, loop, stop } from "./useFireworks";
+import { getRB } from "../../utils/math";
 export default function useWinAnimation() {
   const addDefaultAnim = (app, winType, timeLine) => {
     const container = new PIXI.Container();
@@ -108,10 +109,10 @@ export default function useWinAnimation() {
     const blurEffect = 30;
     for (let i = 1; i < blurEffect; i++) {
       g.beginFill(0xffffff, 1 - i / blurEffect);
-      g.drawRect(49, 0, 1, 20);
+      g.drawRect(49 + i, 0, 1, 20);
       g.endFill();
     }
-
+    // app.stage.addChild(g);
     const maskTexture = app.renderer.generateTexture(g);
     const mask = new PIXI.Sprite(maskTexture);
     mask.x = winText.x - winText.width / 2;
@@ -265,7 +266,7 @@ export default function useWinAnimation() {
     emitter.emit = true;
     update();
   };
-  const addFireframeAnim = (app) => {
+  const addFireframeAnim = (app, speed = 0.3, repeate = 14) => {
     const oneFire = (num, count) => {
       const path = `/assets/frames/fire${num}/f`;
       const frames = [];
@@ -275,18 +276,6 @@ export default function useWinAnimation() {
         frames.push(texture);
       }
       return frames;
-      // const sprite = new PIXI.AnimatedSprite(frames);
-      // sprite.scale.set(1 / 5, 1 / 5);
-      // sprite.anchor.set(0.5);
-      // sprite.x = window.innerWidth / 2;
-      // sprite.y = count > 2 ? 130 : 230;
-
-      // sprite.zIndex = upon ? 0 : -1;
-      // sprite.loop = num > 2 ? true : false;
-      // sprite.animationSpeed = 0.1;
-
-      // sprite.play();
-      // app.stage.addChild(sprite);
     };
     const firstFire = () => {
       const firstFlames = [...oneFire(1, 15), ...oneFire(2, 20)];
@@ -298,44 +287,44 @@ export default function useWinAnimation() {
 
       sprite.zIndex = 0;
       sprite.loop = false;
-      sprite.animationSpeed = 0.1;
+      sprite.animationSpeed = speed;
 
       sprite.play();
-      // sprite.onComplete(nextFire);
+      sprite.onComplete = () => {
+        sprite.destroy();
+        secondFire();
+      };
       app.stage.addChild(sprite);
     };
-    // const nextFire = () => {
-    //   const secondFlames = [...oneFire(3, 9), ...oneFire(3, 9)];
-    //   const sprite = new PIXI.AnimatedSprite(secondFlames);
-    //   sprite.scale.set(1 / 5, 1 / 5);
-    //   sprite.anchor.set(0.5);
-    //   sprite.x = window.innerWidth / 2;
-    //   sprite.y = 130;
+    const secondFire = (index = 3) => {
+      if (index > 6) return;
+      const secondFlames = oneFire(index, 9);
+      const sprite = new PIXI.AnimatedSprite(secondFlames);
+      sprite.scale.set(1 / 5, 1 / 5);
+      sprite.anchor.set(0.5);
+      sprite.x = window.innerWidth / 2;
+      sprite.y = 100;
 
-    //   sprite.zIndex = -1;
-    //   sprite.loop = true;
-    //   sprite.animationSpeed = 0.1;
+      sprite.zIndex = -1;
+      sprite.loop = true;
+      sprite.animationSpeed = speed;
 
-    //   sprite.play();
-    //   sprite.onComplete({});
-    //   app.stage.addChild(sprite);
-    // };
-    firstFire();
-    // gsap.delayedCall(3, () => firstFire);
-    // const timeline = new gsap.timeline({ ease: "none", paused: true });
-    // timeline.add(() => oneFire(1, 15, true), "<3");
-    // timeline.add(() => oneFire(2, 20, true), "<");
-    // timeline.add(() => oneFire(3, 9, false), "<");
-    // timeline.add(() => oneFire(4, 9, false), "<");
-    // timeline.add(() => oneFire(5, 9, false), "<");
-    // timeline.add(() => oneFire(6, 9, false), "<");
+      let loopCount = repeate;
+      sprite.gotoAndPlay(getRB(0, 8));
+      sprite.onComplete = () => {
+        sprite.destroy();
+      };
+      const random = Math.floor(getRB(0, 3));
+      sprite.onLoop = () => {
+        console.log("loop");
+        if (loopCount == repeate - random) secondFire(index + 1);
+        if (loopCount-- === 0) sprite.loop = false;
+      };
 
-    // timeline.play();
-    // oneFire(3, 9, false);
-    // oneFire(4, 9, false);
-    // oneFire(5, 9, false);
-    // oneFire(6, 9, false);
-    // oneFire(1, 15, true);
+      app.stage.addChild(sprite);
+    };
+
+    gsap.delayedCall(1, () => firstFire());
   };
   const winAnim = async (app, winType) => {
     const t2 = new gsap.timeline({ ease: "none", paused: true });
