@@ -29,7 +29,7 @@ export default function Scene() {
   const { asd } = useSparkleAnim();
   const { multiplierCircle } = useMultiplierAnimation();
   const [heatMapMode, setHeatMapMode] = useState(false);
-
+  const winTextArray = ["STANDARD WIN", "BIG WIN", "SENSATIONAL"];
   //remove hook
   const { removeSelectCont } = useSelectAnimation();
 
@@ -111,7 +111,7 @@ export default function Scene() {
       await font2.load();
       await font3.load();
       loader.onComplete.add(() => {
-        // winAnim(app, "BIG WIN");
+        // winAnim(app, winTextArray[2]);
         drawNormalTable(app, heatMapMode);
         addEntranceAnimation(app, multis.length);
 
@@ -125,14 +125,14 @@ export default function Scene() {
         gsap.delayedCall(
           timeOffset.sparkle + timeOffset.zoomOut + timeOffset.win,
           () => {
-            winAnim(app, "BIG WIN");
+            winAnim(app, winTextArray[2]);
           }
         );
       });
     };
-    // loadAndPlayAnimation();
+    loadAndPlayAnimation();
     // drawNormalTable(app, heatMapMode);
-    winAnim(app, "SENSATIONAL");
+    // winAnim(app, winTextArray[2]);
     return () => {
       app.view.removeEventListener("pointerdown", onPointerDownHandler);
       app.destroy(true, true);

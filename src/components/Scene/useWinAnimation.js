@@ -117,7 +117,7 @@ export default function useWinAnimation() {
     const mask = new PIXI.Sprite(maskTexture);
     mask.x = winText.x - winText.width / 2;
     mask.y = winText.y - winText.height / 2;
-    mask.width = (winText.width * 6) / 5;
+    mask.width = (winText.width * 8) / 5;
     mask.height = winText.height;
     mask.anchor.set(0);
     container.addChild(mask);
@@ -184,8 +184,13 @@ export default function useWinAnimation() {
     gsap.delayedCall(8, () => stop());
   };
   const addSign = (app, t2) => {
-    const texture = new PIXI.Texture.from("/assets/image/spot.png");
     const startPos = { x: 100, y: 250 };
+
+    const g = new PIXI.Graphics();
+    g.beginFill(0xffffff);
+    g.drawCircle(7, 7, 7);
+    g.endFill();
+    const texture = app.renderer.generateTexture(g);
     const emitter = new Emitter(app.stage, texture, {
       alpha: {
         start: 1,
@@ -220,7 +225,7 @@ export default function useWinAnimation() {
         max: 5,
       },
       lifetime: {
-        min: 0.3,
+        min: 0.6,
         max: 0.9,
       },
       blendMode: "screen",
@@ -239,20 +244,24 @@ export default function useWinAnimation() {
         r: 0,
       },
     });
-
+    emitter.emit = false;
     gsap.registerPlugin(MotionPathPlugin);
-    emitter.emit = true;
+
     gsap.to(emitter.spawnPos, {
       motionPath: [
         { x: startPos.x, y: startPos.y },
-        { x: startPos.x + 50, y: startPos.y - 10 },
-        { x: startPos.x + 60, y: startPos.y + 10 },
+        { x: startPos.x + 50, y: startPos.y - 20 },
+        { x: startPos.x + 40, y: startPos.y + 20 },
         { x: startPos.x + 200, y: startPos.y - 20 },
       ],
       duration: 1,
       delay: 1,
+      ease: "none",
       onComplete: () => {
         emitter.emit = false;
+      },
+      onStart: () => {
+        emitter.emit = true;
       },
     });
 
@@ -263,7 +272,7 @@ export default function useWinAnimation() {
       emitter.update((now - elapsed) * 0.001);
       elapsed = now;
     };
-    emitter.emit = true;
+    // emitter.emit = true;
     update();
   };
   const addFireframeAnim = (app, speed = 0.3, repeate = 14) => {
