@@ -1,14 +1,16 @@
-import React from 'react'
-import WinningNumber from '../WinningNumber/WinningNumber'
-import useWinningNumber from '../../../hooks/winningNumber'
+import React from "react";
+import WinningNumber from "../WinningNumber/WinningNumber";
+import useWinningNumber from "../../../hooks/winningNumber";
 
 const WinningNumberWrapper = ({ vip }) => {
-  const winningNumber = useWinningNumber()
+  const winningNumber = useWinningNumber();
   return (
     <>
-      {winningNumber >= 0 && <WinningNumber number={winningNumber} vip={vip} showMoney activeRoom />}
+      {winningNumber >= 0 && (
+        <WinningNumber number={winningNumber} vip={vip} showMoney activeRoom />
+      )}
     </>
-  )
-}
+  );
+};
 
-export default WinningNumberWrapper
+export default WinningNumberWrapper;

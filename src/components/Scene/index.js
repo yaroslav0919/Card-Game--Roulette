@@ -130,9 +130,9 @@ export default function Scene() {
         );
       });
     };
-    loadAndPlayAnimation();
+    // loadAndPlayAnimation();
     // drawNormalTable(app, heatMapMode);
-    // winAnim(app, winTextArray[2]);
+    winAnim(app, winTextArray[2]);
     return () => {
       app.view.removeEventListener("pointerdown", onPointerDownHandler);
       app.destroy(true, true);
