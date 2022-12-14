@@ -26,9 +26,6 @@ export default function useResource() {
     loader.add("assets/image/circle.png");
     loader.add("assets/image/circle-shine.png");
 
-    loader.add("assets/tiles/tile-black.svg");
-    loader.add("assets/tiles/tile-red.svg");
-
     loader.add("assets/image/win-light1.png");
     loader.add("assets/image/win-light2.png");
     loader.add("assets/image/win-light3.png");

@@ -12,12 +12,12 @@ const otherKeys = [
   {
     key: "bc-red",
     title: null,
-    titleImg: "tile-red",
+    tile: "red",
   },
   {
     key: "bc-black",
     title: null,
-    titleImg: "tile-black",
+    tile: "black",
   },
   {
     key: "bp-odd",
@@ -37,7 +37,7 @@ const otherKeys = [
   },
   {
     key: "bg-13-24",
-    title: "2NT 12",
+    title: "2ND 12",
     textDirection: "vertical",
     specialTitle: true,
   },

@@ -344,6 +344,7 @@ export default function useWinAnimation() {
         addSign(app, t2);
         break;
       case "SENSATIONAL":
+        addFireworksAnim();
         addFireframeAnim(app);
         break;
     }

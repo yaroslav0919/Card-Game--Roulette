@@ -36,7 +36,7 @@ export default function drawOnce() {
     return offset;
   };
 
-  const drawOnce = (app, heatMapMode, tinyTable) => {
+  const drawOnce = (app, heatMapMode, tinyTable, tileTexture) => {
     // const centerOffset = calcCenterOffset();
     const centerOffset = { x: 0, y: 0 };
     const tileData = [];
@@ -89,7 +89,7 @@ export default function drawOnce() {
           height: btn?.bordersPos[0].h,
         },
         titleColor: "#FFFFFF",
-        titleImg: item.titleImg,
+        tile: item.tile,
         textDirection: item.textDirection,
         backgroundOpacity: item.title === "2TO1" ? 0.9 : 0.45,
         specialTitle: item.specialTitle,
@@ -97,6 +97,7 @@ export default function drawOnce() {
     });
     const graphics = new PIXI.Graphics();
     app.addChild(graphics);
+
     tileData.forEach((item) => {
       /* drag background rectangles */
       if (!heatMapMode) {
@@ -258,14 +259,18 @@ export default function drawOnce() {
       }
       /** end drawing */
 
-      if (item.titleImg) {
-        const img = PIXI.Sprite.from(`/assets/tiles/${item.titleImg}.svg`);
+      if (item.tile) {
+        const texture =
+          item.tile === "red" ? tileTexture.red : tileTexture.black;
+        const img = new PIXI.Sprite(texture);
+
         img.x = item.position.x + item.size.width / 2 + centerOffset.x;
         img.y = item.position.y + item.size.height / 2 + centerOffset.y;
         img.width = 20;
         img.height = 50;
         img.anchor.set(0.5);
         app.addChild(img);
+
         tinyTable.add(
           gsap.to(img, {
             x: img.x / 2,
@@ -434,7 +439,31 @@ export default function drawOnce() {
       "<"
     );
 
-    drawOnce(container, heatMapMode, tinyTable);
+    const getTileTexture = (color) => {
+      const g = new PIXI.Graphics();
+      g.lineStyle(2, 0xffffff);
+      g.beginFill(color);
+      g.drawRoundedRect(0, 0, 20, 20, 2);
+      g.endFill();
+      g.x = 10;
+      g.y = 0;
+      g.angle = 45;
+      app.stage.addChild(g);
+
+      const con = new PIXI.Container();
+      con.x = -100;
+      con.y = 100;
+
+      con.addChild(g);
+      app.stage.addChild(con);
+      const tileTexture = app.renderer.generateTexture(con);
+      return tileTexture;
+    };
+
+    drawOnce(container, heatMapMode, tinyTable, {
+      red: getTileTexture(0xff0000),
+      black: getTileTexture(0x000000),
+    });
   };
 
   return { calcCenterOffset, drawNormalTable, tinyTable };
