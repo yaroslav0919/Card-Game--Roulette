@@ -44,7 +44,7 @@ export default function Scene() {
   // const multis = [30, 500, 10];
   const numberArray = [30, 28, 8, 0];
   const multis = [30, 500, 10, 600];
-  const timeOffset = { sparkle: 4.4, zoomOut: 13, win: 3 };
+  const timeOffset = { sparkle: 4.4, zoomOut: 11, win: 3 };
   // const numberArray = [30, 28, 23, 8, 0];
   // const multis = [30, 500, 10, 200, 600];
   const setApp = useStore((state) => state.setApp);
@@ -114,7 +114,6 @@ export default function Scene() {
       await font2.load();
       await font3.load();
       loader.onComplete.add(() => {
-        // winAnim(app, winTextArray[2]);
         drawNormalTable(app, heatMapMode);
         addEntranceAnimation(app, multis.length);
 

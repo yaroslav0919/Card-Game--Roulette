@@ -190,8 +190,6 @@ function createParticles(x, y) {
 }
 
 export function loop() {
-  console.log("loop");
-
   ctx.globalCompositeOperation = "destination-out";
   ctx.fillStyle = "rgba(0, 0, 0, 0.5)";
   ctx.fillRect(0, 0, cw, ch);
