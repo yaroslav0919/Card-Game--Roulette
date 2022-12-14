@@ -346,7 +346,6 @@ const WinningNumber = ({ number, showMoney, vip, activeRoom }) => {
   const [currentItem, setCurrentItem] = useState(null);
   const [money, setMoney] = useState(null);
   const [finishWin, setFinishWin] = useState(false);
-
   useEffect(() => {
     const winner = getItem(number, vip);
     setCurrentItem(winner);
@@ -388,13 +387,7 @@ const WinningNumber = ({ number, showMoney, vip, activeRoom }) => {
   }, []);
 
   return (
-    <motion.div
-      className="winning-number"
-      exit={{ opacity: 0 }}
-      style={{
-        transform: "translate(0,0,100)",
-      }}
-    >
+    <motion.div className="winning-number" exit={{ opacity: 0 }}>
       {currentItem && vip && <Wheel winningNumber={number} />}
       {currentItem && !vip && (
         <motion.div

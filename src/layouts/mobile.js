@@ -305,7 +305,7 @@ function HomePage() {
                 {/* <RaceTrack vip={vip} key='raceTrack' /> */}
                 <Statistics vip={vip} key="statistics" />
                 <MobileMenu vip={vip} key="mobile-menu" />
-                <WinningNumberWrapper vip={vip} key="WinningNumberWrapper" />
+                {/* <WinningNumberWrapper vip={vip} key="WinningNumberWrapper" /> */}
               </AnimatePresence>
             </Suspense>
           </div>

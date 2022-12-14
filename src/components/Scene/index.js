@@ -15,6 +15,8 @@ import useSelectAnimationa from "./useSelectAnimation";
 import useWinAnimation from "./useWinAnimation";
 import gsap from "gsap";
 import CustomEase from "gsap/CustomEase";
+import WinningNumberWrapper from "../WinningNumberWrapper/WinningNumberWrapper";
+
 export default function Scene() {
   const ref = useRef(null);
 
@@ -29,6 +31,7 @@ export default function Scene() {
   const { asd } = useSparkleAnim();
   const { multiplierCircle } = useMultiplierAnimation();
   const [heatMapMode, setHeatMapMode] = useState(false);
+  const [startWin, setStartWin] = useState();
   const winTextArray = ["STANDARD WIN", "BIG WIN", "SENSATIONAL"];
   //remove hook
   const { removeSelectCont } = useSelectAnimation();
@@ -125,14 +128,16 @@ export default function Scene() {
         gsap.delayedCall(
           timeOffset.sparkle + timeOffset.zoomOut + timeOffset.win,
           () => {
-            winAnim(app, winTextArray[2]);
+            setStartWin(true);
+            gsap.delayedCall(3, () => winAnim(app, winTextArray[2]));
           }
         );
       });
     };
-    // loadAndPlayAnimation();
+    loadAndPlayAnimation();
     // drawNormalTable(app, heatMapMode);
-    winAnim(app, winTextArray[2]);
+    // setStartWin(true);
+    // winAnim(app, winTextArray[2]);
     return () => {
       app.view.removeEventListener("pointerdown", onPointerDownHandler);
       app.destroy(true, true);
@@ -142,7 +147,11 @@ export default function Scene() {
   return (
     <>
       {heatMapMode ? <HeatMapView /> : null}
-      <div className="canvasScene" ref={ref} />
+      <div className="canvasScene" ref={ref}>
+        {startWin && (
+          <WinningNumberWrapper vip={true} key="WinningNumberWrapper" />
+        )}
+      </div>
     </>
   );
 }
