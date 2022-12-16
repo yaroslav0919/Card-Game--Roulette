@@ -33,11 +33,13 @@ export default function useWinAnimation() {
     const shadow = new PIXI.Sprite.from("assets/image/win-shadow.png");
 
     shadow.width = 260;
-    shadow.height = 210;
+    shadow.height = 200;
+
     shadow.x = 0;
     shadow.y = 0;
-    shadow.anchor.set(0.5);
+    shadow.anchor.set(0.48);
     shadow.blendMode = PIXI.BLEND_MODES.MULTIPLY;
+
     container.addChild(shadow);
     const wood = new PIXI.Sprite.from("assets/image/win-wood.png");
     wood.width = 220;
@@ -45,6 +47,7 @@ export default function useWinAnimation() {
     wood.x = 0;
     wood.y = 0;
     wood.anchor.set(0.5);
+
     container.addChild(wood);
 
     const path = "assets/image/light";
@@ -58,13 +61,14 @@ export default function useWinAnimation() {
     borderLight.height = 265;
     borderLight.x = 0;
     borderLight.y = 0;
-    borderLight.anchor.set(0.5);
+    borderLight.filters = borderLight.anchor.set(0.5);
     borderLight.loop = true;
     borderLight.animationSpeed = 0.05;
     borderLight.blendMode = PIXI.BLEND_MODES.SCREEN;
-    borderLight.play();
-    container.addChild(borderLight);
 
+    borderLight.play();
+
+    container.addChild(borderLight);
     const winText2 = new PIXI.Text(winType, {
       fontFamily: "CircularStd",
       fill: "#ED2E22",
@@ -77,7 +81,7 @@ export default function useWinAnimation() {
       dropShadowBlur: 5,
 
       stroke: "#C60301",
-      strokeThickness: 6,
+      strokeThickness: 4,
       lineJoin: "bevel",
     });
     winText2.anchor.set(0.5);
@@ -115,9 +119,9 @@ export default function useWinAnimation() {
     // app.stage.addChild(g);
     const maskTexture = app.renderer.generateTexture(g);
     const mask = new PIXI.Sprite(maskTexture);
-    mask.x = winText.x - winText.width / 2;
+    mask.x = winText.x - winText.width / 2 - 5;
     mask.y = winText.y - winText.height / 2;
-    mask.width = (winText.width * 8) / 5;
+    mask.width = (winText.width * 8) / 5 + 5;
     mask.height = winText.height;
     mask.anchor.set(0);
     container.addChild(mask);
@@ -133,13 +137,12 @@ export default function useWinAnimation() {
       "<"
     );
 
-    const earn = 720;
+    const earn = 824;
     const earnText = new PIXI.Text(``, {
-      fontFamily: "CircularStd",
-      fontWeight: 500,
+      fontFamily: "CircularStd, Arial",
+      fontWeight: 300,
       fill: "white",
       fontSize: 42,
-      letterSpacing: 3,
       stroke: "#8F5D0B",
       strokeThickness: 3,
 
@@ -157,7 +160,7 @@ export default function useWinAnimation() {
         duration: earn / 500,
         tex: 0,
         onUpdate: () => {
-          earnText.text = `$` + Math.floor(textObj.tex);
+          earnText.text = `₺ ` + Math.floor(textObj.tex);
         },
         onComplete: () => {
           gsap.to(earnText, {
@@ -181,7 +184,7 @@ export default function useWinAnimation() {
     gsap.delayedCall(5, () => fire(216, 310, 350, 200));
     gsap.delayedCall(5.5, () => fire(216, 310, 100, 200));
     gsap.delayedCall(6, () => fire(216, 310, 350, 200));
-    gsap.delayedCall(8, () => stop());
+    gsap.delayedCall(9, () => stop());
   };
   const addSign = (app, t2) => {
     const startPos = { x: 100, y: 250 };

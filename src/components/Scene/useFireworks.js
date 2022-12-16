@@ -15,9 +15,7 @@ var ctx = canvas.getContext("2d"),
   ch = window.innerHeight,
   fireworks = [],
   particles = [],
-  hue = 250,
-  timerTotal = 100,
-  timerTick = 0;
+  hue = 250;
 
 function random(min, max) {
   return Math.random() * (max - min) + min;
@@ -206,14 +204,7 @@ export function loop() {
     particles[i].draw();
     particles[i].update(i);
   }
-  // timerTick === 0 &&
-  // fireworks.push(new Firework(startX, startY, targetX, targetY));
   !stopOption && window.requestAnimationFrame(loop);
-  // if (timerTick < timerTotal) {
-  //   window.requestAnimationFrame(loop);
-  //   timerTick++;
-  // } else timerTick = 0;
-  timerTick++;
 }
 export function fire(sx, sy, tx, ty) {
   startX = sx;
