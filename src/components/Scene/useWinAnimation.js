@@ -50,20 +50,23 @@ export default function useWinAnimation() {
 
     container.addChild(wood);
 
-    const path = "assets/image/light";
+    const path = "assets/image/win-light";
     const frames = [];
     for (let i = 1; i < 4; i++) {
       const texture = PIXI.Texture.from(path + i + ".png");
+      texture.baseTexture.premultipliedAlpha = false;
       frames.push(texture);
     }
     const borderLight = new PIXI.AnimatedSprite(frames);
-    borderLight.width = 370;
-    borderLight.height = 265;
+    borderLight.width = 220;
+    borderLight.height = 160;
     borderLight.x = 0;
     borderLight.y = 0;
-    borderLight.filters = borderLight.anchor.set(0.5);
+    borderLight.anchor.set(0.5);
+
     borderLight.loop = true;
     borderLight.animationSpeed = 0.05;
+    borderLight.tint = 0xfdff5b;
     borderLight.blendMode = PIXI.BLEND_MODES.SCREEN;
 
     borderLight.play();
