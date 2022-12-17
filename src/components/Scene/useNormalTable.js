@@ -246,8 +246,8 @@ export default function drawOnce() {
           graphics,
           { scale: { x: 1, y: 1 } },
           {
-            width: graphics.width / 2,
-            height: graphics.height / 2,
+            width: graphics.width / 2.6,
+            height: graphics.height / 2.6,
             // scale: { x: 0.5, y: 0.5 },
             duration: 2,
           }
@@ -273,10 +273,10 @@ export default function drawOnce() {
 
         tinyTable.add(
           gsap.to(img, {
-            x: img.x / 2,
-            y: img.y / 2,
-            width: 10,
-            height: 25,
+            x: img.x / 2.6,
+            y: img.y / 2.6,
+            width: img.width / 2.6,
+            height: img.height / 2.6,
             duration: 2,
           }),
           "<"
@@ -362,30 +362,30 @@ export default function drawOnce() {
           app.addChild(label3);
           tinyTable.add(
             gsap.to(label1, {
-              x: label1.x / 2,
-              y: label1.y / 2,
-              width: label1.width / 2,
-              height: label1.height / 2,
+              x: label1.x / 2.6,
+              y: label1.y / 2.6,
+              width: label1.width / 2.6,
+              height: label1.height / 2.6,
               duration: 2,
             }),
             "<"
           );
           tinyTable.add(
             gsap.to(label2, {
-              x: label2.x / 2,
-              y: label2.y / 2,
-              width: label2.width / 2,
-              height: label2.height / 2,
+              x: label2.x / 2.6,
+              y: label2.y / 2.6,
+              width: label2.width / 2.6,
+              height: label2.height / 2.6,
               duration: 2,
             }),
             "<"
           );
           tinyTable.add(
             gsap.to(label3, {
-              x: label3.x / 2,
-              y: label3.y / 2,
-              width: label3.width / 2,
-              height: label3.height / 2,
+              x: label3.x / 2.6,
+              y: label3.y / 2.6,
+              width: label3.width / 2.6,
+              height: label3.height / 2.6,
               duration: 2,
             }),
             "<"
@@ -401,10 +401,10 @@ export default function drawOnce() {
           app.addChild(label);
           tinyTable.add(
             gsap.to(label, {
-              x: label.x / 2,
-              y: label.y / 2,
-              width: label.width / 2,
-              height: label.height / 2,
+              x: label.x / 2.6,
+              y: label.y / 2.6,
+              width: label.width / 2.6,
+              height: label.height / 2.6,
               duration: 2,
             }),
             "<"
@@ -425,12 +425,12 @@ export default function drawOnce() {
 
     tinyTable.add(
       gsap.to(container, {
-        x: window.innerWidth / 2 - 200,
-        y: window.innerHeight - 500,
+        x: window.innerWidth / 2 - 210,
+        y: window.innerHeight - 400,
         duration: 2,
         onComplete: () => {
           gsap.to(container, {
-            y: window.innerHeight - 350,
+            y: window.innerHeight - 300,
             duration: 1,
             delay: 1,
           });

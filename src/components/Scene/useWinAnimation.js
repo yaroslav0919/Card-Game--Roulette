@@ -183,10 +183,11 @@ export default function useWinAnimation() {
   };
   const addFireworksAnim = async (t2) => {
     loop();
-    fire(216, 310, 216, 200);
-    gsap.delayedCall(5, () => fire(216, 310, 350, 200));
-    gsap.delayedCall(5.5, () => fire(216, 310, 100, 200));
-    gsap.delayedCall(6, () => fire(216, 310, 350, 200));
+    const X = window.innerWidth / 2;
+    fire(X, 310, X, 200);
+    gsap.delayedCall(5, () => fire(X, 310, X + 140, 200));
+    gsap.delayedCall(5.5, () => fire(X, 310, X - 130, 200));
+    gsap.delayedCall(6, () => fire(X, 310, X + 140, 200));
     gsap.delayedCall(9, () => stop());
   };
   const addSign = (app, t2) => {
