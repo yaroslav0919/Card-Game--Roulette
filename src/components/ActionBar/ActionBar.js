@@ -109,8 +109,25 @@ const ActionBar = ({ vip }) => {
       }
     );
   }, []);
-
-  const [showActionBar, setShowActionBar] = useState(true);
+  useEffect(() => {
+    return reaction(
+      () => {
+        return Store.GameStore.session;
+      },
+      (session) => {
+        if (session.flag === State.Open) {
+          // setShowActionBar(true);
+        } else {
+          setShowActionBar(false);
+        }
+      },
+      {
+        fireImmediately: true,
+      }
+    );
+  }, []);
+  // const [showActionBar, setShowActionBar] = useState(true);
+  const [showActionBar, setShowActionBar] = useState(false);
   const [selectedChip, setSelectedChip] = useState(Store.GameStore.rate);
 
   const onAutoPlayClick = (e) => {
