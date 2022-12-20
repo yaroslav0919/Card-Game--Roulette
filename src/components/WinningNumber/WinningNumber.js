@@ -346,6 +346,7 @@ const WinningNumber = ({ number, showMoney, vip, activeRoom }) => {
   const [currentItem, setCurrentItem] = useState(null);
   const [money, setMoney] = useState(null);
   const [finishWin, setFinishWin] = useState(false);
+  vip = false
   useEffect(() => {
     const winner = getItem(number, vip);
     setCurrentItem(winner);

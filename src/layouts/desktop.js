@@ -93,7 +93,7 @@ function HomePage () {
     }, (room) => {
       if (room) {
         const isVipRoom = Roulette.isVipRoom()
-        setVip(isVipRoom)
+        setVip(false)
         setIsLoaded(room)
         if (!isLoaded) {
           Roulette.fullstory()
@@ -290,16 +290,16 @@ function HomePage () {
                     <RightActions vip={vip} key='rightActions' />
                     <AutoGame key='autoGame' />
                   </div>
-                  </div>
+                </div>
                 : <div className='chip-menu'>
                   <ChipWrapper vip={vip} />
                   <RightActions vip={vip} key='rightActions' />
                   <AutoGame key='autoGame' />
-                  </div>}
+                </div>}
               {vip
                 ? <div className='amount-vip-wrapper'>
                   <UserInfo />
-                  </div>
+                </div>
                 : <UserInfo />}
             </div>
           </div>

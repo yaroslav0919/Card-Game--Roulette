@@ -52,7 +52,7 @@ const CountDown = ({
   }
 
   const rotate = elapsedTime * 360 / duration
-
+  vip = false
   return (
     <>
       <figure className='circle-countdown__triangle' style={{ transform: `rotate(${rotate}deg)` }}>
