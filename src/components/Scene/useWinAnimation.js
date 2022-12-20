@@ -22,7 +22,7 @@ export default function useWinAnimation() {
           y: 230,
 
           alpha: 1,
-          duration: 1,
+          duration: 0.5,
           delay: 1,
         }
       )
@@ -75,19 +75,21 @@ export default function useWinAnimation() {
     const winText2 = new PIXI.Text(winType, {
       fontFamily: "CircularStd",
       fill: "#ED2E22",
-      fontSize: 44,
+      fontSize: 88,
       fontWeight: 900,
 
       dropShadow: true,
       dropShadowAngle: ang2Rad(90),
-      dropShadowDistance: 3,
+      dropShadowDistance: 6,
       dropShadowBlur: 5,
 
       stroke: "#C60301",
-      strokeThickness: 4,
+      strokeThickness: 8,
       lineJoin: "bevel",
     });
     winText2.anchor.set(0.5);
+    winText2.scale.x = 0.5;
+    winText2.scale.y = 0.5;
     winText2.y = -8;
     winText2.x = 1;
 
@@ -101,11 +103,13 @@ export default function useWinAnimation() {
 
       dropShadowColor: "#FAFD66",
 
-      dropShadowDistance: 1,
+      dropShadowDistance: 2,
       fill: "#FFCC01",
-      fontSize: 44,
+      fontSize: 88,
     });
     winText.anchor.set(0.5);
+    winText.scale.x = 0.5;
+    winText.scale.y = 0.5;
     winText.y = -10;
     container.addChild(winText);
 
@@ -134,7 +138,7 @@ export default function useWinAnimation() {
       gsap.from(mask, {
         width: 0,
         duration: 1.5,
-        delay: 1,
+        delay: 1.5,
         ease: "none",
       }),
       "<"
@@ -142,21 +146,23 @@ export default function useWinAnimation() {
 
     const earn = 824;
     const earnText = new PIXI.Text(``, {
-      fontFamily: "CircularStd, Arial",
+      fontFamily: "CircularStdMedium, Arial",
       fontWeight: 300,
       fill: "white",
-      fontSize: 42,
+      fontSize: 84,
       stroke: "#8F5D0B",
-      strokeThickness: 3,
+      strokeThickness: 6,
 
       dropShadow: true,
-      dropShadowDistance: 3,
+      dropShadowDistance: 20,
+      dropShadowAlpha: 0.4,
       dropShadowAngle: ang2Rad(90),
       dropShadowBlur: 5,
     });
     earnText.anchor.set(0.5);
     earnText.y = 40;
-
+    earnText.scale.x = 0.5;
+    earnText.scale.y = 0.5;
     const textObj = { tex: earn };
     timeLine.add(
       gsap.from(textObj, {
@@ -185,10 +191,10 @@ export default function useWinAnimation() {
     loop();
     const X = window.innerWidth / 2;
     fire(X, 310, X, 200);
-    gsap.delayedCall(5, () => fire(X, 310, X + 140, 200));
-    gsap.delayedCall(5.5, () => fire(X, 310, X - 130, 200));
     gsap.delayedCall(6, () => fire(X, 310, X + 140, 200));
-    gsap.delayedCall(9, () => stop());
+    gsap.delayedCall(6.5, () => fire(X, 310, X - 130, 200));
+    gsap.delayedCall(7, () => fire(X, 310, X + 140, 200));
+    gsap.delayedCall(10, () => stop());
   };
   const addSign = (app, t2) => {
     const startPos = { x: 100, y: 250 };
@@ -340,7 +346,7 @@ export default function useWinAnimation() {
       app.stage.addChild(sprite);
     };
 
-    gsap.delayedCall(1, () => firstFire());
+    gsap.delayedCall(1.5, () => firstFire());
   };
   const winAnim = async (app, winType) => {
     const t2 = new gsap.timeline({ ease: "none", paused: true });

@@ -37,14 +37,14 @@ export default function Scene() {
   const { removeSelectCont } = useSelectAnimation();
 
   // const numberArray = [20];
-  // const multis = [10];
+  // const multis = [10];h
   // const numberArray = [30, 28];
   // const multis = [30, 500];
   // const numberArray = [30, 28, 0];
   // const multis = [30, 500, 10];
   const numberArray = [30, 28, 8, 0];
   const multis = [30, 500, 10, 600];
-  const timeOffset = { sparkle: 4.4, zoomOut: 11, win: 3 };
+  const timeOffset = { sparkle: 4.4, zoomOut: 11, win: 1 };
   // const numberArray = [30, 28, 23, 8, 0];
   // const multis = [30, 500, 10, 200, 600];
   const setApp = useStore((state) => state.setApp);
@@ -82,7 +82,7 @@ export default function Scene() {
           });
         },
       });
-    }, 3000);
+    }, 2000);
 
     app.view.removeEventListener("pointerdown", onPointerDownHandler);
   };
@@ -110,9 +110,11 @@ export default function Scene() {
       const font1 = new FontFaceObserver("Sancreek");
       const font2 = new FontFaceObserver("CircularStdBlack");
       const font3 = new FontFaceObserver("CircularStd");
+      const font4 = new FontFaceObserver("CircularStdMedium");
       await font1.load();
       await font2.load();
       await font3.load();
+      await font4.load();
       loader.onComplete.add(() => {
         drawNormalTable(app, heatMapMode);
         addEntranceAnimation(app, multis.length);
@@ -123,11 +125,11 @@ export default function Scene() {
         gsap.delayedCall(timeOffset.sparkle + timeOffset.zoomOut, () => {
           removeContainers(app);
           tinyTable.play();
+          setStartWin(true);
         });
         gsap.delayedCall(
           timeOffset.sparkle + timeOffset.zoomOut + timeOffset.win,
           () => {
-            setStartWin(true);
             gsap.delayedCall(3, () => winAnim(app, winTextArray[2]));
           }
         );

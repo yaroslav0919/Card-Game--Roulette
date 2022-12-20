@@ -348,7 +348,7 @@ export default function useMultiplierAnimation() {
     sprite.width = 230;
     sprite.height = 240;
     sprite.x = pos - 3;
-    sprite.y = Y - 95;
+    sprite.y = Y - 45;
     sprite.anchor.set(0.5, 1);
     sprite.loop = false;
     sprite.animationSpeed = 1;
@@ -367,7 +367,7 @@ export default function useMultiplierAnimation() {
     const circle = new PIXI.Container();
     circle.id = "multi";
     circle.x = halfX - 175;
-    circle.y = Y - 170;
+    circle.y = Y - 120;
     const radius = 40;
 
     app.stage.addChild(circle);

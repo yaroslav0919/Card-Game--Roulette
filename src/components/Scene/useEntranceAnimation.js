@@ -31,20 +31,25 @@ export default function useEntranceAnimation() {
       onComplete() {
         gsap.to(hat, {
           x: halfX - 100,
+          y: Y - 90,
+          width: 180,
+          height: 164,
           rotation: ang2Rad(40),
+
           delay: 3 * speed,
           duration: 1.5 * speed,
           onComplete() {
             gsap.to(hat, {
               x: halfX - 103,
-              y: Y - 105,
+              y: Y - 95,
+
               duration: 0.25 * speed,
               yoyo: true,
               repeat: 1,
               onComplete() {
                 gsap.to(hat, {
                   x: halfX - 97,
-                  y: Y - 95,
+                  y: Y - 85,
                   duration: 0.25 * speed,
                   yoyo: true,
                   repeat: 1,
@@ -66,7 +71,7 @@ export default function useEntranceAnimation() {
                       onComplete() {
                         gsap.to(hat, {
                           x: halfX - 178,
-                          y: Y - 105,
+                          y: Y - 95,
                           duration: 1 * speed,
                           repeat: multiCount * 2 - 1,
                           yoyo: true,

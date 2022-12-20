@@ -249,7 +249,7 @@ export default function drawOnce() {
             width: graphics.width / 2.6,
             height: graphics.height / 2.6,
             // scale: { x: 0.5, y: 0.5 },
-            duration: 2,
+            duration: 1,
           }
         ),
         "<"
@@ -277,7 +277,7 @@ export default function drawOnce() {
             y: img.y / 2.6,
             width: img.width / 2.6,
             height: img.height / 2.6,
-            duration: 2,
+            duration: 1,
           }),
           "<"
         );
@@ -366,7 +366,7 @@ export default function drawOnce() {
               y: label1.y / 2.6,
               width: label1.width / 2.6,
               height: label1.height / 2.6,
-              duration: 2,
+              duration: 1,
             }),
             "<"
           );
@@ -376,7 +376,7 @@ export default function drawOnce() {
               y: label2.y / 2.6,
               width: label2.width / 2.6,
               height: label2.height / 2.6,
-              duration: 2,
+              duration: 1,
             }),
             "<"
           );
@@ -386,7 +386,7 @@ export default function drawOnce() {
               y: label3.y / 2.6,
               width: label3.width / 2.6,
               height: label3.height / 2.6,
-              duration: 2,
+              duration: 1,
             }),
             "<"
           );
@@ -405,7 +405,7 @@ export default function drawOnce() {
               y: label.y / 2.6,
               width: label.width / 2.6,
               height: label.height / 2.6,
-              duration: 2,
+              duration: 1,
             }),
             "<"
           );
@@ -425,13 +425,13 @@ export default function drawOnce() {
 
     tinyTable.add(
       gsap.to(container, {
-        x: window.innerWidth / 2 - 210,
-        y: window.innerHeight - 400,
-        duration: 2,
+        x: 15,
+        y: window.innerHeight - 350,
+        duration: 1,
         onComplete: () => {
           gsap.to(container, {
-            y: window.innerHeight - 300,
-            duration: 1,
+            y: window.innerHeight - 250,
+            duration: 0.5,
             delay: 1,
           });
         },
