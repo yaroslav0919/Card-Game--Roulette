@@ -6,10 +6,10 @@ import { ang2Rad } from "../../utils/math";
 import { fire, loop, stop } from "./useFireworks";
 import { getRB } from "../../utils/math";
 export default function useWinAnimation() {
+  const container = new PIXI.Container();
   const addDefaultAnim = (app, winType, timeLine) => {
-    const container = new PIXI.Container();
     container.pivot.set(0.5);
-    // container.blendMode = PIXI.BLEND_MODES.SCREEN;
+
     timeLine.add(
       gsap.fromTo(
         container,
@@ -186,6 +186,7 @@ export default function useWinAnimation() {
     );
 
     container.addChild(earnText);
+    return container;
   };
   const addFireworksAnim = async (t2) => {
     loop();
@@ -198,7 +199,6 @@ export default function useWinAnimation() {
   };
   const addSign = (app, t2) => {
     const startPos = { x: 100, y: 250 };
-
     const g = new PIXI.Graphics();
     g.beginFill(0xffffff);
     g.drawCircle(7, 7, 7);
@@ -272,6 +272,7 @@ export default function useWinAnimation() {
       ease: "none",
       onComplete: () => {
         emitter.emit = false;
+        emitter.destroy();
       },
       onStart: () => {
         emitter.emit = true;
@@ -288,7 +289,7 @@ export default function useWinAnimation() {
     // emitter.emit = true;
     update();
   };
-  const addFireframeAnim = (app, speed = 0.3, repeate = 14) => {
+  const addFireframeAnim = (app, top, speed = 0.3, repeate = 14) => {
     const oneFire = (num, count) => {
       const path = `/assets/frames/fire${num}/f`;
       const frames = [];
@@ -302,10 +303,10 @@ export default function useWinAnimation() {
     const firstFire = () => {
       const firstFlames = [...oneFire(1, 15), ...oneFire(2, 20)];
       const sprite = new PIXI.AnimatedSprite(firstFlames);
-      sprite.scale.set(1 / 5, 1 / 5);
+      sprite.scale.set(1 / 4, 1 / 4);
       sprite.anchor.set(0.5);
       sprite.x = window.innerWidth / 2;
-      sprite.y = 230;
+      sprite.y = 220;
 
       sprite.zIndex = 0;
       sprite.loop = false;
@@ -316,11 +317,11 @@ export default function useWinAnimation() {
         sprite.destroy();
         secondFire();
       };
-      app.stage.addChild(sprite);
+      top.stage.addChild(sprite);
     };
     const secondFire = (index = 3) => {
       if (index > 6) return;
-      const secondFlames = oneFire(index, 9);
+      const secondFlames = oneFire(index, 5);
       const sprite = new PIXI.AnimatedSprite(secondFlames);
       sprite.scale.set(1 / 5, 1 / 5);
       sprite.anchor.set(0.5);
@@ -338,7 +339,6 @@ export default function useWinAnimation() {
       };
       const random = Math.floor(getRB(0, 3));
       sprite.onLoop = () => {
-        console.log("loop");
         if (loopCount == repeate - random) secondFire(index + 1);
         if (loopCount-- === 0) sprite.loop = false;
       };
@@ -348,7 +348,8 @@ export default function useWinAnimation() {
 
     gsap.delayedCall(1.5, () => firstFire());
   };
-  const winAnim = async (app, winType) => {
+
+  const winAnim = async (app, top, winType) => {
     const t2 = new gsap.timeline({ ease: "none", paused: true });
     addDefaultAnim(app, winType, t2);
     switch (winType) {
@@ -358,10 +359,13 @@ export default function useWinAnimation() {
         break;
       case "SENSATIONAL":
         addFireworksAnim();
-        addFireframeAnim(app);
+        addFireframeAnim(app, top);
         break;
     }
     t2.play();
   };
-  return { winAnim };
+  const destroyWin=()=>{
+    container.destroy()
+  }
+  return { winAnim , destroyWin};
 }

@@ -99,7 +99,7 @@ const ActionBar = ({ vip }) => {
       },
       (session) => {
         if (session.flag === State.Open) {
-          setShowActionBar(true);
+          // setShowActionBar(true);
         } else {
           setShowActionBar(false);
         }

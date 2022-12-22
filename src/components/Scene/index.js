@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Application } from "pixi.js";
+import { Application, TYPES_TO_BYTES_PER_PIXEL } from "pixi.js";
 import HeatMapView from "./heatMap";
 import useNormalTable from "./useNormalTable";
 import useRaceTrackTable from "./useRaceTrackTable";
@@ -14,26 +14,27 @@ import FontFaceObserver from "fontfaceobserver";
 import useSelectAnimationa from "./useSelectAnimation";
 import useWinAnimation from "./useWinAnimation";
 import gsap from "gsap";
+import * as PIXI from "pixi.js";
 import CustomEase from "gsap/CustomEase";
 import WinningNumberWrapper from "../WinningNumberWrapper/WinningNumberWrapper";
 
 export default function Scene() {
   const ref = useRef(null);
+  const { drawNormalTable, calcCenterOffset, tinyTable, backTable } =
+    useNormalTable();
 
-  const { drawNormalTable, calcCenterOffset, tinyTable } = useNormalTable();
-  const { drawRaceTrackTable } = useRaceTrackTable();
   const { onPointerDownHandler } = useEvents();
   const { addEntranceAnimation } = useEntranceAnimation();
   const { preLoadSpriteImages } = useResource();
-  const { drawPolishRect } = useSelectAnimation();
+
   const { addSparkleAnimation } = useSparkleAnim();
-  const { winAnim } = useWinAnimation();
-  const { asd } = useSparkleAnim();
-  const { multiplierCircle } = useMultiplierAnimation();
+  const { winAnim, destroyWin } = useWinAnimation();
+
   const [heatMapMode, setHeatMapMode] = useState(false);
-  const [startWin, setStartWin] = useState();
+
+  const [startWin, setStartWin] = useState(false);
   const winTextArray = ["STANDARD WIN", "BIG WIN", "SENSATIONAL"];
-  //remove hook
+
   const { removeSelectCont } = useSelectAnimation();
 
   // const numberArray = [20];
@@ -62,7 +63,6 @@ export default function Scene() {
     setTimeout(() => {
       app.stage.removeChild(...multis.splice(0, multis.length - 1));
       const topMulti = multis[multis.length - 1];
-      console.log(topMulti);
       gsap.to(topMulti, {
         x: window.innerWidth / 2,
         duration: 1,
@@ -95,13 +95,28 @@ export default function Scene() {
       height: window.innerHeight,
       antialias: true,
     });
+
+    const top = new Application({
+      resizeTo: window,
+      backgroundAlpha: 0,
+      width: window.innerWidth,
+      height: window.innerHeight,
+      antialias: true,
+    });
+
+    top.view.style.zIndex = 2;
+    top.view.style.position = "absolute";
+    ref.current.appendChild(top.view);
+
     setApp(app);
 
     ref.current.appendChild(app.view);
 
     app.view.addEventListener("pointerdown", onPointerDownHandler);
 
-    app.start();
+    // app.start();
+    // top.start();
+
     app.stage.sortableChildren = true;
 
     const loadAndPlayAnimation = async () => {
@@ -130,18 +145,26 @@ export default function Scene() {
         gsap.delayedCall(
           timeOffset.sparkle + timeOffset.zoomOut + timeOffset.win,
           () => {
-            gsap.delayedCall(3, () => winAnim(app, winTextArray[2]));
+            gsap.delayedCall(3, () => winAnim(app, top, winTextArray[2]));
+            gsap.delayedCall(13, () => {
+              destroyWin();
+              backTable.play();
+              setStartWin(false);
+            });
           }
         );
       });
     };
+
     loadAndPlayAnimation();
     // drawNormalTable(app, heatMapMode);
+
     // setStartWin(true);
-    // winAnim(app, winTextArray[2]);
+    // winAnim(app, top, winTextArray[2]);
     return () => {
       app.view.removeEventListener("pointerdown", onPointerDownHandler);
       app.destroy(true, true);
+      top.destroy(true, true);
     };
   }, []);
 

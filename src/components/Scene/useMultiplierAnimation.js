@@ -335,8 +335,8 @@ export default function useMultiplierAnimation() {
     container.addChild(glare);
   };
   const playAnimatedSprite = (app, pos) => {
-    const path = "/assets/frames/lion/l";
-    const count = 140;
+    const path = "/assets/frames/m1/f";
+    const count = 50;
     const frames = [];
 
     for (let i = 1; i <= count; i++) {
@@ -345,15 +345,44 @@ export default function useMultiplierAnimation() {
     }
 
     const sprite = new PIXI.AnimatedSprite(frames);
-    sprite.width = 230;
-    sprite.height = 240;
+    sprite.width = 200;
+    sprite.height = 200;
     sprite.x = pos - 3;
     sprite.y = Y - 45;
     sprite.anchor.set(0.5, 1);
     sprite.loop = false;
-    sprite.animationSpeed = 1;
-    sprite.play();
+    sprite.animationSpeed = 0.5;
+
     app.stage.addChild(sprite);
+
+    const path2 = "/assets/frames/m2/s";
+    const count2 = 75;
+    const frames2 = [];
+
+    for (let i = 1; i <= count2; i++) {
+      const texture2 = PIXI.Texture.from(path2 + "(" + i + ")" + ".png");
+      frames2.push(texture2);
+    }
+
+    const sprite2 = new PIXI.AnimatedSprite(frames2);
+    sprite2.width = 200;
+    sprite2.height = 200;
+    sprite2.x = pos - 3;
+    sprite2.y = Y - 45;
+    sprite2.anchor.set(0.5, 1);
+    sprite2.loop = false;
+    sprite2.animationSpeed = 0.5;
+    sprite2.zIndex = -1;
+    sprite2.onComplete = () => sprite2.destroy();
+    app.stage.addChild(sprite2);
+
+    sprite.play();
+
+    sprite.onComplete = () => {
+      sprite.destroy();
+      sprite2.play();
+      
+    };
   };
   const multiplierCircle = (
     index,

@@ -9,7 +9,9 @@ export default function useResource() {
         loader.add(`${name},${i}`, path + "(" + i + ")" + ".png");
       }
     };
-    loadSpriteImages("lion", "/assets/frames/lion/l", 140);
+    loadSpriteImages("flame1", "/assets/frames/m1/f", 50);
+    loadSpriteImages("flame2", "/assets/frames/m2/s", 75);
+
     loadSpriteImages("fire1", "/assets/frames/fire1/f", 15);
     loadSpriteImages("fire2", "/assets/frames/fire2/f", 20);
     loadSpriteImages("fire3", "/assets/frames/fire3/f", 9);
