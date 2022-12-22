@@ -33,7 +33,7 @@ export default function Scene() {
   const [heatMapMode, setHeatMapMode] = useState(false);
 
   const [startWin, setStartWin] = useState(false);
-  const winTextArray = ["STANDARD WIN", "BIG WIN", "SENSATIONAL"];
+  const winTextArray = ["YOU WIN", "BIG WIN", "SENSATIONAL WIN"];
 
   const { removeSelectCont } = useSelectAnimation();
 
@@ -43,11 +43,11 @@ export default function Scene() {
   // const multis = [30, 500];
   // const numberArray = [30, 28, 0];
   // const multis = [30, 500, 10];
-  const numberArray = [30, 28, 8, 0];
-  const multis = [30, 500, 10, 600];
+  // const numberArray = [30, 28, 8, 0];
+  // const multis = [30, 500, 10, 600];
   const timeOffset = { sparkle: 4.4, zoomOut: 11, win: 1 };
-  // const numberArray = [30, 28, 23, 8, 0];
-  // const multis = [30, 500, 10, 200, 600];
+  const numberArray = [30, 28, 23, 8, 0];
+  const multis = [30, 500, 10, 200, 600];
   const setApp = useStore((state) => state.setApp);
   const removeContainers = (app) => {
     let selected = [];
@@ -60,29 +60,29 @@ export default function Scene() {
     app.stage.children.forEach((child) => {
       child.id === "multi" && multis.push(child);
     });
-    setTimeout(() => {
-      app.stage.removeChild(...multis.splice(0, multis.length - 1));
-      const topMulti = multis[multis.length - 1];
-      gsap.to(topMulti, {
-        x: window.innerWidth / 2,
-        duration: 1,
-        onComplete: () => {
-          gsap.to(topMulti, {
-            y: window.innerHeight + 100,
-            alpha: 0,
-            duration: 1,
-            delay: 3,
-            ease: CustomEase.create(
-              "custom",
-              "M0,0 C0.012,-0.234 0.574,-0.107 0.584,-0.014 0.646,0.586 0.78,1 1,1 "
-            ),
-            onComplete: () => {
-              app.stage.removeChild(1, app.stag.children.length - 1);
-            },
-          });
-        },
-      });
-    }, 2000);
+
+    app.stage.removeChild(...multis.splice(0, multis.length - 1));
+    const topMulti = multis[multis.length - 1];
+    gsap.to(topMulti, {
+      x: window.innerWidth / 2,
+      duration: 1,
+      delay: 1,
+      onComplete: () => {
+        gsap.to(topMulti, {
+          y: window.innerHeight + 100,
+          alpha: 0,
+          duration: 1,
+          delay: 2,
+          ease: CustomEase.create(
+            "custom",
+            "M0,0 C0.012,-0.234 0.574,-0.107 0.584,-0.014 0.646,0.586 0.78,1 1,1 "
+          ),
+          onComplete: () => {
+            app.stage.removeChild(1, app.stag.children.length - 1);
+          },
+        });
+      },
+    });
 
     app.view.removeEventListener("pointerdown", onPointerDownHandler);
   };
@@ -145,11 +145,14 @@ export default function Scene() {
         gsap.delayedCall(
           timeOffset.sparkle + timeOffset.zoomOut + timeOffset.win,
           () => {
-            gsap.delayedCall(3, () => winAnim(app, top, winTextArray[2]));
+            gsap.delayedCall(3, () => winAnim(app, top, winTextArray[1]));
             gsap.delayedCall(13, () => {
               destroyWin();
               backTable.play();
               setStartWin(false);
+              gsap.delayedCall(1.5, () =>
+                app.stage.removeChildren(0, app.stage.children.length - 1)
+              );
             });
           }
         );
@@ -157,7 +160,6 @@ export default function Scene() {
     };
 
     loadAndPlayAnimation();
-    // drawNormalTable(app, heatMapMode);
 
     // setStartWin(true);
     // winAnim(app, top, winTextArray[2]);

@@ -5,7 +5,7 @@ import { ang2Rad } from "../../utils/math";
 import { gsap, Timeline, Tween } from "gsap";
 const BACK_DURATION = 1;
 const BACK_DELAY = 5;
-export default function drawOnce() {
+export default function useNormalTable() {
   const calcCenterOffset = () => {
     const btn0 = tableData.find((item) => item.key === "bn-0");
     const btnEnd = tableData.find((item) => item.key === "bg-3-36");
@@ -38,7 +38,7 @@ export default function drawOnce() {
     return offset;
   };
 
-  const drawOnce = (app, heatMapMode, tinyTable, backTable, tileTexture) => {
+  const drawOnce = (container, graphics, heatMapMode, tileTexture) => {
     // const centerOffset = calcCenterOffset();
     const centerOffset = { x: 0, y: 0 };
     const tileData = [];
@@ -97,11 +97,10 @@ export default function drawOnce() {
         specialTitle: item.specialTitle,
       });
     });
-    const graphics = new PIXI.Graphics();
-    app.addChild(graphics);
+
+    // container.addChild(graphics);
 
     tileData.forEach((item) => {
-      /* drag background rectangles */
       if (!heatMapMode) {
         graphics.beginFill(
           0x090809,
@@ -242,32 +241,10 @@ export default function drawOnce() {
       }
 
       graphics.closePath();
-      // graphics.scale = { x: 1, y: 1 };
-      // tinyTable.add(
-      //   gsap.fromTo(
-      //     graphics,
-      //     { scale: { x: 1, y: 1 } },
-      //     {
-      //       width: graphics.width / 2.6,
-      //       height: graphics.height / 2.6,
-      //       // scale: { x: 0.5, y: 0.5 },
-      //       duration: 1,
-      //     }
-      //   ),
-      //   "<"
-      // );
-      // backTable.add(
-      //   gsap.to(graphics, {
-      //     width: graphics.width,
-      //     height: graphics.height,
-      //     duration: BACK_DURATION,
-      //   }),
-      //   "<"
-      // );
+
       if (!heatMapMode) {
         graphics.endFill();
       }
-      /** end drawing */
 
       if (item.tile) {
         const texture =
@@ -279,28 +256,7 @@ export default function drawOnce() {
         img.width = 20;
         img.height = 50;
         img.anchor.set(0.5);
-        app.addChild(img);
-
-        // tinyTable.add(
-        //   gsap.to(img, {
-        //     x: img.x / 2.6,
-        //     y: img.y / 2.6,
-        //     width: img.width / 2.6,
-        //     height: img.height / 2.6,
-        //     duration: 1,
-        //   }),
-        //   "<"
-        // );
-        // backTable.add(
-        //   gsap.to(img, {
-        //     x: img.x,
-        //     y: img.y,
-        //     width: img.width,
-        //     height: img.height,
-        //     duration: BACK_DURATION,
-        //   }),
-        //   "<"
-        // );
+        container.addChild(img);
       } else {
         const style = new PIXI.TextStyle({
           fontFamily: "CircularStd",
@@ -377,69 +333,9 @@ export default function drawOnce() {
             label3.y = item.position.y + item.size.height / 2 + centerOffset.y;
           }
 
-          app.addChild(label1);
-          app.addChild(label2);
-          app.addChild(label3);
-          tinyTable.add(
-            gsap.to(label1, {
-              x: label1.x / 2.6,
-              y: label1.y / 2.6,
-              width: label1.width / 2.6,
-              height: label1.height / 2.6,
-              duration: 1,
-            }),
-            "<"
-          );
-          backTable.add(
-            gsap.to(label1, {
-              x: label1.x,
-              y: label1.y,
-              width: label1.width,
-              height: label1.height,
-              duration: BACK_DURATION,
-            }),
-            "<"
-          );
-          tinyTable.add(
-            gsap.to(label2, {
-              x: label2.x / 2.6,
-              y: label2.y / 2.6,
-              width: label2.width / 2.6,
-              height: label2.height / 2.6,
-              duration: 1,
-            }),
-            "<"
-          );
-          backTable.add(
-            gsap.to(label2, {
-              x: label2.x,
-              y: label2.y,
-              width: label2.width,
-              height: label2.height,
-              duration: BACK_DURATION,
-            }),
-            "<"
-          );
-          tinyTable.add(
-            gsap.to(label3, {
-              x: label3.x / 2.6,
-              y: label3.y / 2.6,
-              width: label3.width / 2.6,
-              height: label3.height / 2.6,
-              duration: 1,
-            }),
-            "<"
-          );
-          backTable.add(
-            gsap.to(label3, {
-              x: label3.x,
-              y: label3.y,
-              width: label3.width,
-              height: label3.height,
-              duration: BACK_DURATION,
-            }),
-            "<"
-          );
+          container.addChild(label1);
+          container.addChild(label2);
+          container.addChild(label3);
         } else {
           const label = new PIXI.Text(item.title, style);
           label.x = item.position.x + item.size.width / 2 + centerOffset.x;
@@ -448,27 +344,7 @@ export default function drawOnce() {
           if (item.textDirection === "vertical") {
             label.rotation = Math.PI / 2;
           }
-          app.addChild(label);
-          // tinyTable.add(
-          //   gsap.to(label, {
-          //     x: label.x / 2.6,
-          //     y: label.y / 2.6,
-          //     width: label.width / 2.6,
-          //     height: label.height / 2.6,
-          //     duration: 1,
-          //   }),
-          //   "<"
-          // );
-          // backTable.add(
-          //   gsap.to(label, {
-          //     x: label.x,
-          //     y: label.y,
-          //     width: label.width,
-          //     height: label.height,
-          //     duration: BACK_DURATION,
-          //   }),
-          //   "<"
-          // );
+          container.addChild(label);
         }
       }
     });
@@ -476,36 +352,11 @@ export default function drawOnce() {
 
   const tinyTable = new gsap.timeline({ ease: "none", paused: true });
   const backTable = new gsap.timeline({ ease: "none", paused: true });
+
   const drawNormalTable = (app, heatMapMode) => {
     const container = new PIXI.Container();
-    // container.id = "table";
-    // container.x = calcCenterOffset().x;
-    // container.y = calcCenterOffset().y;
+    const graphics = new PIXI.Graphics();
 
-    // app.stage.addChild(container);
-
-    // tinyTable.add(
-    //   gsap.to(container, {
-    //     x: 15,
-    //     y: window.innerHeight - 350,
-    //     duration: 1,
-    //     onComplete: () => {
-    //       gsap.to(container, {
-    //         y: window.innerHeight - 250,
-    //         duration: 0.5,
-    //         delay: 1,
-    //       });
-    //     },
-    //   }),
-    //   "<"
-    // );
-    // backTable.add(
-    //   gsap.to(container, {
-    //     x: calcCenterOffset().x,
-    //     y: calcCenterOffset().y,
-    //     duration: BACK_DURATION,
-    //   })
-    // );
     const getTileTexture = (color) => {
       const g = new PIXI.Graphics();
       g.lineStyle(2, 0xffffff);
@@ -527,45 +378,58 @@ export default function drawOnce() {
       return tileTexture;
     };
 
-    drawOnce(container, heatMapMode, tinyTable, backTable, {
+    drawOnce(container, graphics, heatMapMode, {
       red: getTileTexture(0xff0000),
       black: getTileTexture(0x000000),
     });
-    // PIXI.settings.SCALE_MODE = PIXI.SCALE_MODES.LINEAR;
-    // PIXI.settings.ROUND_PIXELS = true;
-    // PIXI.settings.RESOLUTION = 2;
-    // window.devicePixelRatio = 1;
-    const texture = app.renderer.generateTexture(container);
-    const sprite = new PIXI.Sprite(texture);
-    sprite.x = calcCenterOffset().x;
-    sprite.y = calcCenterOffset().y;
+    const whole = new PIXI.Container();
+    whole.x = calcCenterOffset().x;
+    whole.y = calcCenterOffset().y;
+
+    whole.addChild(graphics);
+    whole.addChild(container);
+
+    app.stage.addChild(whole);
+
     tinyTable.add(
-      gsap.to(sprite, {
+      gsap.to(whole, {
         x: 15,
         y: window.innerHeight - 350,
-        width: sprite.width / 2.6,
-        height: sprite.height / 2.6,
         duration: 1,
+        ease: "none",
         onComplete: () => {
-          gsap.to(sprite, {
+          gsap.to(whole, {
             y: window.innerHeight - 250,
             duration: 0.5,
-            delay: 1,
+            delay: 0.5,
+            ease: "none",
           });
         },
       })
     );
+
+    const getTween = (target) => {
+      return gsap.to(target, {
+        width: target.width / 2.6,
+        height: target.height / 2.6,
+        duration: 1,
+        ease: "none",
+      });
+    };
+
+    tinyTable.add(getTween(graphics), "<");
+    tinyTable.add(getTween(container), "<");
+
     backTable.add(
-      gsap.to(sprite, {
+      gsap.to(whole, {
         x: calcCenterOffset().x,
         y: calcCenterOffset().y,
-        width: sprite.width,
-        height: sprite.height,
         duration: BACK_DURATION,
+        ease: "none",
       })
     );
-
-    app.stage.addChild(sprite);
+    backTable.add(getTween(graphics).reverse(), "<");
+    backTable.add(getTween(container).reverse(), "<");
   };
 
   return { calcCenterOffset, drawNormalTable, tinyTable, backTable };

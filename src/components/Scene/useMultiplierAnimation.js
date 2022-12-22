@@ -351,7 +351,7 @@ export default function useMultiplierAnimation() {
     sprite.y = Y - 45;
     sprite.anchor.set(0.5, 1);
     sprite.loop = false;
-    sprite.animationSpeed = 0.5;
+    sprite.animationSpeed = 0.7;
 
     app.stage.addChild(sprite);
 
@@ -367,11 +367,11 @@ export default function useMultiplierAnimation() {
     const sprite2 = new PIXI.AnimatedSprite(frames2);
     sprite2.width = 200;
     sprite2.height = 200;
-    sprite2.x = pos - 3;
-    sprite2.y = Y - 45;
+    sprite2.x = pos;
+    sprite2.y = Y - 50;
     sprite2.anchor.set(0.5, 1);
     sprite2.loop = false;
-    sprite2.animationSpeed = 0.5;
+    sprite2.animationSpeed = 0.75;
     sprite2.zIndex = -1;
     sprite2.onComplete = () => sprite2.destroy();
     app.stage.addChild(sprite2);
@@ -381,7 +381,6 @@ export default function useMultiplierAnimation() {
     sprite.onComplete = () => {
       sprite.destroy();
       sprite2.play();
-      
     };
   };
   const multiplierCircle = (

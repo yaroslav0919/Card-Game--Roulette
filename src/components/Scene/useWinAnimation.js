@@ -90,7 +90,7 @@ export default function useWinAnimation() {
     winText2.anchor.set(0.5);
     winText2.scale.x = 0.5;
     winText2.scale.y = 0.5;
-    winText2.y = -8;
+    winText2.y = -13;
     winText2.x = 1;
 
     container.addChild(winText2);
@@ -110,7 +110,7 @@ export default function useWinAnimation() {
     winText.anchor.set(0.5);
     winText.scale.x = 0.5;
     winText.scale.y = 0.5;
-    winText.y = -10;
+    winText.y = -15;
     container.addChild(winText);
 
     const g = new PIXI.Graphics();
@@ -138,7 +138,7 @@ export default function useWinAnimation() {
       gsap.from(mask, {
         width: 0,
         duration: 1.5,
-        delay: 1.5,
+        delay: 1,
         ease: "none",
       }),
       "<"
@@ -267,7 +267,7 @@ export default function useWinAnimation() {
         { x: startPos.x + 40, y: startPos.y + 20 },
         { x: startPos.x + 200, y: startPos.y - 20 },
       ],
-      duration: 1,
+      duration: 1.5,
       delay: 1,
       ease: "none",
       onComplete: () => {
@@ -357,15 +357,15 @@ export default function useWinAnimation() {
         addFireworksAnim();
         addSign(app, t2);
         break;
-      case "SENSATIONAL":
+      case "SENSATIONAL WIN":
         addFireworksAnim();
         addFireframeAnim(app, top);
         break;
     }
     t2.play();
   };
-  const destroyWin=()=>{
-    container.destroy()
-  }
-  return { winAnim , destroyWin};
+  const destroyWin = () => {
+    container.destroy();
+  };
+  return { winAnim, destroyWin };
 }
