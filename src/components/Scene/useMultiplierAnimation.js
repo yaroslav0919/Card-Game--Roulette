@@ -338,7 +338,7 @@ export default function useMultiplierAnimation() {
     const path = "/assets/frames/m1/f";
     const count = 50;
     const frames = [];
-
+    const speed = 0.8;
     for (let i = 1; i <= count; i++) {
       const texture = PIXI.Texture.from(path + "(" + i + ")" + ".png");
       frames.push(texture);
@@ -351,7 +351,7 @@ export default function useMultiplierAnimation() {
     sprite.y = Y - 45;
     sprite.anchor.set(0.5, 1);
     sprite.loop = false;
-    sprite.animationSpeed = 0.7;
+    sprite.animationSpeed = speed;
 
     app.stage.addChild(sprite);
 
@@ -371,7 +371,7 @@ export default function useMultiplierAnimation() {
     sprite2.y = Y - 50;
     sprite2.anchor.set(0.5, 1);
     sprite2.loop = false;
-    sprite2.animationSpeed = 0.75;
+    sprite2.animationSpeed = speed;
     sprite2.zIndex = -1;
     sprite2.onComplete = () => sprite2.destroy();
     app.stage.addChild(sprite2);
@@ -408,8 +408,8 @@ export default function useMultiplierAnimation() {
       onComplete: () => {
         gsap.to(circle, {
           x: secondX,
-          duration: 1,
-          delay: 0.7,
+          duration: 0.7,
+          delay: 0.5,
         });
       },
     });

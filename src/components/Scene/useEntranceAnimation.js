@@ -14,7 +14,7 @@ export default function useEntranceAnimation() {
   const halfX = window.innerWidth / 2;
   const Y = window.innerHeight;
   // const multiStore = useStore((state) => state.multiStore);
-  const speed = 0.5;
+  const speed = 1 / 3;
   const addHatAnimation = (app, multiCount) => {
     const hatTexture = new PIXI.Texture.from("/assets/image/hat.png");
     const hat = new PIXI.Sprite(hatTexture);
@@ -42,7 +42,6 @@ export default function useEntranceAnimation() {
             gsap.to(hat, {
               x: halfX - 103,
               y: Y - 95,
-
               duration: 0.25 * speed,
               yoyo: true,
               repeat: 1,

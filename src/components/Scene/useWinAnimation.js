@@ -137,8 +137,8 @@ export default function useWinAnimation() {
     timeLine.add(
       gsap.from(mask, {
         width: 0,
-        duration: 1.5,
-        delay: 1,
+        duration: 1,
+        delay: 0.5,
         ease: "none",
       }),
       "<"
@@ -166,7 +166,7 @@ export default function useWinAnimation() {
     const textObj = { tex: earn };
     timeLine.add(
       gsap.from(textObj, {
-        duration: earn / 500,
+        duration: earn / 1000,
         tex: 0,
         onUpdate: () => {
           earnText.text = `₺ ` + Math.floor(textObj.tex);
@@ -174,7 +174,7 @@ export default function useWinAnimation() {
         onComplete: () => {
           gsap.to(earnText, {
             duration: 0.5,
-            delay: 0.5,
+            delay: 0.1,
             width: earnText.width * 1.2,
             height: earnText.height * 1.2,
             repeat: 1,
@@ -267,7 +267,7 @@ export default function useWinAnimation() {
         { x: startPos.x + 40, y: startPos.y + 20 },
         { x: startPos.x + 200, y: startPos.y - 20 },
       ],
-      duration: 1.5,
+      duration: 0.5,
       delay: 1,
       ease: "none",
       onComplete: () => {
@@ -289,7 +289,7 @@ export default function useWinAnimation() {
     // emitter.emit = true;
     update();
   };
-  const addFireframeAnim = (app, top, speed = 0.3, repeate = 14) => {
+  const addFireframeAnim = (app, top, speed = 0.5, repeate = 14) => {
     const oneFire = (num, count) => {
       const path = `/assets/frames/fire${num}/f`;
       const frames = [];

@@ -200,9 +200,9 @@ export default function useSparkleAnim() {
           numberArray[pointIndex - 1],
           pointIndex
         ),
-        duration: 1,
+        duration: 0.7,
         ease: "none",
-        delay: pointIndex === 1 ? 1 : 0,
+        delay: pointIndex === 1 ? 0.5 : 0.3,
         onComplete: () => {
           drawPolishRect(
             app,
@@ -220,9 +220,7 @@ export default function useSparkleAnim() {
           );
 
           if (pointIndex !== multiCount) {
-            setTimeout(() => {
-              go(pointIndex + 1);
-            }, 500);
+            go(pointIndex + 1);
           } else {
             emitter.emit = false;
             app.stage.removeChild(container);

@@ -395,7 +395,7 @@ export default function useNormalTable() {
       gsap.to(whole, {
         x: 15,
         y: window.innerHeight - 350,
-        duration: 1,
+        duration: 0.5,
         ease: "none",
         onComplete: () => {
           gsap.to(whole, {
@@ -412,7 +412,7 @@ export default function useNormalTable() {
       return gsap.to(target, {
         width: target.width / 2.6,
         height: target.height / 2.6,
-        duration: 1,
+        duration: 0.5,
         ease: "none",
       });
     };
@@ -424,7 +424,7 @@ export default function useNormalTable() {
       gsap.to(whole, {
         x: calcCenterOffset().x,
         y: calcCenterOffset().y,
-        duration: BACK_DURATION,
+        duration: 0.5,
         ease: "none",
       })
     );

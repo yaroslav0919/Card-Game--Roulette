@@ -278,7 +278,7 @@ export default function useSelectAnimation() {
 
   const drawPolishRect = (app, number, multi) => {
     const pos = calcNumberCenter(number);
-    console.log(1);
+
     const container = new PIXI.Container();
     container.id = "select";
     container.zIndex = 1;
