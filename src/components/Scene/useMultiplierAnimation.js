@@ -338,7 +338,7 @@ export default function useMultiplierAnimation() {
     const path = "/assets/frames/m1/f";
     const count = 50;
     const frames = [];
-    const speed = 0.8;
+    const speed = 1;
     for (let i = 1; i <= count; i++) {
       const texture = PIXI.Texture.from(path + "(" + i + ")" + ".png");
       frames.push(texture);
@@ -404,12 +404,12 @@ export default function useMultiplierAnimation() {
     const lionPos = xArray[multiCount - 1][maxMultiNum].x2 - 25;
     gsap.to(circle, {
       x: firstX,
-      duration: 1,
+      duration: 0.5,
       onComplete: () => {
         gsap.to(circle, {
           x: secondX,
-          duration: 0.7,
-          delay: 0.5,
+          duration: 0.5,
+          delay: 0.4,
         });
       },
     });

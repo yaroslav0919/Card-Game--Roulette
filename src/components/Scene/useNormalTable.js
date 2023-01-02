@@ -355,6 +355,7 @@ export default function useNormalTable() {
 
   const drawNormalTable = (app, heatMapMode) => {
     const container = new PIXI.Container();
+
     const graphics = new PIXI.Graphics();
 
     const getTileTexture = (color) => {
@@ -388,7 +389,7 @@ export default function useNormalTable() {
 
     whole.addChild(graphics);
     whole.addChild(container);
-
+    whole.zIndex = -1;
     app.stage.addChild(whole);
 
     tinyTable.add(
@@ -401,7 +402,7 @@ export default function useNormalTable() {
           gsap.to(whole, {
             y: window.innerHeight - 250,
             duration: 0.5,
-            delay: 0.5,
+            delay: 1.8,
             ease: "none",
           });
         },

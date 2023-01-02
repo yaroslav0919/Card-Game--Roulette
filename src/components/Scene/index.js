@@ -103,13 +103,13 @@ export default function Scene() {
         gsap.delayedCall(
           timeOffset.sparkle + timeOffset.zoomOut + timeOffset.win,
           () => {
-            winAnim(app, top, winTextArray[1]);
-            gsap.delayedCall(10, () => {
+            winAnim(app, top, winTextArray[2]);
+            gsap.delayedCall(7, () => {
               destroyWin();
               backTable.play();
               setStartWin(false);
               gsap.delayedCall(1.5, () =>
-                app.stage.removeChildren(0, app.stage.children.length - 1)
+                app.stage.removeChildren(1, app.stage.children.length - 1)
               );
             });
           }

@@ -192,10 +192,10 @@ export default function useWinAnimation() {
     loop();
     const X = window.innerWidth / 2;
     fire(X, 310, X, 200);
-    gsap.delayedCall(6, () => fire(X, 310, X + 140, 200));
-    gsap.delayedCall(6.5, () => fire(X, 310, X - 130, 200));
-    gsap.delayedCall(7, () => fire(X, 310, X + 140, 200));
-    gsap.delayedCall(10, () => stop());
+    gsap.delayedCall(4, () => fire(X, 310, X + 140, 200));
+    gsap.delayedCall(4.5, () => fire(X, 310, X - 130, 200));
+    gsap.delayedCall(5, () => fire(X, 310, X + 140, 200));
+    gsap.delayedCall(8, () => stop());
   };
   const addSign = (app, t2) => {
     const startPos = { x: 100, y: 250 };
