@@ -14,7 +14,7 @@ export default function useEntranceAnimation() {
   const halfX = window.innerWidth / 2;
   const Y = window.innerHeight;
   // const multiStore = useStore((state) => state.multiStore);
-  const speed = 1 / 3;
+  const speed = 1 / 4;
   const addHatAnimation = (app, multiCount) => {
     const hatTexture = new PIXI.Texture.from("/assets/image/hat.png");
     const hat = new PIXI.Sprite(hatTexture);

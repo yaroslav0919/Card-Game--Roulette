@@ -44,7 +44,7 @@ export default function Scene() {
 
   // const numberArray = [30, 28, 23, 8, 0];
   // const multis = [30, 500, 10, 200, 600];
-  const timeOffset = { sparkle: 3, zoomOut: numberArray.length + 1, win: 3 };
+  const endPoint = { entrance: 3, multipliers: 12, shrink: 14 };
   const setApp = useStore((state) => state.setApp);
 
   useEffect(() => {
@@ -91,29 +91,26 @@ export default function Scene() {
         drawNormalTable(app, heatMapMode);
         addEntranceAnimation(app, multis.length);
 
-        gsap.delayedCall(timeOffset.sparkle, () =>
+        gsap.delayedCall(endPoint.entrance, () =>
           addSparkleAnimation(app, numberArray, multis)
         );
-        gsap.delayedCall(timeOffset.sparkle + timeOffset.zoomOut, () => {
+        gsap.delayedCall(endPoint.multipliers, () => {
           removeContainers(app);
           tinyTable.play();
           app.view.removeEventListener("pointerdown", onPointerDownHandler);
           setStartWin(true);
         });
-        gsap.delayedCall(
-          timeOffset.sparkle + timeOffset.zoomOut + timeOffset.win,
-          () => {
-            winAnim(app, top, winTextArray[2]);
-            gsap.delayedCall(7, () => {
-              destroyWin();
-              backTable.play();
-              setStartWin(false);
-              gsap.delayedCall(1.5, () =>
-                app.stage.removeChildren(1, app.stage.children.length - 1)
-              );
-            });
-          }
-        );
+        gsap.delayedCall(endPoint.shrink, () => {
+          winAnim(app, top, winTextArray[2]);
+          gsap.delayedCall(7, () => {
+            destroyWin();
+            backTable.play();
+            setStartWin(false);
+            gsap.delayedCall(1.5, () =>
+              app.stage.removeChildren(1, app.stage.children.length - 1)
+            );
+          });
+        });
       });
     };
 

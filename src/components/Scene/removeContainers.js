@@ -23,7 +23,6 @@ export const removeContainers = (app) => {
   multis.splice(count - 1);
 
   gsap.to(multis, {
-    y: window.innerHeight + 100,
     alpha: 0,
     duration: 1,
     ease: easeCustom,
@@ -42,7 +41,7 @@ export const removeContainers = (app) => {
         y: window.innerHeight + 100,
         alpha: 0,
         duration: 1,
-        delay: 2,
+        delay: 6,
         ease: easeCustom,
         onComplete: () => {
           app.stage.removeChild(topMulti);

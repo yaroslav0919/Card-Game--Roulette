@@ -338,7 +338,7 @@ export default function useMultiplierAnimation() {
     const path = "/assets/frames/m1/f";
     const count = 50;
     const frames = [];
-    const speed = 1;
+    const speed = 25 / 60;
     for (let i = 1; i <= count; i++) {
       const texture = PIXI.Texture.from(path + "(" + i + ")" + ".png");
       frames.push(texture);
@@ -352,7 +352,7 @@ export default function useMultiplierAnimation() {
     sprite.anchor.set(0.5, 1);
     sprite.loop = false;
     sprite.animationSpeed = speed;
-
+    sprite.onComplete = () => sprite.destroy();
     app.stage.addChild(sprite);
 
     const path2 = "/assets/frames/m2/s";
@@ -378,10 +378,7 @@ export default function useMultiplierAnimation() {
 
     sprite.play();
 
-    sprite.onComplete = () => {
-      sprite.destroy();
-      sprite2.play();
-    };
+    gsap.delayedCall(1, () => sprite2.play());
   };
   const multiplierCircle = (
     index,
@@ -419,7 +416,7 @@ export default function useMultiplierAnimation() {
     if (index === multiCount) {
       setTimeout(() => {
         playAnimatedSprite(app, lionPos);
-      }, 1000);
+      }, 500);
     }
   };
   return { multiplierCircle };

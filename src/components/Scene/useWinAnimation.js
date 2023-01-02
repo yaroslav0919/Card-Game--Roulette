@@ -267,7 +267,7 @@ export default function useWinAnimation() {
         { x: startPos.x + 40, y: startPos.y + 20 },
         { x: startPos.x + 200, y: startPos.y - 20 },
       ],
-      duration: 0.5,
+      duration: 1,
       delay: 1,
       ease: "none",
       onComplete: () => {
@@ -286,10 +286,10 @@ export default function useWinAnimation() {
       emitter.update((now - elapsed) * 0.001);
       elapsed = now;
     };
-    // emitter.emit = true;
+
     update();
   };
-  const addFireframeAnim = (app, top, speed = 0.5, repeate = 14) => {
+  const addFireframeAnim = (app, top, speed = 0.3, repeate = 8) => {
     const oneFire = (num, count) => {
       const path = `/assets/frames/fire${num}/f`;
       const frames = [];
@@ -365,7 +365,13 @@ export default function useWinAnimation() {
     t2.play();
   };
   const destroyWin = () => {
-    container.destroy();
+    gsap.to(container.children, {
+      alpha: 0,
+      duration: 0.5,
+      onComplete: () => {
+        container.destroy();
+      },
+    });
   };
   return { winAnim, destroyWin };
 }
