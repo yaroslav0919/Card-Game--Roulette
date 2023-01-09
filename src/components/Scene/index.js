@@ -31,7 +31,6 @@ export default function Scene() {
 
   const [heatMapMode, setHeatMapMode] = useState(false);
   const [startWin, setStartWin] = useState(false);
-  const winTextArray = ["YOU WIN", "BIG WIN", "SENSATIONAL WIN"];
 
   // const numberArray = [20];
   // const multis = [10];h
@@ -39,12 +38,12 @@ export default function Scene() {
   // const multis = [30, 500];
   // const numberArray = [30, 28, 0];
   // const multis = [30, 500, 10];
-  const numberArray = [30, 28, 8, 0];
-  const multis = [30, 500, 10, 600];
+  // const numberArray = [30, 28, 8, 0];
+  // const multis = [30, 500, 10, 600];
 
-  // const numberArray = [30, 28, 23, 8, 0];
-  // const multis = [30, 500, 10, 200, 600];
-  const endPoint = { entrance: 3, multipliers: 12, shrink: 14 };
+  const numberArray = [30, 28, 23, 8, 0];
+  const multis = [30, 500, 10, 200, 600];
+  const endPoint = { entrance: 3, multipliers: 12, shrink: 14, winAnim: 19 };
   const setApp = useStore((state) => state.setApp);
 
   useEffect(() => {
@@ -101,15 +100,15 @@ export default function Scene() {
           setStartWin(true);
         });
         gsap.delayedCall(endPoint.shrink, () => {
-          winAnim(app, top, winTextArray[2]);
-          gsap.delayedCall(7, () => {
-            destroyWin();
-            backTable.play();
-            setStartWin(false);
-            gsap.delayedCall(1.5, () =>
-              app.stage.removeChildren(1, app.stage.children.length - 1)
-            );
-          });
+          winAnim(app, top, 0);
+        });
+        gsap.delayedCall(endPoint.winAnim, () => {
+          destroyWin();
+          backTable.play();
+          setStartWin(false);
+          gsap.delayedCall(1, () =>
+            app.stage.removeChildren(1, app.stage.children.length - 1)
+          );
         });
       });
     };

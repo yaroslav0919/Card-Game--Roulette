@@ -3,9 +3,7 @@ import * as PIXI from "pixi.js";
 import { gsap } from "gsap";
 import MotionPathPlugin from "gsap/MotionPathPlugin";
 import { PixiPlugin } from "gsap/PixiPlugin";
-import * as Particles from "@pixi/particle-emitter";
-import { useEffect } from "react";
-import useStore from "../../store/index";
+
 import { getRB, ang2Rad } from "../../utils/math";
 
 PixiPlugin.registerPIXI(PIXI);
@@ -14,7 +12,7 @@ export default function useEntranceAnimation() {
   const halfX = window.innerWidth / 2;
   const Y = window.innerHeight;
   // const multiStore = useStore((state) => state.multiStore);
-  const speed = 1 / 4;
+  const speed = 1 / 3;
   const addHatAnimation = (app, multiCount) => {
     const hatTexture = new PIXI.Texture.from("/assets/image/hat.png");
     const hat = new PIXI.Sprite(hatTexture);

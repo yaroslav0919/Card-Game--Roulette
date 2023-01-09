@@ -5,8 +5,10 @@ import { Emitter } from "pixi-particles";
 import { ang2Rad } from "../../utils/math";
 import { fire, loop, stop } from "./useFireworks";
 import { getRB } from "../../utils/math";
+
 export default function useWinAnimation() {
   const container = new PIXI.Container();
+  const winTextArray = ["YOU WIN", "BIG WIN", "SENSATIONAL WIN"];
   const addDefaultAnim = (app, winType, timeLine) => {
     container.pivot.set(0.5);
 
@@ -20,10 +22,9 @@ export default function useWinAnimation() {
         },
         {
           y: 230,
-
           alpha: 1,
-          duration: 0.5,
-          delay: 1,
+          duration: 1,
+          delay: 0.5,
         }
       )
     );
@@ -72,7 +73,7 @@ export default function useWinAnimation() {
     borderLight.play();
 
     container.addChild(borderLight);
-    const winText2 = new PIXI.Text(winType, {
+    const winText2 = new PIXI.Text(winTextArray[winType], {
       fontFamily: "CircularStd",
       fill: "#ED2E22",
       fontSize: 88,
@@ -95,12 +96,11 @@ export default function useWinAnimation() {
 
     container.addChild(winText2);
 
-    const winText = new PIXI.Text(winType, {
+    const winText = new PIXI.Text(winTextArray[winType], {
       fontFamily: "CircularStd",
       dropShadow: true,
       fontWeight: 900,
       dropShadowAngle: ang2Rad(250),
-
       dropShadowColor: "#FAFD66",
 
       dropShadowDistance: 2,
@@ -137,7 +137,8 @@ export default function useWinAnimation() {
     timeLine.add(
       gsap.from(mask, {
         width: 0,
-        duration: 1,
+        duration: winType === 2 ? 2 : 1,
+
         delay: 0.5,
         ease: "none",
       }),
@@ -152,7 +153,6 @@ export default function useWinAnimation() {
       fontSize: 84,
       stroke: "#8F5D0B",
       strokeThickness: 6,
-
       dropShadow: true,
       dropShadowDistance: 20,
       dropShadowAlpha: 0.4,
@@ -192,10 +192,10 @@ export default function useWinAnimation() {
     loop();
     const X = window.innerWidth / 2;
     fire(X, 310, X, 200);
-    gsap.delayedCall(4, () => fire(X, 310, X + 140, 200));
-    gsap.delayedCall(4.5, () => fire(X, 310, X - 130, 200));
-    gsap.delayedCall(5, () => fire(X, 310, X + 140, 200));
-    gsap.delayedCall(8, () => stop());
+    gsap.delayedCall(2, () => fire(X, 310, X + 140, 200));
+    gsap.delayedCall(2.5, () => fire(X, 310, X - 130, 200));
+    gsap.delayedCall(3, () => fire(X, 310, X + 140, 200));
+    gsap.delayedCall(6, () => stop());
   };
   const addSign = (app, t2) => {
     const startPos = { x: 100, y: 250 };
@@ -203,6 +203,7 @@ export default function useWinAnimation() {
     g.beginFill(0xffffff);
     g.drawCircle(7, 7, 7);
     g.endFill();
+
     const texture = app.renderer.generateTexture(g);
     const emitter = new Emitter(app.stage, texture, {
       alpha: {
@@ -267,12 +268,14 @@ export default function useWinAnimation() {
         { x: startPos.x + 40, y: startPos.y + 20 },
         { x: startPos.x + 200, y: startPos.y - 20 },
       ],
-      duration: 1,
+      duration: 1.5,
       delay: 1,
       ease: "none",
       onComplete: () => {
-        emitter.emit = false;
-        emitter.destroy();
+        gsap.delayedCall(0.5, () => {
+          emitter.emit = false;
+          emitter.destroy();
+        });
       },
       onStart: () => {
         emitter.emit = true;
@@ -289,7 +292,7 @@ export default function useWinAnimation() {
 
     update();
   };
-  const addFireframeAnim = (app, top, speed = 0.3, repeate = 8) => {
+  const addFireframeAnim = (app, top, speed = 0.4, repeate = 6) => {
     const oneFire = (num, count) => {
       const path = `/assets/frames/fire${num}/f`;
       const frames = [];
@@ -337,12 +340,11 @@ export default function useWinAnimation() {
       sprite.onComplete = () => {
         sprite.destroy();
       };
-      const random = Math.floor(getRB(0, 3));
+      const random = Math.floor(getRB(0, 2));
       sprite.onLoop = () => {
         if (loopCount == repeate - random) secondFire(index + 1);
         if (loopCount-- === 0) sprite.loop = false;
       };
-
       app.stage.addChild(sprite);
     };
 
@@ -351,13 +353,18 @@ export default function useWinAnimation() {
 
   const winAnim = async (app, top, winType) => {
     const t2 = new gsap.timeline({ ease: "none", paused: true });
-    addDefaultAnim(app, winType, t2);
+
     switch (winType) {
-      case "BIG WIN":
+      case 0:
+        addDefaultAnim(app, winType, t2);
+        break;
+      case 1:
+        addDefaultAnim(app, winType, t2);
         addFireworksAnim();
         addSign(app, t2);
         break;
-      case "SENSATIONAL WIN":
+      case 2:
+        addDefaultAnim(app, winType, t2);
         addFireworksAnim();
         addFireframeAnim(app, top);
         break;
@@ -367,7 +374,7 @@ export default function useWinAnimation() {
   const destroyWin = () => {
     gsap.to(container.children, {
       alpha: 0,
-      duration: 0.5,
+      duration: 1,
       onComplete: () => {
         container.destroy();
       },

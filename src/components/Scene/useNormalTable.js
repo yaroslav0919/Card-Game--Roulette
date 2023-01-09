@@ -402,7 +402,7 @@ export default function useNormalTable() {
           gsap.to(whole, {
             y: window.innerHeight - 250,
             duration: 0.5,
-            delay: 1.8,
+            delay: 1,
             ease: "none",
           });
         },

@@ -52,7 +52,7 @@ class Firework {
     }
     this.angle = Math.atan2(ty - sy, tx - sx);
     this.speed = 7;
-    this.acceleration = 1.02;
+    this.acceleration = 1.1;
     this.brightness = random(50, 70);
     // circle target indicator radius
     this.targetRadius = 1;

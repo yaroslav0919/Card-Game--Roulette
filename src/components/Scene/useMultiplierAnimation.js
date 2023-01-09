@@ -370,10 +370,11 @@ export default function useMultiplierAnimation() {
     sprite2.x = pos;
     sprite2.y = Y - 50;
     sprite2.anchor.set(0.5, 1);
-    sprite2.loop = false;
+    sprite2.loop = true;
     sprite2.animationSpeed = speed;
     sprite2.zIndex = -1;
-    sprite2.onComplete = () => sprite2.destroy();
+
+    sprite2.id = "flame";
     app.stage.addChild(sprite2);
 
     sprite.play();
@@ -411,7 +412,6 @@ export default function useMultiplierAnimation() {
       },
     });
     multi(circle, radius, multiNum, selNum);
-    //catch biggest multi
 
     if (index === multiCount) {
       setTimeout(() => {
