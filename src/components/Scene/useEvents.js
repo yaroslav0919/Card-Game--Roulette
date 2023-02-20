@@ -1,4 +1,6 @@
-import React, { useRef } from 'react'
+import React, { useRef, useEffect } from 'react'
+import { reaction } from 'mobx'
+import { Store } from 'uicore'
 import tableData from '../../constants/table'
 import * as PIXI from 'pixi.js'
 import useStore from '../../store'
@@ -11,6 +13,14 @@ export default function useEvents () {
 
   const appRef = useRef()
   appRef.current = app
+
+  useEffect(() => {
+    return reaction(() => {
+      return Store.BetStore.betSlip['SPECIAL_BET_CODE'] // bc-black, bn-1, bn-2-45-46 ...
+    }, (bet) => {
+      console.log('BETSLIP WITH SPECIAL CODE >>>',bet)
+    }, { fireImmediately: true })
+  }, [])
 
   const calcCenterOffset = () => {
     const btn0 = tableData.find((item) => item.key === 'bn-0')
@@ -44,7 +54,7 @@ export default function useEvents () {
     return offset
   }
 
-  const onPointerDownHandler = (e) => {
+  const onPointerDownHandler = async (e) => {
     const centerOffset = calcCenterOffset()
 
     const x = e.clientX - centerOffset.x
@@ -56,6 +66,11 @@ export default function useEvents () {
     })
 
     if (target) {
+
+      await Store.BetStore.add({
+        type: target.key
+      })
+
       const chipSprite = PIXI.Sprite.from('/assets/chip.png')
       chipSprite.anchor.set(0.5, 0.5)
       chipSprite.x = target.x + target.w / 2 + centerOffset.x
@@ -65,7 +80,7 @@ export default function useEvents () {
 
       const app = appRef.current
       app.stage.addChild(chipSprite)
-
+      
       target.bordersPos.forEach((border, index) => {
         // if( index === 0 )   return
 

@@ -1,5 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Application, TYPES_TO_BYTES_PER_PIXEL } from "pixi.js";
+import { reaction, toJS } from "mobx";
+import { Store, State } from 'uicore'
+import { map } from 'lodash'
 import HeatMapView from "./heatMap";
 import useNormalTable from "./useNormalTable";
 import useRaceTrackTable from "./useRaceTrackTable";
@@ -17,6 +20,22 @@ import gsap from "gsap";
 import { removeContainers } from "./removeContainers";
 
 import WinningNumberWrapper from "../WinningNumberWrapper/WinningNumberWrapper";
+
+const app = new Application({
+  resizeTo: window,
+  backgroundAlpha: 0,
+  width: window.innerWidth,
+  height: window.innerHeight,
+  antialias: true,
+});
+
+const top = new Application({
+  resizeTo: window,
+  backgroundAlpha: 0,
+  width: window.innerWidth,
+  height: window.innerHeight,
+  antialias: true,
+});
 
 export default function Scene() {
   const ref = useRef(null);
@@ -47,25 +66,10 @@ export default function Scene() {
   const setApp = useStore((state) => state.setApp);
 
   useEffect(() => {
-    const app = new Application({
-      resizeTo: window,
-      backgroundAlpha: 0,
-      width: window.innerWidth,
-      height: window.innerHeight,
-      antialias: true,
-    });
-
-    const top = new Application({
-      resizeTo: window,
-      backgroundAlpha: 0,
-      width: window.innerWidth,
-      height: window.innerHeight,
-      antialias: true,
-    });
-
-    top.view.style.zIndex = 2;
-    top.view.style.position = "absolute";
-    ref.current.appendChild(top.view);
+    // ### This part block user interaction with the table
+    // top.view.style.zIndex = 2;
+    // top.view.style.position = "absolute";
+    // ref.current.appendChild(top.view);
 
     setApp(app);
 
@@ -87,29 +91,7 @@ export default function Scene() {
       await font3.load();
       await font4.load();
       loader.onComplete.add(() => {
-        drawNormalTable(app, heatMapMode);
-        addEntranceAnimation(app, multis.length);
-
-        gsap.delayedCall(endPoint.entrance, () =>
-          addSparkleAnimation(app, numberArray, multis)
-        );
-        gsap.delayedCall(endPoint.multipliers, () => {
-          removeContainers(app);
-          tinyTable.play();
-          app.view.removeEventListener("pointerdown", onPointerDownHandler);
-          setStartWin(true);
-        });
-        gsap.delayedCall(endPoint.shrink, () => {
-          winAnim(app, top, 0);
-        });
-        gsap.delayedCall(endPoint.winAnim, () => {
-          destroyWin();
-          backTable.play();
-          setStartWin(false);
-          gsap.delayedCall(1, () =>
-            app.stage.removeChildren(1, app.stage.children.length - 1)
-          );
-        });
+        drawNormalTable(app, heatMapMode)
       });
     };
 
@@ -121,6 +103,75 @@ export default function Scene() {
       top.destroy(true, true);
     };
   }, []);
+ 
+  // Multiplier Update
+  useEffect(() => {
+    return reaction(() => {
+      return Store.GameStore.sessionResult
+    }, (sessionResult) => {
+      if(sessionResult && Store.GameStore.session.flag === State.Waiting){
+        addEntranceAnimation(app, sessionResult.coefficients.length);
+        gsap.delayedCall(endPoint.entrance, () =>
+          addSparkleAnimation(app, map(sessionResult.coefficients, a => Number(a.number)), map(sessionResult.coefficients, a => Number(a.multiply)))
+        );
+        gsap.delayedCall(endPoint.multipliers, () => {
+          removeContainers(app);
+          tinyTable.play();
+          app.view.removeEventListener("pointerdown", onPointerDownHandler);
+          setStartWin(true);
+        });
+      }
+    }, {
+      fireImmediately: true
+    })
+  }, [])
+
+  // State Transitions
+  useEffect(() => {
+    return reaction(() => {
+      return Store.GameStore.session
+    }, (session) => {
+      if(session.flag === State.Open){
+        // Session on betting state
+        // we need to clear previous session rewards/numbers etc.
+        // we need to make table bigger
+      }else if(session.flag === State.Waiting){
+        // Session on multiplier animation state
+        
+      }else if(session.flag === State.Playing){
+        // Session on playing state
+        // we need to make table smaller
+      }else if(session.flag === State.Finish){
+        // Session on finish state, show winning number etc
+        // table will stay small and we need to show winning number and also user rewards
+      }
+    }, {
+      fireImmediately: true
+    })
+  }, [])
+
+  // Winner State
+  useEffect(() => {
+    return reaction(() => {
+      return Store.WinnerStore.userRewards
+    }, (userRewards) => {
+      if(userRewards.r){
+        gsap.delayedCall(1, () => {
+          winAnim(app, top, 0);
+        });
+        gsap.delayedCall(2, () => {
+          destroyWin();
+          backTable.play();
+          setStartWin(false);
+          gsap.delayedCall(1, () =>
+            app.stage.removeChildren(1, app.stage.children.length - 1)
+          );
+        });
+      }
+    }, {
+      fireImmediately: true
+    })
+  }, [])
 
   return (
     <>
