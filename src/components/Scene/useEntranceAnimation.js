@@ -13,7 +13,7 @@ export default function useEntranceAnimation() {
   const Y = window.innerHeight;
   // const multiStore = useStore((state) => state.multiStore);
   const speed = 1 / 3;
-  const addHatAnimation = (app, multiCount) => {
+  const addHatAnimation = (app) => {
     const hatTexture = new PIXI.Texture.from("/assets/image/hat.png");
     const hat = new PIXI.Sprite(hatTexture);
     hat.roundPixels = true;
@@ -64,13 +64,12 @@ export default function useEntranceAnimation() {
                       //     duration: 0.5 * speed,
                       //     yoyo: true,
                       //     repeat: 1,
-                      //     // delay: multiCount,
                       onComplete() {
                         gsap.to(hat, {
                           x: halfX - 178,
                           y: Y - 95,
                           duration: 1 * speed,
-                          repeat: multiCount * 2 - 1,
+                          repeat: -1,
                           yoyo: true,
                           delay: 1.4,
                           onComplete() {
@@ -155,6 +154,7 @@ export default function useEntranceAnimation() {
     app.stage.addChild(beam);
     ///beam end///
   };
+
   const addDozenSparkleEffect = (app) => {
     const spotGraphic = new PIXI.Graphics();
     spotGraphic.beginFill(0xffff00);
@@ -354,7 +354,7 @@ export default function useEntranceAnimation() {
 
     app.stage.addChild(hand);
   };
-  const addEntranceAnimation = (app, multiCount) => {
+  const addEntranceAnimation = (app) => {
     // app.stage.addChild(multiStore[0]);
     // app.stage.addChild(multiStore[1]);
     // app.stage.addChild(multiStore[2]);
@@ -363,7 +363,7 @@ export default function useEntranceAnimation() {
     addDozenSparkleEffect(app);
     addMagicHandAnimation(app);
 
-    addHatAnimation(app, multiCount);
+    addHatAnimation(app);
   };
 
   return { addEntranceAnimation };
