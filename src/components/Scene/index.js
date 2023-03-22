@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Application, TYPES_TO_BYTES_PER_PIXEL } from "pixi.js";
 import { reaction, toJS } from "mobx";
-import { Store, State } from 'uicore'
-import { map } from 'lodash'
+import { Store, State } from "uicore";
+import { map } from "lodash";
 import HeatMapView from "./heatMap";
 import useNormalTable from "./useNormalTable";
 import useRaceTrackTable from "./useRaceTrackTable";
@@ -39,7 +39,7 @@ const top = new Application({
 
 export default function Scene() {
   const ref = useRef(null);
-  const { calcCenterOffset, drawNormalTable, tinyTable, backTable } =
+  const { calcCenterOffset, drawNormalTable, tinyTable, bigTable } =
     useNormalTable();
 
   const { onPointerDownHandler } = useEvents();
@@ -50,38 +50,25 @@ export default function Scene() {
 
   const [heatMapMode, setHeatMapMode] = useState(false);
   const [startWin, setStartWin] = useState(false);
+  const [gameStarted, setGameStarted] = useState(false);
+  let gameStart = false;
 
-  // const numberArray = [20];
-  // const multis = [10];h
-  // const numberArray = [30, 28];
-  // const multis = [30, 500];
-  // const numberArray = [30, 28, 0];
-  // const multis = [30, 500, 10];
-  // const numberArray = [30, 28, 8, 0];
-  // const multis = [30, 500, 10, 600];
-
-  const numberArray = [30, 28, 23, 8, 0];
-  const multis = [30, 500, 10, 200, 600];
   const endPoint = { entrance: 3, multipliers: 12, shrink: 14, winAnim: 19 };
   const setApp = useStore((state) => state.setApp);
 
   useEffect(() => {
     // ### This part block user interaction with the table
-    // top.view.style.zIndex = 2;
-    // top.view.style.position = "absolute";
-    // ref.current.appendChild(top.view);
+    top.view.style.zIndex = 2;
+    top.view.style.position = "absolute";
+    ref.current.appendChild(top.view);
 
     setApp(app);
 
     ref.current.appendChild(app.view);
-
-    app.view.addEventListener("pointerdown", onPointerDownHandler);
-
     app.stage.sortableChildren = true;
 
     const loadAndPlayAnimation = async () => {
       const loader = preLoadSpriteImages();
-
       const font1 = new FontFaceObserver("Sancreek");
       const font2 = new FontFaceObserver("CircularStdBlack");
       const font3 = new FontFaceObserver("CircularStd");
@@ -91,7 +78,7 @@ export default function Scene() {
       await font3.load();
       await font4.load();
       loader.onComplete.add(() => {
-        drawNormalTable(app, heatMapMode)
+        drawNormalTable(app, heatMapMode);
       });
     };
 
@@ -103,75 +90,88 @@ export default function Scene() {
       top.destroy(true, true);
     };
   }, []);
- 
   // Multiplier Update
   useEffect(() => {
-    return reaction(() => {
-      return Store.GameStore.sessionResult
-    }, (sessionResult) => {
-      if(sessionResult && Store.GameStore.session.flag === State.Waiting){
-        addEntranceAnimation(app, sessionResult.coefficients.length);
-        gsap.delayedCall(endPoint.entrance, () =>
-          addSparkleAnimation(app, map(sessionResult.coefficients, a => Number(a.number)), map(sessionResult.coefficients, a => Number(a.multiply)))
-        );
-        gsap.delayedCall(endPoint.multipliers, () => {
-          removeContainers(app);
-          tinyTable.play();
-          app.view.removeEventListener("pointerdown", onPointerDownHandler);
-          setStartWin(true);
-        });
+    return reaction(
+      () => {
+        return Store.GameStore.sessionResult;
+      },
+      (sessionResult) => {
+        if (sessionResult && Store.GameStore.session.flag === State.Waiting) {
+          gameStart = true;
+          app.stage.removeChildren(1, app.stage.children.length - 1);
+          console.log(app.stage);
+          addEntranceAnimation(app, sessionResult.coefficients.length);
+          gsap.delayedCall(endPoint.entrance, () =>
+            addSparkleAnimation(
+              app,
+              map(sessionResult.coefficients, (a) => Number(a.number)),
+              map(sessionResult.coefficients, (a) => Number(a.multiply))
+            )
+          );
+          app.view.addEventListener("pointerdown", onPointerDownHandler);
+        }
+      },
+      {
+        fireImmediately: true,
       }
-    }, {
-      fireImmediately: true
-    })
-  }, [])
+    );
+  }, []);
 
   // State Transitions
-  useEffect(() => {
-    return reaction(() => {
-      return Store.GameStore.session
-    }, (session) => {
-      if(session.flag === State.Open){
-        // Session on betting state
-        // we need to clear previous session rewards/numbers etc.
-        // we need to make table bigger
-      }else if(session.flag === State.Waiting){
-        // Session on multiplier animation state
-        
-      }else if(session.flag === State.Playing){
-        // Session on playing state
-        // we need to make table smaller
-      }else if(session.flag === State.Finish){
-        // Session on finish state, show winning number etc
-        // table will stay small and we need to show winning number and also user rewards
-      }
-    }, {
-      fireImmediately: true
-    })
-  }, [])
+  // useEffect(() => {
+  //   return reaction(
+  //     () => {
+  //       return Store.GameStore.session;
+  //     },
+  //     (session) => {
+  //       if (!gameStart) return;
+  //       if (session.flag === State.Open) {
+  //         winAnim(app, top, 2);
+  //       } else if (session.flag === State.Waiting) {
+  //         destroyWin(app, top);
+  //         bigTable(app.stage.children[0]);
+  //         setStartWin(false);
+  //       } else if (session.flag === State.Playing) {
+  //       } else if (session.flag === State.Finish) {
+  //         removeContainers(app);
+  //         tinyTable(app.stage.children[0]);
+  //         app.view.removeEventListener("pointerdown", onPointerDownHandler);
+  //         setStartWin(true);
+  //       }
+  //     },
+  //     {
+  //       fireImmediately: true,
+  //     }
+  //   );
+  // }, []);
 
   // Winner State
-  useEffect(() => {
-    return reaction(() => {
-      return Store.WinnerStore.userRewards
-    }, (userRewards) => {
-      if(userRewards.r){
-        gsap.delayedCall(1, () => {
-          winAnim(app, top, 0);
-        });
-        gsap.delayedCall(2, () => {
-          destroyWin();
-          backTable.play();
-          setStartWin(false);
-          gsap.delayedCall(1, () =>
-            app.stage.removeChildren(1, app.stage.children.length - 1)
-          );
-        });
-      }
-    }, {
-      fireImmediately: true
-    })
-  }, [])
+  // useEffect(() => {
+  //   return reaction(
+  //     () => {
+  //       return Store.WinnerStore.userRewards;
+  //     },
+  //     (userRewards) => {
+  //       if (userRewards.r) {
+  //         gsap.delayedCall(1, () => {
+  //           winAnim(app, top, 0);
+  //         });
+  //         gsap.delayedCall(2, () => {
+  //           destroyWin();
+  //           backTable();
+  //           setStartWin(false);
+  //           gsap.delayedCall(1, () =>
+  //             app.stage.removeChildren(1, app.stage.children.length - 1)
+  //           );
+  //         });
+  //       }
+  //     },
+  //     {
+  //       fireImmediately: true,
+  //     }
+  //   );
+  // }, []);
 
   return (
     <>

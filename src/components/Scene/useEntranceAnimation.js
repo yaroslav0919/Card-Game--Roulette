@@ -13,7 +13,7 @@ export default function useEntranceAnimation() {
   const Y = window.innerHeight;
   // const multiStore = useStore((state) => state.multiStore);
   const speed = 1 / 3;
-  const addHatAnimation = (app) => {
+  const addHatAnimation = (app, multiCount) => {
     const hatTexture = new PIXI.Texture.from("/assets/image/hat.png");
     const hat = new PIXI.Sprite(hatTexture);
     hat.roundPixels = true;
@@ -64,12 +64,13 @@ export default function useEntranceAnimation() {
                       //     duration: 0.5 * speed,
                       //     yoyo: true,
                       //     repeat: 1,
+                      //     // delay: multiCount,
                       onComplete() {
                         gsap.to(hat, {
                           x: halfX - 178,
                           y: Y - 95,
                           duration: 1 * speed,
-                          repeat: -1,
+                          repeat: multiCount * 2 - 1,
                           yoyo: true,
                           delay: 1.4,
                           onComplete() {
@@ -77,6 +78,7 @@ export default function useEntranceAnimation() {
                               x: -200,
                               duration: 1 * speed,
                               onComplete() {
+                                hatContainer.destroy();
                                 app.stage.removeChild(hatContainer);
                               },
                             });
@@ -119,6 +121,7 @@ export default function useEntranceAnimation() {
           delay: 3 * speed,
           alpha: 0,
           onComplete: () => {
+            glare.destroy();
             app.stage.removeChild(glare);
           },
         });
@@ -146,6 +149,7 @@ export default function useEntranceAnimation() {
           delay: 3 * speed,
           alpha: 0,
           onComplete() {
+            beam.destroy();
             app.stage.removeChild(beam);
           },
         });
@@ -207,6 +211,7 @@ export default function useEntranceAnimation() {
       alpha: 0,
       duration: 1 * speed,
       onComplete() {
+        spotContainer.destroy();
         app.stage.removeChild(spotContainer);
       },
     });
@@ -287,6 +292,7 @@ export default function useEntranceAnimation() {
             gsap.to(sparkle, {
               // delay: 0 * speed,
               onComplete() {
+                sparkle.destroy();
                 app.stage.removeChild(sparkle);
               },
             });
@@ -338,6 +344,7 @@ export default function useEntranceAnimation() {
                           duration: 1 * speed,
                           delay: 0.5 * speed,
                           onComplete() {
+                            hand.destroy();
                             app.stage.removeChild(hand);
                           },
                         });
@@ -354,7 +361,7 @@ export default function useEntranceAnimation() {
 
     app.stage.addChild(hand);
   };
-  const addEntranceAnimation = (app) => {
+  const addEntranceAnimation = (app, multiCount) => {
     // app.stage.addChild(multiStore[0]);
     // app.stage.addChild(multiStore[1]);
     // app.stage.addChild(multiStore[2]);
@@ -363,7 +370,7 @@ export default function useEntranceAnimation() {
     addDozenSparkleEffect(app);
     addMagicHandAnimation(app);
 
-    addHatAnimation(app);
+    addHatAnimation(app, multiCount);
   };
 
   return { addEntranceAnimation };

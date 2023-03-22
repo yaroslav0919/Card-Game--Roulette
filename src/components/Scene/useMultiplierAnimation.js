@@ -391,7 +391,7 @@ export default function useMultiplierAnimation() {
   ) => {
     if (!index) return;
     const circle = new PIXI.Container();
-    circle.id = "multi";
+    circle.id = index === maxMultiNum + 1 ? "topmulti" : "multi";
     circle.x = halfX - 175;
     circle.y = Y - 120;
     const radius = 40;

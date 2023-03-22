@@ -1,35 +1,35 @@
 import gsap from "gsap";
 import CustomEase from "gsap/CustomEase";
+import { container } from "webpack";
 
 export const removeContainers = (app) => {
   let selected = [];
   let topMulti = [];
+  let multis = [];
+
   app.stage.children.forEach((child) => {
     child.id === "select" && selected.push(child);
     child.id === "flame" && topMulti.push(child);
   });
-
-  app.stage.removeChild(...selected);
-
-  let multis = [];
   app.stage.children.forEach((child) => {
     child.id === "multi" && multis.push(child);
+    child.id === "topmulti" && topMulti.push(child);
   });
 
-  const count = multis.length;
+  selected.forEach((e) => e.destroy());
+  app.stage.removeChild(...selected);
+
   const easeCustom = CustomEase.create(
     "custom",
     "M0,0 C0.012,-0.234 0.574,-0.107 0.584,-0.014 0.646,0.586 0.78,1 1,1 "
   );
-
-  topMulti.push(multis[count - 1]);
-  multis.splice(count - 1);
 
   gsap.to(multis, {
     alpha: 0,
     duration: 1,
     ease: easeCustom,
     onComplete: () => {
+      multis.forEach((e) => e.destroy());
       app.stage.removeChild(multis);
     },
   });
@@ -46,9 +46,22 @@ export const removeContainers = (app) => {
         delay: 5,
         ease: "none",
         onComplete: () => {
+          topMulti.forEach((e) => e.destroy());
           app.stage.removeChild(topMulti);
         },
       });
     },
+  });
+};
+
+export const removeAllChildWithException = (
+  container,
+  exceptionIndex,
+  exceptionId
+) => {
+  container.children.forEach((e, i) => {
+    if (i === exceptionIndex) return;
+    e.destroy();
+    container.removeChild(e);
   });
 };

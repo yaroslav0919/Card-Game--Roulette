@@ -152,32 +152,6 @@ export default function useSelectAnimation() {
     container.addChild(emiCont);
 
     const emitter = new Emitter(emiCont, texture, {
-      // alpha: {
-      //   start: 1,
-      //   end: 0.3,
-      // },
-      // scale: {
-      //   start: 0.2,
-      //   end: 0.02,
-      //   minimumScaleMultiplier: 3,
-      // },
-      // color: {
-      //   start: "#ffcf5b",
-      //   end: "#fff23d",
-      // },
-      // lifetime: {
-      //   min: 1.2,
-      //   max: 2.8,
-      // },
-      // blendMode: "screen",
-      // frequency: 0.005,
-      // emitterLifetime: -1,
-      // maxParticles: 900,
-      // pos: {
-      //   x: xVal,
-      //   y: number ? yVal : yVal + h,
-      // },
-      // addAtBack: false,
       alpha: {
         start: 1,
         end: 0.66,
@@ -278,7 +252,6 @@ export default function useSelectAnimation() {
 
   const drawPolishRect = (app, number, multi) => {
     const pos = calcNumberCenter(number);
-
     const container = new PIXI.Container();
     container.id = "select";
     container.zIndex = 1;

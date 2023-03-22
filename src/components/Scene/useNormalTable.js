@@ -3,8 +3,7 @@ import otherKeys from "../../constants/tile";
 import * as PIXI from "pixi.js";
 import { ang2Rad } from "../../utils/math";
 import { gsap, Timeline, Tween } from "gsap";
-const BACK_DURATION = 1;
-const BACK_DELAY = 5;
+
 export default function useNormalTable() {
   const calcCenterOffset = () => {
     const btn0 = tableData.find((item) => item.key === "bn-0");
@@ -350,13 +349,17 @@ export default function useNormalTable() {
     });
   };
 
-  const tinyTable = new gsap.timeline({ ease: "none", paused: true });
+  // const tinyTable = new gsap.timeline({ ease: "none", paused: true });
   const backTable = new gsap.timeline({ ease: "none", paused: true });
 
   const drawNormalTable = (app, heatMapMode) => {
+    const whole = new PIXI.Container();
+    whole.id = "table";
     const container = new PIXI.Container();
+    container.id = "table_cont";
 
     const graphics = new PIXI.Graphics();
+    graphics.id = "table_grap";
 
     const getTileTexture = (color) => {
       const g = new PIXI.Graphics();
@@ -383,7 +386,7 @@ export default function useNormalTable() {
       red: getTileTexture(0xff0000),
       black: getTileTexture(0x000000),
     });
-    const whole = new PIXI.Container();
+
     whole.x = calcCenterOffset().x;
     whole.y = calcCenterOffset().y;
 
@@ -391,23 +394,6 @@ export default function useNormalTable() {
     whole.addChild(container);
     whole.zIndex = -1;
     app.stage.addChild(whole);
-
-    tinyTable.add(
-      gsap.to(whole, {
-        x: 15,
-        y: window.innerHeight - 350,
-        duration: 0.5,
-        ease: "none",
-        onComplete: () => {
-          gsap.to(whole, {
-            y: window.innerHeight - 250,
-            duration: 0.5,
-            delay: 1,
-            ease: "none",
-          });
-        },
-      })
-    );
 
     const getTween = (target) => {
       return gsap.to(target, {
@@ -418,8 +404,27 @@ export default function useNormalTable() {
       });
     };
 
-    tinyTable.add(getTween(graphics), "<");
-    tinyTable.add(getTween(container), "<");
+    // let tiny = app.stage.children[0];
+
+    // tinyTable.add(
+    //   gsap.to(tiny, {
+    //     x: 15,
+    //     y: window.innerHeight - 350,
+    //     duration: 0.5,
+    //     ease: "none",
+    //     onStart: () => {
+    //       console.log(tiny);
+    //     },
+    //     onComplete: () => {
+    //       gsap.to(tiny, {
+    //         y: window.innerHeight - 250,
+    //         duration: 0.5,
+    //         delay: 1,
+    //         ease: "none",
+    //       });
+    //     },
+    //   })
+    // );
 
     backTable.add(
       gsap.to(whole, {
@@ -429,9 +434,57 @@ export default function useNormalTable() {
         ease: "none",
       })
     );
-    backTable.add(getTween(graphics).reverse(), "<");
-    backTable.add(getTween(container).reverse(), "<");
+    // backTable.add(getTween(graphics).reverse(), "<");
+    // backTable.add(getTween(container).reverse(), "<");
+  };
+  const tinyTable = (table) => {
+    gsap.to(table, {
+      x: 15,
+      y: window.innerHeight - 350,
+      duration: 0.5,
+      ease: "none",
+      onComplete: () => {
+        gsap.to(table, {
+          y: window.innerHeight - 250,
+          duration: 0.5,
+          delay: 1,
+          ease: "none",
+        });
+      },
+    });
+    gsap.to(table.children[0], {
+      width: table.children[0].width / 2.6,
+      height: table.children[0].height / 2.6,
+      duration: 0.5,
+      ease: "none",
+    });
+    gsap.to(table.children[1], {
+      width: table.children[1].width / 2.6,
+      height: table.children[1].height / 2.6,
+      duration: 0.5,
+      ease: "none",
+    });
   };
 
-  return { calcCenterOffset, drawNormalTable, tinyTable, backTable };
+  const bigTable = (table) => {
+    gsap.to(table, {
+      x: calcCenterOffset().x,
+      y: calcCenterOffset().y,
+      duration: 0.5,
+      ease: "none",
+    });
+    gsap.to(table.children[0], {
+      width: table.children[0].width * 2.6,
+      height: table.children[0].height * 2.6,
+      duration: 0.5,
+      ease: "none",
+    });
+    gsap.to(table.children[1], {
+      width: table.children[1].width * 2.6,
+      height: table.children[1].height * 2.6,
+      duration: 0.5,
+      ease: "none",
+    });
+  };
+  return { calcCenterOffset, drawNormalTable, tinyTable, bigTable };
 }

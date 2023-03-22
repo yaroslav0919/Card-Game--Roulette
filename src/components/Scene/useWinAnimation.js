@@ -10,7 +10,7 @@ export default function useWinAnimation() {
   const container = new PIXI.Container();
   const winTextArray = ["YOU WIN", "BIG WIN", "SENSATIONAL WIN"];
   const addDefaultAnim = (app, winType, timeLine) => {
-    container.pivot.set(0.5);
+    // container.pivot.set(0.5);
 
     timeLine.add(
       gsap.fromTo(
@@ -371,12 +371,15 @@ export default function useWinAnimation() {
     }
     t2.play();
   };
-  const destroyWin = () => {
+  const destroyWin = (app, top) => {
     gsap.to(container.children, {
       alpha: 0,
       duration: 1,
       onComplete: () => {
+        container.removeChild(container.children);
         container.destroy();
+        app.stage.removeChild(container);
+        top.stage.removeChild(top.stage.children);
       },
     });
   };
