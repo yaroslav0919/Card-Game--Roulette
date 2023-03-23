@@ -7,11 +7,11 @@ import { fire, loop, stop } from "./useFireworks";
 import { getRB } from "../../utils/math";
 
 export default function useWinAnimation() {
-  const container = new PIXI.Container();
   const winTextArray = ["YOU WIN", "BIG WIN", "SENSATIONAL WIN"];
   const addDefaultAnim = (app, winType, timeLine) => {
+    const container = new PIXI.Container();
+    container.id = "win";
     // container.pivot.set(0.5);
-
     timeLine.add(
       gsap.fromTo(
         container,
@@ -188,6 +188,7 @@ export default function useWinAnimation() {
     container.addChild(earnText);
     return container;
   };
+
   const addFireworksAnim = async (t2) => {
     loop();
     const X = window.innerWidth / 2;
@@ -372,13 +373,22 @@ export default function useWinAnimation() {
     t2.play();
   };
   const destroyWin = (app, top) => {
-    gsap.to(container.children, {
+    let win;
+    app.stage.children.every((e) => {
+      if (e.id === "win") {
+        win = e;
+        return false;
+      }
+      return true;
+    });
+
+    gsap.to(win.children, {
       alpha: 0,
       duration: 1,
       onComplete: () => {
-        container.removeChild(container.children);
-        container.destroy();
-        app.stage.removeChild(container);
+        win.removeChild(win.children);
+        win.destroy();
+        app.stage.removeChild(win);
         top.stage.removeChild(top.stage.children);
       },
     });
