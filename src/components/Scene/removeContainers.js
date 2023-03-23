@@ -1,6 +1,5 @@
 import gsap from "gsap";
 import CustomEase from "gsap/CustomEase";
-import { container } from "webpack";
 
 export const removeContainers = (app) => {
   let selected = [];
