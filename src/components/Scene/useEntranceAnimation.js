@@ -99,6 +99,7 @@ export default function useEntranceAnimation() {
     const hatContainer = new PIXI.Container();
     hatContainer.addChild(hat);
     hatContainer.zIndex = 1;
+    hatContainer.id = "entrance_hatCont";
     app.stage.addChild(hatContainer);
   };
 
@@ -127,6 +128,7 @@ export default function useEntranceAnimation() {
         });
       },
     });
+    glare.id = "entrance_glareSpr";
     app.stage.addChild(glare);
     ///faded background end///
     ///beam start///
@@ -155,6 +157,7 @@ export default function useEntranceAnimation() {
         });
       },
     });
+    beam.id = "entrance_beamSpr";
     app.stage.addChild(beam);
     ///beam end///
   };
@@ -215,7 +218,7 @@ export default function useEntranceAnimation() {
         app.stage.removeChild(spotContainer);
       },
     });
-
+    spotContainer.id = "entrance_spotCont";
     app.stage.addChild(spotContainer);
 
     // const tl = gsap.timeline({ repeat: 1, yoyo: true });
@@ -300,6 +303,7 @@ export default function useEntranceAnimation() {
         });
       },
     });
+    sparkle.id = "entrance_sparkleSpr";
     app.stage.addChild(sparkle);
   };
 
@@ -358,7 +362,7 @@ export default function useEntranceAnimation() {
         });
       },
     });
-
+    hand.id = "entrance_handSpr";
     app.stage.addChild(hand);
   };
   const addEntranceAnimation = (app, multiCount) => {

@@ -353,6 +353,7 @@ export default function useMultiplierAnimation() {
     sprite.loop = false;
     sprite.animationSpeed = speed;
     sprite.onComplete = () => sprite.destroy();
+    sprite.id = "topmulti";
     app.stage.addChild(sprite);
 
     const path2 = "/assets/frames/m2/s";
@@ -375,6 +376,7 @@ export default function useMultiplierAnimation() {
     sprite2.zIndex = -1;
 
     sprite2.id = "flame";
+    sprite2.id = "topmulti";
     app.stage.addChild(sprite2);
 
     sprite.play();

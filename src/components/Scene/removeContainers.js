@@ -59,8 +59,16 @@ export const removeAllChildWithException = (
   exceptionId
 ) => {
   container.children.forEach((e, i) => {
-    if (i === exceptionIndex) return;
+    if (
+      (exceptionId || exceptionIndex) &&
+      (i === exceptionIndex || e.id === exceptionId)
+    ) {
+      console.log(e.id, i);
+      return;
+    }
+
     e.destroy();
     container.removeChild(e);
   });
+  console.log(container.children);
 };

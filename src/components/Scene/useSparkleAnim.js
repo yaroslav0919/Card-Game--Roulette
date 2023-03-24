@@ -130,6 +130,7 @@ export default function useSparkleAnim() {
     const container = new PIXI.Container();
     container.zIndex = 2;
     container.blendMode = PIXI.BLEND_MODES.SCREEN;
+    container.id = "sparkle";
     app.stage.addChild(container);
 
     const g = new PIXI.Graphics();

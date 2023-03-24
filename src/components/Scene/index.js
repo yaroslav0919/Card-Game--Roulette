@@ -17,7 +17,10 @@ import FontFaceObserver from "fontfaceobserver";
 import useSelectAnimationa from "./useSelectAnimation";
 import useWinAnimation from "./useWinAnimation";
 import gsap from "gsap";
-import { removeContainers } from "./removeContainers";
+import {
+  removeAllChildWithException,
+  removeContainers,
+} from "./removeContainers";
 
 import WinningNumberWrapper from "../WinningNumberWrapper/WinningNumberWrapper";
 
@@ -83,13 +86,13 @@ export default function Scene() {
     };
 
     loadAndPlayAnimation();
-
     return () => {
       app.view.removeEventListener("pointerdown", onPointerDownHandler);
       app.destroy(true, true);
       top.destroy(true, true);
     };
   }, []);
+
   // Multiplier Update
   useEffect(() => {
     return reaction(
@@ -98,11 +101,13 @@ export default function Scene() {
       },
       (sessionResult) => {
         if (sessionResult && Store.GameStore.session.flag === State.Waiting) {
+          console.log("restart");
           gameStart = true;
-          app.stage.removeChildren(1, app.stage.children.length - 1);
-          console.log(app.stage);
+          removeAllChildWithException(app.stage, undefined, "table");
+
           addEntranceAnimation(app, sessionResult.coefficients.length);
-          gsap.delayedCall(endPoint.entrance, () =>
+
+          gsap.delayedCall(3, () =>
             addSparkleAnimation(
               app,
               map(sessionResult.coefficients, (a) => Number(a.number)),
@@ -119,59 +124,72 @@ export default function Scene() {
   }, []);
 
   // State Transitions
-  // useEffect(() => {
-  //   return reaction(
-  //     () => {
-  //       return Store.GameStore.session;
-  //     },
-  //     (session) => {
-  //       if (!gameStart) return;
-  //       if (session.flag === State.Open) {
-  //         winAnim(app, top, 2);
-  //       } else if (session.flag === State.Waiting) {
-  //         destroyWin(app, top);
-  //         bigTable(app.stage.children[0]);
-  //         setStartWin(false);
-  //       } else if (session.flag === State.Playing) {
-  //       } else if (session.flag === State.Finish) {
-  //         removeContainers(app);
-  //         tinyTable(app.stage.children[0]);
-  //         app.view.removeEventListener("pointerdown", onPointerDownHandler);
-  //         setStartWin(true);
-  //       }
-  //     },
-  //     {
-  //       fireImmediately: true,
-  //     }
-  //   );
-  // }, []);
+  useEffect(() => {
+    return reaction(
+      () => {
+        return Store.GameStore.session;
+      },
+      (session) => {
+        if (!gameStart) return;
+        if (session.flag === State.Open) {
+          console.log("open status");
+        } else if (session.flag === State.Waiting) {
+          console.log("open status");
+          // console.log("detroy win
+          // destroyWin(app, top);
+          // bigTable(app.stage.children[0]);
+          // setStartWin(false);
+        } else if (session.flag === State.Playing) {
+          console.log("playing status");
+        } else if (session.flag === State.Finish) {
+          console.log("finish status");
+          removeContainers(app);
+          tinyTable(app.stage.children[0]);
+          app.view.removeEventListener("pointerdown", onPointerDownHandler);
+          setStartWin(true);
+          gsap.delayedCall(2, () => {
+            winAnim(app, top, 1);
+            gsap.delayedCall(3, () => {
+              destroyWin(app, top);
+              bigTable(app.stage.children[0]);
+              setStartWin(false);
+            });
+          });
+        }
+      },
+      {
+        fireImmediately: true,
+      }
+    );
+  }, []);
 
   // Winner State
-  // useEffect(() => {
-  //   return reaction(
-  //     () => {
-  //       return Store.WinnerStore.userRewards;
-  //     },
-  //     (userRewards) => {
-  //       if (userRewards.r) {
-  //         gsap.delayedCall(1, () => {
-  //           winAnim(app, top, 0);
-  //         });
-  //         gsap.delayedCall(2, () => {
-  //           destroyWin();
-  //           backTable();
-  //           setStartWin(false);
-  //           gsap.delayedCall(1, () =>
-  //             app.stage.removeChildren(1, app.stage.children.length - 1)
-  //           );
-  //         });
-  //       }
-  //     },
-  //     {
-  //       fireImmediately: true,
-  //     }
-  //   );
-  // }, []);
+  useEffect(() => {
+    return reaction(
+      () => {
+        return Store.WinnerStore.userRewards;
+      },
+      (userRewards) => {
+        if (userRewards.r) {
+          console.log("userRewards");
+          // gsap.delayedCall(1, () => {
+          //   winAnim(app, top, 0);
+          // });
+          // gsap.delayedCall(2, () => {
+          //   destroyWin();
+          //   backTable();
+          //   setStartWin(false);
+          //   gsap.delayedCall(1, () =>
+          //     app.stage.removeChildren(1, app.stage.children.length - 1)
+          //   );
+          // });
+        }
+      },
+      {
+        fireImmediately: true,
+      }
+    );
+  }, []);
 
   return (
     <>

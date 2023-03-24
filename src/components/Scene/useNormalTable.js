@@ -370,15 +370,16 @@ export default function useNormalTable() {
       g.x = 10;
       g.y = 0;
       g.angle = 45;
-      app.stage.addChild(g);
 
       const con = new PIXI.Container();
       con.x = -100;
       con.y = 100;
-
       con.addChild(g);
+
       app.stage.addChild(con);
       const tileTexture = app.renderer.generateTexture(con);
+      con.removeChildren();
+      app.stage.removeChild(con);
       return tileTexture;
     };
 
@@ -394,48 +395,6 @@ export default function useNormalTable() {
     whole.addChild(container);
     whole.zIndex = -1;
     app.stage.addChild(whole);
-
-    const getTween = (target) => {
-      return gsap.to(target, {
-        width: target.width / 2.6,
-        height: target.height / 2.6,
-        duration: 0.5,
-        ease: "none",
-      });
-    };
-
-    // let tiny = app.stage.children[0];
-
-    // tinyTable.add(
-    //   gsap.to(tiny, {
-    //     x: 15,
-    //     y: window.innerHeight - 350,
-    //     duration: 0.5,
-    //     ease: "none",
-    //     onStart: () => {
-    //       console.log(tiny);
-    //     },
-    //     onComplete: () => {
-    //       gsap.to(tiny, {
-    //         y: window.innerHeight - 250,
-    //         duration: 0.5,
-    //         delay: 1,
-    //         ease: "none",
-    //       });
-    //     },
-    //   })
-    // );
-
-    backTable.add(
-      gsap.to(whole, {
-        x: calcCenterOffset().x,
-        y: calcCenterOffset().y,
-        duration: 0.5,
-        ease: "none",
-      })
-    );
-    // backTable.add(getTween(graphics).reverse(), "<");
-    // backTable.add(getTween(container).reverse(), "<");
   };
   const tinyTable = (table) => {
     gsap.to(table, {

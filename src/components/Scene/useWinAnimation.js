@@ -123,7 +123,6 @@ export default function useWinAnimation() {
       g.drawRect(49 + i, 0, 1, 20);
       g.endFill();
     }
-    // app.stage.addChild(g);
     const maskTexture = app.renderer.generateTexture(g);
     const mask = new PIXI.Sprite(maskTexture);
     mask.x = winText.x - winText.width / 2 - 5;
@@ -346,6 +345,7 @@ export default function useWinAnimation() {
         if (loopCount == repeate - random) secondFire(index + 1);
         if (loopCount-- === 0) sprite.loop = false;
       };
+      sprite.id = "fireworks";
       app.stage.addChild(sprite);
     };
 
