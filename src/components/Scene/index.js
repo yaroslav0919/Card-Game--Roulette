@@ -70,6 +70,8 @@ export default function Scene() {
     ref.current.appendChild(app.view);
     app.stage.sortableChildren = true;
 
+    document.body.addEventListener("pointerdown", onPointerDownHandler);
+
     const loadAndPlayAnimation = async () => {
       const loader = preLoadSpriteImages();
       const font1 = new FontFaceObserver("Sancreek");
@@ -87,8 +89,6 @@ export default function Scene() {
 
     loadAndPlayAnimation();
 
-    app.view.addEventListener("pointerdown", onPointerDownHandler);
-
     return () => {
       app.view.removeEventListener("pointerdown", onPointerDownHandler);
       app.destroy(true, true);
@@ -105,9 +105,13 @@ export default function Scene() {
       (sessionResult) => {
         if (sessionResult && Store.GameStore.session.flag === State.Waiting) {
           gameStart = true;
-          removeAllChildWithException(app.stage, undefined, "table");
+          removeAllChildWithException(app.stage, ["table", "chip"]);
+          // app.stage.removeChildren(1);
           addEntranceAnimation(app, sessionResult.coefficients.length);
-
+          document.body.removeEventListener(
+            "pointerdown",
+            onPointerDownHandler
+          );
           gsap.delayedCall(3, () =>
             addSparkleAnimation(
               app,
@@ -142,7 +146,7 @@ export default function Scene() {
           console.log("finish status");
           removeContainers(app);
           tinyTable(app.stage.children[0]);
-          // app.view.removeEventListener("pointerdown", onPointerDownHandler);
+
           setStartWin(true);
           gsap.delayedCall(2, () => {
             winAnim(app, top, 1);
@@ -151,6 +155,10 @@ export default function Scene() {
               setStartWin(false);
               gsap.delayedCall(1, () => {
                 bigTable(app.stage.children[0]);
+                document.body.addEventListener(
+                  "pointerdown",
+                  onPointerDownHandler
+                );
               });
             });
           });
