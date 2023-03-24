@@ -3,7 +3,7 @@ import { gsap } from "gsap";
 import MotionPathPlugin from "gsap/MotionPathPlugin";
 import { Emitter } from "pixi-particles";
 import { ang2Rad } from "../../utils/math";
-import { fire, loop, stop } from "./useFireworks";
+import { fire, loop, restart, stop } from "./useFireworks";
 import { getRB } from "../../utils/math";
 
 export default function useWinAnimation() {
@@ -189,6 +189,7 @@ export default function useWinAnimation() {
   };
 
   const addFireworksAnim = async (t2) => {
+    restart();
     loop();
     const X = window.innerWidth / 2;
     fire(X, 310, X, 200);

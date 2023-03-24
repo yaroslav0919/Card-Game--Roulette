@@ -216,3 +216,7 @@ export function fire(sx, sy, tx, ty) {
 export function stop() {
   stopOption = true;
 }
+export function restart() {
+  stopOption = false;
+  fireworks = [];
+}

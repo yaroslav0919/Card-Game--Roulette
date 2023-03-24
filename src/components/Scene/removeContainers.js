@@ -1,5 +1,6 @@
 import gsap from "gsap";
 import CustomEase from "gsap/CustomEase";
+import { AnimatedSprite } from "pixi.js";
 
 export const removeContainers = (app) => {
   let selected = [];
@@ -45,7 +46,10 @@ export const removeContainers = (app) => {
         delay: 5,
         ease: "none",
         onComplete: () => {
-          topMulti.forEach((e) => e.destroy());
+          topMulti.forEach((e) => {
+            if (e instanceof AnimatedSprite) e.stop();
+            e.destroy();
+          });
           app.stage.removeChild(topMulti);
         },
       });
@@ -70,5 +74,4 @@ export const removeAllChildWithException = (
     e.destroy();
     container.removeChild(e);
   });
-  console.log(container.children);
 };

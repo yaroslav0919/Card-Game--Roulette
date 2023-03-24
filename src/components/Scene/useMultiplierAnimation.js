@@ -353,7 +353,6 @@ export default function useMultiplierAnimation() {
     sprite.loop = false;
     sprite.animationSpeed = speed;
     sprite.onComplete = () => sprite.destroy();
-    sprite.id = "topmulti";
     app.stage.addChild(sprite);
 
     const path2 = "/assets/frames/m2/s";
@@ -374,15 +373,18 @@ export default function useMultiplierAnimation() {
     sprite2.loop = true;
     sprite2.animationSpeed = speed;
     sprite2.zIndex = -1;
-
-    sprite2.id = "flame";
     sprite2.id = "topmulti";
+    sprite2.onComplete = () => {
+      console.log("complete");
+      sprite.destroy();
+    };
     app.stage.addChild(sprite2);
 
     sprite.play();
 
     gsap.delayedCall(1, () => sprite2.play());
   };
+
   const multiplierCircle = (
     index,
     app,

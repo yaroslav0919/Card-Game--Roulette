@@ -86,6 +86,9 @@ export default function Scene() {
     };
 
     loadAndPlayAnimation();
+
+    app.view.addEventListener("pointerdown", onPointerDownHandler);
+
     return () => {
       app.view.removeEventListener("pointerdown", onPointerDownHandler);
       app.destroy(true, true);
@@ -101,10 +104,8 @@ export default function Scene() {
       },
       (sessionResult) => {
         if (sessionResult && Store.GameStore.session.flag === State.Waiting) {
-          console.log("restart");
           gameStart = true;
           removeAllChildWithException(app.stage, undefined, "table");
-
           addEntranceAnimation(app, sessionResult.coefficients.length);
 
           gsap.delayedCall(3, () =>
@@ -114,7 +115,7 @@ export default function Scene() {
               map(sessionResult.coefficients, (a) => Number(a.multiply))
             )
           );
-          app.view.addEventListener("pointerdown", onPointerDownHandler);
+          // app.view.addEventListener("pointerdown", onPointerDownHandler);
         }
       },
       {
@@ -135,24 +136,22 @@ export default function Scene() {
           console.log("open status");
         } else if (session.flag === State.Waiting) {
           console.log("open status");
-          // console.log("detroy win
-          // destroyWin(app, top);
-          // bigTable(app.stage.children[0]);
-          // setStartWin(false);
         } else if (session.flag === State.Playing) {
           console.log("playing status");
         } else if (session.flag === State.Finish) {
           console.log("finish status");
           removeContainers(app);
           tinyTable(app.stage.children[0]);
-          app.view.removeEventListener("pointerdown", onPointerDownHandler);
+          // app.view.removeEventListener("pointerdown", onPointerDownHandler);
           setStartWin(true);
           gsap.delayedCall(2, () => {
             winAnim(app, top, 1);
-            gsap.delayedCall(3, () => {
+            gsap.delayedCall(4, () => {
               destroyWin(app, top);
-              bigTable(app.stage.children[0]);
               setStartWin(false);
+              gsap.delayedCall(1, () => {
+                bigTable(app.stage.children[0]);
+              });
             });
           });
         }
@@ -170,8 +169,9 @@ export default function Scene() {
         return Store.WinnerStore.userRewards;
       },
       (userRewards) => {
+        console.log(userRewards.r);
         if (userRewards.r) {
-          console.log("userRewards");
+          // console.log("userRewards");
           // gsap.delayedCall(1, () => {
           //   winAnim(app, top, 0);
           // });
