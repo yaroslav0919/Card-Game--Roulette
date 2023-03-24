@@ -57,20 +57,19 @@ export const removeContainers = (app) => {
   });
 };
 
-export const removeAllChildWithException = (
-  container,
-  exceptionIndex,
-  exceptionId
-) => {
+export const removeAllChildWithException = (container, exceptionIds) => {
   container.children.forEach((e, i) => {
-    if (
-      (exceptionId || exceptionIndex) &&
-      (i === exceptionIndex || e.id === exceptionId)
-    ) {
-      console.log(e.id, i);
-      return;
+    let same = false;
+    if (exceptionIds) {
+      exceptionIds.every((eid) => {
+        if (e.id === eid) {
+          same = true;
+          return false;
+        }
+        return true;
+      });
     }
-
+    if (same) return;
     e.destroy();
     container.removeChild(e);
   });
