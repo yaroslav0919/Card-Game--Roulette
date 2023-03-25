@@ -8,7 +8,7 @@ import { getRB } from "../../utils/math";
 
 export default function useWinAnimation() {
   const winTextArray = ["YOU WIN", "BIG WIN", "SENSATIONAL WIN"];
-  const addDefaultAnim = (app, winType, timeLine) => {
+  const addDefaultAnim = (app, winType, wonSum, timeLine) => {
     const container = new PIXI.Container();
     container.id = "win";
     // container.pivot.set(0.5);
@@ -144,7 +144,6 @@ export default function useWinAnimation() {
       "<"
     );
 
-    const earn = 824;
     const earnText = new PIXI.Text(``, {
       fontFamily: "CircularStdMedium, Arial",
       fontWeight: 300,
@@ -162,10 +161,10 @@ export default function useWinAnimation() {
     earnText.y = 40;
     earnText.scale.x = 0.5;
     earnText.scale.y = 0.5;
-    const textObj = { tex: earn };
+    const textObj = { tex: wonSum };
     timeLine.add(
       gsap.from(textObj, {
-        duration: earn / 1000,
+        duration: wonSum / 1000,
         tex: 0,
         onUpdate: () => {
           earnText.text = `₺ ` + Math.floor(textObj.tex);
@@ -353,23 +352,19 @@ export default function useWinAnimation() {
     gsap.delayedCall(1.5, () => firstFire());
   };
 
-  const winAnim = async (app, top, winType) => {
+  const winAnim = async (app, top, wonSum) => {
     const t2 = new gsap.timeline({ ease: "none", paused: true });
 
-    switch (winType) {
-      case 0:
-        addDefaultAnim(app, winType, t2);
-        break;
-      case 1:
-        addDefaultAnim(app, winType, t2);
-        addFireworksAnim();
-        addSign(app, t2);
-        break;
-      case 2:
-        addDefaultAnim(app, winType, t2);
-        addFireworksAnim();
-        addFireframeAnim(app, top);
-        break;
+    if (wonSum < 100) {
+      addDefaultAnim(app, 0, wonSum, t2);
+    } else if (wonSum < 300) {
+      addDefaultAnim(app, 1, wonSum, t2);
+      addFireworksAnim();
+      addSign(app, t2);
+    } else {
+      addDefaultAnim(app, 2, wonSum, t2);
+      addFireworksAnim();
+      addFireframeAnim(app, top);
     }
     t2.play();
   };

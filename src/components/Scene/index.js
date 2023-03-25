@@ -19,6 +19,7 @@ import useWinAnimation from "./useWinAnimation";
 import gsap from "gsap";
 import {
   removeAllChildWithException,
+  removeChildsWithID,
   removeContainers,
 } from "./removeContainers";
 
@@ -106,7 +107,6 @@ export default function Scene() {
         if (sessionResult && Store.GameStore.session.flag === State.Waiting) {
           gameStart = true;
           removeAllChildWithException(app.stage, ["table", "chip"]);
-          // app.stage.removeChildren(1);
           addEntranceAnimation(app, sessionResult.coefficients.length);
           document.body.removeEventListener(
             "pointerdown",
@@ -145,22 +145,26 @@ export default function Scene() {
         } else if (session.flag === State.Finish) {
           console.log("finish status");
           removeContainers(app);
-          tinyTable(app.stage.children[0]);
-
-          setStartWin(true);
-          gsap.delayedCall(2, () => {
-            winAnim(app, top, 1);
-            gsap.delayedCall(4, () => {
-              destroyWin(app, top);
-              setStartWin(false);
-              gsap.delayedCall(1, () => {
-                bigTable(app.stage.children[0]);
-                document.body.addEventListener(
-                  "pointerdown",
-                  onPointerDownHandler
-                );
-              });
-            });
+          removeChildsWithID(app.stage, "chip");
+          // tinyTable(app.stage.children[0]);
+          // removeChildsWithID(app.stage, "chip");
+          // setStartWin(true);
+          // gsap.delayedCall(2, () => {
+          //   winAnim(app, top, 1);
+          //   gsap.delayedCall(4, () => {
+          //     destroyWin(app, top);
+          //     setStartWin(false);
+          //     gsap.delayedCall(1, () => {
+          //       bigTable(app.stage.children[0]);
+          //       document.body.addEventListener(
+          //         "pointerdown",
+          //         onPointerDownHandler
+          //       );
+          //     });
+          //   });
+          // });
+          gsap.delayedCall(7, () => {
+            document.body.addEventListener("pointerdown", onPointerDownHandler);
           });
         }
       },
@@ -177,20 +181,25 @@ export default function Scene() {
         return Store.WinnerStore.userRewards;
       },
       (userRewards) => {
-        console.log(userRewards.r);
         if (userRewards.r) {
-          // console.log("userRewards");
-          // gsap.delayedCall(1, () => {
-          //   winAnim(app, top, 0);
-          // });
-          // gsap.delayedCall(2, () => {
-          //   destroyWin();
-          //   backTable();
-          //   setStartWin(false);
-          //   gsap.delayedCall(1, () =>
-          //     app.stage.removeChildren(1, app.stage.children.length - 1)
-          //   );
-          // });
+          let wonSum = 0;
+          userRewards.r.forEach((e) => (wonSum += e.won));
+          console.log(wonSum);
+
+          tinyTable(app.stage.children[0]);
+          setStartWin(true);
+          gsap.delayedCall(2, () => {
+            winAnim(app, top, wonSum);
+            gsap.delayedCall(4, () => {
+              destroyWin(app, top);
+              setStartWin(false);
+              gsap.delayedCall(1, () => {
+                bigTable(app.stage.children[0]);
+              });
+            });
+          });
+        } else {
+          console.log("no rewarded");
         }
       },
       {

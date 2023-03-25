@@ -58,6 +58,7 @@ export const removeContainers = (app) => {
 };
 
 export const removeAllChildWithException = (container, exceptionIds) => {
+  const deleteArray = [];
   container.children.forEach((e, i) => {
     let same = false;
     if (exceptionIds) {
@@ -69,8 +70,19 @@ export const removeAllChildWithException = (container, exceptionIds) => {
         return true;
       });
     }
-    if (same) return;
-    e.destroy();
-    container.removeChild(e);
+    if (!same) deleteArray.push(e);
   });
+  deleteArray.forEach((e) => e.destroy());
+  container.removeChild(...deleteArray);
+};
+
+export const removeChildsWithID = (container, deleteId) => {
+  const deleteArray = [];
+  container.children.forEach((e) => {
+    if (e.id === deleteId) {
+      deleteArray.push(e);
+    }
+  });
+  deleteArray.forEach((e) => e.destroy());
+  container.removeChild(...deleteArray);
 };
