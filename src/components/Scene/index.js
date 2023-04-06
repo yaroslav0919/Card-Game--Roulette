@@ -117,7 +117,7 @@ export default function Scene() {
                     addEntranceAnimation(
                         app,
                         sessionResult.coefficients.length
-                    );
+                    )
                     document.body.removeEventListener(
                         "pointerdown",
                         onPointerDownHandler
@@ -132,7 +132,7 @@ export default function Scene() {
                                 Number(a.multiply)
                             )
                         )
-                    );
+                    )
                 }
             },
             {

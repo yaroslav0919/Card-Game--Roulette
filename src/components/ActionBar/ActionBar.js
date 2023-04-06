@@ -116,7 +116,7 @@ const ActionBar = ({ vip }) => {
       },
       (session) => {
         if (session.flag === State.Open) {
-          // setShowActionBar(true);
+          setShowActionBar(true);
         } else {
           setShowActionBar(false);
         }
@@ -126,8 +126,8 @@ const ActionBar = ({ vip }) => {
       }
     );
   }, []);
-  // const [showActionBar, setShowActionBar] = useState(true);
-  const [showActionBar, setShowActionBar] = useState(false);
+  const [showActionBar, setShowActionBar] = useState(true);
+  // const [showActionBar, setShowActionBar] = useState(false);
   const [selectedChip, setSelectedChip] = useState(Store.GameStore.rate);
 
   const onAutoPlayClick = (e) => {

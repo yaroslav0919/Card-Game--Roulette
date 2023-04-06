@@ -256,6 +256,8 @@ export default function useEntranceAnimation() {
     };
 
     const sparkleAnimation = (app, offset, size) => {
+        // ERROR >>> Problem source is here
+        return
         const sparkleTexture = new PIXI.Texture.from(
             "/assets/image/sparkle.png"
         );
