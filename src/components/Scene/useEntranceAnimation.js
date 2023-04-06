@@ -26,7 +26,7 @@ export default function useEntranceAnimation() {
             y: Y - 100,
             duration: 2 * speed,
             delay: 1 * speed,
-            onComplete() {
+            onComplete: () => {
                 gsap.to(hat, {
                     x: halfX - 100,
                     y: Y - 90,
@@ -36,36 +36,28 @@ export default function useEntranceAnimation() {
 
                     delay: 3 * speed,
                     duration: 1.5 * speed,
-                    onComplete() {
+                    onComplete: () => {
                         gsap.to(hat, {
                             x: halfX - 103,
                             y: Y - 95,
                             duration: 0.25 * speed,
                             yoyo: true,
                             repeat: 1,
-                            onComplete() {
+                            onComplete: () => {
                                 gsap.to(hat, {
                                     x: halfX - 97,
                                     y: Y - 85,
                                     duration: 0.25 * speed,
                                     yoyo: true,
                                     repeat: 1,
-                                    onComplete() {
+                                    onComplete: () => {
                                         gsap.to(hat, {
                                             x: halfX - 175,
                                             width: (hat.width * 3) / 4,
                                             height: (hat.height * 3) / 4,
                                             duration: 1 * speed,
                                             delay: 0.5 * speed,
-                                            // onComplete() {
-                                            //   gsap.to(hat, {
-                                            //     x: halfX - 172,
-                                            //     y: Y - 95,
-                                            //     duration: 0.5 * speed,
-                                            //     yoyo: true,
-                                            //     repeat: 1,
-                                            //     // delay: multiCount,
-                                            onComplete() {
+                                            onComplete: () => {
                                                 gsap.to(hat, {
                                                     x: halfX - 178,
                                                     y: Y - 95,
@@ -87,8 +79,6 @@ export default function useEntranceAnimation() {
                                                     },
                                                 });
                                             },
-                                            // });
-                                            // },
                                         });
                                     },
                                 });
@@ -257,7 +247,7 @@ export default function useEntranceAnimation() {
 
     const sparkleAnimation = (app, offset, size) => {
         // ERROR >>> Problem source is here
-        return
+        // return
         const sparkleTexture = new PIXI.Texture.from(
             "/assets/image/sparkle.png"
         );
@@ -289,7 +279,7 @@ export default function useEntranceAnimation() {
                 path: pathObject1,
                 type: "cubic",
             },
-            onComplete() {
+            onComplete: () => {
                 gsap.to(sparkle, {
                     ease: "none",
                     motionPath: {
@@ -300,14 +290,8 @@ export default function useEntranceAnimation() {
                     height: 0,
                     delay: 1 * speed,
                     duration: 1 * speed,
-                    onComplete() {
-                        gsap.to(sparkle, {
-                            // delay: 0 * speed,
-                            onComplete() {
-                                sparkle.destroy();
-                                app.stage.removeChild(sparkle);
-                            },
-                        });
+                    onComplete: () => {
+                        sparkle.destroy();
                     },
                 });
             },
@@ -329,34 +313,34 @@ export default function useEntranceAnimation() {
             duration: 2 * speed,
             delay: 1 * speed,
             rotation: ang2Rad(60),
-            onComplete() {
+            onComplete: () => {
                 gsap.to(hand, {
                     x: halfX + 10,
                     rotation: ang2Rad(120),
                     duration: 1 * speed,
                     delay: 1 * speed,
-                    onComplete() {
+                    onComplete: () => {
                         gsap.to(hand, {
                             x: halfX + 80,
                             y: Y - 250,
                             rotation: ang2Rad(60),
                             duration: 2 * speed,
                             delay: 1 * speed,
-                            onComplete() {
+                            onComplete: () => {
                                 gsap.to(hand, {
                                     rotation: ang2Rad(70),
                                     duration: 0.5 * speed,
-                                    onComplete() {
+                                    onComplete: () => {
                                         gsap.to(hand, {
                                             rotation: ang2Rad(58),
                                             duration: 0.5 * speed,
-                                            onComplete() {
+                                            onComplete: () => {
                                                 gsap.to(hand, {
                                                     x: window.innerWidth + 100,
                                                     y: Y + 100,
                                                     duration: 1 * speed,
                                                     delay: 0.5 * speed,
-                                                    onComplete() {
+                                                    onComplete: () => {
                                                         hand.destroy();
                                                         app.stage.removeChild(
                                                             hand
@@ -377,9 +361,6 @@ export default function useEntranceAnimation() {
         app.stage.addChild(hand);
     };
     const addEntranceAnimation = (app, multiCount) => {
-        // app.stage.addChild(multiStore[0]);
-        // app.stage.addChild(multiStore[1]);
-        // app.stage.addChild(multiStore[2]);
         addPlayBackEffect(app);
         addSparkleAnimations(app);
         addDozenSparkleEffect(app);
