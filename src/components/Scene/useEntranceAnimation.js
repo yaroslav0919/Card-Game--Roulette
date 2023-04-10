@@ -71,9 +71,6 @@ export default function useEntranceAnimation() {
                                                             duration: 1 * speed,
                                                             onComplete() {
                                                                 hatContainer.destroy();
-                                                                app.stage.removeChild(
-                                                                    hatContainer
-                                                                );
                                                             },
                                                         });
                                                     },
@@ -115,7 +112,6 @@ export default function useEntranceAnimation() {
                     alpha: 0,
                     onComplete: () => {
                         glare.destroy();
-                        app.stage.removeChild(glare);
                     },
                 });
             },
@@ -144,7 +140,6 @@ export default function useEntranceAnimation() {
                     alpha: 0,
                     onComplete() {
                         beam.destroy();
-                        app.stage.removeChild(beam);
                     },
                 });
             },
@@ -207,7 +202,6 @@ export default function useEntranceAnimation() {
             duration: 1 * speed,
             onComplete() {
                 spotContainer.destroy();
-                app.stage.removeChild(spotContainer);
             },
         });
         spotContainer.id = "entrance";
@@ -247,7 +241,7 @@ export default function useEntranceAnimation() {
 
     const sparkleAnimation = (app, offset, size) => {
         // ERROR >>> Problem source is here
-        // return
+        // return;
         const sparkleTexture = new PIXI.Texture.from(
             "/assets/image/sparkle.png"
         );
@@ -259,6 +253,8 @@ export default function useEntranceAnimation() {
         sparkle.anchor.set(0.5, 0.5);
         sparkle.x = halfX;
         sparkle.y = Y;
+        sparkle.id = "entrance";
+        app.stage.addChild(sparkle);
 
         const pathObject1 = [{ x: halfX + offset[0], y: Y + offset[1] }];
         const pathObject2 = [{ x: halfX + offset[6], y: Y + offset[7] }];
@@ -271,6 +267,7 @@ export default function useEntranceAnimation() {
         }
 
         gsap.registerPlugin(MotionPathPlugin);
+
         gsap.to(sparkle, {
             duration: 2 * speed,
             delay: 1 * speed,
@@ -296,8 +293,6 @@ export default function useEntranceAnimation() {
                 });
             },
         });
-        sparkle.id = "entrance";
-        app.stage.addChild(sparkle);
     };
 
     const addMagicHandAnimation = (app) => {
@@ -342,9 +337,6 @@ export default function useEntranceAnimation() {
                                                     delay: 0.5 * speed,
                                                     onComplete: () => {
                                                         hand.destroy();
-                                                        app.stage.removeChild(
-                                                            hand
-                                                        );
                                                     },
                                                 });
                                             },
@@ -362,10 +354,9 @@ export default function useEntranceAnimation() {
     };
     const addEntranceAnimation = (app, multiCount) => {
         addPlayBackEffect(app);
-        addSparkleAnimations(app);
+        // addSparkleAnimations(app);
         addDozenSparkleEffect(app);
         addMagicHandAnimation(app);
-
         addHatAnimation(app, multiCount);
     };
 

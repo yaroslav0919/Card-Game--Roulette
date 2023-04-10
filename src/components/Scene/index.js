@@ -108,6 +108,7 @@ export default function Scene() {
                     sessionResult &&
                     Store.GameStore.session.flag === State.Waiting
                 ) {
+                    console.log("new session start");
                     gameStart = true;
                     removeAllChildWithException(app.stage, [
                         "table",
@@ -117,7 +118,7 @@ export default function Scene() {
                     addEntranceAnimation(
                         app,
                         sessionResult.coefficients.length
-                    )
+                    );
                     document.body.removeEventListener(
                         "pointerdown",
                         onPointerDownHandler
@@ -132,7 +133,7 @@ export default function Scene() {
                                 Number(a.multiply)
                             )
                         )
-                    )
+                    );
                 }
             },
             {
@@ -193,8 +194,6 @@ export default function Scene() {
                             });
                         });
                     });
-                } else {
-                    console.log("no rewarded");
                 }
             },
             {
