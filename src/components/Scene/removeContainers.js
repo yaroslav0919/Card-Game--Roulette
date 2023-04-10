@@ -28,7 +28,6 @@ export const removeContainers = (app) => {
         duration: 1,
         ease: easeCustom,
         onComplete: () => {
-            multis.forEach((e) => e.destroy());
             app.stage.removeChild(multis);
         },
     });

@@ -237,21 +237,25 @@ export default function useMultiplierAnimation() {
             circle.tint = 0xfff6c9;
             circle.rotation = ang2Rad(getRB(0, 360));
             circle.alpha = 0.5;
+            container.addChild(circle);
             gsap.to(circle, {
                 width: r * 4,
                 height: r * 4,
                 duration: 1,
                 onComplete: () => {
-                    gsap.to(circle, {
+                    const repeatRotate = gsap.to(circle, {
                         angle: circle.angle + 360,
                         duration: getRB(3, 5),
                         ease: "none",
                         tint: 0xffb119,
                         repeat: -1,
+                        onUpdate: () => {
+                            if (!circle)
+                                console.error("😢target not found: circle");
+                        },
                     });
                 },
             });
-            container.addChild(circle);
         };
         for (let i = 0; i < 7; i++) {
             oneCircle(getRB(-2, 2), getRB(-2, 2), radius / 2 + i / 2 - 2);
