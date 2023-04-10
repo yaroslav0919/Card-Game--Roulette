@@ -205,7 +205,7 @@ export default function useSparkleAnim() {
             elapsed = now;
         };
         emitter.emit = true;
-
+        gsap.ticker.add(update);
         const go = (pointIndex) => {
             gsap.to(emitter.spawnPos, {
                 motionPath: generateRandomCurve(
@@ -216,9 +216,6 @@ export default function useSparkleAnim() {
                 duration: 0.7,
                 ease: "none",
                 delay: pointIndex === 1 ? 0.5 : 0.3,
-                onStart: () => {
-                    gsap.ticker.add(update);
-                },
                 onComplete: () => {
                     drawPolishRect(
                         app,
@@ -234,7 +231,6 @@ export default function useSparkleAnim() {
                         multiCount,
                         maxMultiIndex
                     );
-
                     if (pointIndex !== multiCount) {
                         go(pointIndex + 1);
                     } else {

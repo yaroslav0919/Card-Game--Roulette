@@ -43,13 +43,6 @@ export const removeContainers = (app) => {
                 duration: 1,
                 delay: 5,
                 ease: "none",
-                // onComplete: () => {
-                //     topMulti.forEach((e) => {
-                //         if (e instanceof AnimatedSprite) e.stop();
-                //         e.destroy();
-                //     });
-                // app.stage.removeChild(topMulti);
-                // },
             });
         },
     });

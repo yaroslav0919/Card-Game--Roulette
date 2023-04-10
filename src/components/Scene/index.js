@@ -50,12 +50,11 @@ export default function Scene() {
     const { addEntranceAnimation } = useEntranceAnimation();
     const { preLoadSpriteImages } = useResource();
     const { addSparkleAnimation } = useSparkleAnim();
-    const { winAnim, destroyWin } = useWinAnimation();
+    const { winAnim } = useWinAnimation();
 
     const [heatMapMode, setHeatMapMode] = useState(false);
     const [startWin, setStartWin] = useState(false);
-    const [gameStarted, setGameStarted] = useState(false);
-    let gameStart = false;
+    let gameStarted = false;
 
     const endPoint = { entrance: 3, multipliers: 12, shrink: 14, winAnim: 19 };
     const setApp = useStore((state) => state.setApp);
@@ -109,7 +108,7 @@ export default function Scene() {
                     Store.GameStore.session.flag === State.Waiting
                 ) {
                     console.log("new session start");
-                    gameStart = true;
+                    gameStarted = true;
                     removeAllChildWithException(app.stage, [
                         "table",
                         "chip",
@@ -149,14 +148,13 @@ export default function Scene() {
                 return Store.GameStore.session;
             },
             (session) => {
-                if (!gameStart) return;
                 if (session.flag === State.Open) {
                 } else if (session.flag === State.Waiting) {
                 } else if (session.flag === State.Playing) {
                 } else if (session.flag === State.Finish) {
+                    if (!gameStarted) return;
                     removeContainers(app);
                     removeChildsWithID(app.stage, "chip");
-
                     gsap.delayedCall(7, () => {
                         document.body.addEventListener(
                             "pointerdown",
@@ -181,13 +179,11 @@ export default function Scene() {
                 if (userRewards.r) {
                     let wonSum = 0;
                     userRewards.r.forEach((e) => (wonSum += e.won));
-
                     tinyTable(app.stage.children[0]);
                     setStartWin(true);
                     gsap.delayedCall(2, () => {
                         winAnim(app, top, wonSum);
                         gsap.delayedCall(4, () => {
-                            destroyWin(app, top);
                             setStartWin(false);
                             gsap.delayedCall(1, () => {
                                 bigTable(app.stage.children[0]);

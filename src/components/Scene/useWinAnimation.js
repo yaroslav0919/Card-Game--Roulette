@@ -5,6 +5,7 @@ import { Emitter } from "pixi-particles";
 import { ang2Rad } from "../../utils/math";
 import { fire, loop, restart, stop } from "./useFireworks";
 import { getRB } from "../../utils/math";
+import { removeChildsWithID } from "./removeContainers";
 
 export default function useWinAnimation() {
     const winTextArray = ["YOU WIN", "BIG WIN", "SENSATIONAL WIN"];
@@ -184,7 +185,15 @@ export default function useWinAnimation() {
         );
 
         container.addChild(earnText);
-        return container;
+        gsap.delayedCall(4, () => {
+            gsap.to(container.children, {
+                alpha: 0,
+                duration: 1,
+                onComplete: () => {
+                    container.destroy();
+                },
+            });
+        });
     };
 
     const addFireworksAnim = async (t2) => {
@@ -342,7 +351,7 @@ export default function useWinAnimation() {
             sprite.onComplete = () => {
                 sprite.destroy();
             };
-            const random = Math.floor(getRB(0, 2));
+            const random = Math.floor(getRB(0, 1));
             sprite.onLoop = () => {
                 if (loopCount == repeate - random) secondFire(index + 1);
                 if (loopCount-- === 0) sprite.loop = false;
@@ -357,39 +366,19 @@ export default function useWinAnimation() {
     const winAnim = async (app, top, wonSum) => {
         const t2 = new gsap.timeline({ ease: "none", paused: true });
 
-        // if (wonSum < 100) {
-        //     addDefaultAnim(app, 0, wonSum, t2);
-        // } else if (wonSum < 300) {
-        //     addDefaultAnim(app, 1, wonSum, t2);
-        //     addFireworksAnim();
-        //     addSign(app, t2);
-        // } else {
-        addDefaultAnim(app, 2, wonSum, t2);
-        addFireworksAnim();
-        addFireframeAnim(app, top);
-        // }
+        if (wonSum < 100) {
+            addDefaultAnim(app, 0, wonSum, t2);
+        } else if (wonSum < 300) {
+            addDefaultAnim(app, 1, wonSum, t2);
+            addFireworksAnim();
+            addSign(app, t2);
+        } else {
+            addDefaultAnim(app, 2, wonSum, t2);
+            addFireworksAnim();
+            addFireframeAnim(app, top);
+        }
         t2.play();
     };
-    const destroyWin = (app, top) => {
-        let win;
-        app.stage.children.every((e) => {
-            if (e.id === "win") {
-                win = e;
-                return false;
-            }
-            return true;
-        });
 
-        gsap.to(win.children, {
-            alpha: 0,
-            duration: 1,
-            onComplete: () => {
-                win.removeChild(win.children);
-                win.destroy();
-                app.stage.removeChild(win);
-                top.stage.removeChild(top.stage.children);
-            },
-        });
-    };
-    return { winAnim, destroyWin };
+    return { winAnim };
 }
