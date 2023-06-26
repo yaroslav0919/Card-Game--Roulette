@@ -1,6 +1,8 @@
 # Multiplayer Card Game - Casino Place
 
-[![Watch the video](https://ibb.co/6Bkxk7Q)](https://drive.google.com/file/d/1hJyN_-jKm7rmR1eJ2_rQhZ094Oi0FVHv/view))
+<a href="https://drive.google.com/file/d/1hJyN_-jKm7rmR1eJ2_rQhZ094Oi0FVHv/view">
+    <img src="./assets/Image/1.jpg" alt="Logo" width="300px" height="600px">
+</a>
 
 # Getting Started with Create React App
 
