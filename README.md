@@ -1,6 +1,6 @@
 # Multiplayer Card Game - Casino Place
 
-[![Watch the video](./assets/Image/1.jpg)](./assets/video/bwin.mp4)
+[![Watch the video](https://ibb.co/6Bkxk7Q)](https://drive.google.com/file/d/1hJyN_-jKm7rmR1eJ2_rQhZ094Oi0FVHv/view))
 
 # Getting Started with Create React App
 
